@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.hbm.model.Activity" table="t_activity">
+      <meta attribute="class-description">
+         This class contains the activity detail. 
+      </meta>
+      <id name="id" type="string" column="id">
+         <generator class="uuid"/>
+      </id>
+      <property name="name" column="name" type="string"/>
+      
+      <many-to-one name="owner" class="com.hbm.model.User">
+         <column name="owner_id"></column>
+      </many-to-one>
+      
+      <property name="info" column="info" type="string"/>
+      <property name="createDate" column="create_date" type="date"/>
+      <property name="endDate" column="endDate" type="date"/>
+      <property name="wholeAmount" column="whole_amount" type="double"/>
+      <property name="planNum" column="plan_num" type="int"/>
+      <property name="size" column="size" type="int"/>
+      
+      <set name="Members" inverse="true" cascade="all">
+         <key column="activity_id"></key>
+         <one-to-many class="com.hbm.model.Member"/>
+      </set>
+      
+      <set name="Items" inverse="true" cascade="all">
+         <key column="activity_id"></key>
+         <one-to-many class="com.hbm.model.Item"/>
+      </set>
+
+   </class>
+</hibernate-mapping>

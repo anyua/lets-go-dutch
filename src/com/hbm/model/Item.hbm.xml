@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.hbm.model.Item" table="t_item">
+      <meta attribute="class-description">
+         This class contains the item detail. 
+      </meta>
+      <id name="id" type="string" column="id">
+         <generator class="uuid"/>
+      </id>
+	  <property name="detial" column="detial" type="string"/>
+	  <property name="amount" column="amount" type="double"/>
+	  <property name="numOfMembers" column="num_of_members" type="int"/>
+	  
+	  <many-to-one name="activity" class="com.hbm.model.Activity">
+         <column name="activity_id"></column>
+      </many-to-one>
+      
+   </class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.hbm.model.Member" table="t_member">
+      <meta attribute="class-description">
+         This class contains the member detail. 
+      </meta>
+      <id name="id" type="string" column="id">
+         <generator class="uuid"/>
+      </id>
+	  <many-to-one name="user" column="user_id"/>  
+	  
+	  <property name="amount" column="amount" type="double"/>
+	  <property name="info" column="info" type="string"/>
+	  
+	  <many-to-one name="activity" class="com.hbm.model.Activity">
+         <column name="activity_id"></column>
+      </many-to-one>
+
+      <set name="joinItems" table="t_member_item">
+      	<key column="member_id"></key>
+        <many-to-many class="com.hbm.model.Item" column="item_id"/>
+      </set>
+   </class>
+</hibernate-mapping>
