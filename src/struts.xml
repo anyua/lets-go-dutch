@@ -5,6 +5,23 @@
 <struts>
 <constant name="struts.devMode" value="true" />
    <package name="helloworld" extends="struts-default">     
-   
+   <action name="login"
+   		class="com.struts.action.Login"
+   		method="userLogin">
+   		<result name="true">/login_success.jsp</result>
+   		<result name="false">/login_fail.jsp</result>
+   	</action>
+   	
+   	<action name="sign">
+   		<result>/signup.jsp</result>
+   	</action>
+   	
+   	<action name="signup"
+   		class="com.struts.action.Signup"
+   		method="signUp">
+   		<result name="true">/login_success.jsp</result>
+   		<result name="false">/login_fail.jsp</result>
+   	</action>
+   		
    </package>
 </struts>

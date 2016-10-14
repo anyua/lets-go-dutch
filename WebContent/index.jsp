@@ -7,6 +7,15 @@
 <title>helloworld</title>
 </head>
 <body>
-啦啦啦
+登陆
+<form action="login">
+	UserName:<input type="text" name="login_user.userName" ><br>
+	Password:<input type="text" name="login_user.password" ><br>
+	<button type="submit">Submit</button>
+</form>
+<div class="row"></div>
+<form action="sign">
+		<button type="submit" >Sign Up</button>
+</form>
 </body>
 </html>
