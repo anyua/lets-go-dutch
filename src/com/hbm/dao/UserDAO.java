@@ -48,7 +48,7 @@ public class UserDAO {
 		Session hibernateSession = factory.openSession();
 		Transaction transaction = hibernateSession.beginTransaction();
 		
-		String hql = "SELECT U.id FROM User U WHERE U.userName = :username U.password = :password";
+		String hql = "SELECT U.id FROM User U WHERE U.userName = :username and U.password = :password";
 		Query query = hibernateSession.createQuery(hql);
 		query.setParameter("username",username);
 		query.setParameter("password",password);
@@ -80,7 +80,7 @@ public class UserDAO {
 		hibernateSession.close();
 		return user;
 	}
-	public void joinActivity(){}
+	public void joinActivity(String userId,String activityId){}
 	public void ownActivity(){}
 	public void updateUser(){}
 	public void deleteUser(){}
