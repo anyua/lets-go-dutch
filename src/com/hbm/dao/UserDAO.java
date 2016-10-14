@@ -4,21 +4,11 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-//import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-//import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-//import org.hibernate.cfg.Configuration;
 
 import com.hbm.model.*;
 
 public class UserDAO extends DAO {
-	//private User user;
-	//private Activity act;
-	
-	//private static final Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-	//private static final StandardServiceRegistryBuilder srb = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties());
-	//private static final SessionFactory factory = cfg.buildSessionFactory(srb.build());
-	
 	public String addUser(String username,String password,boolean sex,String nickname)
 	{
 		//添加新的用户，如果添加失败或者用重复的用户名返回null，否则返回id

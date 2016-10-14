@@ -20,7 +20,7 @@
          <column name="activity_id"></column>
       </many-to-one>
 
-      <set name="joinItems" table="t_member_item">
+      <set name="joinItems" table="t_member_item" lazy ="false" >
       	<key column="member_id"></key>
         <many-to-many class="com.hbm.model.Item" column="item_id"/>
       </set>

@@ -16,12 +16,12 @@
       <property name="nickname" column="nickname" type="string"/>
       <property name="sex" column="sex" type="boolean"/>
       
-      <set name="joinedActivity" table="t_user_activity">
+      <set name="joinedActivity" table="t_user_activity"  lazy="false" >
       	<key column="user_id"></key>
         <many-to-many class="com.hbm.model.Activity" column="activity_id"/>
       </set>
       
-      <set name="ownActivity" inverse="true" cascade="all">
+      <set name="ownActivity" inverse="true" cascade="all"  lazy ="false" >
          <key column="owner_id"></key>
          <one-to-many class="com.hbm.model.Activity"/>
       </set>

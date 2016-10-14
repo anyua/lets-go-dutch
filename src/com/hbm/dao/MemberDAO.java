@@ -4,18 +4,11 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-//import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-//import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-//import org.hibernate.cfg.Configuration;
 
 import com.hbm.model.*;
 
 public class MemberDAO extends DAO {
-	//private static final Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-	//private static final StandardServiceRegistryBuilder srb = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties());
-	//private static final SessionFactory factory = cfg.buildSessionFactory(srb.build());
-	
 	public String addMember(String userId,String activityId)
 	{
 		Session hibernateSession = factory.openSession();

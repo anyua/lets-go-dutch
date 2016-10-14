@@ -1,6 +1,7 @@
 package test;
 
 import java.util.Date;
+import java.util.Iterator;
 
 import com.hbm.dao.*;
 import com.hbm.model.*;
@@ -28,7 +29,7 @@ public class Test2 {
 		int size = 10;
 		
 		String activityId = actDao.addActivity(name, info, createDate, endDate, wholeAmount, size);
-		
+
 		Activity act = actDao.getActivity(activityId);
 		
 		userDao.ownActivity(userId, activityId);
@@ -36,6 +37,7 @@ public class Test2 {
 		String userId2 = userDao.findUser(username, password);
 		
 		User user = userDao.getUser(userId);
+		
 
 		
 		System.out.println(user.getId());
@@ -48,7 +50,19 @@ public class Test2 {
 		
 		System.out.println(activityId);
 		System.out.println(act.getName());
-
+		//System.out.println(act.getOwner().getId());
+		System.out.println("\n");
+		
+		Activity tempAct;
+		Iterator<Activity> it = user.getOwnActivity().iterator();
+		while(it.hasNext())
+		{
+			tempAct = it.next();
+			System.out.println(tempAct.getId());
+			System.out.println(tempAct.getName());
+			System.out.println(tempAct.getOwner().getId());
+		}
+		
 	}
 
 }
