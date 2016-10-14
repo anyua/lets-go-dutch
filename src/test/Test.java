@@ -1,5 +1,9 @@
 package test;
 
+import java.util.Iterator;
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -53,8 +57,19 @@ public class Test {
 		hibernateSession.save(newMember);
 		hibernateSession.save(newuser2);
 		hibernateSession.save(newItem);
-
+		String hql = "SELECT U.id FROM User U WHERE U.userName='lalala'";
+		Query query = hibernateSession.createQuery(hql);
+		List results = query.list();
+		System.out.println(results.get(0).toString());
 		
+		hql = "FROM User U WHERE U.id=:userId";
+		query = hibernateSession.createQuery(hql);
+		query.setParameter("userId",results.get(0).toString());
+		results = query.list();
+		User user;
+		user = (User) results.get(0);
+		Iterator<Activity> it = user.getOwnActivity().iterator();
+		System.out.println(user.getUserName()+user.getId()+it.next().getName());
 		transaction.commit();
 		hibernateSession.close();
 	}
