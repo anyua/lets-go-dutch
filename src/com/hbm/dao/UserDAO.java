@@ -4,19 +4,20 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+//import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
+//import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+//import org.hibernate.cfg.Configuration;
 
 import com.hbm.model.*;
 
-public class UserDAO {
-	private User user;
+public class UserDAO extends DAO {
+	//private User user;
+	//private Activity act;
 	
-	private static final Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-	private static final StandardServiceRegistryBuilder srb = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties());
-	private static final SessionFactory factory = cfg.buildSessionFactory(srb.build());
+	//private static final Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+	//private static final StandardServiceRegistryBuilder srb = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties());
+	//private static final SessionFactory factory = cfg.buildSessionFactory(srb.build());
 	
 	public String addUser(String username,String password,boolean sex,String nickname)
 	{
@@ -24,7 +25,7 @@ public class UserDAO {
 		Session hibernateSession = factory.openSession();
 		Transaction transaction = hibernateSession.beginTransaction();
 		
-		user=new User();
+		User user=new User();
 		user.setUserName(username);
 		user.setPassword(password);
 		user.setSex(sex);
@@ -48,7 +49,7 @@ public class UserDAO {
 		Session hibernateSession = factory.openSession();
 		Transaction transaction = hibernateSession.beginTransaction();
 		
-		String hql = "SELECT U.id FROM User U WHERE U.userName = :username U.password = :password";
+		String hql = "SELECT U.id FROM User U WHERE U.userName = :username and U.password = :password";
 		Query query = hibernateSession.createQuery(hql);
 		query.setParameter("username",username);
 		query.setParameter("password",password);
@@ -72,16 +73,51 @@ public class UserDAO {
 		
 		@SuppressWarnings("unchecked")
 		List<User> results = query.list();
-		
-		user = null;
+		System.out.println(results.size());
+		User user = null;
 		if (results.size()>0)
 			user = results.get(0);
 		transaction.commit();
 		hibernateSession.close();
 		return user;
 	}
-	public void joinActivity(){}
-	public void ownActivity(){}
+	public void joinActivity(String userId, String activityId)
+	{
+		Session hibernateSession = factory.openSession();
+		Transaction transaction = hibernateSession.beginTransaction();
+		
+		ActivityDAO actDao=new ActivityDAO();
+		Activity act = actDao.getActivity(activityId);
+		MemberDAO memDao = new MemberDAO();
+		String memberId = memDao.addMember(userId, activityId);
+		Member member = memDao.getMember(memberId);
+		User user = getUser(userId);
+		user.getJoinedActivity().add(act);
+		act.getMembers().add(member);
+		
+		hibernateSession.update(user);
+		hibernateSession.update(act);
+		
+		transaction.commit();
+		hibernateSession.close();
+	}
+	public void ownActivity(String userId, String activityId)
+	{
+		Session hibernateSession = factory.openSession();
+		Transaction transaction = hibernateSession.beginTransaction();
+		
+		ActivityDAO actDao=new ActivityDAO();
+		Activity act = actDao.getActivity(activityId);
+		User user = getUser(userId);
+		act.setOwner(user);
+		user.getOwnActivity().add(act);
+		
+		hibernateSession.update(user);
+		//hibernateSession.update(act);
+		
+		transaction.commit();
+		hibernateSession.close();
+	}
 	public void updateUser(){}
-	public void deleteUser(){}
+	public void deleteUser(String userId){}
 }
