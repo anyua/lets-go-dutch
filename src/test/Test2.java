@@ -32,7 +32,7 @@ public class Test2 {
 
 		Activity act = actDao.getActivity(activityId);
 		
-		userDao.ownActivity(userId, activityId);
+		userDao.joinActivity(userId, activityId);
 		
 		String userId2 = userDao.findUser(username, password);
 		
@@ -54,6 +54,9 @@ public class Test2 {
 		System.out.println("\n");
 		
 		Activity tempAct;
+		ActivityDAO newdao = new ActivityDAO();
+		Activity act2 = newdao.getActivity(activityId);
+
 		Iterator<Activity> it = user.getOwnActivity().iterator();
 		while(it.hasNext())
 		{

@@ -8,10 +8,38 @@ import org.hibernate.Transaction;
 
 import com.hbm.model.*;
 
+/**
+ * 这个类是用来进行User类与数据库操作交互的工具类。
+ * 不建议以其他方式直接操作数据库中的User对象，
+ * 并且操作不同的属性要调用不同的方法
+ * @author ANYUANZHI
+ * @version 1.0
+ */
 public class UserDAO extends DAO {
+	/**
+	 * 此方法用于向数据库中添加一个新的user条目
+	 * 初始化除了方法参数中提供的变量其他为空
+	 * @param username 新用户姓名
+	 * @param password 新用户密码
+	 * @param sex 性别
+	 * @param nickname 昵称
+ 	 * @return 如果数据库中没有用户名重复的条目并且添加成功返回唯一id，否则返回null
+	 */
 	public String addUser(String username,String password,boolean sex,String nickname)
 	{
-		//添加新的用户，如果添加失败或者用重复的用户名返回null，否则返回id
+		Session hibernateSessionBefor = factory.openSession();
+		Transaction transactionBefor = hibernateSessionBefor.beginTransaction();
+		
+		String hql2 = "SELECT U.id FROM User U WHERE U.userName = :username";
+		Query query2 = hibernateSessionBefor.createQuery(hql2);
+		query2.setParameter("username",username);
+		List results2 = query2.list();
+		if(results2.size()>0)
+			return null;
+		
+		transactionBefor.commit();
+		hibernateSessionBefor.close();
+		
 		Session hibernateSession = factory.openSession();
 		Transaction transaction = hibernateSession.beginTransaction();
 		
@@ -34,6 +62,13 @@ public class UserDAO extends DAO {
 		hibernateSession.close();
 		return resultString;
 	}
+	/**
+	 * 此方法用于根据用户名和对应的密码从数据库中
+	 * 提取相应用户的唯一标识ID
+	 * @param username 用户名
+	 * @param password 对应密码
+	 * @return 返回标识id，没有找到返回null
+	 */
 	public String findUser(String username,String password)
 	{
 		Session hibernateSession = factory.openSession();
@@ -52,6 +87,12 @@ public class UserDAO extends DAO {
 		hibernateSession.close();
 		return resultString;
 	}
+	/**
+	 * 此方法用于通过用户id从数据库中得到一个完整User
+	 * 对象的全部信息，包括关联的活动等，id可以通过find方法得到
+	 * @param userId 用户id
+	 * @return 一个user对象
+	 */
 	public User getUser(String userId)
 	{
 		Session hibernateSession = factory.openSession();
@@ -71,6 +112,13 @@ public class UserDAO extends DAO {
 		hibernateSession.close();
 		return user;
 	}
+	/**
+	 * 此方法用于把一个user和一个activity对象关联起来
+	 * 并存到数据库中
+	 * 关系是用户加入了这个活动
+	 * @param userId 要加入活动的用户id
+	 * @param activityId 要加入的活动id
+	 */
 	public void joinActivity(String userId, String activityId)
 	{
 		Session hibernateSession = factory.openSession();
@@ -91,6 +139,13 @@ public class UserDAO extends DAO {
 		transaction.commit();
 		hibernateSession.close();
 	}
+	/**
+	 * 此方法用于把一个user和一个activity对象关联起来
+	 * 并存到数据库中
+	 * 关系是用户创建了这个活动
+	 * @param userId 要加入活动的用户id
+	 * @param activityId 要加入的活动id
+	 */
 	public void ownActivity(String userId, String activityId)
 	{
 		Session hibernateSession = factory.openSession();

@@ -10,9 +10,42 @@ import org.hibernate.Transaction;
 
 import com.hbm.model.*;
 
+/**
+* 这个类是用来进行Activity类与数据库操作交互的工具类。
+* 不建议以其他方式直接操作数据库中的activity对象，
+* 并且操作不同的属性要调用不同的方法
+* @author ANYUANZHI
+* @version 1.0
+*/
 public class ActivityDAO extends DAO {
+	
+	/**
+	   * 这个方法用来在数据库里添加新的活动条目
+	   * 初始化除了参数给出的属性其他都为空
+	   * @param name 活动名称
+	   * @param info 活动信息
+	   * @param createDate 活动创建日期
+	   * @param enddate 活动结束日期
+	   * @param wholeAmount 活动花费总额
+	   * @param size 活动容纳人数上限
+	   * @return String 数据库中新添加的Activity条目的唯一ID
+	   * 如果已包含重复的活动名称或者添加失败返回null
+	   */
 	public String addActivity(String name,String info,Date createDate,Date endDate,double wholeAmount,int size)
 	{
+		Session hibernateSessionBefor = factory.openSession();
+		Transaction transactionBefor = hibernateSessionBefor.beginTransaction();
+		
+		String hql2 = "SELECT A.id FROM Activity A WHERE A.name = :name";
+		Query query2 = hibernateSessionBefor.createQuery(hql2);
+		query2.setParameter("name",name);
+		List results2 = query2.list();
+		if(results2.size()>0)
+			return null;
+		
+		transactionBefor.commit();
+		hibernateSessionBefor.close();
+		
 		Session hibernateSession = factory.openSession();
 		Transaction transaction = hibernateSession.beginTransaction();
 		
@@ -36,12 +69,18 @@ public class ActivityDAO extends DAO {
 		hibernateSession.close();
 		return resultString;
 	}
+	/**
+	 * 这个方法用于从数据库中取出一个活动的完整信息
+	 * 包括，所有关联的item、member、user对象的信息
+	 * @param activityId activity对象的唯一标识id，可以通过find方法获取
+	 * @return 返回一个activity对象，允许访问不建议直接对此对象进行修改
+	 */
 	public Activity getActivity(String activityId)
 	{
 		Session hibernateSession = factory.openSession();
 		Transaction transaction = hibernateSession.beginTransaction();
 		
-		String hql = "FROM Activity A WHERE A.id = :actId";
+		String hql = "FROM Activity A WHERE A.id=:actId";
 		Query query = hibernateSession.createQuery(hql);
 		query.setParameter("actId",activityId);
 		
@@ -56,6 +95,11 @@ public class ActivityDAO extends DAO {
 		hibernateSession.close();
 		return act;
 	}
+	/**
+	 * 这个方法用于获取一个活动的唯一标识id
+	 * @param activityName 要查找的活动名称
+	 * @return String类型的活动id，可以用于调用其他方法对次对象进行访问和修改
+	 */
 	public String findActivity(String activityName)
 	{
 		Session hibernateSession = factory.openSession();
@@ -73,6 +117,12 @@ public class ActivityDAO extends DAO {
 		hibernateSession.close();
 		return resultString;
 	}
+	/**
+	 * 此方法用于将一个用户和一个活动关联起来
+	 * 关系未此用户加入了此活动
+	 * @param activityId 被关联活动的id
+	 * @param userId 被关联用户id
+	 */
 	public void userJoinin(String activityId, String userId)
 	{
 		Session hibernateSession = factory.openSession();
@@ -101,6 +151,14 @@ public class ActivityDAO extends DAO {
 		transaction.commit();
 		hibernateSession.close();
 	}
+	/**
+	 * 此方法用于在数据库中已经存储的活动条目中
+	 * 加入一个活动项目
+	 * 新添加的项目，默认为活动中已有的全部成员都参加了
+	 * @param activityId 活动的唯一标识id，可以通过find方法获得
+	 * @param itemDetial 要被添加的活动项目文字描述信息
+	 * @param itemAmount 被添加的活动项目的花费钱数
+	 */
 	public void addItem(String activityId,String itemDetial,double itemAmount)
 	{
 		Session hibernateSession = factory.openSession();

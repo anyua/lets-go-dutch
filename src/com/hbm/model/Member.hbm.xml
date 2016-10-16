@@ -11,12 +11,12 @@
       <id name="id" type="string" column="id">
          <generator class="uuid"/>
       </id>
-	  <many-to-one name="user" column="user_id"/>  
+	  <many-to-one name="user" column="user_id" lazy ="false"/>  
 	  
 	  <property name="amount" column="amount" type="double"/>
 	  <property name="info" column="info" type="string"/>
 	  
-	  <many-to-one name="activity" class="com.hbm.model.Activity">
+	  <many-to-one name="activity" class="com.hbm.model.Activity" lazy ="false">
          <column name="activity_id"></column>
       </many-to-one>
 
