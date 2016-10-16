@@ -1,5 +1,6 @@
 package com.hbm.dao;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -163,6 +164,60 @@ public class UserDAO extends DAO {
 		transaction.commit();
 		hibernateSession.close();
 	}
-	public void updateUser(){}
-	public void deleteUser(String userId){}
+	/**
+	 * 此方法用于更新数据库中一个用户的相关信息
+	 * 务必指定所有参数，不需要修改的传递原值即可
+	 * @param userId 用户id
+	 * @param username 用户名
+	 * @param password 用户密码
+	 * @param sex 用户性别
+	 * @param nickname 用户昵称
+	 * @return 成功返回id失败返回null
+	 */
+	public String updateUserInfo(String userId, String username ,String password,boolean sex,String nickname) 
+	{
+		Session hibernateSession = factory.openSession();
+		Transaction transaction = hibernateSession.beginTransaction();
+		
+		User user = getUser(userId);
+
+		if(user==null)
+			return null;
+		
+		user.setUserName(username);
+		user.setPassword(password);
+		user.setSex(sex);
+		user.setNickname(nickname);
+		
+		hibernateSession.update(user);
+
+		transaction.commit();
+		hibernateSession.close();
+		return user.getId();
+	}
+	/**
+	 * 此方法用于在数据库中删除一个用户的信息
+	 * @param userId 用户id
+	 */
+	public int deleteUser(String userId)
+	{
+		Session hibernateSession = factory.openSession();
+		Transaction transaction = hibernateSession.beginTransaction();
+		
+		User user = getUser(userId);
+		if (!(user.getOwnActivity().isEmpty() 
+				&& user.getJoinedActivity().isEmpty()))
+			return 0;
+		
+		
+		String hql = "DELETE FROM User U WHERE U.Id = :userId";
+		Query query = hibernateSession.createQuery(hql);
+		query.setParameter("userId", userId);
+		int result = query.executeUpdate();
+		System.out.println("Rows affected: " + result);
+		
+		transaction.commit();
+		hibernateSession.close();
+		return result;
+	}
 }

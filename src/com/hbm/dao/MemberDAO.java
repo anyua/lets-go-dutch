@@ -86,4 +86,19 @@ public class MemberDAO extends DAO {
 		hibernateSession.close();
 		return mem;
 	}
+	public int deleteMember(String memberId)
+	{
+		Session hibernateSession = factory.openSession();
+		Transaction transaction = hibernateSession.beginTransaction();
+		
+		String hql = "DELETE FROM Member M WHERE M.id = :memberId";
+		Query query = hibernateSession.createQuery(hql);
+		query.setParameter("memberId", memberId);
+		int result = query.executeUpdate();
+		System.out.println("Rows affected: " + result);
+		
+		transaction.commit();
+		hibernateSession.close();
+		return result;
+	}
 }

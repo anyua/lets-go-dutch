@@ -18,19 +18,18 @@ import com.hbm.model.*;
 * @version 1.0
 */
 public class ActivityDAO extends DAO {
-	
 	/**
-	   * 这个方法用来在数据库里添加新的活动条目
-	   * 初始化除了参数给出的属性其他都为空
-	   * @param name 活动名称
-	   * @param info 活动信息
-	   * @param createDate 活动创建日期
-	   * @param enddate 活动结束日期
-	   * @param wholeAmount 活动花费总额
-	   * @param size 活动容纳人数上限
-	   * @return String 数据库中新添加的Activity条目的唯一ID
-	   * 如果已包含重复的活动名称或者添加失败返回null
-	   */
+	  * 这个方法用来在数据库里添加新的活动条目
+	  * 初始化除了参数给出的属性其他都为空
+	  * @param name 活动名称
+	  * @param info 活动信息
+	  * @param createDate 活动创建日期
+	  * @param enddate 活动结束日期
+	  * @param wholeAmount 活动花费总额
+	  * @param size 活动容纳人数上限
+	  * @return String 数据库中新添加的Activity条目的唯一ID
+	  * 如果已包含重复的活动名称或者添加失败返回null
+	  */
 	public String addActivity(String name,String info,Date createDate,Date endDate,double wholeAmount,int size)
 	{
 		Session hibernateSessionBefor = factory.openSession();
@@ -181,6 +180,139 @@ public class ActivityDAO extends DAO {
 		
 		hibernateSession.save(item);
 		hibernateSession.update(act);
+		
+		transaction.commit();
+		hibernateSession.close();
+	}
+	/**
+	 * 此方法用于更新数据库中一个活动的相关信息
+	 * 务必指定所有参数，不需要修改的传递原值即可
+	 * @param activityId 要修改条目的id
+	 * @param name 活动名称
+	 * @param info 活动信息
+	 * @param createDate 活动建立日期
+	 * @param endDate 活动结束日期
+	 * @param wholeAmount 活动总金额
+	 * @param size 活动人数
+	 * @return 失败未找到活动返回null否则返回id
+	 */
+	public String updateActivityInfo(String activityId,String name, String info,Date createDate,Date endDate,double wholeAmount,int size) 
+	{
+		Session hibernateSession = factory.openSession();
+		Transaction transaction = hibernateSession.beginTransaction();
+		
+		Activity act = getActivity(activityId);
+
+		if(act==null)
+			return null;
+		
+		act.setName(name);
+		act.setInfo(info);
+		act.setCreateDate(createDate);
+		act.setEndDate(endDate);
+		act.setSize(size);
+		act.setWholeAmount(wholeAmount);
+		
+		hibernateSession.update(act);
+
+		transaction.commit();
+		hibernateSession.close();
+		return act.getId();
+	}
+	/**
+	 * 此方法用于更新数据库中一个活动的某个条目的相关信息
+	 * @param itemId 当前活动的相应条目的id
+	 * @param detial 活动信息
+	 * @param amount 活动金额
+	 * @return 成功返回id 失败返回null
+	 */
+	public String updateItem(String itemId,String detial,double amount)
+	{
+		Session hibernateSession = factory.openSession();
+		Transaction transaction = hibernateSession.beginTransaction();
+		ItemDAO itemDao = new ItemDAO();
+		Item item = itemDao.getItem(itemId);
+
+		if(item==null)
+			return null;
+		
+		item.setDetial(detial);
+		item.setAmount(amount);
+		
+		hibernateSession.update(item);
+
+		transaction.commit();
+		hibernateSession.close();
+		return item.getId();
+	}
+	/**
+	 * 此方法用于在数据库中删除一个item条目
+	 * @param itemId
+	 * @return 删除的条目数，正常是1
+	 */
+	public int deleteItem(String itemId)
+	{
+		ItemDAO itemDao = new ItemDAO();
+		int numOfDeleteItem = itemDao.deleteItem(itemId);
+		return numOfDeleteItem;
+	}
+	/**
+	 * 此方法用于删除数据库中一个活动的活动项目信息
+	 * @param memberId 活动项目id
+	 * @return 删除的条目数，正常是1
+	 */
+	public int deleteMember(String activityId,String userId)
+	{
+		//还要先删除user下的joinact
+		//MemberDAO memberDao = new MemberDAO();
+		//int numOfDeleteMember = memberDao.deleteMember(memberId);
+		//return numOfDeleteMember;
+		//整个函数未测试用的时候再改
+		Session hibernateSession = factory.openSession();
+		Transaction transaction = hibernateSession.beginTransaction();
+		int i=0;
+		Activity act = getActivity(activityId);
+		Member member ;
+		Iterator<Member> it = act.getMembers().iterator();
+		while (it.hasNext())
+		{
+			member = it.next();
+			if (member.getUser().getId()==userId)
+			{
+				act.getMembers().remove(member);
+			}
+			i++;
+		}
+		UserDAO userDao = new UserDAO();
+		Activity actTemp ;
+		User user = userDao.getUser(userId);
+		Iterator<Activity> it2 = user.getJoinedActivity().iterator();
+		while (it2.hasNext())
+		{
+			actTemp = it2.next();
+			if (actTemp.getId()==activityId)
+			{
+				user.getJoinedActivity().remove(actTemp);
+			}
+		}
+		hibernateSession.update(user);
+		hibernateSession.update(act);
+		transaction.commit();
+		hibernateSession.close();
+		return i;
+	}
+	/**
+	 * 此方法用于删除整个活动
+	 * @param activityId 项目id
+	 * @return 删除的条目数，正常是1
+	 */
+	public void deleteActivity(String activityId)
+	{
+		Session hibernateSession = factory.openSession();
+		Transaction transaction = hibernateSession.beginTransaction();
+		
+		Activity act = getActivity(activityId);
+		hibernateSession.delete(act);
 		
 		transaction.commit();
 		hibernateSession.close();
