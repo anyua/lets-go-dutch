@@ -23,5 +23,12 @@
    		<result name="false">/login_fail.jsp</result>
    	</action>
    		
+   	<action name="createActivity"
+   		class="com.struts.action.CreateActivity"
+   		method="createActivity">
+   		<result name="true">/login_success.jsp</result>
+   		<result name="false">/login_fail.jsp</result>
+   	</action>
+   		
    </package>
 </struts>
