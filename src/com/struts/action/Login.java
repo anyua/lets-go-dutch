@@ -1,7 +1,10 @@
 package com.struts.action;
 
+import java.util.Map;
+
 import com.hbm.dao.*;
 import com.hbm.model.*;
+import com.opensymphony.xwork2.ActionContext;
 
 public class Login {
 	private UserDAO userOperation = new UserDAO() ;
@@ -10,15 +13,17 @@ public class Login {
 	public String userLogin()
 	{
 		String findResult;
-		System.out.println(login_user.getUserName());
-		System.out.println(login_user.getPassword());
 		findResult = userOperation.findUser(login_user.getUserName(),
 								login_user.getPassword());
-		System.out.println(findResult);
 		if (findResult == null)
 			return "false";
 		else
+		{
+			Map<String, Object> httpSession =ActionContext.getContext().getSession();
+			httpSession.put("login_userID",findResult);
 			return "true";
+		}
+			
 	}
 
 	public User getLogin_user() {

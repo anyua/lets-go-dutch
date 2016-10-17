@@ -7,7 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-<button type="submit">创建活动</button>
-
+<form action="createActivity">
+	Name:<input type="text" name="newActivity.name" ><br>
+	Info:<input type="text" name="newActivity.info" ><br>
+	CreateDate:<input type="text" name="newActivity.createDate" ><br>
+	EndDate:<input type="text" name="newActivity.endDate" ><br>
+	wholeAmount:<input type="text" name="newActivity.wholeAmount" ><br>
+	size:<input type="text" name="newActivity.size" ><br>
+	
+	<button type="submit">创建活动</button>
+</form>
 </body>
 </html>

@@ -8,7 +8,7 @@
    <action name="login"
    		class="com.struts.action.Login"
    		method="userLogin">
-   		<result name="true">/login_success.jsp</result>
+   		<result name="true">/activity_choice.jsp</result>
    		<result name="false">/login_fail.jsp</result>
    	</action>
    	
