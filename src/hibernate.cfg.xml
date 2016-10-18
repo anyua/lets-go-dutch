@@ -16,7 +16,7 @@
 		<property name="hibernate.format_sql">true</property>
 
         <!-- 是否自动生成数据表的策略,create代表每次启动程序都重新创建数据表 -->
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         
 		<!-- 需要使用到的*.hbm.xml文件 -->
 		<mapping resource="com/hbm/model/User.hbm.xml" />
