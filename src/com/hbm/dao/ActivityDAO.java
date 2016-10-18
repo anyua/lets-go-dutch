@@ -317,4 +317,13 @@ public class ActivityDAO extends DAO {
 		transaction.commit();
 		hibernateSession.close();
 	}
+	/**
+	 * 
+	 * @param userId
+	 * @param activityId
+	 * @param itemId
+	 */
+	public void outOfItem(String userId,String activityId,String itemId)
+	{
+	}
 }
