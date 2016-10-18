@@ -7,7 +7,7 @@
 <title>helloworld</title>
 </head>
 <body>
-登陆
+
 <form action="login">
 	UserName:<input type="text" name="login_user.userName" ><br>
 	Password:<input type="text" name="login_user.password" ><br>
