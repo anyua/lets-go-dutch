@@ -9,7 +9,7 @@
    <action name="login"
    		class="com.struts.action.Login"
    		method="userLogin">
-   		<result name="true">/activity_choice.jsp</result>
+   		<result name="true">/show_activity_of_user.jsp</result>
    		<result name="false">/login_fail.jsp</result>
    	</action>
    	
@@ -23,7 +23,11 @@
    		<result name="true">/login_success.jsp</result>
    		<result name="false">/login_fail.jsp</result>
    	</action>
-   		
+   	
+   	<action name="callCreateActivity">
+   		<result>/activity_choice.jsp</result>
+   	</action>
+   	
    	<action name="createActivity"
    		class="com.struts.action.CreateActivity"
    		method="createActivity">
