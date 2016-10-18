@@ -4,7 +4,8 @@
    "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 <constant name="struts.devMode" value="true" />
-   <package name="helloworld" extends="struts-default">     
+   <package name="helloworld" extends="struts-default">
+   <!-- 注册 -->
    <action name="login"
    		class="com.struts.action.Login"
    		method="userLogin">
