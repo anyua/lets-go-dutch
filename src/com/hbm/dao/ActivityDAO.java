@@ -53,6 +53,7 @@ public class ActivityDAO extends DAO {
 		act.setInfo(info);
 		act.setCreateDate(createDate);
 		act.setEndDate(endDate);
+		act.setWholeAmount(wholeAmount);
 		act.setSize(size);
 		
 		hibernateSession.save(act);
