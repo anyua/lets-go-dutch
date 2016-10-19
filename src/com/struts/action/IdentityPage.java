@@ -14,16 +14,22 @@ public class IdentityPage {
 	Set<Activity> ownedActivity =new HashSet<Activity>();
 	 Set<Activity> joinedActivity = new HashSet<Activity>();
 
-	public void showUserInfo() {
+	public String showUserInfo() {
 		Map<String, Object> httpSession =ActionContext.getContext().getSession();
 		pageOwner = userOperation.getUser((String)httpSession.get("login_userID"));	
-	}
-	
-	public void showUserActivity() {
 		ownedActivity = pageOwner.getOwnActivity();
 		joinedActivity = pageOwner.getJoinedActivity();
+		System.out.println("lalala");
+		for(Activity act : ownedActivity)
+		{
+			System.out.println("lalala");
+			System.out.println(act.getName());
+			System.out.println(act.getCreateDate());
+			System.out.println(act.getEndDate());
+		}
+		return "success";
 	}
-	
+
 	public User getPageOwner() {
 		return pageOwner;
 	}
