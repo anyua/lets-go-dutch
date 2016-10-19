@@ -105,7 +105,6 @@ public class UserDAO extends DAO {
 		
 		@SuppressWarnings("unchecked")
 		List<User> results = query.list();
-		System.out.println(results.size());
 		User user = null;
 		if (results.size()>0)
 			user = results.get(0);
@@ -196,6 +195,7 @@ public class UserDAO extends DAO {
 		return user.getId();
 	}
 	/**
+	 * ！！！没调试完
 	 * 此方法用于在数据库中删除一个用户的信息
 	 * @param userId 用户id
 	 */

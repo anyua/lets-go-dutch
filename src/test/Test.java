@@ -21,7 +21,7 @@ public class Test {
 		String userId = userDao.addUser(username, password, sex, nickname);
 		username="lalala";
 		String userId2 = userDao.addUser(username, password, sex, nickname);
-
+		
 		
 		String name = "jucan";
 		String info = "zuotian";
@@ -49,9 +49,11 @@ public class Test {
 				System.out.println(item.getDetial()+'\t'+item.getAmount()+'\t'+item.getNumOfMembers());
 			}
 		}
-		//for(Item item : act.getItems()){
-		//	actDao.outOfItem(userId, activityId,item.getId());
-		//}
+		for(Item item : act.getItems()){
+			actDao.outOfItem(userId, activityId,item.getId());
+		}
+		actDao.addItem(activityId, "123", 999);
+		
 		act = actDao.getActivity(activityId);
 		
 		for (Member member : act.getMembers())
@@ -62,5 +64,7 @@ public class Test {
 				System.out.println(item.getDetial()+'\t'+item.getAmount()+'\t'+item.getNumOfMembers());
 			}
 		}
+		actDao.updateActivityInfo(activityId, "chifan", info, createDate, endDate, wholeAmount, size);
+
 	}
 }

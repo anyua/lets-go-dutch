@@ -258,6 +258,7 @@ public class ActivityDAO extends DAO {
 		return numOfDeleteItem;
 	}
 	/**
+	 * !!!还要改
 	 * 此方法用于删除数据库中一个活动的活动项目信息
 	 * @param memberId 活动项目id
 	 * @return 删除的条目数，正常是1
@@ -269,41 +270,37 @@ public class ActivityDAO extends DAO {
 		//int numOfDeleteMember = memberDao.deleteMember(memberId);
 		//return numOfDeleteMember;
 		//整个函数未测试用的时候再改
+		int i = 0;
+		
 		Session hibernateSession = factory.openSession();
 		Transaction transaction = hibernateSession.beginTransaction();
-		int i=0;
-		Activity act = getActivity(activityId);
-		Member member ;
+
+		Activity act = (Activity)hibernateSession.get(Activity.class, activityId);
 		Iterator<Member> it = act.getMembers().iterator();
 		while (it.hasNext())
 		{
-			member = it.next();
-			if (member.getUser().getId()==userId)
+			Member member = it.next();
+			System.out.println(member.getUser().getId()+'\t'+userId);
+			if(userId.equals(member.getUser().getId()))
 			{
-				act.getMembers().remove(member);
+				i++;
+				it.remove();
 			}
-			i++;
 		}
-		UserDAO userDao = new UserDAO();
-		Activity actTemp ;
-		User user = userDao.getUser(userId);
+		User user = (User)hibernateSession.get(User.class, userId);
 		Iterator<Activity> it2 = user.getJoinedActivity().iterator();
-		while (it2.hasNext())
+		while(it2.hasNext())
 		{
-			actTemp = it2.next();
-			if (actTemp.getId()==activityId)
-			{
-				user.getJoinedActivity().remove(actTemp);
-			}
+			Activity activity = it2.next();
+			if(activityId.equals(activity.getId()))
+				it2.remove();
 		}
-		hibernateSession.update(user);
-		hibernateSession.update(act);
 		transaction.commit();
 		hibernateSession.close();
 		return i;
 	}
 	/**
-	 * 此方法用于删除整个活动
+	 * ！！！还要改
 	 * @param activityId 项目id
 	 * @return 删除的条目数，正常是1
 	 */
@@ -319,23 +316,29 @@ public class ActivityDAO extends DAO {
 		hibernateSession.close();
 	}
 	/**
-	 * 
-	 * @param userId
-	 * @param activityId
-	 * @param itemId
+	 * 此方法用于针对某一个用户退出某个活动的某个活动项目
+	 * @param userId 用户id
+	 * @param activityId 活动id
+	 * @param itemId 项目id
 	 */
 	public void outOfItem(String userId,String activityId,String itemId)
 	{
-		Activity act = getActivity(activityId);
+		Activity act = getActivity(activityId);		
 		String memberId = null;
 		for (Member member : act.getMembers())
 		{
-			if(member.getUser().getId()==userId)
+			if(userId.equals(member.getUser().getId()))
 			{
 				memberId = member.getId();
 				break;
 			}
 		}
+		if (memberId==null)
+		{
+			System.out.println("error");
+			return ;
+		}
+		
 		Session hibernateSession = factory.openSession();
 		Transaction transaction = hibernateSession.beginTransaction();
 		
@@ -344,10 +347,11 @@ public class ActivityDAO extends DAO {
 		while (it.hasNext())
 		{
 			Item item = it.next();
-			if(item.getId()==itemId)
+			if(itemId.equals(item.getId()))
 				it.remove();
 		}
-		
+		Item item = (Item)hibernateSession.get(Item.class, itemId);
+		item.setNumOfMembers(item.getNumOfMembers()-1);
 		transaction.commit();
 		hibernateSession.close();
 	}
