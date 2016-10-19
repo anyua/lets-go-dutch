@@ -13,7 +13,7 @@
       </id>
       <property name="name" column="name" type="string"/>
       
-      <many-to-one name="owner" class="com.hbm.model.User">
+      <many-to-one name="owner" class="com.hbm.model.User" lazy="false">
          <column name="owner_id"></column>
       </many-to-one>
       

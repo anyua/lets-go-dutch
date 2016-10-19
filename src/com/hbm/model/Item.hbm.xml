@@ -15,7 +15,7 @@
 	  <property name="amount" column="amount" type="double"/>
 	  <property name="numOfMembers" column="num_of_members" type="int"/>
 	  
-	  <many-to-one name="activity" class="com.hbm.model.Activity">
+	  <many-to-one name="activity" class="com.hbm.model.Activity" lazy="false" >
          <column name="activity_id"></column>
       </many-to-one>
       
