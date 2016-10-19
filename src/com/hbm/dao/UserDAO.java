@@ -210,7 +210,7 @@ public class UserDAO extends DAO {
 			return 0;
 		
 		
-		String hql = "DELETE FROM User U WHERE U.Id = :userId";
+		String hql = "DELETE FROM User U WHERE U.id = :userId";
 		Query query = hibernateSession.createQuery(hql);
 		query.setParameter("userId", userId);
 		int result = query.executeUpdate();

@@ -19,7 +19,9 @@ public class Test {
 		String nickname="lalala";
 		
 		String userId = userDao.addUser(username, password, sex, nickname);
-		
+		username="lalala";
+		String userId2 = userDao.addUser(username, password, sex, nickname);
+
 		
 		String name = "jucan";
 		String info = "zuotian";
@@ -29,14 +31,36 @@ public class Test {
 		int size = 10;
 		
 		String activityId = actDao.addActivity(name, info, createDate, endDate, wholeAmount, size);
-
+		
+		
 		actDao.addItem(activityId, "lalala", 1000);
+		actDao.addItem(activityId, "chifan", 100);
 		
 		actDao.userJoinin(activityId, userId);
-		
-		
+		actDao.userJoinin(activityId, userId2);
+
 		Activity act = actDao.getActivity(activityId);
 		
+		for (Member member : act.getMembers())
+		{
+			System.out.println(member.getUser().getUserName()+'\t'+member.getAmount());
+			for(Item item : member.getJoinItems())
+			{
+				System.out.println(item.getDetial()+'\t'+item.getAmount()+'\t'+item.getNumOfMembers());
+			}
+		}
+		//for(Item item : act.getItems()){
+		//	actDao.outOfItem(userId, activityId,item.getId());
+		//}
+		act = actDao.getActivity(activityId);
+		
+		for (Member member : act.getMembers())
+		{
+			System.out.println(member.getUser().getUserName()+'\t'+member.getAmount());
+			for(Item item : member.getJoinItems())
+			{
+				System.out.println(item.getDetial()+'\t'+item.getAmount()+'\t'+item.getNumOfMembers());
+			}
+		}
 	}
-
 }

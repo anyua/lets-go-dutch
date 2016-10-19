@@ -326,5 +326,29 @@ public class ActivityDAO extends DAO {
 	 */
 	public void outOfItem(String userId,String activityId,String itemId)
 	{
+		Activity act = getActivity(activityId);
+		String memberId = null;
+		for (Member member : act.getMembers())
+		{
+			if(member.getUser().getId()==userId)
+			{
+				memberId = member.getId();
+				break;
+			}
+		}
+		Session hibernateSession = factory.openSession();
+		Transaction transaction = hibernateSession.beginTransaction();
+		
+		Member member = (Member) hibernateSession.get(Member.class, memberId);
+		Iterator<Item> it = member.getJoinItems().iterator();
+		while (it.hasNext())
+		{
+			Item item = it.next();
+			if(item.getId()==itemId)
+				it.remove();
+		}
+		
+		transaction.commit();
+		hibernateSession.close();
 	}
 }
