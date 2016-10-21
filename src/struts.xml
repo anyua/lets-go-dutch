@@ -5,7 +5,6 @@
 <struts>
 <constant name="struts.devMode" value="true" />
    <package name="helloworld" extends="struts-default">
-   <!-- 注册 -->
    <action name="login"
    		class="com.struts.action.Login"
    		method="userLogin">
