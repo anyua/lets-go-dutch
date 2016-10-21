@@ -4,7 +4,61 @@
    "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 <constant name="struts.devMode" value="true" />
-   <package name="helloworld" extends="struts-default">     
-   
+   <package name="helloworld" extends="struts-default">
+   <!-- 注册 -->
+   <action name="login"
+   		class="com.struts.action.Login"
+   		method="userLogin">
+   		<result name="true" type="chain">showUserInfo</result>
+   		<result name="false">/login_fail.jsp</result>
+   	</action>
+   	
+   	<action name="sign">
+   		<result>/signup.jsp</result>
+   	</action>
+   	
+   	<action name="signup"
+   		class="com.struts.action.Signup"
+   		method="signUp">
+   		<result name="true">/login_success.jsp</result>
+   		<result name="false">/login_fail.jsp</result>
+   	</action>
+   	
+   	<action name="callCreateActivity">
+   		<result>/activity_choice.jsp</result>
+   	</action>
+   	
+   	<action name="createActivity"
+   		class="com.struts.action.CreateActivity"
+   		method="createActivity">
+   		<result name="true" type="chain">showActivity</result>
+   		<result name="false">/login_fail.jsp</result>
+   	</action>
+   	
+   	<action name="showUserInfo"
+   		class="com.struts.action.IdentityPage"
+   		method="showUserInfo">
+   		<result name="success">/user_info.jsp</result>
+   	</action>
+   	
+   	<action name="showActivity"
+   		class="com.struts.action.OwnerActivityPage"
+   		method="showActivity">
+   		<result name="true">/activity_info.jsp</result>
+   	</action>
+   	
+   	<action name="callUpdateActivity"
+   		class="com.struts.action.OwnerActivityPage"
+   		method="callUpdateActivity">
+   		<result name="success">/activity_update.jsp</result>
+   	</action>
+   	
+   	<action name="updateActivity"
+   		class="com.struts.action.OwnerActivityPage"
+   		method="updateActivity">
+   		<result name="true" type="chain">showActivity</result>	
+   		<result name="false">/login_fail.jsp</result>
+    </action>
+   	
    </package>
 </struts>

@@ -11,16 +11,16 @@
       <id name="id" type="string" column="id">
          <generator class="uuid"/>
       </id>
-	  <many-to-one name="user" column="user_id"/>  
+	  <many-to-one name="user" column="user_id" lazy ="false"/>  
 	  
 	  <property name="amount" column="amount" type="double"/>
 	  <property name="info" column="info" type="string"/>
 	  
-	  <many-to-one name="activity" class="com.hbm.model.Activity">
+	  <many-to-one name="activity" class="com.hbm.model.Activity" lazy ="false">
          <column name="activity_id"></column>
       </many-to-one>
 
-      <set name="joinItems" table="t_member_item">
+      <set name="joinItems" table="t_member_item" lazy ="false" >
       	<key column="member_id"></key>
         <many-to-many class="com.hbm.model.Item" column="item_id"/>
       </set>

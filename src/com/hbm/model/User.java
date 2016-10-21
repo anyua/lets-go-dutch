@@ -9,6 +9,8 @@ public class User {
 	private String password;
 	private String nickname;
 	private boolean sex;
+	//sex=true is male
+	//sex=false is female
 	
 	private Set<Activity> joinedActivity = new HashSet<Activity>();
 	private Set<Activity> ownActivity = new HashSet<Activity>();

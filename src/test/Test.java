@@ -1,62 +1,70 @@
 package test;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
+import java.util.Date;
+import java.util.Iterator;
 
+import com.hbm.dao.*;
 import com.hbm.model.*;
 
 public class Test {
 
 	public static void main(String[] args) {
 		// TODO 自动生成的方法存根
-		final Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-		final StandardServiceRegistryBuilder srb = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties());
-		final SessionFactory factory = cfg.buildSessionFactory(srb.build());
+		UserDAO userDao = new UserDAO();
+		ActivityDAO actDao = new ActivityDAO();
 		
-		Session hibernateSession = factory.openSession();
-		Transaction transaction = hibernateSession.beginTransaction();
+		String username="abc";
+		String password="123";
+		boolean sex=true;
+		String nickname="lalala";
 		
-		User newuser = new User();
-		User newuser2 = new User();
-		Activity newAct = new Activity();
-		Item newItem = new Item();
-		Member newMember = new Member();
-		newuser2.setUserName("000000");
-		newuser2.setPassword("111111");
-		newuser2.setSex(false);
-		newuser2.setNickname("bbb");
-		newuser.setUserName("lalala");
-		newuser.setPassword("123");
-		newuser.setSex(false);
-		newuser.setNickname("aaa");
-		newAct.setName("ppp");
-		newAct.setSize(10);
-		newAct.setOwner(newuser);
-		newAct.setInfo("laskjfjdsflkjsdfj");
-		newItem.setActivity(newAct);
-		newItem.setAmount(100.01);
-		newItem.setDetial("xxx");
-		newAct.getItems().add(newItem);
-		newMember.setActivity(newAct);
-		newMember.setAmount(100);
-		newMember.setUser(newuser2);
-		newMember.getJoinItems().add(newItem);
-		newAct.getMembers().add(newMember);
-		newuser.getOwnActivity().add(newAct);
-		newuser2.getJoinedActivity().add(newAct);
+		String userId = userDao.addUser(username, password, sex, nickname);
+		username="lalala";
+		String userId2 = userDao.addUser(username, password, sex, nickname);
 		
-		hibernateSession.save(newuser);
-		hibernateSession.save(newAct);
-		hibernateSession.save(newMember);
-		hibernateSession.save(newuser2);
-		hibernateSession.save(newItem);
+		
+		String name = "jucan";
+		String info = "zuotian";
+		Date createDate = new Date();
+		Date endDate = new Date();
+		double wholeAmount = 100.101;
+		int size = 10;
+		
+		String activityId = actDao.addActivity(name, info, createDate, endDate, wholeAmount, size);
+		
+		
+		actDao.addItem(activityId, "lalala", 1000);
+		actDao.addItem(activityId, "chifan", 100);
+		
+		actDao.userJoinin(activityId, userId);
+		actDao.userJoinin(activityId, userId2);
 
+		Activity act = actDao.getActivity(activityId);
 		
-		transaction.commit();
-		hibernateSession.close();
+		for (Member member : act.getMembers())
+		{
+			System.out.println(member.getUser().getUserName()+'\t'+member.getAmount());
+			for(Item item : member.getJoinItems())
+			{
+				System.out.println(item.getDetial()+'\t'+item.getAmount()+'\t'+item.getNumOfMembers());
+			}
+		}
+		for(Item item : act.getItems()){
+			actDao.outOfItem(userId, activityId,item.getId());
+		}
+		actDao.addItem(activityId, "123", 999);
+		
+		act = actDao.getActivity(activityId);
+		
+		for (Member member : act.getMembers())
+		{
+			System.out.println(member.getUser().getUserName()+'\t'+member.getAmount());
+			for(Item item : member.getJoinItems())
+			{
+				System.out.println(item.getDetial()+'\t'+item.getAmount()+'\t'+item.getNumOfMembers());
+			}
+		}
+		actDao.updateActivityInfo(activityId, "chifan", info, createDate, endDate, wholeAmount, size);
+
 	}
-
 }
