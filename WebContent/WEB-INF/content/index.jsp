@@ -31,7 +31,7 @@
       </div>
       <div id="menu" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right my-navbar-menu">
-          <li class="btn-2"><a href="Welcome">HOME</a></li>
+          <li class="btn-2"><a href="index">HOME</a></li>
 		  <li class="btn-2"><a href="About">ABOUT</a></li>		
         </ul>
       </div>
@@ -54,7 +54,7 @@
               </a>
             </div>
             <div class="col-xs-6">
-              <a class="btn btn-md my-btn my-btn-full" href="#" type="button">
+              <a class="btn btn-md my-btn my-btn-full" href="loginpage" type="button">
                 LOG IN
               </a>
             </div>

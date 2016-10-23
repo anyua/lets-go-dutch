@@ -6,6 +6,7 @@
 <constant name="struts.devMode" value="true" />
    <package name="helloworld" extends="struts-default">
    <!-- 注册 -->
+	 
    <action name="login"
    		class="com.struts.action.Login"
    		method="userLogin">
@@ -58,6 +59,10 @@
    		method="updateActivity">
    		<result name="true" type="chain">showActivity</result>	
    		<result name="false">/login_fail.jsp</result>
+    </action>
+    
+    <action name="*">
+		<result>/WEB-INF/content/{1}.jsp</result>
     </action>
    	
    </package>

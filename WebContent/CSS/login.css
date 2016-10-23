@@ -1,7 +1,21 @@
+/*
+*待优化：pc端注册登陆框实现背景白色虚化，页面重点更突出
+*/
 html {
 	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
+}
+
+.overlay {
+	background-color: #111;
+	opacity: 0.4;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	height: 100%;
 }
 
 .login-wrapper {
@@ -21,6 +35,10 @@ html {
 
 @media ( min-width : 768px) {
 	.login-wrapper {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		text-align: center;
 		background: #333 url(../Images/2.jpg) no-repeat center center fixed;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
@@ -41,4 +59,120 @@ html {
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
 	max-width: 350px;
+	
 }
+
+#login-form fieldset {
+	padding: 0;
+    margin: 0;
+    border: none;
+}
+
+#login-form fieldset > legend {
+    color: #fff;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 1.5em;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #fff;
+}
+
+#login-form fieldset > ol {
+	padding: 0;
+    margin: 0;
+}
+
+#login-form fieldset > ol > li {
+	list-style: none;
+    margin-bottom: 20px;
+}
+
+#login-form .input-wrapper {
+    width: 100%;
+}
+
+#login-form .input-wrapper .input-icon {
+	color: #59acff;
+    font-size: 16px;
+    background-color: transparent;
+    white-space: nowrap;   
+    border: none;
+    padding: 15px 10px;
+    left: 25px;
+    position: absolute;
+}
+
+#login-form input[type=text], #login-form input[type=password] {
+    color: #4e5056;
+    background-color: #fff;
+    width: 100%;
+    border: none;
+    padding: 15px 20px 15px 45px;
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;  
+}
+
+#login-form .login-button {
+	width: 100%;
+	font-family: 'Catamaran', sans-serif;
+	font-size: 16px;
+	border-radius: 3px;
+	letter-spacing: 1px;
+	transition: all .15s ease-in-out;
+	-webkit-transition: all .15s ease-in-out; 	
+}
+
+.my-btn {
+	width: 100%;
+	padding: 10px 30px;
+	font-family: 'Catamaran', sans-serif;
+	font-weight: 300;
+    font-size: 1.15em;
+	letter-spacing: 1px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	-webkit-transition: all .15s ease-in-out;
+	transition: all .15s ease-in-out;
+}
+
+.my-btn-full {
+	color: #18f;
+	background-color: #ff8;
+	border: 1px solid #fff;
+}
+
+.my-btn-full:hover, .my-btn-full:active, .my-btn-full:focus {
+	color: #18f;
+	font-weight: 500;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.login-choice-info:before {
+	content: ' ';
+    display: block;
+    height: 1px;
+    width: 50%;
+    background: #fff;
+    margin: 60px auto 40px;
+}
+
+.login-choice-info {
+	color: #fff;
+    margin-bottom: 2em;
+    line-height: 1.0;
+}
+
+.login-choice-info strong {
+	display: inline-block;
+    margin-bottom: 1em;
+    font-weight: 200;
+    font-size: 1.5em;
+}
+
+

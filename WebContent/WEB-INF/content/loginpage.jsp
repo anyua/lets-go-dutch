@@ -13,11 +13,14 @@
   
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Catamaran">
   <link rel="stylesheet" type="text/css" href="css/login.css">
   
 </head>
 <body>
+  
   <div class="login-wrapper">
+    <div class="overlay"></div>
     <div class="login-container">
       <div class="login-header">
         <!-- 考虑用网站的icon什么的，暂时留白 -->
@@ -31,31 +34,30 @@
             <ol>
               <li id="user">
                 <div class="input-wrapper">
-                  <span class="user-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                  <input type="text" name="login_user.userName" tabindex="1" placeholder="Name" autofocus="autofocus">
+                  <span class="input-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                  <input type="text" name="login_user.userName" tabindex="1" placeholder="Username" autofocus="autofocus">
                 </div>
               </li>
               <li id="pass">
                 <div class="input-wrapper">
-                  <span class="pass-icon"><i class="fa fa-unlock" aria-hidden="true"></i></span>
-                  <input type="text" name="login_user.password" tabindex="2" placeholder="Password">
+                  <span class="input-icon"><i class="fa fa-unlock" aria-hidden="true"></i></span>
+                  <input type="password" name="login_user.password" tabindex="2" placeholder="Password">
                 </div>
               </li>
             </ol>
           </fieldset>
-          <button class="login-button" type="submit">LOG IN</button>
+          <button class="btn btn-md my-btn my-btn-full" type="submit">LOG IN</button>
         </form>
         
-        <div class="login-choice">
-          <hr class="login-hr">
-          <div class="login-choice-info">
-            <strong>通过其他途径登陆</strong>
-            <!-- 此处考虑添加登陆选项，如QQ图标和微信图标 -->
-          </div>
+       
+        <div class="login-choice-info">
+          <strong>通过其他途径登陆</strong>
+          <!-- 此处考虑添加登陆选项，如QQ图标和微信图标 -->
         </div>
       </div>
     </div>
   </div>
+ 
 
 </body>
 </html>
