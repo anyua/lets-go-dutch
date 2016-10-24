@@ -36,5 +36,8 @@ Activity Item:
 <form action="callUpdateActivity">
 	<button type="submit">Edit</button>
 </form>
+<form action="shareActivity">
+	<button type="submit">Share it</button>
+</form>
 </body>
 </html>

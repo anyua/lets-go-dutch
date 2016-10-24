@@ -59,5 +59,12 @@
    		<result name="false">/login_fail.jsp</result>
     </action>
    	
+   	<action name="shareActivity"
+   		class="com.struts.action.OwnerActivityPage"
+   		method="shareActivity">
+   		<result name="true">/login_success.jsp</result>
+   		<result name="false">/login_fail.jsp</result>
+   	</action>
+   	
    </package>
 </struts>

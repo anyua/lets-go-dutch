@@ -52,6 +52,16 @@ public class OwnerActivityPage {
 			return "true";
 	}
 	
+	public String shareActivity() {
+		Map<String, Object> httpSession =ActionContext.getContext().getSession();
+		originalActivity = activityOperation.getActivity((String)httpSession.get("ActivityID"));
+		if(originalActivity == null)
+			return "false";
+		else
+			return "true";
+	}
+	
+	
 	public ActivityDAO getActivityOperation() {
 		return activityOperation;
 	}
