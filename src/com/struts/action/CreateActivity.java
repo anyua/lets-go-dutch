@@ -11,7 +11,8 @@ public class CreateActivity {
 	Activity newActivity = new Activity();
 	UserDAO userOperation = new UserDAO();
 	User nowUser = new User(); 
-	
+	private String[] detials;
+	private double[] amounts;
 	public String createActivity()
 	{
 		String newActivityID;
@@ -26,6 +27,11 @@ public class CreateActivity {
 			return "false";
 		else
 		{
+			for(int i=0;i<detials.length&&i<amounts.length;i++)
+			{
+				activityOperation.addItem(newActivityID, detials[i], amounts[i]);
+			}
+			
 			Map<String, Object> httpSession =ActionContext.getContext().getSession();
 			httpSession.put("ActivityID",newActivityID);
 			userOperation.ownActivity((String)httpSession.get("login_userID"),
@@ -51,5 +57,29 @@ public class CreateActivity {
 
 	public void setNewActivity(Activity newActivity) {
 		this.newActivity = newActivity;
+	}
+
+
+
+	public String[] getDetials() {
+		return detials;
+	}
+
+
+
+	public void setDetials(String[] detials) {
+		this.detials = detials;
+	}
+
+
+
+	public double[] getAmounts() {
+		return amounts;
+	}
+
+
+
+	public void setAmounts(double[] amounts) {
+		this.amounts = amounts;
 	}
 }

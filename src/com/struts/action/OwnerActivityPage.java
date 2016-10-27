@@ -1,6 +1,7 @@
 package com.struts.action;
 
 import java.util.Map;
+import java.util.Set;
 
 import com.hbm.dao.*;
 import com.hbm.model.*;
@@ -10,8 +11,9 @@ public class OwnerActivityPage {
 	ActivityDAO activityOperation = new ActivityDAO();
 	Activity updateActivity = new Activity();
 	Activity originalActivity = new Activity();
-	Item newItem1 = new Item();
-	Item newItem2 = new Item();
+	private String[] detials;
+	private double[] amounts;
+	private Set<Item> originalItem ;
 	
 	public String showActivity() {
 		Map<String, Object> httpSession =ActionContext.getContext().getSession();
@@ -25,6 +27,7 @@ public class OwnerActivityPage {
 	public String callUpdateActivity() {
 		Map<String, Object> httpSession =ActionContext.getContext().getSession();
 		originalActivity = activityOperation.getActivity((String)httpSession.get("ActivityID"));
+		originalItem = originalActivity.getItems();
 		return "success";
 	}
 	
@@ -38,13 +41,12 @@ public class OwnerActivityPage {
 				updateActivity.getEndDate(), 
 				updateActivity.getWholeAmount(), 
 				updateActivity.getSize());
-		System.out.println(newItem1.getDetial());
-		activityOperation.addItem((String)httpSession.get("ActivityID"), 
-					newItem1.getDetial(),
-					newItem1.getAmount());
-		activityOperation.addItem((String)httpSession.get("ActivityID"), 
-				newItem2.getDetial(),
-				newItem2.getAmount());
+		for(int i=0;i<detials.length&&i<amounts.length;i++)
+		{
+			activityOperation.addItem((String)httpSession.get("ActivityID"), 
+					detials[i],
+					amounts[i]);
+		}
 		
 		if(updateResult == null)
 			return "false";
@@ -75,28 +77,36 @@ public class OwnerActivityPage {
 		this.updateActivity = updateActivity;
 	}
 
-	public Item getNewItem1() {
-		return newItem1;
-	}
-
-	public void setNewItem1(Item newItem1) {
-		this.newItem1 = newItem1;
-	}
-
-	public Item getNewItem2() {
-		return newItem2;
-	}
-
-	public void setNewItem2(Item newItem2) {
-		this.newItem2 = newItem2;
-	}
-
 	public Activity getOriginalActivity() {
 		return originalActivity;
 	}
 
 	public void setOriginalActivity(Activity originalActivity) {
 		this.originalActivity = originalActivity;
+	}
+
+	public String[] getDetials() {
+		return detials;
+	}
+
+	public void setDetials(String[] detials) {
+		this.detials = detials;
+	}
+
+	public double[] getAmounts() {
+		return amounts;
+	}
+
+	public void setAmounts(double[] amounts) {
+		this.amounts = amounts;
+	}
+
+	public Set<Item> getOriginalItem() {
+		return originalItem;
+	}
+
+	public void setOriginalItem(Set<Item> originalItem) {
+		this.originalItem = originalItem;
 	}
 	
 }
