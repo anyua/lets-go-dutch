@@ -34,6 +34,7 @@ $(document).ready(function(){
 	
 	<input type="button" id="addItem" value="添加项目" />
 	<div id="addform"></div>
+	<input type="hidden" name="activityID" value="${activityID}"> 
 	<button type="submit">Submit</button>
 </form>
 </body>

@@ -34,9 +34,11 @@ Activity Item:
 </table>
 <br>
 <form action="callUpdateActivity">
+	<input type="hidden" name="activityID" value="${activityID}"> 
 	<button type="submit">Edit</button>
 </form>
 <form action="shareActivity">
+	<input type="hidden" name="newActivity.id" value="${activityID}"> 
 	<button type="submit">Share it</button>
 </form>
 </body>

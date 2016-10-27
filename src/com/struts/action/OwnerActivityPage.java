@@ -15,9 +15,12 @@ public class OwnerActivityPage {
 	private double[] amounts;
 	private Set<Item> originalItem ;
 	
+	private String activityID;
+	
 	public String showActivity() {
-		Map<String, Object> httpSession =ActionContext.getContext().getSession();
-		updateActivity = activityOperation.getActivity((String)httpSession.get("ActivityID"));
+		//Map<String, Object> httpSession =ActionContext.getContext().getSession();
+		//updateActivity = activityOperation.getActivity((String)httpSession.get("ActivityID"));
+		updateActivity = activityOperation.getActivity(activityID);
 		if (updateActivity == null)
 			return "false";
 		else
@@ -25,16 +28,18 @@ public class OwnerActivityPage {
 	}
 	
 	public String callUpdateActivity() {
-		Map<String, Object> httpSession =ActionContext.getContext().getSession();
-		originalActivity = activityOperation.getActivity((String)httpSession.get("ActivityID"));
+		//Map<String, Object> httpSession =ActionContext.getContext().getSession();
+		//originalActivity = activityOperation.getActivity((String)httpSession.get("ActivityID"));
+		originalActivity = activityOperation.getActivity(activityID);
 		originalItem = originalActivity.getItems();
 		return "success";
 	}
 	
 	public String updateActivity() {
-		Map<String, Object> httpSession =ActionContext.getContext().getSession();
-		System.out.println(updateActivity.getInfo());
-		String updateResult = activityOperation.updateActivityInfo((String)httpSession.get("ActivityID"),
+		//Map<String, Object> httpSession =ActionContext.getContext().getSession();
+		//System.out.println(updateActivity.getInfo());
+		System.out.println(activityID);
+		String updateResult = activityOperation.updateActivityInfo(activityID,
 				updateActivity.getName(), 
 				updateActivity.getInfo(), 
 				updateActivity.getCreateDate(), 
@@ -43,7 +48,7 @@ public class OwnerActivityPage {
 				updateActivity.getSize());
 		for(int i=0;i<detials.length&&i<amounts.length;i++)
 		{
-			activityOperation.addItem((String)httpSession.get("ActivityID"), 
+			activityOperation.addItem(activityID, 
 					detials[i],
 					amounts[i]);
 		}
@@ -107,6 +112,14 @@ public class OwnerActivityPage {
 
 	public void setOriginalItem(Set<Item> originalItem) {
 		this.originalItem = originalItem;
+	}
+
+	public String getActivityID() {
+		return activityID;
+	}
+
+	public void setActivityID(String activityID) {
+		this.activityID = activityID;
 	}
 	
 }
