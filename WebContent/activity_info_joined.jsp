@@ -5,11 +5,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="http://lib.sinaapp.com/js/jquery/1.6/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+	  url="outOfItem"
+	  data={itemId:this.id,activityName:$("#activityName").html()};
+	  $.get(url,data,
+			  function(){$("tr,#this.id").hide();
+      });
+  });
+});
+</script>
 <title>Insert title here</title>
 </head>
 <body>
 Activity Information:<br>
-Activity Name:<s:property value="updateActivity.name"/><br>
+Activity Name:<div id="activityName"><s:property value="updateActivity.name"/></div><br>
 Activity Info:<s:property value="updateActivity.info"/><br>
 Activity CreateDate:<s:property value="updateActivity.createDate"/><br>
 Activity EndDate:<s:property value="updateActivity.endDate"/><br>
@@ -24,10 +36,11 @@ Activity Item:
 		</tr>
 	</thead>
 	<tbody>
-		<s:iterator value="updateActivity.Items" id='i'>
-			<tr>
+		<s:iterator value="originalItems" id='i'>
+			<tr id=<s:property value="#i.id" />>
 				<td><s:property value="#i.detial" /></td>
 				<td><s:property value="#i.amount" /></td>
+				<td><button id=<s:property value="#i.id" />>我没去这个活动</button></td>
 			</tr>
 		</s:iterator>
 	</tbody>

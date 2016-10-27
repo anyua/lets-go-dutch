@@ -73,5 +73,11 @@
    		<result name="success" type="chain">showUserInfo</result>	
    	</action>
    	
+   	<action name="outOfItem"
+   		class="com.struts.action.JoinActivity"
+   		method="outOfItem">
+   		<result name="success" type="json"></result>
+   	</action>
+   	
    </package>
 </struts>

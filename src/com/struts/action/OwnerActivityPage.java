@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionContext;
 
 public class OwnerActivityPage {
 	ActivityDAO activityOperation = new ActivityDAO();
+	UserDAO userOperation = new UserDAO();
 	Activity updateActivity = new Activity();
 	Activity originalActivity = new Activity();
 	private String[] detials;
@@ -29,7 +30,17 @@ public class OwnerActivityPage {
 			if(userId.equals(updateActivity.getOwner().getId()))
 				return "owner";
 			else
+			{
+				for(Member member:updateActivity.getMembers())
+				{
+					if(member.getUser().getId().equals(userId))
+					{
+						originalItem = member.getJoinItems();
+						break;
+					}
+				}
 				return "joiner";
+			}
 		}
 	}
 	

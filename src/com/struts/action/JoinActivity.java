@@ -11,6 +11,7 @@ public class JoinActivity {
 	private UserDAO userOperation = new UserDAO();
 	private ActivityDAO activityOperation = new ActivityDAO();
 	
+	private String itemId;
 	private String activityName;
 	
 	public String joinThisActivtiy() {
@@ -21,6 +22,16 @@ public class JoinActivity {
 		return "success";
 	}
 
+	public String outOfItem()
+	{
+		System.out.println(itemId+'\t'+activityName);
+		Map<String, Object> httpSession =ActionContext.getContext().getSession();
+		String userId=(String)httpSession.get("login_userID");
+		String activityId=activityOperation.findActivity(getActivityName());
+		activityOperation.outOfItem(userId, activityId, itemId);
+		return "success";
+	}
+	
 	public User getJoinUser() {
 		return joinUser;
 	}
@@ -43,6 +54,14 @@ public class JoinActivity {
 
 	public void setActivityName(String activityName) {
 		this.activityName = activityName;
+	}
+
+	public String getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
 	}
 	
 }

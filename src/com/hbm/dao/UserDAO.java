@@ -132,7 +132,7 @@ public class UserDAO extends DAO {
 		User user = getUser(userId);
 		user.getJoinedActivity().add(act);
 		act.getMembers().add(member);
-		
+
 		hibernateSession.update(user);
 		hibernateSession.update(act);
 		
