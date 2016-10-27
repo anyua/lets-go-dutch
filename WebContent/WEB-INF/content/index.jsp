@@ -32,6 +32,7 @@
       <div id="menu" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right my-navbar-menu">
           <li class="btn-2"><a href="index">HOME</a></li>
+          <!-- 考虑about制作模态框，嵌入网站的demo -->
 		  <li class="btn-2"><a href="About">ABOUT</a></li>		
         </ul>
       </div>
@@ -49,7 +50,7 @@
           </div>
           <div class="row">
             <div class="col-xs-6 text-right">
-              <a class="btn btn-md my-btn my-btn-border" href="#" type="button">
+              <a class="btn btn-md my-btn my-btn-border" href="signuppage" type="button">
                 SIGN UP
               </a>
             </div>

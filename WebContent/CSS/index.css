@@ -36,7 +36,9 @@ main {
 .overlay {
 	background-color: #111;
 	opacity: 0.4;
-	position: absolute;
+	/* position: absolute; */
+	position: fixed;
+	-webkit-transform: translateZ(0);
 	top: 0px;
 	left: 0px;
 	right: 0px;
