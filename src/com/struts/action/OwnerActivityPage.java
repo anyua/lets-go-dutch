@@ -18,13 +18,19 @@ public class OwnerActivityPage {
 	private String activityID;
 	
 	public String showActivity() {
-		//Map<String, Object> httpSession =ActionContext.getContext().getSession();
+		Map<String, Object> httpSession =ActionContext.getContext().getSession();
 		//updateActivity = activityOperation.getActivity((String)httpSession.get("ActivityID"));
+		String userId=(String)httpSession.get("login_userID");
 		updateActivity = activityOperation.getActivity(activityID);
 		if (updateActivity == null)
 			return "false";
-		else
-			return "true";
+		else 
+		{
+			if(userId.equals(updateActivity.getOwner().getId()))
+				return "owner";
+			else
+				return "joiner";
+		}
 	}
 	
 	public String callUpdateActivity() {

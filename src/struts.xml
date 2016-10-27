@@ -43,7 +43,8 @@
    	<action name="showActivity"
    		class="com.struts.action.OwnerActivityPage"
    		method="showActivity">
-   		<result name="true">/activity_info.jsp</result>
+   		<result name="owner">/activity_info.jsp</result>
+   		<result name="joiner">/activity_info_joined.jsp</result>
    	</action>
    	
    	<action name="callUpdateActivity"
@@ -64,6 +65,12 @@
    		method="shareActivity">
    		<result name="true">/login_success.jsp</result>
    		<result name="false">/login_fail.jsp</result>
+   	</action>
+   	
+   	<action name="joinActivity"
+   		class="com.struts.action.JoinActivity"
+   		method="joinThisActivtiy">
+   		<result name="success" type="chain">showUserInfo</result>	
    	</action>
    	
    </package>
