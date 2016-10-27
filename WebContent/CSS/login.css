@@ -196,11 +196,16 @@ html {
     line-height: 1.0;
 }
 
-.login-choice-info strong {
+.login-choice-info p {
 	display: inline-block;
     margin-bottom: 1em;
     font-weight: 200;
     font-size: 1.5em;
+}
+
+.login-choice-info p > a {
+	color: #ff8;
+	text-decoration: underline;
 }
 
 

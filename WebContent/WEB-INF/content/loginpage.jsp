@@ -77,7 +77,10 @@
         
        
         <div class="login-choice-info">
-          <strong>通过其他途径登陆</strong>
+          <p>
+          	没有账号?<a href="signuppage">现在来注册吧</a>
+          	<br>通过其他途径登陆
+          </p>
           <!-- 此处考虑添加登陆选项，如QQ图标和微信图标 -->
         </div>
       </div>
