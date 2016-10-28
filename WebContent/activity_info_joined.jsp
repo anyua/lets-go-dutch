@@ -10,9 +10,11 @@
 $(document).ready(function(){
   $("button").click(function(){
 	  url="outOfItem"
+	  $("tr#"+this.id).hide();
 	  data={itemId:this.id,activityName:$("#activityName").html()};
 	  $.get(url,data,
-			  function(){$("tr,#this.id").hide();
+			  function(){
+			  alert("退出成功");
       });
   });
 });
@@ -36,11 +38,11 @@ Activity Item:
 		</tr>
 	</thead>
 	<tbody>
-		<s:iterator value="originalItems" id='i'>
-			<tr id=<s:property value="#i.id" />>
+		<s:iterator value="originalItem" id='i'>
+			<tr id="<s:property value="#i.id" />">
 				<td><s:property value="#i.detial" /></td>
 				<td><s:property value="#i.amount" /></td>
-				<td><button id=<s:property value="#i.id" />>我没去这个活动</button></td>
+				<td><button id="<s:property value="#i.id" />">我没去这个活动</button></td>
 			</tr>
 		</s:iterator>
 	</tbody>

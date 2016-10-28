@@ -36,6 +36,7 @@ public class OwnerActivityPage {
 					if(member.getUser().getId().equals(userId))
 					{
 						originalItem = member.getJoinItems();
+						System.out.println(member.getId());
 						break;
 					}
 				}

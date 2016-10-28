@@ -123,7 +123,20 @@ public class UserDAO extends DAO {
 	{
 		Session hibernateSession = factory.openSession();
 		Transaction transaction = hibernateSession.beginTransaction();
-		
+		//Member member = (Member) hibernateSession.get(Member.class, memberId);
+		Activity act = (Activity) hibernateSession.get(Activity.class, activityId);
+		User user = (User) hibernateSession.get(User.class, userId);
+		Member member=new Member();
+		member.setUser(user);
+		member.setActivity(act);
+		act.getMembers().add(member);
+		user.getJoinedActivity().add(act);
+		for(Item item:act.getItems())
+		{
+			item.setNumOfMembers(item.getNumOfMembers()+1);
+			member.getJoinItems().add(item);
+		}
+		/*
 		ActivityDAO actDao=new ActivityDAO();
 		Activity act = actDao.getActivity(activityId);
 		MemberDAO memDao = new MemberDAO();
@@ -135,6 +148,7 @@ public class UserDAO extends DAO {
 
 		hibernateSession.update(user);
 		hibernateSession.update(act);
+		*/
 		
 		transaction.commit();
 		hibernateSession.close();
