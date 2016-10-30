@@ -29,7 +29,7 @@ html {
 	width: 100%;
 	height: 100%;
 	text-align: center;
-	background: #333 url(../Images/1.jpg) no-repeat center center fixed;
+	background: #333 url(../assets/images/1.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -42,7 +42,7 @@ html {
 		width: 100%;
 		height: 100%;
 		text-align: center;
-		background: #333 url(../Images/2.jpg) no-repeat center center fixed;
+		background: #333 url(../assets/images/2.jpg) no-repeat center center fixed;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		-o-background-size: cover;
@@ -75,6 +75,7 @@ html {
 #login-form fieldset > legend,
 #signup-form fieldset > legend {
     color: #fff;
+    width: 50%;
     font-family: 'Catamaran', sans-serif;
     font-size: 1.5em;
     font-weight: 500;
@@ -154,8 +155,8 @@ html {
     box-sizing: border-box; 
 }
 
-.my-btn {
-	width: 100%;
+.my-btn-log,
+.my-btn-sign {
 	padding: 10px 30px;
 	font-family: 'Catamaran', sans-serif;
 	font-weight: 300;
@@ -165,6 +166,14 @@ html {
 	border-radius: 20px;
 	-webkit-transition: all .15s ease-in-out;
 	transition: all .15s ease-in-out;
+}
+
+.my-btn-log {
+	width: 100%;
+}
+
+.my-btn-sign {
+	width: 50%;
 }
 
 .my-btn-full {

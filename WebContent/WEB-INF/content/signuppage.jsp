@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrapValidator.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Catamaran">
-  <link rel="stylesheet" type="text/css" href="css/login.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/login.css">
   
 </head>
 <body>
@@ -67,7 +67,7 @@
               </li>
             </ol>
           </fieldset>
-          <button class="btn btn-md my-btn my-btn-full" type="submit">SIGN UP</button>
+          <button class="btn btn-md my-btn-sign my-btn-full" type="submit">SIGN UP</button>
         </form>
       </div>
     </div>

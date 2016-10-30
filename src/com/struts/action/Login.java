@@ -19,7 +19,7 @@ public class Login {
 			return "false";
 		else
 		{
-			Map<String, Object> httpSession =ActionContext.getContext().getSession();
+			Map<String, Object> httpSession = ActionContext.getContext().getSession();
 			httpSession.put("login_userID",findResult);
 			return "true";
 		}

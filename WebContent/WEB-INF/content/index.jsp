@@ -14,8 +14,8 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:800,400">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Catamaran:800,300,100">
-
-  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/index.css">
+  
 </head>
 <body>
   <div class="overlay"></div>

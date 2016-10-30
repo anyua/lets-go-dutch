@@ -13,10 +13,9 @@
   
   
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrapValidator.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Catamaran">
-  <link rel="stylesheet" type="text/css" href="css/login.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/login.css">
   
   <script type="text/javascript">
     function doLogin(type) {
@@ -72,7 +71,7 @@
               </li>
             </ol>
           </fieldset>
-          <button class="btn btn-md my-btn my-btn-full" type="submit">LOG IN</button>
+          <button class="btn btn-md my-btn-log my-btn-full" type="submit">LOG IN</button>
         </form>
         
        
