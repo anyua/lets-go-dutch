@@ -10,6 +10,7 @@
    		method="userLogin">
    		<result name="true" type="chain">showUserInfo</result>
    		<result name="false">/login_fail.jsp</result>
+   		<result name="turn2activityInfo" type="chain">showActivity</result>
    	</action>
    	
    	<action name="sign">
@@ -45,6 +46,8 @@
    		method="showActivity">
    		<result name="owner">/activity_info.jsp</result>
    		<result name="joiner">/activity_info_joined.jsp</result>
+   		<result name="needLogin">/index.jsp</result>
+   		<result name="false">/login_fail.jsp</result>
    	</action>
    	
    	<action name="callUpdateActivity"
@@ -77,6 +80,12 @@
    		class="com.struts.action.JoinActivity"
    		method="outOfItem">
    		<result name="success" type="json"></result>
+   	</action>
+   	
+   	<action name="settle"
+   		class="com.struts.action.Settle"
+   		method="activitySettle">
+   		<result name="success">settle_page_for_owner.jsp</result>
    	</action>
    	
    </package>

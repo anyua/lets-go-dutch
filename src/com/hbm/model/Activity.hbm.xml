@@ -23,6 +23,7 @@
       <property name="wholeAmount" column="whole_amount" type="double"/>
       <property name="planNum" column="plan_num" type="int"/>
       <property name="size" column="size" type="int"/>
+      <property name="type" column="type" type="int"/>
       
       <set name="Members" inverse="true" cascade="all" lazy="false" >
          <key column="activity_id"></key>

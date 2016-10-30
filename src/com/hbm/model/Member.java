@@ -9,6 +9,7 @@ public class Member {
 	private double amount;
 	private String info;
 	private Activity activity;
+	private int type;
 	private Set<Item> joinItems = new HashSet<Item>();
 	
 	public String getId() {
@@ -46,5 +47,11 @@ public class Member {
 	}
 	public void setActivity(Activity activity) {
 		this.activity = activity;
+	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
 	}
 }

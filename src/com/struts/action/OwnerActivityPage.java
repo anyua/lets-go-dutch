@@ -22,6 +22,8 @@ public class OwnerActivityPage {
 		Map<String, Object> httpSession =ActionContext.getContext().getSession();
 		//updateActivity = activityOperation.getActivity((String)httpSession.get("ActivityID"));
 		String userId=(String)httpSession.get("login_userID");
+		if(userId==null)
+			return "needLogin";
 		updateActivity = activityOperation.getActivity(activityID);
 		if (updateActivity == null)
 			return "false";
@@ -36,9 +38,13 @@ public class OwnerActivityPage {
 					if(member.getUser().getId().equals(userId))
 					{
 						originalItem = member.getJoinItems();
-						System.out.println(member.getId());
+						//System.out.println(member.getId());
 						break;
 					}
+				}
+				if(originalItem==null){
+					userOperation.joinActivity(userId, activityID);
+					originalItem=updateActivity.getItems();
 				}
 				return "joiner";
 			}

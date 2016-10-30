@@ -38,6 +38,8 @@ public class CreateActivity {
 			activityID=newActivityID;
 			userOperation.ownActivity((String)httpSession.get("login_userID"),
 					newActivityID);
+			userOperation.joinActivity((String)httpSession.get("login_userID"),
+					newActivityID);
 			return "true";
 		}
 			

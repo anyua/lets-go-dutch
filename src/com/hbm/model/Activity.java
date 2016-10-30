@@ -14,6 +14,7 @@ public class Activity {
 	private double wholeAmount;
 	private int planNum;
 	private int size;
+	private int type;
 	
 	private Set<Member> Members = new HashSet<Member>();
 	private Set<Item> Items = new HashSet<Item>();
@@ -83,6 +84,12 @@ public class Activity {
 	}
 	public void setItems(Set<Item> items) {
 		Items = items;
+	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
 	}
 	
 }
