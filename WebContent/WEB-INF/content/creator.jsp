@@ -33,9 +33,9 @@
 	  </button>
 
 	  <div class="navbar-header pull-left">
-	    <a href="index.html" class="navbar-brand">
+	    <a href="#" class="navbar-brand">
 		  <small>
-		    <i class="fa fa-cutlery" aria-hidden="true"></i>
+		    <i class="fa fa-cutlery fa-lg" aria-hidden="true"></i>
 		    LETS GO DUTCH
 		  </small>
 	    </a>
@@ -43,32 +43,45 @@
 
 	  <div class="navbar-buttons navbar-header pull-right" role="navigation">
         <ul class="nav ace-nav">
-         <li class="light-blue dropdown-modal">
-           <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-             <img class="nav-user-photo" src="assets/images/user.jpg">
-             <span class="user-info">
-			   <small>Welcome,</small>
-			   <s:property value="pageOwner.nickname" />
-			 </span>
-             <i class="ace-icon fa fa-caret-down"></i>
+          <li class="grey">
+            <a href="index">
+              <i class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i>
+              <span class="badge badge-grey">Home</span>
             </a>
-            <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-			  <li>
-			    <a href="profile">
-			      <i class="fa fa-cog fa-fw" aria-hidden="true"></i>
+          </li>
+          
+          <li class="purple">
+            <a href="index">
+              <i class="fa fa-book fa-fw fa-2x" aria-hidden="true"></i>
+              <span class="badge badge-grey">About</span>
+            </a>
+          </li>
+          <li class="light-blue dropdown-modal">
+            <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+              <img class="nav-user-photo" src="assets/images/user.jpg">
+              <span class="user-info">
+			    <small>Welcome,</small>
+			    <s:property value="pageOwner.nickname" />
+			  </span>
+              <i class="ace-icon fa fa-caret-down"></i>
+             </a>
+             <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+			   <li>
+			     <a href="profile">
+			       <i class="fa fa-cog fa-fw" aria-hidden="true"></i>
 					 		 Profile
-			    </a>
-		      </li>
-		      <li>
-			    <a href="#">
-			      <i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>
+			     </a>
+		       </li>
+		       <li>
+			     <a href="#">
+			       <i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>
 						 Logout
-			    </a>
-		      </li>
-	        </ul>
-	      </li>
-        </ul>
-      </div>
+			     </a>
+		       </li>
+	         </ul>
+	       </li>
+         </ul>
+       </div>
 	</div>
   </div>
   
@@ -114,8 +127,56 @@
 		<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
 	  </div>
 	</div>
+    
+    <div class="main-content">
+      <div class="main-content-inner">
+        <div class="page-content">
+          <div class="row">    
+		    <div class="widget-box transparent" id="recent-box">
+		      <div class="widget-header">
+		        <h4 class="widget-title lighter smaller">
+				  <i class="ace-icon fa fa-rss orange"></i>Activity
+			    </h4>
+			    
+			    <div class="widget-toolbar no-border">
+			      <ul class="nav nav-tabs" id="recent-tab">
+				    <li class="active">
+					  <a data-toggle="tab" href="#task-tab">Infos</a>
+					</li>
+					<li>
+					  <a data-toggle="tab" href="#member-tab">Members</a>
+					</li>
+			      </ul>
+				</div>
+												
+		      </div>
+		    </div>
+		      
+		      <div class="widget-body">
+		        <div class="widget-main padding-4">
+				  <div class="tab-content padding-8">
+				    <div id="task-tab" class="tab-pane active">
+				      
+				    </div>
+				    
+				    <div  id="memeber-tab">
+				      
+				    </div>
+				  </div>
+				</div>
+		      </div>
+		  </div>
+		</div>
+      </div>
+    </div>
+    
+    
   </div>
+  
+ 
 
+
+  
   <script src="assets/js/jquery-2.1.4.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
   <script src="assets/js/ace-elements.min.js"></script>
