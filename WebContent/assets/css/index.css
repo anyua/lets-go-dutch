@@ -5,7 +5,7 @@ html {
 }
 
 body {
-	background: #333 url(../assets/images/2.jpg) no-repeat center center fixed;
+	background: #333 url(../images/2.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -18,7 +18,7 @@ body {
 
 @media ( min-width : 768px) {
 	body {
-		background: #333 url(../assets/images/1.jpg) no-repeat center center fixed;
+		background: #333 url(../images/1.jpg) no-repeat center center fixed;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		-o-background-size: cover;

@@ -46,7 +46,7 @@
               </li>
               <li>
                 <div class="form-group">
-                  <select class="form-control" name="signup_user.sex">
+                  <select class="form-control" name="signup_user.sex" tabindex="3">
 	                <option value="">-- Gender --</option>
 	                <option value=true>Male</option>
 	                <option value=false>Female</option>                

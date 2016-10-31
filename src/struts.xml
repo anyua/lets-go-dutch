@@ -38,7 +38,7 @@
    	<action name="showUserInfo"
    		class="com.struts.action.IdentityPage"
    		method="showUserInfo">
-   		<result name="success">/user_info.jsp</result>
+   		<result name="success">/WEB-INF/content/creator.jsp</result>
    	</action>
    	
    	<action name="showActivity"
