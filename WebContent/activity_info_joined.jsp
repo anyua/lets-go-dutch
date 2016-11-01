@@ -5,18 +5,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="http://lib.sinaapp.com/js/jquery/1.6/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+	  url="outOfItem"
+	  $("tr#"+this.id).hide();
+	  data={itemId:this.id,activityName:$("#activityName").html()};
+	  $.get(url,data,
+			  function(){
+			  alert("退出成功");
+      });
+  });
+});
+</script>
 <title>Insert title here</title>
-<!-- share.css -->
-<link rel="stylesheet" href="dist/css/share.min.css">
-
-<!-- share.js -->
-<script src="dist/js/jquery-share.min.js"></script>
-<script src="dist/js/social-share.min.js"></script>
-
 </head>
 <body>
 Activity Information:<br>
-Activity Name:<s:property value="updateActivity.name"/><br>
+Activity Name:<div id="activityName"><s:property value="updateActivity.name"/></div><br>
 Activity Info:<s:property value="updateActivity.info"/><br>
 Activity CreateDate:<s:property value="updateActivity.createDate"/><br>
 Activity EndDate:<s:property value="updateActivity.endDate"/><br>
@@ -31,30 +38,16 @@ Activity Item:
 		</tr>
 	</thead>
 	<tbody>
-		<s:iterator value="updateActivity.Items" id='i'>
-			<tr>
+		<s:iterator value="originalItem" id='i'>
+			<tr id="<s:property value="#i.id" />">
 				<td><s:property value="#i.detial" /></td>
 				<td><s:property value="#i.amount" /></td>
+				<td><button id="<s:property value="#i.id" />">我没去这个活动</button></td>
 			</tr>
 		</s:iterator>
 	</tbody>
 </table>
 <br>
-<form action="callUpdateActivity">
-	<input type="hidden" name="activityID" value="${activityID}"> 
-	<button type="submit">Edit</button>
-</form>
-<form action="shareActivity">
-	<input type="hidden" name="newActivity.id" value="${activityID}"> 
-	<button type="submit">Share it</button>
-</form>
-<form action="settle">
-	<input  type="hidden" name="activityID" value="${activityID}">
-	<button type="submit">settle</button>
-</form>
-
-<div class="social-share"  data-disabled="google,twitter,facebook"></div>
-
 
 </body>
 </html>

@@ -12,6 +12,10 @@
 	<form action="callCreateActivity">
 		<button type="submit">创建新活动</button>
 	</form>
+	<form action="joinActivity">
+		<input type="text" name="activityName" value="活动名称">
+		<button type="submit">加入活动</button>
+	</form>
 	<div class="row"></div>
 		<div>
 			当前用户信息:<br> 昵称:
@@ -31,7 +35,7 @@
 					<tbody>
 						<s:iterator value="ownedActivity" id='o'>
 							<tr>
-								<td><s:property value="#o.name" /></td>
+								<td><a href="showActivity?activityID=<s:property value="#o.id" />"><s:property value="#o.name" /></a></td>
 								<td><s:property value="#o.createDate" /></td>
 								<td><s:property value="#o.endDate" /></td>
 							</tr>
@@ -53,7 +57,7 @@
 					<tbody>
 						<s:iterator value="joinedActivity" id='j'>
 							<tr>
-								<td><s:property value="#j.name" /></td>
+								<td><a href="showActivity?activityID=<s:property value="#j.id" />"><s:property value="#j.name" /></a></td>
 								<td><s:property value="#j.createDate" /></td>
 								<td><s:property value="#j.endDate" /></td>
 							</tr>

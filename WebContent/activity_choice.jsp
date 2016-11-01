@@ -4,6 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script src="http://lib.sinaapp.com/js/jquery/1.6/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var i=0;
+	$("#addItem").click(function(){
+		i=i+1;
+    	$("#addform").append("<tr><td>"+i+"</td><td><input id=\"itemdetials\" name=\"detials\" type=\"text\" value=\"项目信息\"></td><td><input name=\"amounts\" type=\"text\" value=\"项目金额\"></td></tr>");
+	});
+});
+</script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -14,8 +24,9 @@
 	EndDate:<input type="text" name="newActivity.endDate" ><br>
 	wholeAmount:<input type="text" name="newActivity.wholeAmount" ><br>
 	size:<input type="text" name="newActivity.size" ><br>
-	
-	<button type="submit">创建活动</button>
+	<input type="button" id="addItem" value="添加项目" />
+	<div id="addform"></div>
+    <input type="submit"  value="创建活动" />
 </form>
 </body>
 </html>

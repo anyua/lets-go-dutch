@@ -1,5 +1,6 @@
 package com.hbm.dao;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -38,8 +39,15 @@ public class MemberDAO extends DAO {
 		Member member = new Member();
 		member.setActivity(act);
 		member.setUser(user);
-		member.getJoinItems().addAll(act.getItems());
-		
+		Iterator<Item> it = act.getItems().iterator();
+		while(it.hasNext())
+		{
+			Item item =it.next();
+			item.setNumOfMembers(item.getNumOfMembers()+1);
+			member.getJoinItems().add(item);
+		}
+		//member.getJoinItems().addAll(act.getItems());
+		hibernateSession.update(act);
 		hibernateSession.save(member);
 
 		transaction.commit();

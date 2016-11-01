@@ -4,13 +4,14 @@
    "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 <constant name="struts.devMode" value="true" />
-   <package name="helloworld" extends="struts-default">
-	 
+
+<package name="helloworld" extends="json-default">
    <action name="login"
    		class="com.struts.action.Login"
    		method="userLogin">
    		<result name="true" type="chain">showUserInfo</result>
    		<result name="false">/login_fail.jsp</result>
+   		<result name="turn2activityInfo" type="chain">showActivity</result>
    	</action>
    	
    	<action name="sign">
@@ -44,7 +45,10 @@
    	<action name="showActivity"
    		class="com.struts.action.OwnerActivityPage"
    		method="showActivity">
-   		<result name="true">/activity_info.jsp</result>
+   		<result name="owner">/activity_info.jsp</result>
+   		<result name="joiner">/activity_info_joined.jsp</result>
+   		<result name="needLogin">/index.jsp</result>
+   		<result name="false">/login_fail.jsp</result>
    	</action>
    	
    	<action name="callUpdateActivity"
@@ -59,10 +63,36 @@
    		<result name="true" type="chain">showActivity</result>	
    		<result name="false">/login_fail.jsp</result>
     </action>
-    
-    <action name="*">
+   
+   	<action name="shareActivity"
+   		class="com.struts.action.OwnerActivityPage"
+   		method="shareActivity">
+   		<result name="true">/login_success.jsp</result>
+   		<result name="false">/login_fail.jsp</result>
+   	</action>
+   	
+   	<action name="joinActivity"
+   		class="com.struts.action.JoinActivity"
+   		method="joinThisActivtiy">
+   		<result name="success" type="chain">showUserInfo</result>	
+   	</action>
+   	
+   	<action name="outOfItem"
+   		class="com.struts.action.JoinActivity"
+   		method="outOfItem">
+   		<result name="success" type="json"></result>
+   	</action>
+   	
+   	<action name="settle"
+   		class="com.struts.action.Settle"
+   		method="activitySettle">
+   		<result name="success">settle_page_for_owner.jsp</result>
+   	</action>
+   	
+   	 <action name="*">
 		<result>/WEB-INF/content/{1}.jsp</result>
     </action>
+   	
    	
    </package>
 </struts>

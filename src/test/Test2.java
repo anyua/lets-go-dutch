@@ -30,41 +30,13 @@ public class Test2 {
 		
 		String activityId = actDao.addActivity(name, info, createDate, endDate, wholeAmount, size);
 
-		Activity act = actDao.getActivity(activityId);
+		String detial = "lalala";
+		double amount =100;
+		
+		actDao.addItem(activityId, detial, amount);
 		
 		userDao.joinActivity(userId, activityId);
 		
-		String userId2 = userDao.findUser(username, password);
-		
-		User user = userDao.getUser(userId);
-		
-
-		
-		System.out.println(user.getId());
-		System.out.println(userId);
-		System.out.println(userId2);
-		System.out.println(user.getUserName());
-		System.out.println(user.getNickname());
-		System.out.println(user.getPassword());
-		System.out.println("\n");
-		
-		System.out.println(activityId);
-		System.out.println(act.getName());
-		//System.out.println(act.getOwner().getId());
-		System.out.println("\n");
-		
-		Activity tempAct;
-		ActivityDAO newdao = new ActivityDAO();
-		Activity act2 = newdao.getActivity(activityId);
-
-		Iterator<Activity> it = user.getOwnActivity().iterator();
-		while(it.hasNext())
-		{
-			tempAct = it.next();
-			System.out.println(tempAct.getId());
-			System.out.println(tempAct.getName());
-			System.out.println(tempAct.getOwner().getId());
-		}
 		
 	}
 

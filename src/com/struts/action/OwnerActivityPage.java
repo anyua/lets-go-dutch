@@ -1,6 +1,7 @@
 package com.struts.action;
 
 import java.util.Map;
+import java.util.Set;
 
 import com.hbm.dao.*;
 import com.hbm.model.*;
@@ -8,49 +9,89 @@ import com.opensymphony.xwork2.ActionContext;
 
 public class OwnerActivityPage {
 	ActivityDAO activityOperation = new ActivityDAO();
+	UserDAO userOperation = new UserDAO();
 	Activity updateActivity = new Activity();
 	Activity originalActivity = new Activity();
-	Item newItem1 = new Item();
-	Item newItem2 = new Item();
+	private String[] detials;
+	private double[] amounts;
+	private Set<Item> originalItem ;
+	
+	private String activityID;
 	
 	public String showActivity() {
 		Map<String, Object> httpSession =ActionContext.getContext().getSession();
-		updateActivity = activityOperation.getActivity((String)httpSession.get("ActivityID"));
+		//updateActivity = activityOperation.getActivity((String)httpSession.get("ActivityID"));
+		String userId=(String)httpSession.get("login_userID");
+		if(userId==null)
+			return "needLogin";
+		updateActivity = activityOperation.getActivity(activityID);
 		if (updateActivity == null)
 			return "false";
-		else
-			return "true";
+		else 
+		{
+			if(userId.equals(updateActivity.getOwner().getId()))
+				return "owner";
+			else
+			{
+				for(Member member:updateActivity.getMembers())
+				{
+					if(member.getUser().getId().equals(userId))
+					{
+						originalItem = member.getJoinItems();
+						//System.out.println(member.getId());
+						break;
+					}
+				}
+				if(originalItem==null){
+					userOperation.joinActivity(userId, activityID);
+					originalItem=updateActivity.getItems();
+				}
+				return "joiner";
+			}
+		}
 	}
 	
 	public String callUpdateActivity() {
-		Map<String, Object> httpSession =ActionContext.getContext().getSession();
-		originalActivity = activityOperation.getActivity((String)httpSession.get("ActivityID"));
+		//Map<String, Object> httpSession =ActionContext.getContext().getSession();
+		//originalActivity = activityOperation.getActivity((String)httpSession.get("ActivityID"));
+		originalActivity = activityOperation.getActivity(activityID);
+		originalItem = originalActivity.getItems();
 		return "success";
 	}
 	
 	public String updateActivity() {
-		Map<String, Object> httpSession =ActionContext.getContext().getSession();
-		System.out.println(updateActivity.getInfo());
-		String updateResult = activityOperation.updateActivityInfo((String)httpSession.get("ActivityID"),
+		//Map<String, Object> httpSession =ActionContext.getContext().getSession();
+		//System.out.println(updateActivity.getInfo());
+		System.out.println(activityID);
+		String updateResult = activityOperation.updateActivityInfo(activityID,
 				updateActivity.getName(), 
 				updateActivity.getInfo(), 
 				updateActivity.getCreateDate(), 
 				updateActivity.getEndDate(), 
 				updateActivity.getWholeAmount(), 
 				updateActivity.getSize());
-		System.out.println(newItem1.getDetial());
-		activityOperation.addItem((String)httpSession.get("ActivityID"), 
-					newItem1.getDetial(),
-					newItem1.getAmount());
-		activityOperation.addItem((String)httpSession.get("ActivityID"), 
-				newItem2.getDetial(),
-				newItem2.getAmount());
+		for(int i=0;i<detials.length&&i<amounts.length;i++)
+		{
+			activityOperation.addItem(activityID, 
+					detials[i],
+					amounts[i]);
+		}
 		
 		if(updateResult == null)
 			return "false";
 		else
 			return "true";
 	}
+	
+	public String shareActivity() {
+		Map<String, Object> httpSession =ActionContext.getContext().getSession();
+		originalActivity = activityOperation.getActivity((String)httpSession.get("ActivityID"));
+		if(originalActivity == null)
+			return "false";
+		else
+			return "true";
+	}
+	
 	
 	public ActivityDAO getActivityOperation() {
 		return activityOperation;
@@ -65,28 +106,44 @@ public class OwnerActivityPage {
 		this.updateActivity = updateActivity;
 	}
 
-	public Item getNewItem1() {
-		return newItem1;
-	}
-
-	public void setNewItem1(Item newItem1) {
-		this.newItem1 = newItem1;
-	}
-
-	public Item getNewItem2() {
-		return newItem2;
-	}
-
-	public void setNewItem2(Item newItem2) {
-		this.newItem2 = newItem2;
-	}
-
 	public Activity getOriginalActivity() {
 		return originalActivity;
 	}
 
 	public void setOriginalActivity(Activity originalActivity) {
 		this.originalActivity = originalActivity;
+	}
+
+	public String[] getDetials() {
+		return detials;
+	}
+
+	public void setDetials(String[] detials) {
+		this.detials = detials;
+	}
+
+	public double[] getAmounts() {
+		return amounts;
+	}
+
+	public void setAmounts(double[] amounts) {
+		this.amounts = amounts;
+	}
+
+	public Set<Item> getOriginalItem() {
+		return originalItem;
+	}
+
+	public void setOriginalItem(Set<Item> originalItem) {
+		this.originalItem = originalItem;
+	}
+
+	public String getActivityID() {
+		return activityID;
+	}
+
+	public void setActivityID(String activityID) {
+		this.activityID = activityID;
 	}
 	
 }

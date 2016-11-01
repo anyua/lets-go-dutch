@@ -10,8 +10,10 @@ public class CreateActivity {
 	ActivityDAO activityOperation = new ActivityDAO();
 	Activity newActivity = new Activity();
 	UserDAO userOperation = new UserDAO();
-	User nowUser = new User(); 
-	
+	private User nowUser = new User(); 
+	private String[] detials;
+	private double[] amounts;
+	private String activityID;
 	public String createActivity()
 	{
 		String newActivityID;
@@ -26,9 +28,17 @@ public class CreateActivity {
 			return "false";
 		else
 		{
+			for(int i=0;amounts!=null&&detials!=null&&i<detials.length&&i<amounts.length;i++)
+			{
+				activityOperation.addItem(newActivityID, detials[i], amounts[i]);
+			}
+			
 			Map<String, Object> httpSession =ActionContext.getContext().getSession();
-			httpSession.put("ActivityID",newActivityID);
+			//httpSession.put("ActivityID",newActivityID);
+			activityID=newActivityID;
 			userOperation.ownActivity((String)httpSession.get("login_userID"),
+					newActivityID);
+			userOperation.joinActivity((String)httpSession.get("login_userID"),
 					newActivityID);
 			return "true";
 		}
@@ -51,5 +61,53 @@ public class CreateActivity {
 
 	public void setNewActivity(Activity newActivity) {
 		this.newActivity = newActivity;
+	}
+
+
+
+	public String[] getDetials() {
+		return detials;
+	}
+
+
+
+	public void setDetials(String[] detials) {
+		this.detials = detials;
+	}
+
+
+
+	public double[] getAmounts() {
+		return amounts;
+	}
+
+
+
+	public void setAmounts(double[] amounts) {
+		this.amounts = amounts;
+	}
+
+
+
+	public User getNowUser() {
+		return nowUser;
+	}
+
+
+
+	public void setNowUser(User nowUser) {
+		this.nowUser = nowUser;
+	}
+
+
+
+	public String getActivityID() {
+		return activityID;
+	}
+
+
+
+	public void setActivityID(String activityID) {
+		this.activityID = activityID;
 	}
 }

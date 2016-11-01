@@ -131,41 +131,107 @@
     <div class="main-content">
       <div class="main-content-inner">
         <div class="page-content">
-          <div class="row">    
-		    <div class="widget-box transparent" id="recent-box">
-		      <div class="widget-header">
-		        <h4 class="widget-title lighter smaller">
-				  <i class="ace-icon fa fa-rss orange"></i>Activity
-			    </h4>
-			    
-			    <div class="widget-toolbar no-border">
-			      <ul class="nav nav-tabs" id="recent-tab">
-				    <li class="active">
-					  <a data-toggle="tab" href="#task-tab">Infos</a>
-					</li>
-					<li>
-					  <a data-toggle="tab" href="#member-tab">Members</a>
-					</li>
-			      </ul>
-				</div>
-												
-		      </div>
-		    </div>
-		      
-		      <div class="widget-body">
-		        <div class="widget-main padding-4">
-				  <div class="tab-content padding-8">
-				    <div id="task-tab" class="tab-pane active">
-				      
-				    </div>
-				    
-				    <div  id="memeber-tab">
-				      
-				    </div>
-				  </div>
-				</div>
-		      </div>
-		  </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <table id="simple-table" class="table  table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th class="center">
+                      <label class="pos-rel">
+						<input type="checkbox" class="ace" />
+						<span class="lbl"></span>
+					  </label>
+                    </th>
+                    <th class="detail-col">Details</th>
+					<th>活动名称</th>
+					<th>开始日期</th>
+					<th>结束日期</th>
+					<th></th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+                  <s:iterator value="joinedActivity" id='j'>
+                  <tr>
+                    <td class="center">
+						<label class="pos-rel">
+						  <input type="checkbox" class="ace" />
+						  <span class="lbl"></span>
+						</label>
+					</td>
+					
+					<td class="center">
+					  <div class="action-buttons">
+					    <a href="#" class="green bigger-140 show-details-btn" title="Show Details">
+						  <i class="ace-icon fa fa-angle-double-down"></i>
+						  <span class="sr-only">Details</span>
+						</a>
+					  </div>
+					</td>
+					
+					<td>
+					  <a href="showActivity?activityID=<s:property value="#j.id" />"><s:property value="#j.name" /></a>
+					</td>
+					<td><s:property value="#j.createDate" /></td>
+					<td><s:property value="#j.endDate" /></td>
+					
+					<td>
+					  <div class="hidden-sm hidden-xs btn-group">
+					    <button class="btn btn-xs btn-danger">
+						  <i class="ace-icon fa fa-trash-o bigger-120"></i>
+						</button>
+					  </div>
+                      <div class="hidden-md hidden-lg">
+                        <div class="inline pos-rel">
+                          <button class="btn btn-minier btn-primary">
+							  <i class="ace-icon fa fa-trash-o icon-only bigger-110"></i>
+						  </button>
+                        </div>
+                    </div>
+                  </td>
+                  
+                  </tr>
+                  </s:iterator>  
+                  
+                  <tr class="detail-row">
+                    <td colspan="8">
+                      <div class="table-detail">
+                        <div class="col-xs-12 col-sm-9">
+                          <div class="space visible-xs"></div>
+                          <div class="profile-user-info profile-user-info-striped">
+                          
+ 							<div class="profile-info-row">
+							  <div class="profile-info-name"> 实际金额  </div>
+							  <div class="profile-info-value">
+								  <span><s:property value="updateActivity.wholeAmount"/></span>
+							  </div>
+							</div>
+							
+							<div class="profile-info-row">
+							  <div class="profile-info-name"> 参与人数  </div>
+							  <div class="profile-info-value">
+								  <span><s:property value="updateActivity.size"/></span>
+							  </div>
+							</div> 
+							
+							<div class="profile-info-row">
+							  <div class="profile-info-name"> 活动介绍 </div>
+							  <div class="profile-info-value">
+								  <span><s:property value="updateActivity.info"/></span>
+							  </div>
+							</div>
+							                          
+                          </div>
+                        </div> 
+                      </div>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              
+              </table>
+            </div>
+          </div>
 		</div>
       </div>
     </div>
