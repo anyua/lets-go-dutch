@@ -234,4 +234,31 @@ public class UserDAO extends DAO {
 		hibernateSession.close();
 		return result;
 	}
+
+	public String addMessage(String activityId,String userId,int type,String remark,double amount)
+	{
+		Session hibernateSession = factory.openSession();
+		Transaction transaction = hibernateSession.beginTransaction();
+		
+		Activity act = (Activity) hibernateSession.get(Activity.class, activityId);
+		
+		Message message=new Message();
+		message.setRemark(remark);
+		message.setAmount(amount);
+		message.setType(type);
+		
+		for(Member member: act.getMembers())
+		{
+			if(member.getUser().getId().equals(userId))
+			{
+				member.getMessages().add(message);
+				break;
+			}
+		}
+		
+		
+		transaction.commit();
+		hibernateSession.close();
+		return "lalal";
+	}
 }

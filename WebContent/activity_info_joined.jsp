@@ -17,6 +17,14 @@ $(document).ready(function(){
 			  alert("退出成功");
       });
   });
+  $("#feedBackButton").click(function(){
+	  var url="feedBack"
+	  var data=$("form#feedBack").serialize()
+	  $.get(url,data,
+			  function(response){
+			  alert("提交成功"+response.activityId);
+      });
+  });
 });
 </script>
 <title>Insert title here</title>
@@ -48,6 +56,17 @@ Activity Item:
 	</tbody>
 </table>
 <br>
-
+<form id="feedBack" >
+	反馈信息：
+	类型
+	input type="select" name="type"
+	内容
+	<input type="text" name="message.remark">
+	金额
+	<input type="text" name="message.amount">
+	<input type="button" value="提交" id="feedBackButton">
+	<input type="hidden" name="activityId" value=<s:property value="updateActivity.name"/>>
+	
+</form>
 </body>
 </html>

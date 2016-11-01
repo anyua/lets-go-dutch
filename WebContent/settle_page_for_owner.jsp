@@ -6,6 +6,13 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>???????</title>
+<!-- share.css -->
+<link rel="stylesheet" href="dist/css/share.min.css">
+
+<!-- share.js -->
+<script src="dist/js/jquery-share.min.js"></script>
+<script src="dist/js/social-share.min.js"></script>
+
 </head>
 <body>
 	活动名称：
@@ -24,5 +31,8 @@
 		</tr>
 	</s:iterator>
 	</table>
+	
+	<div class="social-share"  data-disabled="google,twitter,facebook"></div>
+	
 </body>
 </html>

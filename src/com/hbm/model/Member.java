@@ -12,6 +12,8 @@ public class Member {
 	private int type;
 	private Set<Item> joinItems = new HashSet<Item>();
 	
+	private Set<Message> messages=new HashSet<Message>();
+	
 	public String getId() {
 		return id;
 	}
@@ -53,5 +55,11 @@ public class Member {
 	}
 	public void setType(int type) {
 		this.type = type;
+	}
+	public Set<Message> getMessages() {
+		return messages;
+	}
+	public void setMessages(Set<Message> messages) {
+		this.messages = messages;
 	}
 }
