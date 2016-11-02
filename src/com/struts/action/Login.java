@@ -23,7 +23,7 @@ public class Login {
 		{
 			Map<String, Object> httpSession =ActionContext.getContext().getSession();
 			httpSession.put("login_userID",findResult);
-			if(flag==null)
+			if(flag.isEmpty())
 				return "true";
 			else if(flag.equals("1"))
 				return "turn2activityInfo";
