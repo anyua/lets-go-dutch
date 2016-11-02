@@ -32,7 +32,6 @@ public class Login {
 			else 
 				return "false";
 		}
-			
 	}
 
 	public User getLogin_user() {
