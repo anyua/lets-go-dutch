@@ -5,33 +5,75 @@ import java.util.Map;
 
 import com.hbm.dao.*;
 import com.hbm.model.*;
+import com.opensymphony.xwork2.ActionContext;
 
 public class Settle {
 	private String activityID;
 	private Activity act;
 	private Map<String,String[]> settledAmount = new HashMap<String,String[]>();
+	private Member mem;
+	private String shareURL;
+	private String flag;
 	
 	private ActivityDAO actDao=new ActivityDAO();
 	//private UserDAO userDao=new UserDAO();
 	public String activitySettle(){
-		act=actDao.getActivity(activityID);
+		Map<String, Object> httpSession =ActionContext.getContext().getSession();
+		String userId=(String)httpSession.get("login_userID");
+		if(userId==null)
+			return "needLogin";
 
-		for(Member member: act.getMembers())
+		act=actDao.getActivity(activityID);
+		shareURL = "http://localhost:8080/lets_go_dutch/settle?activityID="+activityID+"&flag=2";
+
+		if(userId.equals(act.getOwner().getId()))
 		{
-			double amount = 0;
-			for(Item item:member.getJoinItems())
+			actDao.setActivityType(activityID, 1);
+			for(Member member: act.getMembers())
 			{
-				amount+=item.getAmount()/item.getNumOfMembers();
+				double amount = 0;
+				for(Item item:member.getJoinItems())
+				{
+					amount+=item.getAmount()/item.getNumOfMembers();
+				}
+				for(Message message:member.getMessages())
+				{
+					if(message.getType()==0)
+						amount+=message.getAmount();
+				}
+				String[] result=new String[3];
+				result[0]=member.getUser().getNickname();
+				result[1]=member.getUser().getUserName();
+				result[2]=String.valueOf(amount);
+				System.out.println();
+				settledAmount.put(member.getId(), result);
 			}
-			amount+=member.getAmount();
-			String[] result=new String[3];
-			result[0]=member.getUser().getNickname();
-			result[1]=member.getUser().getUserName();
-			result[2]=String.valueOf(amount);
-			System.out.println();
-			settledAmount.put(member.getId(), result);
+			return "owner";
 		}
-		return "success";
+		else
+		{
+			for(Member member:act.getMembers())
+			{
+				if(member.getUser().getId().equals(userId))
+				{
+					double amount = 0;
+					setMem(member);
+					for(Item item:member.getJoinItems())
+					{
+						amount+=item.getAmount()/item.getNumOfMembers();
+					}
+					for(Message message:member.getMessages())
+					{
+						if(message.getType()==0)
+							amount+=message.getAmount();
+					}
+					getMem().setAmount(amount);
+					
+					return "joinner";
+				}
+			}
+			return "false";
+		}
 	}
 
 	public String getActivityID() {
@@ -56,5 +98,29 @@ public class Settle {
 
 	public void setSettledAmount(Map<String,String[]> settledAmount) {
 		this.settledAmount = settledAmount;
+	}
+
+	public String getShareURL() {
+		return shareURL;
+	}
+
+	public void setShareURL(String shareURL) {
+		this.shareURL = shareURL;
+	}
+
+	public String getFlag() {
+		return flag;
+	}
+
+	public void setFlag(String flag) {
+		this.flag = flag;
+	}
+
+	public Member getMem() {
+		return mem;
+	}
+
+	public void setMem(Member mem) {
+		this.mem = mem;
 	}
 }

@@ -13,6 +13,7 @@
 	UserName:<input type="text" name="login_user.userName" ><br>
 	Password:<input type="text" name="login_user.password" ><br>
 	<input type="hidden" name="activityID" value="${activityID}">
+	<input type="hidden" name="flag" value="${flag}">
 	<button type="submit">Submit</button>
 </form>
 <div class="row"></div>

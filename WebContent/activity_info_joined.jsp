@@ -56,6 +56,12 @@ Activity Item:
 	</tbody>
 </table>
 <br>
+<s:if test="updateActivity.type==1">
+<form action="settle">
+	<input  type="hidden" name="activityID" value="${activityID}">
+	<button type="submit">活动已经结束点击结算</button>
+</form>
+</s:if>
 <form id="feedBack" >
 	反馈信息：
 	类型
@@ -65,7 +71,7 @@ Activity Item:
 	金额
 	<input type="text" name="message.amount">
 	<input type="button" value="提交" id="feedBackButton">
-	<input type="hidden" name="activityId" value=<s:property value="updateActivity.name"/>>
+	<input type="hidden" name="activityId" value=<s:property value="updateActivity.id"/>>
 	
 </form>
 </body>

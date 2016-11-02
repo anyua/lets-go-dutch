@@ -32,7 +32,7 @@
 	</s:iterator>
 	</table>
 	
-	<div class="social-share"  data-disabled="google,twitter,facebook"></div>
+	<div class="social-share"  data-disabled="google,twitter,facebook" data-url=<s:property value="shareURL" /> ></div>
 	
 </body>
 </html>

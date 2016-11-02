@@ -235,30 +235,46 @@ public class UserDAO extends DAO {
 		return result;
 	}
 
-	public String addMessage(String activityId,String userId,int type,String remark,double amount)
+	public String addMessage(String memberId,String userId,int type,String remark,double amount)
 	{
 		Session hibernateSession = factory.openSession();
 		Transaction transaction = hibernateSession.beginTransaction();
 		
-		Activity act = (Activity) hibernateSession.get(Activity.class, activityId);
+		//ActivityDAO actDao= new ActivityDAO();
+		Member member = (Member) hibernateSession.get(Member.class, memberId);
 		
 		Message message=new Message();
 		message.setRemark(remark);
 		message.setAmount(amount);
 		message.setType(type);
 		
-		for(Member member: act.getMembers())
-		{
-			if(member.getUser().getId().equals(userId))
-			{
-				member.getMessages().add(message);
-				break;
-			}
-		}
+		member.getMessages().add(message);
 		
-		
+		hibernateSession.save(message);
 		transaction.commit();
 		hibernateSession.close();
 		return "lalal";
+	}
+	
+	public void setMessageType(String messageId,int type)
+	{
+		Session hibernateSession = factory.openSession();
+		Transaction transaction = hibernateSession.beginTransaction();
+		Message message = (Message) hibernateSession.get(Message.class, messageId);
+		message.setType(type);
+
+		transaction.commit();
+		hibernateSession.close();
+	}
+	
+	public void setMemberType(String memberId,int type)
+	{
+		Session hibernateSession = factory.openSession();
+		Transaction transaction = hibernateSession.beginTransaction();
+		Member member = (Member) hibernateSession.get(Member.class, memberId);
+		member.setType(type);
+
+		transaction.commit();
+		hibernateSession.close();
 	}
 }

@@ -6,11 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="http://lib.sinaapp.com/js/jquery/1.6/jquery.min.js"></script>
 <!-- share.css -->
 <link rel="stylesheet" href="dist/css/share.min.css">
 
 <!-- share.js -->
-<script src="dist/js/jquery-share.min.js"></script>
+<script src="dist/js/jquery.share.min.js"></script>
 <script src="dist/js/social-share.min.js"></script>
 
 </head>
@@ -53,7 +54,18 @@ Activity Item:
 	<button type="submit">settle</button>
 </form>
 
-<div class="social-share"  data-disabled="google,twitter,facebook"></div>
+<div class="social-share"  data-disabled="google,twitter,facebook" data-url=<s:property value="shareURL" /> ></div>
+
+<table>
+	<s:iterator value="updateActivity.members" id='i'>
+		<s:iterator value="#i.messages" id='j'>
+			<tr>
+				<td><s:property value="#j.remark" /></td>
+				<td><s:property value="#j.amount" /></td>
+			</tr>
+		</s:iterator>
+	</s:iterator>
+</table>
 
 
 </body>
