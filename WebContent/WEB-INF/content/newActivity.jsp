@@ -9,17 +9,32 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>用户界面</title>
+  <title>创建活动</title>
   
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <!-- <link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css">  -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  
+  <link rel="stylesheet" href="assets/css/jquery-ui.custom.min.css" />
+  <link rel="stylesheet" href="assets/css/chosen.min.css" />
+  <link rel="stylesheet" href="assets/css/bootstrap-datepicker3.min.css" />
+		
   <link rel="stylesheet" href="assets/css/fonts.googleapis.com.css">
   <link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style">
   <link rel="stylesheet" href="assets/css/ace-skins.min.css">
   <link rel="stylesheet" href="assets/css/ace-rtl.min.css">
   
   <script src="assets/js/ace-extra.min.js"></script>
+  
+  <script type="text/javascript">
+	$(document).ready(function(){
+		var i=0;
+		$("#addItem").click(function(){
+			i=i+1;
+    		$("#addform").append("<tr><td>"+i+"</td><td><input id=\"itemdetials\" name=\"detials\" type=\"text\" value=\"项目信息\"></td><td><input name=\"amounts\" type=\"text\" value=\"项目金额\"></td></tr>");
+		});
+	});
+</script>
   
 </head>
 <body class="skin-1">
@@ -136,7 +151,7 @@
 			  <i class="ace-icon fa fa-home home-icon"></i>
 			  <a href="#">首页</a>
 			</li>
-			<li class="active">Dashboard</li>
+			<li class="active">新建活动</li>
 		  </ul><!-- /.breadcrumb -->
 		</div>
         <div class="page-content">
@@ -144,69 +159,79 @@
           </div>
           <div class="row">
             <div class="col-xs-12">
-              <table id="simple-table" class="table  table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <th class="center">
-                      <label class="pos-rel">
-						<input type="checkbox" class="ace" />
-						<span class="lbl"></span>
-					  </label>
-                    </th>
-                    
-					<th>项目名称</th>
-					<th>项目金额</th>
-					<th>结束日期</th>
-					<th></th>
-                  </tr>
-                </thead>
-                
-                <tbody>
-                  <s:iterator value="joinedActivity" id='j'>
-                  <tr>
-                    <td class="center">
-						<label class="pos-rel">
-						  <input type="checkbox" class="ace" />
-						  <span class="lbl"></span>
-						</label>
-					</td>
-					
-					<td class="center">
-					  <div class="action-buttons">
-					    <a href="#" class="green bigger-140 show-details-btn" title="Show Details">
-						  <i class="ace-icon fa fa-angle-double-down"></i>
-						  <span class="sr-only">Details</span>
-						</a>
-					  </div>
-					</td>
-					
-					<td>
-					  <a href="showActivity?activityID=<s:property value="#j.id" />"><s:property value="#j.name" /></a>
-					</td>
-					<td><s:property value="#j.createDate" /></td>
-					<td><s:property value="#j.endDate" /></td>
-					
-					<td>
-					  <div class="hidden-sm hidden-xs btn-group">
-					    <button class="btn btn-xs btn-danger">
-						  <i class="ace-icon fa fa-trash-o bigger-120"></i>
-						</button>
-					  </div>
-                      <div class="hidden-md hidden-lg">
-                        <div class="inline pos-rel">
-                          <button class="btn btn-minier btn-primary">
-							  <i class="ace-icon fa fa-trash-o icon-only bigger-110"></i>
-						  </button>
-                        </div>
-                    </div>
-                  </td>
-                  
-                  </tr>
-                  </s:iterator>  
-                  
-                </tbody>
-              
-              </table>
+              <form class="form-horizontal" action="createActivity" role="form">
+ 				<div class="form-group">
+				  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 活动名称 </label>
+				  <div class="col-sm-9">
+				    <input type="text" class="col-xs-10 col-sm-4" id="form-field-1"  name="newActivity.name" placeholder="最长不超过15个字符" size="15" />
+				  </div>
+			    </div>
+			    
+			    <div class="form-group">
+				  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 参与人数  </label>
+				  <div class="col-sm-9">
+				    <input type="text" class="input-sm" id="spinner2" name="newActivity.size" />
+				  </div>
+			    </div>
+			    
+			    <div class="form-group">
+				  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 活动预算  </label>
+				  <div class="col-sm-9">
+				    <input type="text" class="col-xs-10 col-sm-2" id="form-field-1"  name="newActivity.wholeAmount" />
+				  </div>
+			    </div>
+			    
+			     <div class="form-group">
+			       <label class="col-sm-3 control-label no-padding-right" for="id-date-picker-1"> 起始日期 </label>
+			       <div class="col-sm-9">
+			         <div class="row">
+						<div class="col-xs-8 col-sm-11">
+						  <div class="input-group">
+							<input type="text" class="form-control date-picker" id="id-date-picker-1" name="newActivity.createDate" data-date-format="dd-mm-yyyy" />
+							<span class="input-group-addon">
+							  <i class="fa fa-calendar bigger-110"></i>
+							</span>
+						  </div>
+						</div>
+					  </div>													
+			       </div>
+			     </div>
+			     
+			      
+			      <div class="form-group">
+			        <label class="col-sm-3 control-label no-padding-right" for="id-date-picker-1"> 终止日期 </label>									
+			        <div class="col-sm-9">
+			          <div class="row">
+						<div class="col-xs-8 col-sm-11">
+						  <div class="input-group">
+							<input type="text" class="form-control date-picker" id="id-date-picker-1" name="newActivity.endDate" data-date-format="dd-mm-yyyy" />
+							<span class="input-group-addon">
+							  <i class="fa fa-calendar bigger-110"></i>
+							</span>
+						  </div>
+						</div>
+					  </div>																
+			        </div>
+			      </div>
+			    
+			      <div class="form-group">
+				    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 活动介绍 </label>
+				    <div class="col-sm-9">
+					  <textarea class="form-control limited" id="form-field-9" name="newActivity.info" placeholder="最长50字" maxlength="50"></textarea>
+				    </div>
+			      </div>
+			      
+			      <div class="form-group">
+				    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 活动介绍 </label>
+				    <div class="col-sm-9">
+					  <input type="button" id="addItem" value="添加项目" />
+					  <div id="addform"></div>
+				    </div>
+			      </div>
+			     
+	
+			            
+              </form>
             </div>
           </div>
 		</div>
@@ -222,7 +247,35 @@
   
   <script src="assets/js/jquery-2.1.4.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
+  
+  <script src="assets/js/jquery-ui.custom.min.js"></script>
+  <script src="assets/js/spinbox.min.js"></script>
+  <script src="assets/js/bootstrap-datepicker.min.js"></script>
+  <script src="assets/js/jquery.inputlimiter.min.js"></script>
+  
   <script src="assets/js/ace-elements.min.js"></script>
   <script src="assets/js/ace.min.js"></script>
+  
+  <script type="text/javascript">
+  		jQuery(function($) {
+  			$('textarea.limited').inputlimiter({
+				remText: '%n character%s remaining...',
+				limitText: 'max allowed : %n.'
+			});
+  			
+  			$('#spinner2').ace_spinner({value:0,min:0,max:10000,step:100, touch_spinner: true, icon_up:'ace-icon fa fa-caret-up bigger-110', icon_down:'ace-icon fa fa-caret-down bigger-110'});
+  			
+  			$('.date-picker').datepicker({
+				autoclose: true,
+				todayHighlight: true
+			})
+			//show datepicker when clicking on the icon
+			.next().on(ace.click_event, function(){
+				$(this).prev().focus();
+			});
+  		
+  		});
+  </script>
+  
 </body>
 </html>
