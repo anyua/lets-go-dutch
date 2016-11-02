@@ -26,16 +26,6 @@
   
   <script src="assets/js/ace-extra.min.js"></script>
   
-  <script type="text/javascript">
-	$(document).ready(function(){
-		var i=0;
-		$("#addItem").click(function(){
-			i=i+1;
-    		$("#addform").append("<tr><td>"+i+"</td><td><input id=\"itemdetials\" name=\"detials\" type=\"text\" value=\"项目信息\"></td><td><input name=\"amounts\" type=\"text\" value=\"项目金额\"></td></tr>");
-		});
-	});
-</script>
-  
 </head>
 <body class="skin-1">
   <div id="navbar" class="navbar navbar-default          ace-save-state">
@@ -135,6 +125,14 @@
 		    <i class="menu-icon fa fa fa-pencil"></i>
 			<span class="menu-text"> 新建活动 </span>
 		  </a>
+		  <b class="arrow"></b>
+		</li>
+		<li class="">
+		  <a href="addActivity">
+		    <i class="menu-icon fa fa-plus-circle"></i>
+			<span class="menu-text"> 加入活动 </span>
+		  </a>
+		  <b class="arrow"></b>
 		</li>
       </ul>
 
@@ -148,7 +146,7 @@
         <div class="breadcrumbs ace-save-state" id="breadcrumbs">
 		  <ul class="breadcrumb">
 			<li>
-			  <i class="ace-icon fa fa-home home-icon"></i>
+			  <i class="ace-icon fa fa-folder-open home-icon"></i>
 			  <a href="#">首页</a>
 			</li>
 			<li class="active">新建活动</li>
@@ -185,9 +183,9 @@
 			       <label class="col-sm-3 control-label no-padding-right" for="id-date-picker-1"> 起始日期 </label>
 			       <div class="col-sm-9">
 			         <div class="row">
-						<div class="col-xs-8 col-sm-11">
+						<div class="col-xs-10 col-sm-4">
 						  <div class="input-group">
-							<input type="text" class="form-control date-picker" id="id-date-picker-1" name="newActivity.createDate" data-date-format="dd-mm-yyyy" />
+							<input type="text" class="form-control date-picker" id="id-date-picker-1" name="newActivity.createDate" data-date-format="yyyy-mm-dd" />
 							<span class="input-group-addon">
 							  <i class="fa fa-calendar bigger-110"></i>
 							</span>
@@ -202,9 +200,9 @@
 			        <label class="col-sm-3 control-label no-padding-right" for="id-date-picker-1"> 终止日期 </label>									
 			        <div class="col-sm-9">
 			          <div class="row">
-						<div class="col-xs-8 col-sm-11">
+						<div class="col-xs-10 col-sm-4">
 						  <div class="input-group">
-							<input type="text" class="form-control date-picker" id="id-date-picker-1" name="newActivity.endDate" data-date-format="dd-mm-yyyy" />
+							<input type="text" class="form-control date-picker" id="id-date-picker-1" name="newActivity.endDate" data-date-format="yyyy-mm-dd" />
 							<span class="input-group-addon">
 							  <i class="fa fa-calendar bigger-110"></i>
 							</span>
@@ -217,20 +215,37 @@
 			      <div class="form-group">
 				    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 活动介绍 </label>
 				    <div class="col-sm-9">
-					  <textarea class="form-control limited" id="form-field-9" name="newActivity.info" placeholder="最长50字" maxlength="50"></textarea>
+					  <textarea class="col-xs-10 col-sm-6 limited" id="form-field-9" name="newActivity.info" placeholder="最长50字" maxlength="50"></textarea>
 				    </div>
 			      </div>
 			      
 			      <div class="form-group">
-				    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 活动介绍 </label>
+				    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">添加项目</label>
 				    <div class="col-sm-9">
-					  <input type="button" id="addItem" value="添加项目" />
+					  <input type="button" class="btn btn-sm btn-info" id="addItem" value="+" style="font-size: 1.5em; font-weight: bolder;"/>
+					  
 					  <div id="addform"></div>
 				    </div>
 			      </div>
+			      <div class="hr hr-18 dotted"></div>
 			     
-	
-			            
+			      
+			      <div class="form-group">
+			        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"></label>
+			        <div class="col-sm-9">
+			          <button type="reset" class="btn btn-sm btn-success">
+					    <i class="ace-icon fa fa-arrow-left icon-on-right bigger-110"></i>
+						    Reset
+				      </button>
+				  
+				      <button type="submit" class="btn btn-sm btn-success">
+						  Submit
+					    <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+				      </button>
+				    </div>
+				  </div>
+				 
+			             
               </form>
             </div>
           </div>
@@ -238,13 +253,13 @@
       </div>
     </div>
     
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+	  <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+	</a>
     
   </div>
   
- 
 
-
-  
   <script src="assets/js/jquery-2.1.4.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
   
@@ -274,6 +289,15 @@
 				$(this).prev().focus();
 			});
   		
+  		});
+  		
+  		$(document).ready(function(){
+  			var i=0;
+  			$("#addItem").click(function(){
+  				i=i+1;
+  	    		$("#addform").append("<tr><td>"+i+"&nbsp"+"</td><td><input id=\"itemdetials\" name=\"detials\" type=\"text\" value=\"项目信息\"></td><td><input name=\"amounts\" type=\"text\" value=\"项目金额\"></td></tr>");
+  	    		
+  			});
   		});
   </script>
   

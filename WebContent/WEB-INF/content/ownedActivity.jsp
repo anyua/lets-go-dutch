@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>用户界面</title>
+  <title>创建的活动</title>
   
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <!-- <link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css">  -->
@@ -94,7 +94,7 @@
 		try{ace.settings.loadState('sidebar')}catch(e){}
       </script>
       <ul class="nav nav-list">
-        <li class="active">
+        <li class="">
           <a href="#">
 			<i class="menu-icon fa fa-tachometer"></i>
 			  <span class="menu-text"> Dashboard </span>
@@ -195,7 +195,7 @@
 					<td><s:property value="#o.endDate" /></td>
 					
 					<td>
-					  <!--  <div class="hidden-sm hidden-xs btn-group">
+					  <div class="hidden-sm hidden-xs btn-group">
 					    <button class="btn btn-xs btn-danger">
 						  <i class="ace-icon fa fa-trash-o bigger-120"></i>
 						</button>
@@ -206,72 +206,15 @@
 							  <i class="ace-icon fa fa-trash-o icon-only bigger-110"></i>
 						  </button>
                         </div>
-                      </div>  -->
-                      
-                      <div class="hidden-sm hidden-xs btn-group">
-						<a href="#" type="button" class="btn btn-xs btn-success">
-						  <i class="ace-icon fa fa-check bigger-120"></i>
-						</a>
-
-						<a href="#" type="button" class="btn btn-xs btn-info">
-						  <i class="ace-icon fa fa-pencil bigger-120"></i>
-						</a>
-
-						<a href="#" type="button" class="btn btn-xs btn-danger">
-						  <i class="ace-icon fa fa-trash-o bigger-120"></i>
-						</a>
-
-						<a href="#" type="button" class="btn btn-xs btn-warning">
-						  <i class="ace-icon fa fa-share-alt bigger-120"></i>
-						</a>
-					  </div>
-                      
-                      <div class="hidden-md hidden-lg">
-                      <div class="inline pos-rel">
-						<button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown" data-position="auto">
-						  <i class="ace-icon fa fa-cog icon-only bigger-110"></i>
-						</button>
-
-						<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-						  <li>
-							<a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-							  <span class="blue">
-							    <i class="ace-icon fa fa-check bigger-120"></i>
-							  </span>
-						    </a>
-						  </li>
-						  
-						  <li>
-							<a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
-							  <span class="green">
-							    <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-							  </span>
-							</a>
-						  </li>
-
-						  <li>
-							<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-							  <span class="red">
-								<i class="ace-icon fa fa-trash-o bigger-120"></i>
-							  </span>
-							</a>
-						  </li>
-						  <li>
-							<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-							  <span class="red">
-								<i class="ace-icon fa fa-share-alt bigger-120"></i>
-							  </span>
-							</a>
-						  </li>
-						</ul>
-					  </div>
-					  </div>							
-                    </td>
+                    </div>
+                  </td>
                   
                   </tr>
+                  </s:iterator>  
+                  
                   <tr class="detail-row">
                     <td colspan="8">
-                      <div class="table-detail" style="padding: 0;">
+                      <div class="table-detail">
                         <div class="col-xs-12 col-sm-9">
                           <div class="space visible-xs"></div>
                           <div class="profile-user-info profile-user-info-striped">
@@ -302,7 +245,6 @@
                       </div>
                     </td>
                   </tr>
-                  </s:iterator>  
                   
                 </tbody>
               
@@ -319,33 +261,59 @@
     
   </div>
   
- 
   <script src="assets/js/jquery-2.1.4.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/jquery.dataTables.min.js"></script>
   <script src="assets/js/ace-elements.min.js"></script>
   <script src="assets/js/ace.min.js"></script>
   
   <script type="text/javascript">
 			jQuery(function($) {
+				//initiate dataTables plugin
+				var myTable = 
+				$('#dynamic-table')
+				//.wrap("<div class='dataTables_borderWrap' />")   //if you are applying horizontal scrolling (sScrollX)
+				.DataTable( {
+					bAutoWidth: false,
+					"aoColumns": [
+					  { "bSortable": false },
+					  null, null,null, null, null,
+					  { "bSortable": false }
+					],
+					"aaSorting": [],
+					
+					select: {
+						style: 'multi'
+					}
+			    } );
+			
+				$('th input[type=checkbox], td input[type=checkbox]').prop('checked', false);
 				
-				var active_class = 'active';
-				$('#simple-table > thead > tr > th input[type=checkbox]').eq(0).on('click', function(){
+				//select/deselect all rows according to table header checkbox
+				$('#dynamic-table > thead > tr > th input[type=checkbox], #dynamic-table_wrapper input[type=checkbox]').eq(0).on('click', function(){
 					var th_checked = this.checked;//checkbox inside "TH" table header
 					
-					$(this).closest('table').find('tbody > tr').each(function(){
+					$('#dynamic-table').find('tbody > tr').each(function(){
 						var row = this;
-						if(th_checked) $(row).addClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', true);
-						else $(row).removeClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', false);
+						if(th_checked) myTable.row(row).select();
+						else  myTable.row(row).deselect();
 					});
 				});
 				
 				//select/deselect a row when the checkbox is checked/unchecked
-				$('#simple-table').on('click', 'td input[type=checkbox]' , function(){
-					var $row = $(this).closest('tr');
-					if($row.is('.detail-row ')) return;
-					if(this.checked) $row.addClass(active_class);
-					else $row.removeClass(active_class);
+				$('#dynamic-table').on('click', 'td input[type=checkbox]' , function(){
+					var row = $(this).closest('tr').get(0);
+					if(this.checked) myTable.row(row).deselect();
+					else myTable.row(row).select();
 				});
+			
+	
+				$(document).on('click', '#dynamic-table .dropdown-toggle', function(e) {
+					e.stopImmediatePropagation();
+					e.stopPropagation();
+					e.preventDefault();
+				});
+				
 				
 				$('.show-details-btn').on('click', function(e) {
 					e.preventDefault();
@@ -355,5 +323,6 @@
 				
 			});
 		</script>
+		
 </body>
 </html>
