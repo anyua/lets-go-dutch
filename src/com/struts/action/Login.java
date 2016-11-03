@@ -10,12 +10,11 @@ public class Login {
 	private UserDAO userOperation = new UserDAO() ;
 	private User login_user = new User();
 	private String activityID;
+	private String flag;
 	public String userLogin()
 	{
 		String findResult;
-		System.out.println(login_user.getUserName()+'\t'+login_user.getPassword());
-		System.out.println(activityID);
-		
+
 		findResult = userOperation.findUser(login_user.getUserName(),
 								login_user.getPassword());
 		System.out.println(findResult);
@@ -25,13 +24,16 @@ public class Login {
 		{
 			Map<String, Object> httpSession = ActionContext.getContext().getSession();
 			httpSession.put("login_userID",findResult);
-			//if(activityID.isEmpty())
-			if (activityID == "" || activityID == null)
-				return "true"; 
-			else
+
+			if(flag.isEmpty())
+				return "true";
+			else if(flag.equals("1"))
 				return "turn2activityInfo";
+			else if(flag.equals("2"))
+				return "turn2settle";
+			else 
+				return "false";
 		}
-			
 	}
 
 	public User getLogin_user() {
@@ -56,6 +58,14 @@ public class Login {
 
 	public void setActivityID(String activityID) {
 		this.activityID = activityID;
+	}
+
+	public String getFlag() {
+		return flag;
+	}
+
+	public void setFlag(String flag) {
+		this.flag = flag;
 	}
 
 }

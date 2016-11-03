@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script src="http://lib.sinaapp.com/js/jquery/1.6/jquery.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -23,8 +25,10 @@
 		</div>
 		<div>
 			<div class="col-md-6 column">
-				已创建活动<br>
-				<table>
+			<div class="panel panel-default">
+ 			 <div class="panel-heading">已创建活动</div>
+ 			 <div class="panel-body">
+				<table class="table table-striped table-hover ">
 					<thead>
 						<tr>
 							<th>活动名称</th>
@@ -34,19 +38,31 @@
 					</thead>
 					<tbody>
 						<s:iterator value="ownedActivity" id='o'>
-							<tr>
+							<s:if test="#o.type==0">
+							<tr class="danger">
 								<td><a href="showActivity?activityID=<s:property value="#o.id" />"><s:property value="#o.name" /></a></td>
 								<td><s:property value="#o.createDate" /></td>
 								<td><s:property value="#o.endDate" /></td>
 							</tr>
+							</s:if>
+							<s:if test="#o.type==1">
+							<tr class="success">
+								<td><a href="showActivity?activityID=<s:property value="#o.id" />"><s:property value="#o.name" /></a></td>
+								<td><s:property value="#o.createDate" /></td>
+								<td><s:property value="#o.endDate" /></td>
+							</tr>
+							</s:if>
 						</s:iterator>
 					</tbody>
 				</table>
+				  </div>
+				</div>
 			</div>
-
 			<div class="col-md-6 column">
-				已加入活动<br>
-				<table>
+						<div class="panel panel-default">
+ 			 <div class="panel-heading">已加入活动</div>
+ 			 <div class="panel-body">
+				<table class="table table-striped table-hover ">
 					<thead>
 						<tr>
 							<th>活动名称</th>
@@ -56,14 +72,25 @@
 					</thead>
 					<tbody>
 						<s:iterator value="joinedActivity" id='j'>
-							<tr>
+							<s:if test="#j.type==0">
+							<tr class="danger">
 								<td><a href="showActivity?activityID=<s:property value="#j.id" />"><s:property value="#j.name" /></a></td>
 								<td><s:property value="#j.createDate" /></td>
 								<td><s:property value="#j.endDate" /></td>
 							</tr>
+							</s:if>
+							<s:if test="#j.type==1">
+							<tr class="success">
+								<td><a href="showActivity?activityID=<s:property value="#j.id" />"><s:property value="#j.name" /></a></td>
+								<td><s:property value="#j.createDate" /></td>
+								<td><s:property value="#j.endDate" /></td>
+							</tr>
+							</s:if>
 						</s:iterator>
 					</tbody>
 				</table>
+				</div>
+				</div>
 			</div>
 		</div>
 </body>

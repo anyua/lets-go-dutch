@@ -18,15 +18,14 @@ $(document).ready(function(){
 </head>
 <body>
 <form action="createActivity">
-	Name:<input type="text" name="newActivity.name" ><br>
-	Info:<input type="text" name="newActivity.info" ><br>
-	CreateDate:<input type="text" name="newActivity.createDate" ><br>
-	EndDate:<input type="text" name="newActivity.endDate" ><br>
-	wholeAmount:<input type="text" name="newActivity.wholeAmount" ><br>
-	size:<input type="text" name="newActivity.size" ><br>
-	<input type="button" id="addItem" value="添加项目" />
+	活动名称:<input type="text" name="newActivity.name" ><br>
+	活动相关信息:<input type="text" name="newActivity.info" ><br>
+	活动开始日期:<input type="text" name="newActivity.createDate" ><br>
+	活动结束日期:<input type="text" name="newActivity.endDate" ><br>
+	活动最大人数（可选）:<input type="text" name="newActivity.size" ><br>
+	<input type="button" id="addItem" value="添加一个新的项目" />
 	<div id="addform"></div>
-    <input type="submit"  value="创建活动" />
+    <input type="submit"  value="提交创建活动" />
 </form>
 </body>
 </html>

@@ -11,7 +11,7 @@
 
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<!-- 是否在控制台显示sql语句 -->
-		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.show_sql">false</property>
 		<!-- 是否格式化显示的sql语句 -->
 		<property name="hibernate.format_sql">true</property>
 
@@ -23,6 +23,7 @@
 		<mapping resource="com/hbm/model/Activity.hbm.xml" />
 		<mapping resource="com/hbm/model/Item.hbm.xml" />
 		<mapping resource="com/hbm/model/Member.hbm.xml" />
+		<mapping resource="com/hbm/model/Message.hbm.xml" />
 
 	</session-factory>
 </hibernate-configuration>

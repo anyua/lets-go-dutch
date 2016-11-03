@@ -12,6 +12,7 @@
    		<result name="true" type="chain">showUserInfo</result>
    		<result name="false">/login_fail.jsp</result>
    		<result name="turn2activityInfo" type="chain">showActivity</result>
+   		<result name="turn2settle" type="chain">settle</result>
    	</action>
    	
    	<action name="sign">
@@ -84,10 +85,19 @@
    		<result name="success" type="json"></result>
    	</action>
    	
+   	<action name="feedBack"
+   		class="com.struts.action.Feedback"
+   		method="askForAmount">
+   		<result name="success" type="json"></result>
+   	</action>
+   	
    	<action name="settle"
    		class="com.struts.action.Settle"
    		method="activitySettle">
-   		<result name="success">settle_page_for_owner.jsp</result>
+   		<result name="owner">settle_page_for_owner.jsp</result>
+   		<result name="needLogin">/index.jsp</result>
+   		<result name="joinner">settle_page_for_joinner.jsp</result>
+   		<result name="false">login_fail.jsp</result>
    	</action>
    	
    	 <action name="*">

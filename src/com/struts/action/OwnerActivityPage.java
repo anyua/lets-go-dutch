@@ -17,6 +17,8 @@ public class OwnerActivityPage {
 	private Set<Item> originalItem ;
 	
 	private String activityID;
+	private String shareURL;
+	private String flag;
 	
 	public String showActivity() {
 		Map<String, Object> httpSession =ActionContext.getContext().getSession();
@@ -25,6 +27,7 @@ public class OwnerActivityPage {
 		if(userId==null)
 			return "needLogin";
 		updateActivity = activityOperation.getActivity(activityID);
+		shareURL = "http://localhost:8080/lets_go_dutch/showActivity?activityID="+activityID+"&flag=1";
 		if (updateActivity == null)
 			return "false";
 		else 
@@ -144,6 +147,22 @@ public class OwnerActivityPage {
 
 	public void setActivityID(String activityID) {
 		this.activityID = activityID;
+	}
+
+	public String getShareURL() {
+		return shareURL;
+	}
+
+	public void setShareURL(String shareURL) {
+		this.shareURL = shareURL;
+	}
+
+	public String getFlag() {
+		return flag;
+	}
+
+	public void setFlag(String flag) {
+		this.flag = flag;
 	}
 	
 }

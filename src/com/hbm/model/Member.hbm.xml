@@ -25,5 +25,10 @@
       	<key column="member_id"></key>
         <many-to-many class="com.hbm.model.Item" column="item_id"/>
       </set>
+      
+      <set name="messages"  lazy="false" >
+         <key column="member_id"></key>
+         <one-to-many class="com.hbm.model.Message"/>
+      </set>
    </class>
 </hibernate-mapping>

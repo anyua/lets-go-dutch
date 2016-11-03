@@ -28,9 +28,11 @@ public class CreateActivity {
 			return "false";
 		else
 		{
+			double wholeAmount=0;
 			for(int i=0;amounts!=null&&detials!=null&&i<detials.length&&i<amounts.length;i++)
 			{
 				activityOperation.addItem(newActivityID, detials[i], amounts[i]);
+				wholeAmount+=amounts[i];
 			}
 			
 			Map<String, Object> httpSession =ActionContext.getContext().getSession();
@@ -40,6 +42,7 @@ public class CreateActivity {
 					newActivityID);
 			userOperation.joinActivity((String)httpSession.get("login_userID"),
 					newActivityID);
+			activityOperation.setAmount(newActivityID, wholeAmount);
 			return "true";
 		}
 			
