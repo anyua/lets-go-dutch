@@ -5,7 +5,7 @@
 	<session-factory>
 		<!-- 连接数据库的基本信息 -->
 		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password">lalala</property>
+		<property name="hibernate.connection.password">802396</property>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/test2</property>
 
