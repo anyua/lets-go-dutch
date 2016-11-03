@@ -9,10 +9,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>加入活动</title>
+  <title>参与的活动的具体的项目</title>
   
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <!-- <link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css">  -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   <link rel="stylesheet" href="assets/css/fonts.googleapis.com.css">
   <link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style">
@@ -20,7 +19,8 @@
   <link rel="stylesheet" href="assets/css/ace-rtl.min.css">
   
   <script src="assets/js/ace-extra.min.js"></script>
-  
+
+   
 </head>
 <body class="skin-1">
   <div id="navbar" class="navbar navbar-default          ace-save-state">
@@ -135,8 +135,8 @@
 		<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
 	  </div>
 	</div>
-	
-	<div class="main-content">
+    
+    <div class="main-content">
       <div class="main-content-inner">
         <div class="breadcrumbs ace-save-state" id="breadcrumbs">
 		  <ul class="breadcrumb">
@@ -144,44 +144,93 @@
 			  <i class="ace-icon fa fa-folder-open home-icon"></i>
 			  <a href="#">首页</a>
 			</li>
-			<li class="active">加入活动</li>
-		  </ul>
+			<li class=""><a href="#">参与的活动</a></li>
+			<li class="active">活动项目</li>
+		  </ul><!-- /.breadcrumb -->
 		</div>
         <div class="page-content">
           <div class="page-header">
           </div>
-   
-          <div class="widget-box" style="/*position: relative; margin-top: 15%;*/border: none;">
-			<div class="widget-body">							
-			  <div class="widget-main">
-			    <form action="joinActivity">								
-				  <fieldset>
-				    <input type="text" class="col-sm-5" name="activityName" placeholder="活动名称" required>
-					<span class="help-block"></span>
-				  </fieldset>
-				  <br>
-				  <div class="no-padding">
-					<button type="button" class="btn btn-sm btn-success">
-							LETS GO
-					  <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
-					</button>
-				  </div>
-				</form>
-			  </div>
-            </div>
-         
+          <div class="row">
+            <div class="col-xs-12">
+              <table id="simple-table" class="table  table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>项目名称</th>
+                    <th>项目金额</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <s:iterator value="originalItem" id='i'>
+                    <tr id="<s:property value="#i.id" />">
+                      <td><s:property value="#i.detial" /></td>
+                      <td><s:property value="#i.amount" /></td>
+                      <td><button id="<s:property value="#i.id" />" class="btn btn-warning">我没去这个项目</button></td>
+                    </tr>
+                  </s:iterator>
+                </tbody>
+              </table>
+            </div><!-- col-xs-12 end -->
+             
           </div>
         </div>
-      </div>
-    </div>  
-	
-	
+	  </div>
+    </div>
+   
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+	  <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+	</a>
+    
   </div>
   
+ 
   <script src="assets/js/jquery-2.1.4.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
   <script src="assets/js/ace-elements.min.js"></script>
   <script src="assets/js/ace.min.js"></script>
   
+  
+  <script type="text/javascript">
+	  $(document).ready(function(){
+		  $("button").click(function(){
+			  url="outOfItem"
+			  $("tr#"+this.id).hide();
+			  data={itemId:this.id,activityName:$("#activityName").html()};
+			  $.get(url,data,
+					  function(){
+					  alert("退出成功");
+		      });
+		  });
+
+			jQuery(function($) {
+				
+				var active_class = 'active';
+				$('#simple-table > thead > tr > th input[type=checkbox]').eq(0).on('click', function(){
+					var th_checked = this.checked;//checkbox inside "TH" table header
+					
+					$(this).closest('table').find('tbody > tr').each(function(){
+						var row = this;
+						if(th_checked) $(row).addClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', true);
+						else $(row).removeClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', false);
+					});
+				});
+				
+				//select/deselect a row when the checkbox is checked/unchecked
+				$('#simple-table').on('click', 'td input[type=checkbox]' , function(){
+					var $row = $(this).closest('tr');
+					if($row.is('.detail-row ')) return;
+					if(this.checked) $row.addClass(active_class);
+					else $row.removeClass(active_class);
+				});
+				
+				$('.show-details-btn').on('click', function(e) {
+					e.preventDefault();
+					$(this).closest('tr').next().toggleClass('open');
+					$(this).find(ace.vars['.icon']).toggleClass('fa-angle-double-down').toggleClass('fa-angle-double-up');
+				});
+				
+			});
+		</script>
 </body>
 </html>

@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>用户界面</title>
+  <title>临时页面</title>
   
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <!-- <link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css">  -->
@@ -94,7 +94,7 @@
 		try{ace.settings.loadState('sidebar')}catch(e){}
       </script>
       <ul class="nav nav-list">
-        <li class="active">
+        <li class="">
           <a href="#">
 			<i class="menu-icon fa fa-tachometer"></i>
 			  <span class="menu-text"> Dashboard </span>
@@ -170,7 +170,7 @@
                 </thead>
                 
                 <tbody>
-                  <s:iterator value="ownedActivity" id='o'>
+                  <s:iterator value="joinedActivity" id='j'>
                   <tr>
                     <td class="center">
 						<label class="pos-rel">
@@ -189,13 +189,13 @@
 					</td>
 					
 					<td>
-					  <a href="showActivity?activityID=<s:property value="#o.id" />"><s:property value="#o.name" /></a>
+					  <a href="showActivity?activityID=<s:property value="#j.id" />"><s:property value="#j.name" /></a>
 					</td>
-					<td><s:property value="#o.createDate" /></td>
-					<td><s:property value="#o.endDate" /></td>
+					<td><s:property value="#j.createDate" /></td>
+					<td><s:property value="#j.endDate" /></td>
 					
 					<td>
-					  <!--  <div class="hidden-sm hidden-xs btn-group">
+					  <div class="hidden-sm hidden-xs btn-group">
 					    <button class="btn btn-xs btn-danger">
 						  <i class="ace-icon fa fa-trash-o bigger-120"></i>
 						</button>
@@ -206,103 +206,68 @@
 							  <i class="ace-icon fa fa-trash-o icon-only bigger-110"></i>
 						  </button>
                         </div>
-                      </div>  -->
-                      
-                      <div class="hidden-sm hidden-xs btn-group">
-						<a href="#" type="button" class="btn btn-xs btn-success">
-						  <i class="ace-icon fa fa-check bigger-120"></i>
-						</a>
-
-						<a href="#" type="button" class="btn btn-xs btn-info">
-						  <i class="ace-icon fa fa-pencil bigger-120"></i>
-						</a>
-
-						<a href="#" type="button" class="btn btn-xs btn-danger">
-						  <i class="ace-icon fa fa-trash-o bigger-120"></i>
-						</a>
-
-						<a href="#" type="button" class="btn btn-xs btn-warning">
-						  <i class="ace-icon fa fa-share-alt bigger-120"></i>
-						</a>
-					  </div>
-                      
-                      <div class="hidden-md hidden-lg">
-                      <div class="inline pos-rel">
-						<button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown" data-position="auto">
-						  <i class="ace-icon fa fa-cog icon-only bigger-110"></i>
-						</button>
-
-						<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-						  <li>
-							<a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-							  <span class="blue">
-							    <i class="ace-icon fa fa-check bigger-120"></i>
-							  </span>
-						    </a>
-						  </li>
-						  
-						  <li>
-							<a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
-							  <span class="green">
-							    <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-							  </span>
-							</a>
-						  </li>
-
-						  <li>
-							<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-							  <span class="red">
-								<i class="ace-icon fa fa-trash-o bigger-120"></i>
-							  </span>
-							</a>
-						  </li>
-						  <li>
-							<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-							  <span class="red">
-								<i class="ace-icon fa fa-share-alt bigger-120"></i>
-							  </span>
-							</a>
-						  </li>
-						</ul>
-					  </div>
-					  </div>							
-                    </td>
+                    </div>
+                  </td>
                   
                   </tr>
+                  </s:iterator>  
+                  
                   <tr class="detail-row">
                     <td colspan="8">
-                      <div class="table-detail" style="padding: 0;">
-                        <div class="col-xs-12 col-sm-9">
-                          <div class="space visible-xs"></div>
-                          <div class="profile-user-info profile-user-info-striped">
-                          
- 							<div class="profile-info-row">
-							  <div class="profile-info-name"> 实际金额  </div>
-							  <div class="profile-info-value">
-								  <span><s:property value="updateActivity.wholeAmount"/></span>
-							  </div>
-							</div>
-							
-							<div class="profile-info-row">
-							  <div class="profile-info-name"> 参与人数  </div>
-							  <div class="profile-info-value">
-								  <span><s:property value="updateActivity.size"/></span>
-							  </div>
-							</div> 
-							
-							<div class="profile-info-row">
-							  <div class="profile-info-name"> 活动介绍 </div>
-							  <div class="profile-info-value">
-								  <span><s:property value="updateActivity.info"/></span>
-							  </div>
-							</div>
-							                          
-                          </div>
+                      <div class="table-detail">
+                        <div class="table-detail">
+                          <div class="row">
+                            <div class="col-xs-12 col-sm-8">
+                              <div class="space visible-xs"></div>
+	                          <div class="profile-user-info profile-user-info-striped">
+	                          
+	 							<div class="profile-info-row">
+								  <div class="profile-info-name"> 实际金额  </div>
+								  <div class="profile-info-value">
+									  <span><s:property value="updateActivity.wholeAmount"/></span>
+								  </div>
+								</div>
+								
+								<div class="profile-info-row">
+								  <div class="profile-info-name"> 参与人数  </div>
+								  <div class="profile-info-value">
+									  <span><s:property value="updateActivity.size"/></span>
+								  </div>
+								</div> 
+								
+								<div class="profile-info-row">
+								  <div class="profile-info-name"> 活动介绍 </div>
+								  <div class="profile-info-value">
+									  <span><s:property value="updateActivity.info"/></span>
+								  </div>
+								</div>                     
+	                          </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4"></div>
+                              <h4 class="header blue lighter less-margin">Send a message to Alex</h4>
+                              <div class="space-6"></div>
+                              <form id="feedBack">
+                                <div class="clearfix">
+								  <label class="pull-left">
+									<input type="text" name="message.amount" placeholder="金额">
+								  </label>
+								</div>
+                                <div class="hr hr-dotted"></div>
+                     			<fieldset>
+								  <textarea class="width-100" resize="none" name="message.remark" placeholder="Type your feedback…"></textarea>
+								</fieldset>
+								<div class="hr hr-dotted"></div>
+								<button id="feedBackButton" class="pull-right btn btn-sm btn-primary btn-white btn-round" type="button">
+									Submit
+								  <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+								</button>   
+								<input type="hidden" name="activityId" value=<s:property value="updateActivity.id"/>>        
+                              </form>
+                            </div>
                         </div> 
                       </div>
                     </td>
                   </tr>
-                  </s:iterator>  
                   
                 </tbody>
               
@@ -319,13 +284,23 @@
     
   </div>
   
- 
   <script src="assets/js/jquery-2.1.4.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
   <script src="assets/js/ace-elements.min.js"></script>
   <script src="assets/js/ace.min.js"></script>
   
   <script type="text/javascript">
+	  $(document).ready(function(){
+		  $("#feedBackButton").click(function(){
+			  var url="feedBack"
+				  var data=$("form#feedBack").serialize()
+				  $.get(url,data,
+						  function(response){
+						  alert("提交成功"+response.activityId);
+			      });
+			  });
+	  });
+
 			jQuery(function($) {
 				
 				var active_class = 'active';
@@ -355,5 +330,6 @@
 				
 			});
 		</script>
+		
 </body>
 </html>

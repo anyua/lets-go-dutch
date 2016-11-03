@@ -18,9 +18,11 @@
   <link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style">
   <link rel="stylesheet" href="assets/css/ace-skins.min.css">
   <link rel="stylesheet" href="assets/css/ace-rtl.min.css">
+  <link rel="stylesheet" href="assets/css/share.min.css">
   
   <script src="assets/js/ace-extra.min.js"></script>
-  
+
+   
 </head>
 <body class="skin-1">
   <div id="navbar" class="navbar navbar-default          ace-save-state">
@@ -94,7 +96,7 @@
 		try{ace.settings.loadState('sidebar')}catch(e){}
       </script>
       <ul class="nav nav-list">
-        <li class="">
+        <li class="active">
           <a href="#">
 			<i class="menu-icon fa fa-tachometer"></i>
 			  <span class="menu-text"> Dashboard </span>
@@ -195,26 +197,71 @@
 					<td><s:property value="#o.endDate" /></td>
 					
 					<td>
-					  <div class="hidden-sm hidden-xs btn-group">
-					    <button class="btn btn-xs btn-danger">
+                      <div class="hidden-sm hidden-xs btn-group">
+						<a href="#" type="button" class="btn btn-xs btn-success" title="Settle">
+						  <i class="ace-icon fa fa-check bigger-120"></i>
+						</a>
+
+						<a href="#" type="button" class="btn btn-xs btn-info" title="Edit">
+						  <i class="ace-icon fa fa-pencil bigger-120"></i>
+						</a>
+
+						<a href="#" type="button" class="btn btn-xs btn-danger" title="Delete">
 						  <i class="ace-icon fa fa-trash-o bigger-120"></i>
-						</button>
+						</a>
+
+						<a href="#" type="button" class="btn btn-xs btn-warning" title="share" data-toggle="modal" data-target="#myModal">
+						  <i class="ace-icon fa fa-share-alt bigger-120"></i>
+						</a>
 					  </div>
+                      
                       <div class="hidden-md hidden-lg">
-                        <div class="inline pos-rel">
-                          <button class="btn btn-minier btn-primary">
-							  <i class="ace-icon fa fa-trash-o icon-only bigger-110"></i>
-						  </button>
-                        </div>
-                    </div>
-                  </td>
+                      <div class="inline pos-rel">
+						<button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown" data-position="auto">
+						  <i class="ace-icon fa fa-cog icon-only bigger-110"></i>
+						</button>
+
+						<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+						  <li>
+							<a href="#" class="tooltip-info" data-rel="tooltip" title="View">
+							  <span class="blue">
+							    <i class="ace-icon fa fa-check bigger-120"></i>
+							  </span>
+						    </a>
+						  </li>
+						  
+						  <li>
+							<a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
+							  <span class="green">
+							    <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
+							  </span>
+							</a>
+						  </li>
+
+						  <li>
+							<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
+							  <span class="red">
+								<i class="ace-icon fa fa-trash-o bigger-120"></i>
+							  </span>
+							</a>
+						  </li>
+						  <li>
+							<a href="#" class="tooltip-error" data-rel="tooltip" title="Share" data-toggle="modal" data-target="#myModal">
+							  <span class="red">
+								<i class="ace-icon fa fa-share-alt bigger-120"></i>
+							  </span>
+							</a>
+						  </li>
+						</ul>
+						
+					  </div>
+					  </div>							
+                    </td>
                   
                   </tr>
-                  </s:iterator>  
-                  
                   <tr class="detail-row">
                     <td colspan="8">
-                      <div class="table-detail">
+                      <div class="table-detail" style="padding: 0;">
                         <div class="col-xs-12 col-sm-9">
                           <div class="space visible-xs"></div>
                           <div class="profile-user-info profile-user-info-striped">
@@ -245,6 +292,7 @@
                       </div>
                     </td>
                   </tr>
+                  </s:iterator>  
                   
                 </tbody>
               
@@ -255,65 +303,70 @@
       </div>
     </div>
     
+    <div class="modal fade" style="position: fixed; " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			  <h4 class="modal-title" id="myModalLabel">分享</h4>
+		  </div>
+		  <div class="modal-body">
+			<div class="social-share"  data-disabled="google,twitter,facebook" data-url=<s:property value="shareURL" /> ></div>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		  </div>
+		</div>
+	   </div>
+	</div>
+    
     <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
 	  <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
 	</a>
     
   </div>
   
+ 
   <script src="assets/js/jquery-2.1.4.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/jquery.dataTables.min.js"></script>
   <script src="assets/js/ace-elements.min.js"></script>
   <script src="assets/js/ace.min.js"></script>
+  <script src="assets/js/jquery.share.min.js"></script>
+  
   
   <script type="text/javascript">
+  function centerModals(){
+	    $('.modal').each(function(i){   //遍历每一个模态框
+	        var $clone = $(this).clone().css('display', 'block').appendTo('body');    
+	        var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
+	        top = top > 0 ? top : 0;
+	        $clone.remove();
+	        $(this).find('.modal-content').css("margin-top", top-30);  //修正原先已经有的30个像素
+	    });
+	}
+	$('.modal').on('show.bs.modal', centerModals);      //当模态框出现的时候
+	$(window).on('resize', centerModals);               //当窗口大小变化的时候
+	
 			jQuery(function($) {
-				//initiate dataTables plugin
-				var myTable = 
-				$('#dynamic-table')
-				//.wrap("<div class='dataTables_borderWrap' />")   //if you are applying horizontal scrolling (sScrollX)
-				.DataTable( {
-					bAutoWidth: false,
-					"aoColumns": [
-					  { "bSortable": false },
-					  null, null,null, null, null,
-					  { "bSortable": false }
-					],
-					"aaSorting": [],
-					
-					select: {
-						style: 'multi'
-					}
-			    } );
-			
-				$('th input[type=checkbox], td input[type=checkbox]').prop('checked', false);
 				
-				//select/deselect all rows according to table header checkbox
-				$('#dynamic-table > thead > tr > th input[type=checkbox], #dynamic-table_wrapper input[type=checkbox]').eq(0).on('click', function(){
+				var active_class = 'active';
+				$('#simple-table > thead > tr > th input[type=checkbox]').eq(0).on('click', function(){
 					var th_checked = this.checked;//checkbox inside "TH" table header
 					
-					$('#dynamic-table').find('tbody > tr').each(function(){
+					$(this).closest('table').find('tbody > tr').each(function(){
 						var row = this;
-						if(th_checked) myTable.row(row).select();
-						else  myTable.row(row).deselect();
+						if(th_checked) $(row).addClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', true);
+						else $(row).removeClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', false);
 					});
 				});
 				
 				//select/deselect a row when the checkbox is checked/unchecked
-				$('#dynamic-table').on('click', 'td input[type=checkbox]' , function(){
-					var row = $(this).closest('tr').get(0);
-					if(this.checked) myTable.row(row).deselect();
-					else myTable.row(row).select();
+				$('#simple-table').on('click', 'td input[type=checkbox]' , function(){
+					var $row = $(this).closest('tr');
+					if($row.is('.detail-row ')) return;
+					if(this.checked) $row.addClass(active_class);
+					else $row.removeClass(active_class);
 				});
-			
-	
-				$(document).on('click', '#dynamic-table .dropdown-toggle', function(e) {
-					e.stopImmediatePropagation();
-					e.stopPropagation();
-					e.preventDefault();
-				});
-				
 				
 				$('.show-details-btn').on('click', function(e) {
 					e.preventDefault();
@@ -323,6 +376,5 @@
 				
 			});
 		</script>
-		
 </body>
 </html>

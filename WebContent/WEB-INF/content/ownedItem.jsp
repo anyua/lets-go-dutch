@@ -9,10 +9,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>参与的活动</title>
+  <title>创建的活动的具体项目</title>
   
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <!-- <link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css">  -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   <link rel="stylesheet" href="assets/css/fonts.googleapis.com.css">
   <link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style">
@@ -20,7 +19,8 @@
   <link rel="stylesheet" href="assets/css/ace-rtl.min.css">
   
   <script src="assets/js/ace-extra.min.js"></script>
-  
+
+   
 </head>
 <body class="skin-1">
   <div id="navbar" class="navbar navbar-default          ace-save-state">
@@ -94,7 +94,7 @@
 		try{ace.settings.loadState('sidebar')}catch(e){}
       </script>
       <ul class="nav nav-list">
-        <li class="">
+        <li class="active">
           <a href="#">
 			<i class="menu-icon fa fa-tachometer"></i>
 			  <span class="menu-text"> Dashboard </span>
@@ -144,7 +144,8 @@
 			  <i class="ace-icon fa fa-folder-open home-icon"></i>
 			  <a href="#">首页</a>
 			</li>
-			<li class="active">参与的活动</li>
+			<li class=""><a href="#">参与的活动</a></li>
+			<li class="active">活动项目</li>
 		  </ul><!-- /.breadcrumb -->
 		</div>
         <div class="page-content">
@@ -152,155 +153,205 @@
           </div>
           <div class="row">
             <div class="col-xs-12">
-              <table id="simple-table" class="table  table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <th class="center">
-                      <label class="pos-rel">
-						<input type="checkbox" class="ace" />
-						<span class="lbl"></span>
-					  </label>
-                    </th>
-                    <th class="detail-col">Details</th>
-					<th>活动名称</th>
-					<th>开始日期</th>
-					<th>结束日期</th>
-					<th></th>
-                  </tr>
-                </thead>
-                
-                <tbody>
-                  <s:iterator value="joinedActivity" id='j'>
-                  <tr>
-                    <td class="center">
-						<label class="pos-rel">
-						  <input type="checkbox" class="ace" />
-						  <span class="lbl"></span>
-						</label>
-					</td>
-					
-					<td class="center">
-					  <div class="action-buttons">
-					    <a href="#" class="green bigger-140 show-details-btn" title="Show Details">
-						  <i class="ace-icon fa fa-angle-double-down"></i>
-						  <span class="sr-only">Details</span>
-						</a>
-					  </div>
-					</td>
-					
-					<td>
-					  <a href="showActivity?activityID=<s:property value="#j.id" />"><s:property value="#j.name" /></a>
-					</td>
-					<td><s:property value="#j.createDate" /></td>
-					<td><s:property value="#j.endDate" /></td>
-					
-					<td>
-					  <div class="hidden-sm hidden-xs btn-group">
-					    <button class="btn btn-xs btn-danger">
-						  <i class="ace-icon fa fa-trash-o bigger-120"></i>
-						</button>
-					  </div>
-                      <div class="hidden-md hidden-lg">
-                        <div class="inline pos-rel">
-                          <button class="btn btn-minier btn-primary">
-							  <i class="ace-icon fa fa-trash-o icon-only bigger-110"></i>
-						  </button>
+         
+                <div class="widget-box transparent" id="recent-box">
+                  <div class="widget-header">
+                    <h4 class="widget-title lighter smaller">
+					  <i class="ace-icon fa fa-rss orange"></i>
+					  Activity
+					</h4>
+					<div class="widget-toolbar no-border">
+					  <ul class="nav nav-tabs" id="recent-tab">
+						<li class="active">
+						  <a data-toggle="tab" href="#task-tab">Items</a>
+						</li>
+						<li>
+						  <a data-toggle="tab" href="#member-tab">Members</a>
+						</li>
+						<li>
+						  <a data-toggle="tab" href="#comment-tab">Comments</a>
+						</li>
+					  </ul>
+					</div>						
+                  </div><!-- widget-header-end -->
+                  
+                  <div class="widget-body">
+                    <div class="widget-main padding-4">
+                      <div class="tab-content padding-8">
+                        <div id="task-tab" class="tab-pane active">
+                          <h4 class="smaller lighter green">
+						    <i class="ace-icon fa fa-list"></i>
+						    Activity Items
+						  </h4> 
+						  <table id="simple-table" class="table  table-bordered table-hover">
+						    <thead>
+						      <tr>
+						        <th>项目名称</th>
+						        <th>金额</th>
+						        <th>操作</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+						      <s:iterator value="updateActivity.members" id='i'>
+						          <td><s:property value="#i.detail" /></td>
+						          <td><s:property value="#i.amount" /></td>
+						          <td>
+						            <div class="btn-group">
+									  <a href="#" type="button" class="btn btn-xs btn-danger" title="删除">
+									    <i class="ace-icon fa fa-trash-o bigger-120"></i>
+									  </a>
+						            </div>
+						          </td>
+						      </s:iterator>
+						    </tbody>
+						  </table> 
                         </div>
-                    </div>
-                  </td>
-                  
-                  </tr>
-                  </s:iterator>  
-                  
-                  <tr class="detail-row">
-                    <td colspan="8">
-                      <div class="table-detail">
-                        <div class="table-detail">
-                          <div class="row">
-                            <div class="col-xs-12 col-sm-8">
-                              <div class="space visible-xs"></div>
-	                          <div class="profile-user-info profile-user-info-striped">
-	                          
-	 							<div class="profile-info-row">
-								  <div class="profile-info-name"> 实际金额  </div>
-								  <div class="profile-info-value">
-									  <span><s:property value="updateActivity.wholeAmount"/></span>
-								  </div>
-								</div>
-								
-								<div class="profile-info-row">
-								  <div class="profile-info-name"> 参与人数  </div>
-								  <div class="profile-info-value">
-									  <span><s:property value="updateActivity.size"/></span>
-								  </div>
-								</div> 
-								
-								<div class="profile-info-row">
-								  <div class="profile-info-name"> 活动介绍 </div>
-								  <div class="profile-info-value">
-									  <span><s:property value="updateActivity.info"/></span>
-								  </div>
-								</div>                     
-	                          </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-4"></div>
-                              <h4 class="header blue lighter less-margin">Send a message to Alex</h4>
-                              <div class="space-6"></div>
-                              <form id="feedBack">
-                                <div class="clearfix">
-								  <label class="pull-left">
-									<input type="text" name="message.amount" placeholder="金额">
+                        
+                        <div id="member-tab" class="tab-pane">
+                          <h4 class="smaller lighter green">
+						    <i class="ace-icon fa fa-list"></i>
+						    Members
+						    <a href="#" type="button" class="btn btn-xs btn-danger pull-right" title="批量删除">
+							  <i class="ace-icon fa fa-trash-o bigger-120"></i>
+						    </a>
+						  </h4> 
+						  
+						  <table id="simple-table" class="table  table-bordered table-hover">
+						    <thead>
+						      <tr>
+						        <th class="center">
+						          <label class="pos-rel">
+									<input type="checkbox" class="ace" />
+									<span class="lbl"></span>
 								  </label>
-								</div>
-                                <div class="hr hr-dotted"></div>
-                     			<fieldset>
-								  <textarea class="width-100" resize="none" name="message.remark" placeholder="Type your feedback…"></textarea>
-								</fieldset>
-								<div class="hr hr-dotted"></div>
-								<button id="feedBackButton" class="pull-right btn btn-sm btn-primary btn-white btn-round" type="button">
-									Submit
-								  <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
-								</button>   
-								<input type="hidden" name="activityId" value=<s:property value="updateActivity.id"/>>        
-                              </form>
-                            </div>
-                        </div> 
+						        </th>
+						        <th class="detail-col"></th>
+						        <th>昵称</th>
+						        <th>用户名</th>
+						        <th>操作</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+						      <s:iterator value="updateActivity.members" id='i'>
+						      <tr>
+						        <td class="center">
+								  <label class="pos-rel">
+								    <input type="checkbox" class="ace" />
+								    <span class="lbl"></span>
+								  </label>
+								</td>
+								<td class="center">
+								  <div class="action-buttons">
+								    <a href="#" class="green bigger-140 show-details-btn" title="Show Details">
+									  <i class="ace-icon fa fa-angle-double-down"></i>
+									</a>
+								  </div>
+								</td>
+						        <td><s:property value="%{#i.user.nickname}" /></td>
+						        <td><s:property value="%{#i.user.userName}" /></td>
+						        <td>
+						          <div class="btn-group">
+						            <a href="#" type="button" class="btn btn-xs btn-info" title="成员信息">
+									    <i class="ace-icon fa fa-info-circle bigger-120"></i>
+									</a>
+									<a href="#" type="button" class="btn btn-xs btn-danger" title="删除">
+									  <i class="ace-icon fa fa-trash-o bigger-120"></i>
+									</a>
+						          </div>
+						        </td>
+						       </tr>
+						       
+						        <s:iterator value="#i.joinItems" id='j'>
+						        <tr class="detail-row">
+						          <td colspan="8">
+						            <div class="table-detail" style="padding: 0;">
+						              <div class="profile-info-row">
+							            <div class="profile-info-name">项目名称</div>
+							            <div class="profile-info-value">
+							              <span><s:property value="#i.detial" /></span>
+							            </div>
+							            <div class="profile-info-name">项目金额</div>
+							            <div class="profile-info-value">
+							              <span><s:property value="#i.amount" /></span>
+							            </div>
+							          </div>
+						            </div>
+						          </td>
+						  	    </tr>
+						  	    </s:iterator>
+						      </s:iterator>
+						  
+						    </tbody>
+						  </table>
+				
+                        </div>
+                        
+                        <div id="comment-tab" class="tab-pane">
+                          <h4 class="smaller lighter green">
+						    <i class="ace-icon fa fa-list"></i>
+						    Feedback
+						  </h4>
+						  <table id="simple-table" class="table  table-bordered table-hover">
+						    <thead>
+						      <tr>
+						        <th>发送者</th>
+						        <th>金额</th>
+						        <th>备注</th>
+						        <th>操作</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+						      <s:iterator value="updateActivity.members" id='i'>
+						        <s:iterator value="#i.messages" id='j'>
+						          <td><s:property value="%{#i.user.nickname}" /></td>
+						          <td><s:property value="#j.amount" /></td>
+						          <td><s:property value="#j.remark" /></td>
+						          <td>
+						            <div class="btn-group">
+						              <a href="#" type="button" class="btn btn-xs btn-success" title="接受">
+						      			<i class="ace-icon fa fa-check bigger-120"></i>
+									  </a>
+
+									  <a href="#" type="button" class="btn btn-xs btn-danger" title="拒绝">
+									    <i class="ace-icon fa fa-times bigger-120"></i>
+									  </a>
+						            </div>
+						          </td>
+						        </s:iterator>
+						      </s:iterator>
+						    </tbody>
+						    
+						  </table>
+						  
+                        </div>   
+                     
+                     
                       </div>
-                    </td>
-                  </tr>
+                    </div>
+                  </div>  <!-- widget-body end -->
                   
-                </tbody>
-              
-              </table>
+                </div><!-- widget-box end -->
+              </div><!-- col-xs-12 end -->
+             
             </div>
           </div>
 		</div>
       </div>
-    </div>
-    
+   
     <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
 	  <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
 	</a>
     
   </div>
   
+ 
   <script src="assets/js/jquery-2.1.4.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
   <script src="assets/js/ace-elements.min.js"></script>
   <script src="assets/js/ace.min.js"></script>
   
+  
   <script type="text/javascript">
-	  $(document).ready(function(){
-		  $("#feedBackButton").click(function(){
-			  var url="feedBack"
-				  var data=$("form#feedBack").serialize()
-				  $.get(url,data,
-						  function(response){
-						  alert("提交成功"+response.activityId);
-			      });
-			});
-	  });
-
 			jQuery(function($) {
 				
 				var active_class = 'active';
@@ -330,6 +381,5 @@
 				
 			});
 		</script>
-		
 </body>
 </html>

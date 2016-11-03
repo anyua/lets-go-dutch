@@ -172,13 +172,6 @@
 				  </div>
 			    </div>
 			    
-			    <div class="form-group">
-				  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 活动预算  </label>
-				  <div class="col-sm-9">
-				    <input type="text" class="col-xs-10 col-sm-2" id="form-field-1"  name="newActivity.wholeAmount" />
-				  </div>
-			    </div>
-			    
 			     <div class="form-group">
 			       <label class="col-sm-3 control-label no-padding-right" for="id-date-picker-1"> 起始日期 </label>
 			       <div class="col-sm-9">

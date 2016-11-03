@@ -39,15 +39,16 @@
    	<action name="showUserInfo"
    		class="com.struts.action.IdentityPage"
    		method="showUserInfo">
-   		<result name="success">/WEB-INF/content/creator.jsp</result>
+   		<result name="success">/WEB-INF/content/ownedActivity.jsp</result>
    	</action>
    	
    	<action name="showActivity"
    		class="com.struts.action.OwnerActivityPage"
    		method="showActivity">
-   		<result name="owner">/activity_info.jsp</result>
-   		<result name="joiner">/activity_info_joined.jsp</result>
-   		<result name="needLogin">/index.jsp</result>
+   		<!-- <result name="owner">/activity_info.jsp</result>   -->
+   		<result name="owner">/WEB-INF/content/ownedItem.jsp</result>
+   		<result name="joiner">/WEB-INF/content/joinedItem.jsp</result>
+   		<result name="needLogin">/WEB-INF/content/index.jsp</result>
    		<result name="false">/login_fail.jsp</result>
    	</action>
    	
