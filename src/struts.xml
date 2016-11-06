@@ -15,25 +15,17 @@
    		<result name="turn2settle" type="chain">settle</result>
    	</action>
    	
-   	<action name="sign">
-   		<result>/signup.jsp</result>
-   	</action>
-   	
    	<action name="signup"
    		class="com.struts.action.Signup"
    		method="signUp">
-   		<result name="true">/login_success.jsp</result>
+   		<result name="true">/WEB-INF/content/loginpage.jsp</result>
    		<result name="false">/login_fail.jsp</result>
-   	</action>
-   	
-   	<action name="callCreateActivity">
-   		<result>/activity_choice.jsp</result>
    	</action>
    	
    	<action name="createActivity"
    		class="com.struts.action.CreateActivity"
    		method="createActivity">
-   		<result name="true" type="chain">showActivity</result>
+   		<result name="true" type="chain">showUserInfo</result>
    		<result name="false">/login_fail.jsp</result>
    	</action>
    	

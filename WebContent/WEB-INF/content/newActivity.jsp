@@ -164,7 +164,7 @@
 				    <input type="text" class="col-xs-10 col-sm-4" id="form-field-1"  name="newActivity.name" placeholder="最长不超过15个字符" size="15" />
 				  </div>
 			    </div>
-			    
+			   
 			    <div class="form-group">
 				  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 参与人数  </label>
 				  <div class="col-sm-9">
@@ -288,8 +288,9 @@
   			var i=0;
   			$("#addItem").click(function(){
   				i=i+1;
-  	    		$("#addform").append("<tr><td>"+i+"&nbsp"+"</td><td><input id=\"itemdetials\" name=\"detials\" type=\"text\" value=\"项目信息\"></td><td><input name=\"amounts\" type=\"text\" value=\"项目金额\"></td></tr>");
-  	    		
+  	    	
+  	    		$("#addform").append("<div class='form-group'><label class='col-sm-1 control-label no-padding-right' for='form-field-1'>"+i+"</label>"
+  	    				+"<div class='col-sm-8'><input class='col-xs-10 col-sm-4' id=\"itemdetials\" name=\"detials\" type=\"text\" placeholder=\"项目名称\"><input class='col-xs-10 col-sm-4' name=\"amounts\" type=\"text\" placeholder=\"项目金额\"></div></div>");
   			});
   		});
   </script>

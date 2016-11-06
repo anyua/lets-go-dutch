@@ -14,6 +14,9 @@
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <!-- <link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css">  -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  
+  <link rel="stylesheet" href="assets/css/jquery-ui.custom.min.css" />
+  
   <link rel="stylesheet" href="assets/css/fonts.googleapis.com.css">
   <link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style">
   <link rel="stylesheet" href="assets/css/ace-skins.min.css">
@@ -94,7 +97,7 @@
 		try{ace.settings.loadState('sidebar')}catch(e){}
       </script>
       <ul class="nav nav-list">
-        <li class="">
+        <li class="active">
           <a href="#">
 			<i class="menu-icon fa fa-tachometer"></i>
 			  <span class="menu-text"> Dashboard </span>
@@ -170,7 +173,7 @@
                 </thead>
                 
                 <tbody>
-                  <s:iterator value="joinedActivity" id='j'>
+                  
                   <tr>
                     <td class="center">
 						<label class="pos-rel">
@@ -189,10 +192,10 @@
 					</td>
 					
 					<td>
-					  <a href="showActivity?activityID=<s:property value="#j.id" />"><s:property value="#j.name" /></a>
+					  <a href="joinedItem">参与的第一个活动</a>
 					</td>
-					<td><s:property value="#j.createDate" /></td>
-					<td><s:property value="#j.endDate" /></td>
+					<td>2016/11/01</td>
+					<td>2016/11/03</td>
 					
 					<td>
 					  <div class="hidden-sm hidden-xs btn-group">
@@ -210,61 +213,79 @@
                   </td>
                   
                   </tr>
-                  </s:iterator>  
+                 
                   
                   <tr class="detail-row">
-                    <td colspan="8">
+                    <td colspan="6">
                       <div class="table-detail">
-                        <div class="table-detail">
-                          <div class="row">
-                            <div class="col-xs-12 col-sm-8">
-                              <div class="space visible-xs"></div>
+                        <div class="row">
+                          <div class="col-xs-12 col-sm-2">
+                            <a href="#"><img height="50" width="140" class="thumbnail" alt="现金支付" src="assets/images/alipay.jpg" /></a>
+                            <a href="#"><img height="50" width="140" class="thumbnail" alt="支付宝" src="assets/images/wepay.png" /></a>
+                            <a href="#"><img height="50" width="140" class="thumbnail" alt="微信" src="assets/images/alipay.jpg" /></a>
+                          </div>
+                            <div class="col-xs-12 col-sm-7">
+                              
 	                          <div class="profile-user-info profile-user-info-striped">
-	                          
 	 							<div class="profile-info-row">
-								  <div class="profile-info-name"> 实际金额  </div>
+								  <div class="profile-info-name"> 实际总额  </div>
 								  <div class="profile-info-value">
-									  <span><s:property value="updateActivity.wholeAmount"/></span>
+									  <span>500</span>
 								  </div>
 								</div>
 								
 								<div class="profile-info-row">
 								  <div class="profile-info-name"> 参与人数  </div>
 								  <div class="profile-info-value">
-									  <span><s:property value="updateActivity.size"/></span>
+									  <span>12</span>
 								  </div>
 								</div> 
 								
 								<div class="profile-info-row">
+								  <div class="profile-info-name"> 活动状态  </div>
+								  <div class="profile-info-value">
+									  <span>已结束，结算中</span>
+								  </div>
+								</div> 
+								
+								<div class="profile-info-row">
+								  <div class="profile-info-name"> 个人应付  </div>
+								  <div class="profile-info-value">
+									  <span>50</span>
+								  </div>
+								</div>
+								
+								<div class="profile-info-row">
 								  <div class="profile-info-name"> 活动介绍 </div>
 								  <div class="profile-info-value">
-									  <span><s:property value="updateActivity.info"/></span>
+									  <span>啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+									  啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦</span>
 								  </div>
-								</div>                     
+								</div>  
+								              
 	                          </div>
                             </div>
-                            <div class="col-xs-12 col-sm-4"></div>
-                              <h4 class="header blue lighter less-margin">Send a message to Alex</h4>
-                              <div class="space-6"></div>
+                            <div class="col-xs-12 col-sm-3">
+                              <div class="space visible-xs"></div>
+                              <h4 class="header blue lighter less-margin">Send a feedback</h4>
+                              
                               <form id="feedBack">
-                                <div class="clearfix">
-								  <label class="pull-left">
-									<input type="text" name="message.amount" placeholder="金额">
-								  </label>
-								</div>
-                                <div class="hr hr-dotted"></div>
+                                
                      			<fieldset>
-								  <textarea class="width-100" resize="none" name="message.remark" placeholder="Type your feedback…"></textarea>
+								  <textarea class="width-100 limited" resize="none" name="" placeholder="Type your feedback…" maxlength="20"></textarea>
 								</fieldset>
 								<div class="hr hr-dotted"></div>
-								<button id="feedBackButton" class="pull-right btn btn-sm btn-primary btn-white btn-round" type="button">
-									Submit
-								  <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
-								</button>   
+								<div class="clearfix">
+								  <input type="text" class="pull-left col-sm-4" id="form-field-1" name="" placeholder="差额">
+								  <button id="feedBackButton" class="pull-right btn btn-sm btn-primary btn-white btn-round" type="button">
+									  Submit
+								    <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+								  </button> 
+								</div>  
 								<input type="hidden" name="activityId" value=<s:property value="updateActivity.id"/>>        
                               </form>
                             </div>
-                        </div> 
+                      	</div>
                       </div>
                     </td>
                   </tr>
@@ -286,6 +307,10 @@
   
   <script src="assets/js/jquery-2.1.4.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
+  
+  <script src="assets/js/jquery-ui.custom.min.js"></script>
+  <script src="assets/js/jquery.inputlimiter.min.js"></script>
+  
   <script src="assets/js/ace-elements.min.js"></script>
   <script src="assets/js/ace.min.js"></script>
   
@@ -326,6 +351,11 @@
 					e.preventDefault();
 					$(this).closest('tr').next().toggleClass('open');
 					$(this).find(ace.vars['.icon']).toggleClass('fa-angle-double-down').toggleClass('fa-angle-double-up');
+				});
+				
+				$('textarea.limited').inputlimiter({
+					remText: '%n character%s remaining...',
+					limitText: 'max allowed : %n.'
 				});
 				
 			});

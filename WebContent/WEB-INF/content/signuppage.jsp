@@ -26,7 +26,7 @@
         <!-- 考虑用网站的icon什么的，暂时留白 -->
       </div>
       <div class="logsign-content">
-        <form id="signup-form" method="post" action="signup">
+        <form id="signup-form"  action="signup" method="post">
           <fieldset>
             <legend>
               SIGN UP  <!-- 可换成其他的文字，暂时用这个 -->

@@ -162,13 +162,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <s:iterator value="originalItem" id='i'>
+                  
                     <tr id="<s:property value="#i.id" />">
-                      <td><s:property value="#i.detial" /></td>
-                      <td><s:property value="#i.amount" /></td>
-                      <td><button id="<s:property value="#i.id" />" class="btn btn-warning">我没去这个项目</button></td>
+                      <td>吃饭</td>
+                      <td>300</td>
+                      <td><button id="<s:property value="#i.id" />" class="btn btn-xs btn-warning">我没去这个项目</button></td>
                     </tr>
-                  </s:iterator>
+                  
                 </tbody>
               </table>
             </div><!-- col-xs-12 end -->
@@ -192,45 +192,18 @@
   
   
   <script type="text/javascript">
-	  $(document).ready(function(){
-		  $("button").click(function(){
-			  url="outOfItem"
-			  $("tr#"+this.id).hide();
-			  data={itemId:this.id,activityName:$("#activityName").html()};
-			  $.get(url,data,
-					  function(){
-					  alert("退出成功");
-		      });
-		  });
-
-			jQuery(function($) {
-				
-				var active_class = 'active';
-				$('#simple-table > thead > tr > th input[type=checkbox]').eq(0).on('click', function(){
-					var th_checked = this.checked;//checkbox inside "TH" table header
-					
-					$(this).closest('table').find('tbody > tr').each(function(){
-						var row = this;
-						if(th_checked) $(row).addClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', true);
-						else $(row).removeClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', false);
-					});
-				});
-				
-				//select/deselect a row when the checkbox is checked/unchecked
-				$('#simple-table').on('click', 'td input[type=checkbox]' , function(){
-					var $row = $(this).closest('tr');
-					if($row.is('.detail-row ')) return;
-					if(this.checked) $row.addClass(active_class);
-					else $row.removeClass(active_class);
-				});
-				
-				$('.show-details-btn').on('click', function(e) {
-					e.preventDefault();
-					$(this).closest('tr').next().toggleClass('open');
-					$(this).find(ace.vars['.icon']).toggleClass('fa-angle-double-down').toggleClass('fa-angle-double-up');
-				});
-				
-			});
-		</script>
+  $(document).ready(function(){
+	  $("button").click(function(){
+		  url="outOfItem"
+		  $("tr#"+this.id).hide();
+		  data={itemId:this.id,activityName:$("#activityName").html()};
+		  $.get(url,data,
+				  function(){
+				  alert("退出成功");
+	      });
+	  });
+	  
+	});
+  </script>
 </body>
 </html>

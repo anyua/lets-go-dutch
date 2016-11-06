@@ -16,29 +16,7 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Catamaran">
   <link rel="stylesheet" type="text/css" href="assets/css/login.css">
-  
-  <script type="text/javascript">
-    function doLogin(type) {
-    	var name = $('#user').attr('value');
-    	var pw = $('pass').attr('value');
-    	var url = 'login?login_user.userName=' + name + '&login_user.password=' + pw;
-    	
-    	if (name != null && name != "" && pw != null && pw != "") {
-    		$.ajax({
-        		url: url,
-    			type: "post",
-    			dataType: "json",
-    			async: false,
-    			success: function(data) {
-    				if (data.login_userID == null) {
-    					$("#msg").html("用户名或密码错误!");	
-    				}
-    			}	
-        	})
-    	}	
-    }
-  
-  </script>
+ 
   
 </head>
 <body>
@@ -72,6 +50,8 @@
             </ol>
           </fieldset>
           <button class="btn btn-md my-btn-log my-btn-full" type="submit">LOG IN</button>
+          <input type="hidden" name="activityID" value="${activityID}">
+		  <input type="hidden" name="flag" value="${flag}">
         </form>
         
        

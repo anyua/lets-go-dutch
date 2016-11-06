@@ -13,14 +13,16 @@
   
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  
+  <link rel="stylesheet" href="assets/css/jquery-ui.custom.min.css" />
+  
   <link rel="stylesheet" href="assets/css/fonts.googleapis.com.css">
   <link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style">
   <link rel="stylesheet" href="assets/css/ace-skins.min.css">
   <link rel="stylesheet" href="assets/css/ace-rtl.min.css">
   
   <script src="assets/js/ace-extra.min.js"></script>
-
-   
+  
 </head>
 <body class="skin-1">
   <div id="navbar" class="navbar navbar-default          ace-save-state">
@@ -144,9 +146,9 @@
 			  <i class="ace-icon fa fa-folder-open home-icon"></i>
 			  <a href="#">首页</a>
 			</li>
-			<li class=""><a href="#">参与的活动</a></li>
+			<li class=""><a href="#">创建的活动</a></li>
 			<li class="active">活动项目</li>
-		  </ul><!-- /.breadcrumb -->
+		  </ul>
 		</div>
         <div class="page-content">
           <div class="page-header">
@@ -192,17 +194,22 @@
 						      </tr>
 						    </thead>
 						    <tbody>
-						      <s:iterator value="updateActivity.members" id='i'>
-						          <td><s:property value="#i.detail" /></td>
-						          <td><s:property value="#i.amount" /></td>
+						      
+						        <tr>
+						          <td>吃饭</td>
+						          <td>500</td>
 						          <td>
 						            <div class="btn-group">
+						              <a href="#" type="button" class="btn btn-xs btn-info" title="编辑" data-toggle="modal" data-target="#myModal2">
+									    <i class="ace-icon fa fa-pencil bigger-120"></i>
+									  </a>
 									  <a href="#" type="button" class="btn btn-xs btn-danger" title="删除">
 									    <i class="ace-icon fa fa-trash-o bigger-120"></i>
 									  </a>
 						            </div>
 						          </td>
-						      </s:iterator>
+						        </tr>
+						      
 						    </tbody>
 						  </table> 
                         </div>
@@ -228,11 +235,12 @@
 						        <th class="detail-col"></th>
 						        <th>昵称</th>
 						        <th>用户名</th>
+						        <th>个人应付AA总额</th>
 						        <th>操作</th>
 						      </tr>
 						    </thead>
 						    <tbody>
-						      <s:iterator value="updateActivity.members" id='i'>
+						      
 						      <tr>
 						        <td class="center">
 								  <label class="pos-rel">
@@ -247,8 +255,9 @@
 									</a>
 								  </div>
 								</td>
-						        <td><s:property value="%{#i.user.nickname}" /></td>
-						        <td><s:property value="%{#i.user.userName}" /></td>
+						        <td>qq</td>
+						        <td>shu</td>
+						        <td>30</td>
 						        <td>
 						          <div class="btn-group">
 						            <a href="#" type="button" class="btn btn-xs btn-info" title="成员信息">
@@ -261,26 +270,32 @@
 						        </td>
 						       </tr>
 						       
-						        <s:iterator value="#i.joinItems" id='j'>
+						        
 						        <tr class="detail-row">
-						          <td colspan="8">
-						            <div class="table-detail" style="padding: 0;">
-						              <div class="profile-info-row">
-							            <div class="profile-info-name">项目名称</div>
-							            <div class="profile-info-value">
-							              <span><s:property value="#i.detial" /></span>
-							            </div>
-							            <div class="profile-info-name">项目金额</div>
-							            <div class="profile-info-value">
-							              <span><s:property value="#i.amount" /></span>
-							            </div>
-							          </div>
-						            </div>
+						          <td colspan="6">
+						            <div class="table-detail">
+						              <div class="row">
+                          			    <div class="col-xs-12">
+						                  <div class="table-detail">
+						                     <div class="profile-user-info profile-user-info-striped">
+							          	       <div class="profile-info-row">
+							                     <div class="profile-info-name">项目名称</div>
+							            	     <div class="profile-info-value">
+							              		 <span>吃饭</span>
+							            	    </div>
+							            	    <div class="profile-info-name">项目AA金额</div>
+							            	    <div class="profile-info-value">
+							              	      <span>15</span>
+							            	    </div>
+							          	     </div>
+							          	   </div>
+						           		 </div>
+						           	   </div>
+						           	 </div>
+						           </div>
 						          </td>
 						  	    </tr>
-						  	    </s:iterator>
-						      </s:iterator>
-						  
+						  	   
 						    </tbody>
 						  </table>
 				
@@ -295,17 +310,17 @@
 						    <thead>
 						      <tr>
 						        <th>发送者</th>
-						        <th>金额</th>
+						        <th>差额</th>
 						        <th>备注</th>
 						        <th>操作</th>
 						      </tr>
 						    </thead>
 						    <tbody>
-						      <s:iterator value="updateActivity.members" id='i'>
-						        <s:iterator value="#i.messages" id='j'>
-						          <td><s:property value="%{#i.user.nickname}" /></td>
-						          <td><s:property value="#j.amount" /></td>
-						          <td><s:property value="#j.remark" /></td>
+						    
+						        <tr>
+						          <td>用户昵称</td>
+						          <td>+30</td>
+						          <td>我多点了一个菜</td>
 						          <td>
 						            <div class="btn-group">
 						              <a href="#" type="button" class="btn btn-xs btn-success" title="接受">
@@ -317,8 +332,8 @@
 									  </a>
 						            </div>
 						          </td>
-						        </s:iterator>
-						      </s:iterator>
+						        </tr>
+						       
 						    </tbody>
 						    
 						  </table>
@@ -337,6 +352,37 @@
           </div>
 		</div>
       </div>
+      
+      <div class="modal fade" style="position: fixed; " id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			  <h4 class="modal-title" id="myModalLabel">编辑</h4>
+		  </div>
+		  <div class="modal-body">
+			<form class="form-horizontal" action="" role="form">
+			  <div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 项目名称 </label>
+				<div class="col-sm-9">
+				  <input type="text" class="col-xs-10 col-sm-6" id="form-field-1"  name="" />
+				</div>
+			  </div>
+			  <div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 项目金额 </label>
+				<div class="col-sm-9">
+				  <input type="text" class="col-xs-10 col-sm-4" id="form-field-1"  name="" />
+				</div>
+			  </div>
+			</form>
+		  </div>
+		  <div class="modal-footer">
+			<button type="submit" class="btn btn-success" data-dismiss="modal">提交</button>
+		  </div>
+		</div>
+	   </div>
+	</div>
+	
    
     <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
 	  <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
@@ -347,11 +393,26 @@
  
   <script src="assets/js/jquery-2.1.4.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
+  
+  <script src="assets/js/jquery-ui.custom.min.js"></script>
+  
   <script src="assets/js/ace-elements.min.js"></script>
   <script src="assets/js/ace.min.js"></script>
   
   
   <script type="text/javascript">
+  function centerModals(){
+	    $('.modal').each(function(i){   //遍历每一个模态框
+	        var $clone = $(this).clone().css('display', 'block').appendTo('body');    
+	        var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
+	        top = top > 0 ? top : 0;
+	        $clone.remove();
+	        $(this).find('.modal-content').css("margin-top", top-30);  //修正原先已经有的30个像素
+	    });
+	}
+	$('.modal').on('show.bs.modal', centerModals);      //当模态框出现的时候
+	$(window).on('resize', centerModals);               //当窗口大小变化的时候
+	
 			jQuery(function($) {
 				
 				var active_class = 'active';
