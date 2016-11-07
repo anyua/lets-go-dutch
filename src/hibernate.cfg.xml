@@ -5,9 +5,9 @@
 	<session-factory>
 		<!-- 连接数据库的基本信息 -->
 		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password">802396</property>
+		<property name="hibernate.connection.password">19970103</property>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/test2</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/test2?useSSL=false</property>
 
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<!-- 是否在控制台显示sql语句 -->
@@ -16,7 +16,7 @@
 		<property name="hibernate.format_sql">true</property>
 
         <!-- 是否自动生成数据表的策略,create代表每次启动程序都重新创建数据表 -->
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
         
 		<!-- 需要使用到的*.hbm.xml文件 -->
 		<mapping resource="com/hbm/model/User.hbm.xml" />

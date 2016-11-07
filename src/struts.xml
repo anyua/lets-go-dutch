@@ -4,7 +4,8 @@
    "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 <constant name="struts.devMode" value="true" />
-   <package name="helloworld" extends="json-default">
+
+<package name="helloworld" extends="json-default">
    <action name="login"
    		class="com.struts.action.Login"
    		method="userLogin">
@@ -14,40 +15,33 @@
    		<result name="turn2settle" type="chain">settle</result>
    	</action>
    	
-   	<action name="sign">
-   		<result>/signup.jsp</result>
-   	</action>
-   	
    	<action name="signup"
    		class="com.struts.action.Signup"
    		method="signUp">
-   		<result name="true">/login_success.jsp</result>
+   		<result name="true">/WEB-INF/content/loginpage.jsp</result>
    		<result name="false">/login_fail.jsp</result>
-   	</action>
-   	
-   	<action name="callCreateActivity">
-   		<result>/activity_choice.jsp</result>
    	</action>
    	
    	<action name="createActivity"
    		class="com.struts.action.CreateActivity"
    		method="createActivity">
-   		<result name="true" type="chain">showActivity</result>
+   		<result name="true" type="chain">showUserInfo</result>
    		<result name="false">/login_fail.jsp</result>
    	</action>
    	
    	<action name="showUserInfo"
    		class="com.struts.action.IdentityPage"
    		method="showUserInfo">
-   		<result name="success">/user_info.jsp</result>
+   		<result name="success">/WEB-INF/content/ownedActivity.jsp</result>
    	</action>
    	
    	<action name="showActivity"
    		class="com.struts.action.OwnerActivityPage"
    		method="showActivity">
-   		<result name="owner">/activity_info.jsp</result>
-   		<result name="joiner">/activity_info_joined.jsp</result>
-   		<result name="needLogin">/index.jsp</result>
+   		<!-- <result name="owner">/activity_info.jsp</result>   -->
+   		<result name="owner">/WEB-INF/content/ownedItem.jsp</result>
+   		<result name="joiner">/WEB-INF/content/joinedItem.jsp</result>
+   		<result name="needLogin">/WEB-INF/content/index.jsp</result>
    		<result name="false">/login_fail.jsp</result>
    	</action>
    	
@@ -63,7 +57,7 @@
    		<result name="true" type="chain">showActivity</result>	
    		<result name="false">/login_fail.jsp</result>
     </action>
-   	
+   
    	<action name="shareActivity"
    		class="com.struts.action.OwnerActivityPage"
    		method="shareActivity">
@@ -97,6 +91,11 @@
    		<result name="joinner">settle_page_for_joinner.jsp</result>
    		<result name="false">login_fail.jsp</result>
    	</action>
+   	
+   	 <action name="*">
+		<result>/WEB-INF/content/{1}.jsp</result>
+    </action>
+   	
    	
    </package>
 </struts>

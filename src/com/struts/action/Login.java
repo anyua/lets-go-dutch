@@ -17,12 +17,14 @@ public class Login {
 
 		findResult = userOperation.findUser(login_user.getUserName(),
 								login_user.getPassword());
+		System.out.println(findResult);
 		if (findResult == null)
 			return "false";
 		else
 		{
-			Map<String, Object> httpSession =ActionContext.getContext().getSession();
+			Map<String, Object> httpSession = ActionContext.getContext().getSession();
 			httpSession.put("login_userID",findResult);
+
 			if(flag.isEmpty())
 				return "true";
 			else if(flag.equals("1"))
