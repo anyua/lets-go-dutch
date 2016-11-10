@@ -54,6 +54,7 @@ public class OwnerActivityPage {
 		}
 	}
 	
+	
 	public String callUpdateActivity() {
 		//Map<String, Object> httpSession =ActionContext.getContext().getSession();
 		//originalActivity = activityOperation.getActivity((String)httpSession.get("ActivityID"));

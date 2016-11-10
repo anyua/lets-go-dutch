@@ -35,39 +35,39 @@
               <li>
                 <div class="form-group">
                   <span class="input-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                  <input type="text" id="user" class="form-control" name="signup_user.userName" tabindex="1" placeholder="Username" autofocus required>
+                  <input type="text" id="user" class="form-control" name="signup_user.userName" tabindex="1" placeholder="用户名" autofocus required>
                 </div>
               </li>
               <li>
                 <div class="form-group">
                   <span class="input-icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-                  <input type="text" id="user" class="form-control" name="signup_user.nickname" tabindex="2" placeholder="Nickname" required>
+                  <input type="text" id="user" class="form-control" name="signup_user.nickname" tabindex="2" placeholder="昵称" required>
                 </div>
               </li>
               <li>
                 <div class="form-group">
                   <select class="form-control" name="signup_user.sex" tabindex="3">
-	                <option value="">-- Gender --</option>
-	                <option value=true>Male</option>
-	                <option value=false>Female</option>                
+	                <option value="">-- 性别 --</option>
+	                <option value=true>男</option>
+	                <option value=false>女</option>                
 	              </select>
 	            </div>
               </li>
               <li>
                 <div class="form-group">
                   <span class="input-icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-                  <input type="password" id="user" class="form-control" name="signup_user.password" tabindex="4" placeholder="Password" required>
+                  <input type="password" id="user" class="form-control" name="signup_user.password" tabindex="4" placeholder="输入密码" required>
                 </div>
               </li>
               <li>
                 <div class="form-group">
                   <span class="input-icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-                  <input type="password" id="pass" class="form-control" name="confirmpassword" tabindex="5" placeholder="Double confirm your password" required>
+                  <input type="password" id="pass" class="form-control" name="confirmpassword" tabindex="5" placeholder="确认密码" required>
                 </div>
               </li>
             </ol>
           </fieldset>
-          <button class="btn btn-md my-btn-sign my-btn-full" type="submit">SIGN UP</button>
+          <button class="btn btn-md my-btn-sign my-btn-full" type="submit">注册</button>
         </form>
       </div>
     </div>

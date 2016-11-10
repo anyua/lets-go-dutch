@@ -48,21 +48,21 @@
           <li class="grey">
             <a href="index">
               <i class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i>
-              <span class="badge badge-grey">Home</span>
+              <span class="badge badge-grey">首页</span>
             </a>
           </li>
           
           <li class="purple">
             <a href="index">
               <i class="fa fa-book fa-fw fa-2x" aria-hidden="true"></i>
-              <span class="badge badge-grey">About</span>
+              <span class="badge badge-grey">关于</span>
             </a>
           </li>
           <li class="light-blue dropdown-modal">
             <a data-toggle="dropdown" href="#" class="dropdown-toggle">
               <img class="nav-user-photo" src="assets/images/user.jpg">
               <span class="user-info">
-			    <small>Welcome,</small>
+			    <small>你好,</small>
 			    <s:property value="pageOwner.nickname" />
 			  </span>
               <i class="ace-icon fa fa-caret-down"></i>
@@ -71,13 +71,13 @@
 			   <li>
 			     <a href="profile">
 			       <i class="fa fa-cog fa-fw" aria-hidden="true"></i>
-					 		 Profile
+					 	编辑
 			     </a>
 		       </li>
 		       <li>
 			     <a href="#">
 			       <i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>
-						 Logout
+						注销
 			     </a>
 		       </li>
 	         </ul>
@@ -99,7 +99,7 @@
         <li class="active">
           <a href="#">
 			<i class="menu-icon fa fa-tachometer"></i>
-			  <span class="menu-text"> Dashboard </span>
+			  <span class="menu-text"> 我的  </span>
 		  </a>
 		  <b class="arrow"></b>
         </li>
@@ -155,199 +155,205 @@
           </div>
           <div class="row">
             <div class="col-xs-12">
-         
-                <div class="widget-box transparent" id="recent-box">
-                  <div class="widget-header">
-                    <h4 class="widget-title lighter smaller">
-					  <i class="ace-icon fa fa-rss orange"></i>
-					  Activity
-					</h4>
-					<div class="widget-toolbar no-border">
-					  <ul class="nav nav-tabs" id="recent-tab">
-						<li class="active">
-						  <a data-toggle="tab" href="#task-tab">Items</a>
-						</li>
-						<li>
-						  <a data-toggle="tab" href="#member-tab">Members</a>
-						</li>
-						<li>
-						  <a data-toggle="tab" href="#comment-tab">Comments</a>
-						</li>
-					  </ul>
-					</div>						
-                  </div><!-- widget-header-end -->
-                  
-                  <div class="widget-body">
-                    <div class="widget-main padding-4">
-                      <div class="tab-content padding-8">
-                        <div id="task-tab" class="tab-pane active">
-                          <h4 class="smaller lighter green">
-						    <i class="ace-icon fa fa-list"></i>
-						    Activity Items
-						  </h4> 
-						  <table id="simple-table" class="table  table-bordered table-hover">
-						    <thead>
-						      <tr>
-						        <th>项目名称</th>
-						        <th>金额</th>
-						        <th>操作</th>
-						      </tr>
-						    </thead>
-						    <tbody>
-						      
-						        <tr>
-						          <td>吃饭</td>
-						          <td>500</td>
-						          <td>
-						            <div class="btn-group">
-						              <a href="#" type="button" class="btn btn-xs btn-info" title="编辑" data-toggle="modal" data-target="#myModal2">
-									    <i class="ace-icon fa fa-pencil bigger-120"></i>
-									  </a>
-									  <a href="#" type="button" class="btn btn-xs btn-danger" title="删除">
-									    <i class="ace-icon fa fa-trash-o bigger-120"></i>
-									  </a>
-						            </div>
-						          </td>
-						        </tr>
-						      
-						    </tbody>
-						  </table> 
-                        </div>
-                        
-                        <div id="member-tab" class="tab-pane">
-                          <h4 class="smaller lighter green">
-						    <i class="ace-icon fa fa-list"></i>
-						    Members
-						    <a href="#" type="button" class="btn btn-xs btn-danger pull-right" title="批量删除">
-							  <i class="ace-icon fa fa-trash-o bigger-120"></i>
-						    </a>
-						  </h4> 
-						  
-						  <table id="simple-table" class="table  table-bordered table-hover">
-						    <thead>
-						      <tr>
-						        <th class="center">
-						          <label class="pos-rel">
-									<input type="checkbox" class="ace" />
-									<span class="lbl"></span>
-								  </label>
-						        </th>
-						        <th class="detail-col"></th>
-						        <th>昵称</th>
-						        <th>用户名</th>
-						        <th>个人应付AA总额</th>
-						        <th>操作</th>
-						      </tr>
-						    </thead>
-						    <tbody>
-						      
-						      <tr>
-						        <td class="center">
-								  <label class="pos-rel">
-								    <input type="checkbox" class="ace" />
-								    <span class="lbl"></span>
-								  </label>
-								</td>
-								<td class="center">
-								  <div class="action-buttons">
-								    <a href="#" class="green bigger-140 show-details-btn" title="Show Details">
-									  <i class="ace-icon fa fa-angle-double-down"></i>
-									</a>
-								  </div>
-								</td>
-						        <td>qq</td>
-						        <td>shu</td>
-						        <td>30</td>
-						        <td>
-						          <div class="btn-group">
-						            <a href="#" type="button" class="btn btn-xs btn-info" title="成员信息">
-									    <i class="ace-icon fa fa-info-circle bigger-120"></i>
-									</a>
-									<a href="#" type="button" class="btn btn-xs btn-danger" title="删除">
-									  <i class="ace-icon fa fa-trash-o bigger-120"></i>
-									</a>
-						          </div>
-						        </td>
-						       </tr>
-						       
-						        
-						        <tr class="detail-row">
-						          <td colspan="6">
-						            <div class="table-detail">
-						              <div class="row">
-                          			    <div class="col-xs-12">
-						                  <div class="table-detail">
-						                     <div class="profile-user-info profile-user-info-striped">
-							          	       <div class="profile-info-row">
-							                     <div class="profile-info-name">项目名称</div>
-							            	     <div class="profile-info-value">
-							              		 <span>吃饭</span>
-							            	    </div>
-							            	    <div class="profile-info-name">项目AA金额</div>
-							            	    <div class="profile-info-value">
-							              	      <span>15</span>
-							            	    </div>
-							          	     </div>
-							          	   </div>
-						           		 </div>
-						           	   </div>
-						           	 </div>
-						           </div>
-						          </td>
-						  	    </tr>
-						  	   
-						    </tbody>
-						  </table>
-				
-                        </div>
-                        
-                        <div id="comment-tab" class="tab-pane">
-                          <h4 class="smaller lighter green">
-						    <i class="ace-icon fa fa-list"></i>
-						    Feedback
-						  </h4>
-						  <table id="simple-table" class="table  table-bordered table-hover">
-						    <thead>
-						      <tr>
-						        <th>发送者</th>
-						        <th>差额</th>
-						        <th>备注</th>
-						        <th>操作</th>
-						      </tr>
-						    </thead>
-						    <tbody>
-						    
-						        <tr>
-						          <td>用户昵称</td>
-						          <td>+30</td>
-						          <td>我多点了一个菜</td>
-						          <td>
-						            <div class="btn-group">
-						              <a href="#" type="button" class="btn btn-xs btn-success" title="接受">
-						      			<i class="ace-icon fa fa-check bigger-120"></i>
-									  </a>
+	         	
+	            <form action="showActivity">
+	                <div class="widget-box transparent" id="recent-box">
+	                  <div class="widget-header">
+	                    <h4 class="widget-title lighter smaller">
+						  <i class="ace-icon fa fa-rss orange"></i>
+						  活动
+						</h4>
+						<div class="widget-toolbar no-border">
+						  <ul class="nav nav-tabs" id="recent-tab">
+							<li class="active">
+							  <a data-toggle="tab" href="#task-tab">活动项目</a>
+							</li>
+							<li>
+							  <a data-toggle="tab" href="#member-tab">成员</a>
+							</li>
+							<li>
+							  <a data-toggle="tab" href="#comment-tab">意见反馈</a>
+							</li>
+						  </ul>
+						</div>						
+	                  </div><!-- widget-header-end -->
+	      
+	                  <div class="widget-body">
+	                    <div class="widget-main padding-4">
+	                      <div class="tab-content padding-8">
+	                        <div id="task-tab" class="tab-pane active">
+	                          <h4 class="smaller lighter green">
+							    <i class="ace-icon fa fa-list"></i>
+							    活动项目
+							  </h4> 
+							  <table id="simple-table" class="table  table-bordered table-hover">
+							    <thead>
+							      <tr>
+							        <th>项目名称</th>
+							        <th>金额</th>
+							        <th>操作</th>
+							      </tr>
+							    </thead>
+							    <tbody>
+							      <s:iterator value="updateActivity.Items" id="o">
+							        <tr>
+							          <td><s:property value="o.detial"></s:property></td>
+							          <td><s:property value="o.amount"></s:property></td>
+							          <td>
+							            <div class="btn-group">
+							              <a href="#" type="button" class="btn btn-xs btn-info" title="编辑" data-toggle="modal" data-target="#myModal2">
+										    <i class="ace-icon fa fa-pencil bigger-120"></i>
+										  </a>
+										  <a href="#" type="button" class="btn btn-xs btn-danger" title="删除">
+										    <i class="ace-icon fa fa-trash-o bigger-120"></i>
+										  </a>
+							            </div>
+							          </td>
+							        </tr>
+							      </s:iterator>
+							    </tbody>
+							  </table>
+	
+	                        </div>
+	                        
+	                        <div id="member-tab" class="tab-pane">
+	                          <h4 class="smaller lighter green">
+							    <i class="ace-icon fa fa-list"></i>
+							    成员
+							    <a href="#" type="button" class="btn btn-xs btn-danger pull-right" title="批量删除">
+								  <i class="ace-icon fa fa-trash-o bigger-120"></i>
+							    </a>
+							  </h4> 
+							  
+							  <table id="simple-table" class="table  table-bordered table-hover">
+							    <thead>
+							      <tr>
+							        <th class="center">
+							          <label class="pos-rel">
+										<input type="checkbox" class="ace" />
+										<span class="lbl"></span>
+									  </label>
+							        </th>
+							        <th class="detail-col"></th>
+							        <th>昵称</th>
+							        <th>用户名</th>
+							        <th>个人应付AA总额</th>
+							        <th>操作</th>
+							      </tr>
+							    </thead>
+							    <tbody>
+							      <s:iterator value="updateActivity.Member" id="u">
+							      <tr>
+							        <td class="center">
+									  <label class="pos-rel">
+									    <input type="checkbox" class="ace" />
+									    <span class="lbl"></span>
+									  </label>
+									</td>
+									<td class="center">
+									  <div class="action-buttons">
+									    <a href="#" class="green bigger-140 show-details-btn" title="Show Details">
+										  <i class="ace-icon fa fa-angle-double-down"></i>
+										</a>
+									  </div>
+									</td>
+							        <td><s:property value="u.user.nickname"></s:property></td>
+							        <td><s:property value="u.user.userName"></s:property></td>
+							        <td><s:property value="u.amount"></s:property></td>
+							        <td>
+							          <div class="btn-group">
+							            <a href="#" type="button" class="btn btn-xs btn-info" title="成员信息">
+										    <i class="ace-icon fa fa-info-circle bigger-120"></i>
+										</a>
+										<a href="#" type="button" class="btn btn-xs btn-danger" title="删除">
+										  <i class="ace-icon fa fa-trash-o bigger-120"></i>
+										</a>
+							          </div>
+							        </td>
+							       </tr>
+							       
+							        <s:iterator value="u.joinItems" id="uJ">
+							        <tr class="detail-row">
+							          <td colspan="6">
+							            <div class="table-detail">
+							              <div class="row">
+	                          			    <div class="col-xs-12">
+							                  <div class="table-detail">
+							                     <div class="profile-user-info profile-user-info-striped">
+								          	       <div class="profile-info-row">
+								                     <div class="profile-info-name">项目名称</div>
+								            	     <div class="profile-info-value">
+								              		 <span><s:property value="uJ.detial"></s:property></span>
+								            	    </div>
+								            	    <div class="profile-info-name">项目AA金额</div>
+								            	    <div class="profile-info-value">
+								              	      <span><s:property value="uJ.aaAmount"></s:property></span>
+								            	    </div>
+								          	     </div>
+								          	   </div>
+							           		 </div>
+							           	   </div>
+							           	 </div>
+							           </div>
+							          </td>
+							  	    </tr>
+							  	    </s:iterator>
+							  	 </s:iterator>
+							    </tbody>
+							  </table>
+					
+	                        </div>
+	                        
+	                        <div id="comment-tab" class="tab-pane">
+	                          <h4 class="smaller lighter green">
+							    <i class="ace-icon fa fa-list"></i>
+							   	意见反馈
+							  </h4>
+							  <table id="simple-table" class="table  table-bordered table-hover">
+							    <thead>
+							      <tr>
+							        <th>发送者</th>
+							        <th>差额</th>
+							        <th>备注</th>
+							        <th>操作</th>
+							      </tr>
+							    </thead>
+							    <tbody>
+							    	<s:iterator value="updateActivity.Member" id="u">
+							    	<s:iterator value="u.messages" id="um">
+							        <tr>
+							          <td><s:property value="u.user.nickname"></s:property></td>
+							          <td><s:property value="um.amount"></s:property></td>
+							          <td><s:property value="um.remark"></s:property></td>
+							          <td>
+							            <div class="btn-group">
+							              <a href="#" type="button" class="btn btn-xs btn-success" title="接受">
+							      			<i class="ace-icon fa fa-check bigger-120"></i>
+										  </a>
+	
+										  <a href="#" type="button" class="btn btn-xs btn-danger" title="拒绝">
+										    <i class="ace-icon fa fa-times bigger-120"></i>
+										  </a>
+							            </div>
+							          </td>
+							        </tr>
+							        </s:iterator>
+							        </s:iterator>
+							    </tbody>
+							    
+							  </table>
+							  
+	                        </div>   
+	                     
+	                     
+	                      </div>
+	                    </div>
+	                  </div>  <!-- widget-body end -->
+	                  
+	                </div><!-- widget-box end -->
+	            </form>
+            </div><!-- col-xs-12 end -->
 
-									  <a href="#" type="button" class="btn btn-xs btn-danger" title="拒绝">
-									    <i class="ace-icon fa fa-times bigger-120"></i>
-									  </a>
-						            </div>
-						          </td>
-						        </tr>
-						       
-						    </tbody>
-						    
-						  </table>
-						  
-                        </div>   
-                     
-                     
-                      </div>
-                    </div>
-                  </div>  <!-- widget-body end -->
-                  
-                </div><!-- widget-box end -->
-              </div><!-- col-xs-12 end -->
-             
             </div>
           </div>
 		</div>
