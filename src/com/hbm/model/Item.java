@@ -7,8 +7,7 @@ public class Item {
 	private double amount;
 	private int numOfMembers;
 	private Activity activity;
-	private double aaAmount = amount/(numOfMembers>0?numOfMembers:1);
-
+	
 	public String getId() {
 		return id;
 	}
@@ -39,14 +38,5 @@ public class Item {
 	public void setActivity(Activity activity) {
 		this.activity = activity;
 	}
-
-	public double getAaAmount() {
-		return aaAmount;
-	}
-
-	public void setAaAmount(double aaAmount) {
-		this.aaAmount = aaAmount;
-	}
-
 	
 }

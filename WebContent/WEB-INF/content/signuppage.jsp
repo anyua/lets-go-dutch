@@ -29,19 +29,19 @@
         <form id="signup-form"  action="signup" method="post">
           <fieldset>
             <legend>
-              SIGN UP  <!-- 可换成其他的文字，暂时用这个 -->
+              	注册  <!-- 可换成其他的文字，暂时用这个 -->
             </legend>
             <ol>
               <li>
                 <div class="form-group">
                   <span class="input-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                  <input type="text" id="user" class="form-control" name="signup_user.userName" tabindex="1" placeholder="用户名" autofocus required>
+                  <input type="text" id="user" class="form-control" name="signup_user.userName" tabindex="1" placeholder="Username" autofocus required>
                 </div>
               </li>
               <li>
                 <div class="form-group">
                   <span class="input-icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-                  <input type="text" id="user" class="form-control" name="signup_user.nickname" tabindex="2" placeholder="昵称" required>
+                  <input type="text" id="user" class="form-control" name="signup_user.nickname" tabindex="2" placeholder="Nickname" required>
                 </div>
               </li>
               <li>
@@ -56,18 +56,18 @@
               <li>
                 <div class="form-group">
                   <span class="input-icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-                  <input type="password" id="user" class="form-control" name="signup_user.password" tabindex="4" placeholder="输入密码" required>
+                  <input type="password" id="user" class="form-control" name="signup_user.password" tabindex="4" placeholder="Password" required>
                 </div>
               </li>
               <li>
                 <div class="form-group">
                   <span class="input-icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-                  <input type="password" id="pass" class="form-control" name="confirmpassword" tabindex="5" placeholder="确认密码" required>
+                  <input type="password" id="pass" class="form-control" name="confirmpassword" tabindex="5" placeholder="Double confirm your password" required>
                 </div>
               </li>
             </ol>
           </fieldset>
-          <button class="btn btn-md my-btn-sign my-btn-full" type="submit">注册</button>
+          <button class="btn btn-md my-btn-sign my-btn-full" type="submit">SIGN UP</button>
         </form>
       </div>
     </div>

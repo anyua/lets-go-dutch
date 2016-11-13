@@ -13,6 +13,7 @@ public class Feedback {
 	private Message message = new Message();
 	
 	private String activityId;
+	private String messageId;
 	
 	public String askForAmount()
 	{
@@ -31,6 +32,16 @@ public class Feedback {
 		
 		return "success";
 	}
+	
+	public String acceptFeedback(){
+		activitydao.setFeedbackType(getMessageId(), 1);
+		return "success";
+	}
+	public String refuseFeedback(){
+		activitydao.setFeedbackType(getMessageId(), 2);
+		return "success";
+	}
+	
 	public Message getMessage() {
 		return message;
 	}
@@ -42,5 +53,13 @@ public class Feedback {
 	}
 	public void setActivityId(String activityId) {
 		this.activityId = activityId;
+	}
+
+	public String getMessageId() {
+		return messageId;
+	}
+
+	public void setMessageId(String messageId) {
+		this.messageId = messageId;
 	}
 }

@@ -35,13 +35,25 @@
    		<result name="success">/WEB-INF/content/ownedActivity.jsp</result>
    	</action>
    	
+   	<action name="showJoinedActivity"
+   		class="com.struts.action.IdentityPage"
+   		method="showUserInfo">
+   		<result name="success">/WEB-INF/content/joinedActivity.jsp</result>
+   	</action>
+   	
+   	<action name="showOwnedActivity"
+   		class="com.struts.action.IdentityPage"
+   		method="showUserInfo">
+   		<result name="success">/WEB-INF/content/ownedActivity.jsp</result>
+   	</action>
+   	
    	<action name="showActivity"
    		class="com.struts.action.OwnerActivityPage"
    		method="showActivity">
    		<!-- <result name="owner">/activity_info.jsp</result>   -->
    		<result name="owner">/WEB-INF/content/ownedItem.jsp</result>
    		<result name="joiner">/WEB-INF/content/joinedItem.jsp</result>
-   		<result name="needLogin">/WEB-INF/content/index.jsp</result>
+   		<result name="needLogin">/WEB-INF/content/loginpage.jsp</result>
    		<result name="false">/login_fail.jsp</result>
    	</action>
    	
@@ -54,7 +66,7 @@
    	<action name="updateActivity"
    		class="com.struts.action.OwnerActivityPage"
    		method="updateActivity">
-   		<result name="true" type="chain">showActivity</result>	
+   		<result name="true" type="json"></result>	
    		<result name="false">/login_fail.jsp</result>
     </action>
    
@@ -68,7 +80,7 @@
    	<action name="joinActivity"
    		class="com.struts.action.JoinActivity"
    		method="joinThisActivtiy">
-   		<result name="success" type="chain">showUserInfo</result>	
+   		<result name="success" type="chain">showJoinedActivity</result>	
    	</action>
    	
    	<action name="outOfItem"
@@ -86,7 +98,7 @@
    	<action name="settle"
    		class="com.struts.action.Settle"
    		method="activitySettle">
-   		<result name="owner">settle_page_for_owner.jsp</result>
+   		<result name="owner" type="json"></result>
    		<result name="needLogin">/index.jsp</result>
    		<result name="joinner">settle_page_for_joinner.jsp</result>
    		<result name="false">login_fail.jsp</result>
@@ -96,6 +108,29 @@
 		<result>/WEB-INF/content/{1}.jsp</result>
     </action>
    	
+   	<action name="logout"
+   		class="com.struts.action.Login"
+   		method="logout">
+   		<result name="success" >/WEB-INF/content/index.jsp</result>
+   	</action>
+   	
+   	<action name="acceptFeedback"
+   		class="com.struts.action.Feedback"
+   		method="acceptFeedback">
+   		<result name="success" type="json"></result>
+   	</action>
+   		
+   	<action name="refuseFeedback"
+   		class="com.struts.action.Feedback"
+   		method="refuseFeedback">
+   		<result name="success" type="json"></result>
+   	</action>
+   	
+   	<action name="addItem"
+   		class="com.struts.action.OwnerActivityPage"
+   		method="addItem">
+   		<result name="success" type="chain">showActivity</result>	
+   	</action>
    	
    </package>
 </struts>

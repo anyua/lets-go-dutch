@@ -13,6 +13,7 @@ public class JoinActivity {
 	
 	private String itemId;
 	private String activityName;
+	private String activityId;
 	
 	public String joinThisActivtiy() {
 		Map<String, Object> httpSession =ActionContext.getContext().getSession();
@@ -27,7 +28,7 @@ public class JoinActivity {
 		System.out.println(itemId+'\t'+activityName);
 		Map<String, Object> httpSession =ActionContext.getContext().getSession();
 		String userId=(String)httpSession.get("login_userID");
-		String activityId=activityOperation.findActivity(getActivityName());
+		//String activityId=activityOperation.findActivity(getActivityName());
 		activityOperation.outOfItem(userId, activityId, itemId);
 		return "success";
 	}
@@ -62,6 +63,14 @@ public class JoinActivity {
 
 	public void setItemId(String itemId) {
 		this.itemId = itemId;
+	}
+
+	public String getActivityId() {
+		return activityId;
+	}
+
+	public void setActivityId(String activityId) {
+		this.activityId = activityId;
 	}
 	
 }

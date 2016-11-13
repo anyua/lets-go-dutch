@@ -12,13 +12,14 @@ public class OwnerActivityPage {
 	UserDAO userOperation = new UserDAO();
 	Activity updateActivity = new Activity();
 	Activity originalActivity = new Activity();
-	private String[] detials;
-	private double[] amounts;
+	private User pageOwner = new User();
+	private String[] detials = {};
+	private double[] amounts = {};
 	private Set<Item> originalItem ;
 	
 	private String activityID;
 	private String shareURL;
-	private String flag;
+	private String loginType;
 	
 	public String showActivity() {
 		Map<String, Object> httpSession =ActionContext.getContext().getSession();
@@ -26,6 +27,7 @@ public class OwnerActivityPage {
 		String userId=(String)httpSession.get("login_userID");
 		if(userId==null)
 			return "needLogin";
+		pageOwner=userOperation.getUser(userId);
 		updateActivity = activityOperation.getActivity(activityID);
 		shareURL = "http://localhost:8080/lets_go_dutch/showActivity?activityID="+activityID+"&flag=1";
 		if (updateActivity == null)
@@ -41,7 +43,6 @@ public class OwnerActivityPage {
 					if(member.getUser().getId().equals(userId))
 					{
 						originalItem = member.getJoinItems();
-						//System.out.println(member.getId());
 						break;
 					}
 				}
@@ -54,7 +55,6 @@ public class OwnerActivityPage {
 		}
 	}
 	
-	
 	public String callUpdateActivity() {
 		//Map<String, Object> httpSession =ActionContext.getContext().getSession();
 		//originalActivity = activityOperation.getActivity((String)httpSession.get("ActivityID"));
@@ -65,14 +65,13 @@ public class OwnerActivityPage {
 	
 	public String updateActivity() {
 		//Map<String, Object> httpSession =ActionContext.getContext().getSession();
-		//System.out.println(updateActivity.getInfo());
-		System.out.println(activityID);
+		Activity oldActivity = activityOperation.getActivity(activityID);
 		String updateResult = activityOperation.updateActivityInfo(activityID,
-				updateActivity.getName(), 
+				oldActivity.getName(), 
 				updateActivity.getInfo(), 
 				updateActivity.getCreateDate(), 
 				updateActivity.getEndDate(), 
-				updateActivity.getWholeAmount(), 
+					oldActivity.getWholeAmount(), 
 				updateActivity.getSize());
 		for(int i=0;i<detials.length&&i<amounts.length;i++)
 		{
@@ -96,6 +95,17 @@ public class OwnerActivityPage {
 			return "true";
 	}
 	
+	public String addItem(){
+		
+		for(int i=0;i<detials.length&&i<amounts.length;i++)
+		{
+			activityOperation.addItem(activityID, 
+					detials[i],
+					amounts[i]);
+		}
+		
+		return "success";
+	}
 	
 	public ActivityDAO getActivityOperation() {
 		return activityOperation;
@@ -158,12 +168,20 @@ public class OwnerActivityPage {
 		this.shareURL = shareURL;
 	}
 
-	public String getFlag() {
-		return flag;
+	public User getPageOwner() {
+		return pageOwner;
 	}
 
-	public void setFlag(String flag) {
-		this.flag = flag;
+	public void setPageOwner(User pageOwner) {
+		this.pageOwner = pageOwner;
+	}
+
+	public String getLoginType() {
+		return loginType;
+	}
+
+	public void setLoginType(String loginType) {
+		this.loginType = loginType;
 	}
 	
 }

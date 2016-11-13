@@ -323,7 +323,8 @@ public class ActivityDAO extends DAO {
 	 */
 	public void outOfItem(String userId,String activityId,String itemId)
 	{
-		Activity act = getActivity(activityId);		
+		System.out.println("OK");
+		Activity act = getActivity(activityId);	
 		String memberId = null;
 		for (Member member : act.getMembers())
 		{
@@ -347,8 +348,11 @@ public class ActivityDAO extends DAO {
 		while (it.hasNext())
 		{
 			Item item = it.next();
-			if(itemId.equals(item.getId()))
+			System.out.println(item.getId());
+			if(itemId.equals(item.getId())){
 				it.remove();
+				System.out.println("removeSuccess");
+			}
 		}
 		Item item = (Item)hibernateSession.get(Item.class, itemId);
 		item.setNumOfMembers(item.getNumOfMembers()-1);
@@ -361,7 +365,6 @@ public class ActivityDAO extends DAO {
 		Transaction transaction = hibernateSession.beginTransaction();
 		Activity activity = (Activity) hibernateSession.get(Activity.class, activityId);
 		activity.setType(type);
-
 		transaction.commit();
 		hibernateSession.close();
 	}
@@ -372,6 +375,25 @@ public class ActivityDAO extends DAO {
 		Activity activity = (Activity) hibernateSession.get(Activity.class, activityId);
 		activity.setWholeAmount(amount);
 
+		transaction.commit();
+		hibernateSession.close();
+	}
+	public void setMemberAmount(String memberId,double amount)
+	{
+		Session hibernateSession = factory.openSession();
+		Transaction transaction = hibernateSession.beginTransaction();
+		Member member = (Member) hibernateSession.get(Member.class, memberId);
+		member.setAmount(amount);
+
+		transaction.commit();
+		hibernateSession.close();
+	}
+	public void setFeedbackType(String messageId,int type)
+	{
+		Session hibernateSession = factory.openSession();
+		Transaction transaction = hibernateSession.beginTransaction();
+		Message message = (Message) hibernateSession.get(Message.class, messageId);
+		message.setType(type);
 		transaction.commit();
 		hibernateSession.close();
 	}

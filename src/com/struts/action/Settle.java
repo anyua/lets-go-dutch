@@ -25,10 +25,20 @@ public class Settle {
 
 		act=actDao.getActivity(activityID);
 		shareURL = "http://localhost:8080/lets_go_dutch/settle?activityID="+activityID+"&flag=2";
-
+		//System.out.println("lalala");
 		if(userId.equals(act.getOwner().getId()))
 		{
-			actDao.setActivityType(activityID, 1);
+			//System.out.println(activityID+"进入分支");
+			//System.out.println(act.getType());
+			if(act.getType()==0){
+				//System.out.println(act.getType());
+				actDao.setActivityType(activityID, 1);
+			}
+			else if(act.getType()==1){
+				//System.out.println(act.getType());
+				actDao.setActivityType(activityID, 2);
+			}
+			//System.out.println(activityID);
 			for(Member member: act.getMembers())
 			{
 				double amount = 0;
@@ -38,14 +48,14 @@ public class Settle {
 				}
 				for(Message message:member.getMessages())
 				{
-					if(message.getType()==0)
+					if(message.getType()==1)
 						amount+=message.getAmount();
 				}
 				String[] result=new String[3];
 				result[0]=member.getUser().getNickname();
 				result[1]=member.getUser().getUserName();
 				result[2]=String.valueOf(amount);
-				System.out.println();
+				actDao.setMemberAmount(member.getId(), amount);
 				settledAmount.put(member.getId(), result);
 			}
 			return "owner";
@@ -64,7 +74,7 @@ public class Settle {
 					}
 					for(Message message:member.getMessages())
 					{
-						if(message.getType()==0)
+						if(message.getType()==1)
 							amount+=message.getAmount();
 					}
 					getMem().setAmount(amount);

@@ -12,13 +12,18 @@ public class IdentityPage {
 	User pageOwner = new User();
 	UserDAO userOperation = new UserDAO();
 	Set<Activity> ownedActivity =new HashSet<Activity>();
-	 Set<Activity> joinedActivity = new HashSet<Activity>();
+	Set<Activity> joinedActivity = new HashSet<Activity>();
 
 	public String showUserInfo() {
 		Map<String, Object> httpSession =ActionContext.getContext().getSession();
 		pageOwner = userOperation.getUser((String)httpSession.get("login_userID"));	
 		ownedActivity = pageOwner.getOwnActivity();
 		joinedActivity = pageOwner.getJoinedActivity();
+		return "success";
+	}
+	public String logOut(){
+		Map<String, Object> httpSession =ActionContext.getContext().getSession();
+		httpSession.clear();
 		return "success";
 	}
 

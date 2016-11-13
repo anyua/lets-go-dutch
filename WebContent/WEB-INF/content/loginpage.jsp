@@ -31,27 +31,27 @@
         <form id="login-form" method="post" action="login">
           <fieldset>
             <legend>
-             	登录  <!-- 可换成其他的文字，暂时用这个 -->
+              LOG IN  <!-- 可换成其他的文字，暂时用这个 -->
             </legend>
             <ol>
               <li>
                 <div class="form-group">
                   <span class="input-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                  <input type="text" id="user" class="form-control" name="login_user.userName" tabindex="1" placeholder="用户名" autofocus required>
+                  <input type="text" id="user" class="form-control" name="login_user.userName" tabindex="1" placeholder="Account" autofocus required>
                 </div>
               </li>
               <li>
                 <div class="form-group">
                   <span class="input-icon"><i class="fa fa-unlock" aria-hidden="true"></i></span>
-                  <input type="password" id="pass" class="form-control" name="login_user.password" tabindex="2" placeholder="密码" required>
+                  <input type="password" id="pass" class="form-control" name="login_user.password" tabindex="2" placeholder="Password" required>
                   <span id="msg"></span>
                 </div>
               </li>
             </ol>
           </fieldset>
-          <button class="btn btn-md my-btn-log my-btn-full" type="submit">登录</button>
+          <button class="btn btn-md my-btn-log my-btn-full" type="submit">LOG IN</button>
           <input type="hidden" name="activityID" value="${activityID}">
-		  <input type="hidden" name="flag" value="${flag}">
+		  <input type="hidden" name="loginType" value="${loginType}">
         </form>
         
        
