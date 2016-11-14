@@ -28,30 +28,6 @@
 <link rel="stylesheet" href="assets/css/share.min.css">
 
 <script src="assets/js/ace-extra.min.js"></script>
-<style type="text/css">
-body {
-	background: url(assets/images/2.jpg) no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	font-weight: 400;
-	font-size: 14px;
-	letter-spacing: 0.04em;
-}
-
-.overlay {
-	background-color: #111;
-	opacity: 0.4;
-	position: fixed;
-	-webkit-transform: translateZ(0);
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	width: 100%;
-	height: 100%;
-}
-</style>
 
 </head>
 <body class="skin-1">
@@ -113,7 +89,7 @@ body {
 		try{ace.settings.loadState('sidebar')}catch(e){}
       </script>
 			<ul class="nav nav-list">
-				<li class="active"><a href="#"> <i
+				<li class=""><a href="welcome"> <i
 						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
 							Dashboard </span>
 				</a> <b class="arrow"></b></li>
@@ -121,7 +97,7 @@ body {
 						class="menu-icon fa fa-list-alt"></i> <span class="menu-text">
 							参加的活动 </span>
 				</a> <b class="arrow"></b></li>
-				<li class=""><a href="showOwnedActivity"> <i
+				<li class="active"><a href="showOwnedActivity"> <i
 						class="menu-icon fa fa-calendar"></i> <span class="menu-text">
 							创建的活动 </span>
 				</a> <b class="arrow"></b></li>

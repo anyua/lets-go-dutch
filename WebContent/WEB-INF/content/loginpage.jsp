@@ -15,8 +15,12 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Catamaran">
+  <script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+  <script type="text/javascript">
+    $youziku.load("body", "83aa5789ca5b458d91c5f2841c9ebe3c", "SansGBW3");
+    $youziku.draw();
+  </script>
   <link rel="stylesheet" type="text/css" href="assets/css/login.css">
- 
   
 </head>
 <body>
@@ -31,7 +35,7 @@
         <form id="login-form" method="post" action="login">
           <fieldset>
             <legend>
-              LOG IN  <!-- 可换成其他的文字，暂时用这个 -->
+              	登陆  <!-- 可换成其他的文字，暂时用这个 -->
             </legend>
             <ol>
               <li>
@@ -58,7 +62,6 @@
         <div class="login-choice-info">
           <p>
           	没有账号?<a href="signuppage">现在来注册吧</a>
-          	<br>通过其他途径登陆
           </p>
           <!-- 此处考虑添加登陆选项，如QQ图标和微信图标 -->
         </div>

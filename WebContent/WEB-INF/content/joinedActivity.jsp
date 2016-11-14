@@ -92,11 +92,11 @@
 				}
 			</script>
 			<ul class="nav nav-list">
-				<li class="active"><a href="#"> <i
+				<li class=""><a href="welcome"> <i
 						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
 							Dashboard </span>
 				</a> <b class="arrow"></b></li>
-				<li class=""><a href="showJoinedActivity"> <i
+				<li class="active"><a href="showJoinedActivity"> <i
 						class="menu-icon fa fa-list-alt"></i> <span class="menu-text">
 							参加的活动 </span>
 				</a> <b class="arrow"></b></li>

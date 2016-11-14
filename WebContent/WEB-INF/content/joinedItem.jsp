@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>参与的活动的具体的项目</title>
+  <title>参与活动的具体的项目</title>
   
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -44,11 +44,11 @@
 				<ul class="nav ace-nav">
 					<li class="grey"><a href="index"> <i
 							class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i> <span
-							class="badge badge-grey">主页</span>
+							class="badge badge-grey">Home</span>
 					</a></li>
 					<li class="purple"><a href="index"> <i
 							class="fa fa-book fa-fw fa-2x" aria-hidden="true"></i> <span
-							class="badge badge-grey">关于</span>
+							class="badge badge-grey">About</span>
 					</a></li>
 					<li class="light-blue dropdown-modal"><a
 						data-toggle="dropdown" href="#" class="dropdown-toggle"> <img
@@ -60,10 +60,10 @@
 						<ul
 							class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 							<li><a href="profile"> <i class="fa fa-cog fa-fw"
-									aria-hidden="true"></i> 文件
+									aria-hidden="true"></i> profile
 							</a></li>
 							<li><a href="logout"> <i class="fa fa-sign-out fa-fw"
-									aria-hidden="true"></i> 登出
+									aria-hidden="true"></i> logout
 							</a></li>
 						</ul>
 					</li>
@@ -88,11 +88,11 @@
 				}
 			</script>
 			<ul class="nav nav-list">
-				<li class="active"><a href="#"> <i
+				<li class=""><a href="welcome"> <i
 						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
 							Dashboard </span>
 				</a> <b class="arrow"></b></li>
-				<li class=""><a href="showJoinedActivity"> <i
+				<li class="active"><a href="showJoinedActivity"> <i
 						class="menu-icon fa fa-list-alt"></i> <span class="menu-text">
 							参加的活动 </span>
 				</a> <b class="arrow"></b></li>
@@ -262,8 +262,10 @@
 					            <td><s:property value="#i.detial" /></td>
 					            <td><s:property value="#i.amount" /></td>
 					            <td>
-					              <button activityId="<s:property value="updateActivity.id" />" itemId="<s:property value="#i.id" />" 
-					              	class="label label-warning arrowed">我没去这个活动</button>
+					              <button class="btn btn-warning btn-xs" 
+					              	activityId="<s:property value="updateActivity.id" />" itemId="<s:property value="#i.id" />">
+					              	我没去这个活动
+					              </button>
 					            </td>
 					        </tr>
 					        </s:iterator>

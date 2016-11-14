@@ -89,7 +89,7 @@
 				}
 			</script>
 			<ul class="nav nav-list">
-				<li class=""><a href="welcome"> <i
+				<li class="active"><a href="welcome"> <i
 						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
 							Dashboard </span>
 				</a> <b class="arrow"></b></li>
@@ -105,7 +105,7 @@
 						class="menu-icon fa fa-pencil"></i> <span class="menu-text">
 							新建活动 </span>
 				</a> <b class="arrow"></b></li>
-				<li class="active"><a href="addActivity"> <i
+				<li class=""><a href="addActivity"> <i
 						class="menu-icon fa fa-plus-circle"></i> <span class="menu-text">
 							加入活动 </span>
 				</a> <b class="arrow"></b></li>
@@ -124,38 +124,25 @@
 				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
 					<ul class="breadcrumb">
 						<li><i class="ace-icon fa fa-folder-open home-icon"></i> <a
-							href="#">首页</a></li>
-						<li class="active">加入活动</li>
+							href="welcome">首页</a></li>
 					</ul>
 				</div>
 				<div class="page-content">
 					<div class="page-header"></div>
 
-					<div class="widget-box" style="border: none;">
-						<div class="widget-body">
-							<div class="widget-main">
-								<form action="joinActivity">
-									<fieldset>
-										<input type="text" class="col-sm-5" name="activityName"
-											placeholder="活动名称" required> <span class="help-block"></span>
-									</fieldset>
-									<br>
-									<div class="no-padding">
-										<button type="submit" class="btn btn-sm btn-success">
-											LETS GO <i
-												class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
-										</button>
-									</div>
-								</form>
-							</div>
-						</div>
-
+					<div class="alert alert-block alert-success" 
+						style="text-align: center; font-size: 16px;">
+					 
+							Welcome to
+					  <strong style="color: #FFC12D; font-family: Arial, sans-serif">Lets Go Dutch 1.0</strong>
+					    <br>我们的网站致力于管理各类聚会活动中的金钱收支问题~
+					   	<br>关注我们：<a href="https://github.com/anyua/lets-go-dutch">Github</a>
+					   	<br><a href="newActivity">现在就来创建一个活动吧~</a>
 					</div>
+
 				</div>
 			</div>
 		</div>
-
-
 	</div>
 
 	<script src="assets/js/jquery-2.1.4.min.js"></script>
