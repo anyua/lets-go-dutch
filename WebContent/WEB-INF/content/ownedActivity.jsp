@@ -199,11 +199,20 @@
 														class="ace-icon fa fa-check bigger-120"></i>
 													</a>
 													</s:else>
+													<s:if test="#a.type==0">
 													<a href="#" type="button" class="btn btn-xs btn-info"
 														title="Edit" data-toggle="modal" data-target="#myModal1"
 														actId=<s:property value="#a.id"/>> <i
 														class="ace-icon fa fa-pencil bigger-120"></i>
-													</a> 
+													</a>
+													 </s:if>
+													 <s:else>
+													 <a href="#" type="button" class="btn btn-xs btn-info disabled"
+														title="Edit" data-toggle="modal" data-target="#myModal1"
+														actId=<s:property value="#a.id"/>> <i
+														class="ace-icon fa fa-pencil bigger-120"></i>
+													</a>
+													 </s:else>
 													<a href="#" type="button" class="btn btn-xs btn-danger"
 														title="Delete" actId=<s:property value="#a.id"/>> <i
 														class="ace-icon fa fa-trash-o bigger-120"></i>
@@ -289,7 +298,8 @@
 															</a></li>
 															<li><a href="#" class="tooltip-error shareButton"
 																data-rel="tooltip" title="Share" data-toggle="modal"
-																data-target="#myModal" actId=<s:property value="#a.id"/>>
+																data-target="#myModal<s:property value="#a.id"/>"
+																 actId=<s:property value="#a.id"/>>
 																	<span class="red"> <i
 																		class="ace-icon fa fa-share-alt bigger-120"></i>
 																</span>
@@ -529,7 +539,7 @@
 			    	$(this).removeClass("btn-success");
 			    	$(this).addClass("btn-primary");
 			        $.get(url,params,function(data){
-			        	alert("开始结算"+data.activityID);
+			        	alert("开始结算");
 			        	$("td."+activityId).text("活动结算中");
 			        });
 		    	}
