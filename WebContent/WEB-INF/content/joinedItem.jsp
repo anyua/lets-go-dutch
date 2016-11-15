@@ -138,7 +138,7 @@
 			        <div class="widget-header">
 			          <h5 class="widget-title bigger lighter">
 						<i class="ace-icon fa fa-table"></i>
-							参与的第一个活动<!-- 此处内容为对应活动的名称 -->
+							<s:property value = "updateActivity.name"/><!-- 此处内容为对应活动的名称 -->
 					  </h5>
 			        </div>
 			        
@@ -147,11 +147,13 @@
 			            <div class="table-detail">
 	                      <div class="row">
 	                          <div class="col-xs-12 col-sm-2">
-	                              <a href="#"><img height="50" width="140" class="thumbnail" alt="现金支付" src="assets/images/alipay.jpg" /></a>
+	                          	<s:if test="updateActivity.type==2">
+	                              <a href="#"><img height="50" width="140" class="thumbnail" alt="现金支付" src="assets/images/cash.png" /></a>
 	                              <a href="#"><img height="50" width="140" class="thumbnail" alt="支付宝" src="assets/images/wepay.png" /></a>
 	                              <a href="#"><img height="50" width="140" class="thumbnail" alt="微信" src="assets/images/alipay.jpg" /></a>
+	                          	</s:if>
 	                          </div>
-	                            <div class="col-xs-12 col-sm-7">
+	                          <div class="col-xs-12 col-sm-7">
 	                              
 		                          <div class="profile-user-info profile-user-info-striped">
 		 							<div class="profile-info-row">
@@ -205,7 +207,9 @@
 									              
 		                          </div>
 	                            </div>
-	                            <div class="col-xs-12 col-sm-3">
+	                          <div class="col-xs-12 col-sm-3">
+	                          
+	                          <s:if test="updateActivity.type==0">
 	                              <div class="space visible-xs"></div>
 	                              <h4 class="header blue lighter less-margin">Send a feedback</h4>
 	                              
@@ -220,13 +224,37 @@
 									<div class="clearfix">
 									  <input type="text" class="pull-left col-sm-4" id="form-field-1" name="message.amount" placeholder="差额">
 									  <button activityid="<s:property value="updateActivity.id"/>"
-									  	 class="pull-right btn btn-sm btn-primary btn-white btn-round" type="button">
+									  	 class="pull-right btn btn-sm btn-primary btn-white btn-round feedBackButton" type="button">
 										  Submit
 									    <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
 									  </button> 
 									</div>  
 									<input type="hidden" name="activityId" value=<s:property value="updateActivity.id"/>>        
 	                              </form>
+	                          </s:if>
+	                          <s:if test="updateActivity.type==1">
+	                              <div class="space visible-xs"></div>
+	                              <h4 class="header blue lighter less-margin">Send a feedback</h4>
+	                              
+	                              <form class="<s:property value="updateActivity.id"/>">
+	                                
+	                     			<fieldset>
+									  <textarea class="width-100 limited" resize="none" 
+									  	name="message.remark" placeholder="Type your feedback…" 
+									  	maxlength="20"></textarea>
+									</fieldset>
+									<div class="hr hr-dotted"></div>
+									<div class="clearfix">
+									  <input type="text" class="pull-left col-sm-4" id="form-field-1" name="message.amount" placeholder="差额">
+									  <button activityid="<s:property value="updateActivity.id"/>"
+									  	 class="pull-right btn btn-sm btn-primary btn-white btn-round feedBackButton" type="button">
+										  Submit
+									    <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+									  </button> 
+									</div>  
+									<input type="hidden" name="activityId" value=<s:property value="updateActivity.id"/>>        
+	                              </form>
+	                          </s:if>
 	                            </div>
 	                      	</div>
 	                      </div>
@@ -262,10 +290,18 @@
 					            <td><s:property value="#i.detial" /></td>
 					            <td><s:property value="#i.amount" /></td>
 					            <td>
-					              <button class="btn btn-warning btn-xs" 
+					            <s:if test="updateActivity.type==0">
+					              <button class="btn btn-warning btn-xs outOfItem" 
 					              	activityId="<s:property value="updateActivity.id" />" itemId="<s:property value="#i.id" />">
 					              	我没去这个活动
 					              </button>
+					              </s:if>
+					              <s:else>
+					              <button class="btn btn-warning btn-xs disabled" 
+					              	activityId="<s:property value="updateActivity.id" />" itemId="<s:property value="#i.id" />">
+					              	我没去这个活动
+					              </button>
+					              </s:else>
 					            </td>
 					        </tr>
 					        </s:iterator>
@@ -315,6 +351,16 @@
 					data="itemId="+itemId+"&activityId="+activityId;
 					$.get(url, data, function() {
 						alert("退出成功");
+					});
+				});
+				$(document).ready(function() {
+					$("button.feedBackButton").click(function() {
+						var url = "feedBack"
+						var activityId=$(this).attr("activityid");
+						var data = $("form."+activityId).serialize();
+						$.get(url, data, function(response) {
+							alert("提交成功" + response.activityId);
+						});
 					});
 				});
 		  });
