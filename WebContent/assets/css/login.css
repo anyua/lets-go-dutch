@@ -3,10 +3,15 @@
 *pc端注册登陆框实现背景白色虚化，页面重点更突出
 *页面load的预处理
 */
+
 html {
-	font-family: sans-serif;
+	-webkit-font-smoothing: antialiased;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
+}
+
+body {
+	font-family: "Microsoft JhengHei", "Microsoft YaHei", sans-serif;
 }
 
 .overlay {
@@ -76,7 +81,6 @@ html {
 #signup-form fieldset > legend {
     color: #fff;
     width: 50%;
-    font-family: 'Catamaran', sans-serif;
     font-size: 1.5em;
     font-weight: 500;
     letter-spacing: 1px;
@@ -208,8 +212,8 @@ html {
 .login-choice-info p {
 	display: inline-block;
     margin-bottom: 1em;
-    font-weight: 200;
-    font-size: 1.5em;
+    font-weight: normal;
+    font-size: 18px;
 }
 
 .login-choice-info p > a {

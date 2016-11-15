@@ -99,8 +99,8 @@
 		try{ace.settings.loadState('sidebar')}catch(e){}
       </script>
       <ul class="nav nav-list">
-        <li class="active">
-          <a href="#">
+        <li class="">
+          <a href="welcome">
 			<i class="menu-icon fa fa-tachometer"></i>
 			  <span class="menu-text"> Dashboard </span>
 		  </a>
@@ -120,7 +120,7 @@
 		   </a>
 		   <b class="arrow"></b>
 		</li>
-		<li class="">
+		<li class="active">
 		  <a href="newActivity">
 		    <i class="menu-icon fa fa fa-pencil"></i>
 			<span class="menu-text"> 新建活动 </span>

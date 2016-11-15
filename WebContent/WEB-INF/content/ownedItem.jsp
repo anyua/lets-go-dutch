@@ -91,7 +91,7 @@
 				}
 			</script>
 			<ul class="nav nav-list">
-				<li class="active"><a href="#"> <i
+				<li class=""><a href="welcome"> <i
 						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
 							Dashboard </span>
 				</a> <b class="arrow"></b></li>
@@ -99,7 +99,7 @@
 						class="menu-icon fa fa-list-alt"></i> <span class="menu-text">
 							参加的活动 </span>
 				</a> <b class="arrow"></b></li>
-				<li class=""><a href="showOwnedActivity"> <i
+				<li class="active"><a href="showOwnedActivity"> <i
 						class="menu-icon fa fa-calendar"></i> <span class="menu-text">
 							创建的活动 </span>
 				</a> <b class="arrow"></b></li>
@@ -162,7 +162,7 @@
 													<i class="ace-icon fa fa-list"></i> Activity Items
 												</h4>
 												<form action="addItem">
-												<table id="simple-table"
+												<table id="simple-table-1"
 													class="table  table-bordered table-hover">
 													<thead>
 														<tr>
@@ -205,11 +205,8 @@
 
 											<div id="member-tab" class="tab-pane">
 												<h4 class="smaller lighter green">
-													<i class="ace-icon fa fa-list"></i> Members <a href="#"
-														type="button" class="btn btn-xs btn-danger pull-right"
-														title="批量删除"> <i
-														class="ace-icon fa fa-trash-o bigger-120"></i>
-													</a>
+													<i class="ace-icon fa fa-list"></i> Members
+													
 												</h4>
 
 												<table id="simple-table"
@@ -461,7 +458,7 @@
 								});
 					});
 
-			//select/deselect a row when the checkbox is checked/unchecked
+
 			$('#simple-table').on('click', 'td input[type=checkbox]',
 					function() {
 						var $row = $(this).closest('tr');
@@ -501,7 +498,16 @@
 			});
 			$("button#addItem").click(function(){
 				$("#addSubmit").removeClass("hidden");
-				$("tbody").append("<tr><td><input id=\"itemdetials\" name=\"detials\" type=\"text\" value=\"项目信息\"></td><td><input name=\"amounts\" type=\"text\" value=\"项目金额\"></td><td><-在这里输入新的项目</td></tr>");
+				
+				var currentRows = document.getElementById('simple-table-1').rows.length;
+				var newTr = document.getElementById('simple-table-1').insertRow(currentRows);
+				var newTd0 = newTr.insertCell(0);
+				var newTd1 = newTr.insertCell(1);
+				var newTd2 = newTr.insertCell(2);
+				
+				newTd0.innerHTML = '<input id="itemdetials" name="detials" type="text" value="项目信息" class="col-xs-12">';
+				newTd1.innerHTML = '<input name="amounts" type="text" value="项目金额" class="col-xs-12">';
+				newTd2.innerHTML = '<a href="#" type="button" class="btn btn-xs btn-danger" title="删除"> <i class="ace-icon fa fa-trash-o bigger-120"></i></a>'
 			});
 		});
 	</script>

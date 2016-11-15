@@ -9,7 +9,8 @@
    <action name="login"
    		class="com.struts.action.Login"
    		method="userLogin">
-   		<result name="true" type="chain">showUserInfo</result>
+   		<!--  <result name="true" type="chain">showUserInfo</result> -->
+   		<result name="true">/WEB-INF/content/welcome.jsp</result>
    		<result name="false">/login_fail.jsp</result>
    		<result name="turn2activityInfo" type="chain">showActivity</result>
    		<result name="turn2settle" type="chain">settle</result>
