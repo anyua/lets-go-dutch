@@ -8,6 +8,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>登陆</title>
 	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
 	<link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" sizes="32x32">
@@ -15,8 +17,6 @@
 	<link rel="manifest" href="assets/images/manifest.json">
 	<link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="theme-color" content="#ffffff">
-  <title>Log in</title>
-  
   
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -47,19 +47,19 @@
               <li>
                 <div class="form-group">
                   <span class="input-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                  <input type="text" id="user" class="form-control" name="login_user.userName" tabindex="1" placeholder="Account" autofocus required>
+                  <input type="text" id="user" class="form-control" name="login_user.userName" tabindex="1" placeholder="用户名" autofocus required>
                 </div>
               </li>
               <li>
                 <div class="form-group">
                   <span class="input-icon"><i class="fa fa-unlock" aria-hidden="true"></i></span>
-                  <input type="password" id="pass" class="form-control" name="login_user.password" tabindex="2" placeholder="Password" required>
+                  <input type="password" id="pass" class="form-control" name="login_user.password" tabindex="2" placeholder="密码" required>
                   <span id="msg"></span>
                 </div>
               </li>
             </ol>
           </fieldset>
-          <button class="btn btn-md my-btn-log my-btn-full" type="submit">LOG IN</button>
+          <button class="btn btn-md my-btn-log my-btn-full" type="submit">登录</button>
           <input type="hidden" name="activityID" value="${activityID}">
 		  <input type="hidden" name="loginType" value="${loginType}">
         </form>

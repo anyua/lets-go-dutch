@@ -54,27 +54,27 @@
 				<ul class="nav ace-nav">
 					<li class="grey"><a href="index"> <i
 							class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i> <span
-							class="badge badge-grey">Home</span>
+							class="badge badge-grey">首页</span>
 					</a></li>
 
 					<li class="purple"><a href="index"> <i
 							class="fa fa-book fa-fw fa-2x" aria-hidden="true"></i> <span
-							class="badge badge-grey">About</span>
+							class="badge badge-grey">关于</span>
 					</a></li>
 					<li class="light-blue dropdown-modal"><a
 						data-toggle="dropdown" href="#" class="dropdown-toggle"> <img
 							class="nav-user-photo" src="assets/images/user.jpg"> <span
-							class="user-info"> <small>Welcome,</small> <s:property
+							class="user-info"> <small>你好,</small> <s:property
 									value="pageOwner.nickname" />
 						</span> <i class="ace-icon fa fa-caret-down"></i>
 					</a>
 						<ul
 							class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 							<li><a href="profile"> <i class="fa fa-cog fa-fw"
-									aria-hidden="true"></i> Profile
+									aria-hidden="true"></i> 编辑
 							</a></li>
 							<li><a href="logout"> <i class="fa fa-sign-out fa-fw"
-									aria-hidden="true"></i> Logout
+									aria-hidden="true"></i> 注销
 							</a></li>
 						</ul></li>
 				</ul>
@@ -100,7 +100,7 @@
 			<ul class="nav nav-list">
 				<li class=""><a href="welcome"> <i
 						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
-							Dashboard </span>
+							我的 </span>
 				</a> <b class="arrow"></b></li>
 				<li class="active"><a href="showJoinedActivity"> <i
 						class="menu-icon fa fa-list-alt"></i> <span class="menu-text">
@@ -146,7 +146,7 @@
 								class="table  table-bordered table-hover">
 								<thead>
 									<tr>
-										<th class="detail-col">Details</th>
+										<th class="detail-col">更多</th>
 										<th>活动名称</th>
 										<th>开始日期</th>
 										<th>结束日期</th>
@@ -163,7 +163,7 @@
 													<a href="#" class="green bigger-140 show-details-btn"
 														title="Show Details"> <i
 														class="ace-icon fa fa-angle-double-down"></i> <span
-														class="sr-only">Details</span>
+														class="sr-only">更多</span>
 													</a>
 												</div>
 											</td>
@@ -265,13 +265,12 @@
 														<div class="col-xs-12 col-sm-3">
 														<s:if test="#a.type==0">
 															<div class="space visible-xs"></div>
-															<h4 class="header blue lighter less-margin">Send a
-																feedback</h4>
+															<h4 class="header blue lighter less-margin">意见反馈</h4>
 															<form class="<s:property value="#a.id"/>">
 																<fieldset>
 																	<textarea class="width-100 limited" resize="none"
 																		name="message.remark"
-																		placeholder="Type your feedback…" maxlength="20"></textarea>
+																		placeholder="有什么疑问写出来吧" maxlength="20"></textarea>
 																</fieldset>
 																<div class="hr hr-dotted"></div>
 																<div class="clearfix">
@@ -291,13 +290,12 @@
 														</s:if>
 														<s:if test="#a.type==1">
 															<div class="space visible-xs"></div>
-															<h4 class="header blue lighter less-margin">Send a
-																feedback</h4>
+															<h4 class="header blue lighter less-margin">意见反馈</h4>
 															<form class="<s:property value="#a.id"/>">
 																<fieldset>
 																	<textarea class="width-100 limited" resize="none"
 																		name="message.remark"
-																		placeholder="Type your feedback…" maxlength="20"></textarea>
+																		placeholder="有什么疑问写出来吧" maxlength="20"></textarea>
 																</fieldset>
 																<div class="hr hr-dotted"></div>
 																<div class="clearfix">
@@ -307,7 +305,7 @@
 																	<button activityid="<s:property value="#a.id"/>"
 																		class="pull-right btn btn-sm btn-primary btn-white btn-round feedBackButton"
 																		type="button">
-																		Submit <i
+																		发送 <i
 																			class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
 																	</button>
 																</div>

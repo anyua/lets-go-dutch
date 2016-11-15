@@ -50,26 +50,26 @@
 				<ul class="nav ace-nav">
 					<li class="grey"><a href="index"> <i
 							class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i> <span
-							class="badge badge-grey">Home</span>
+							class="badge badge-grey">首页</span>
 					</a></li>
 					<li class="purple"><a href="index"> <i
 							class="fa fa-book fa-fw fa-2x" aria-hidden="true"></i> <span
-							class="badge badge-grey">About</span>
+							class="badge badge-grey">关于</span>
 					</a></li>
 					<li class="light-blue dropdown-modal"><a
 						data-toggle="dropdown" href="#" class="dropdown-toggle"> <img
 							class="nav-user-photo" src="assets/images/user.jpg"> <span
-							class="user-info"> <small>,</small> <s:property
+							class="user-info"> <small>你好,</small> <s:property
 									value="pageOwner.nickname" />
 						</span> <i class="ace-icon fa fa-caret-down"></i>
 					</a>
 						<ul
 							class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 							<li><a href="profile"> <i class="fa fa-cog fa-fw"
-									aria-hidden="true"></i> profile
+									aria-hidden="true"></i> 编辑
 							</a></li>
 							<li><a href="logout"> <i class="fa fa-sign-out fa-fw"
-									aria-hidden="true"></i> logout
+									aria-hidden="true"></i> 注销
 							</a></li>
 						</ul>
 					</li>
@@ -96,7 +96,7 @@
 			<ul class="nav nav-list">
 				<li class=""><a href="welcome"> <i
 						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
-							Dashboard </span>
+							我的 </span>
 				</a> <b class="arrow"></b></li>
 				<li class="active"><a href="showJoinedActivity"> <i
 						class="menu-icon fa fa-list-alt"></i> <span class="menu-text">
@@ -144,7 +144,7 @@
 			        <div class="widget-header">
 			          <h5 class="widget-title bigger lighter">
 						<i class="ace-icon fa fa-table"></i>
-							<s:property value = "updateActivity.name"/><!-- 此处内容为对应活动的名称 -->
+
 					  </h5>
 			        </div>
 			        
@@ -217,13 +217,13 @@
 	                          
 	                          <s:if test="updateActivity.type==0">
 	                              <div class="space visible-xs"></div>
-	                              <h4 class="header blue lighter less-margin">Send a feedback</h4>
+	                              <h4 class="header blue lighter less-margin">意见反馈</h4>
 	                              
 	                              <form class="<s:property value="updateActivity.id"/>">
 	                                
 	                     			<fieldset>
 									  <textarea class="width-100 limited" resize="none" 
-									  	name="message.remark" placeholder="Type your feedback…" 
+									  	name="message.remark" placeholder="有什么疑问写出来吧" 
 									  	maxlength="20"></textarea>
 									</fieldset>
 									<div class="hr hr-dotted"></div>
@@ -231,7 +231,7 @@
 									  <input type="text" class="pull-left col-sm-4" id="form-field-1" name="message.amount" placeholder="差额">
 									  <button activityid="<s:property value="updateActivity.id"/>"
 									  	 class="pull-right btn btn-sm btn-primary btn-white btn-round feedBackButton" type="button">
-										  Submit
+										  发送
 									    <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
 									  </button> 
 									</div>  
@@ -240,13 +240,13 @@
 	                          </s:if>
 	                          <s:if test="updateActivity.type==1">
 	                              <div class="space visible-xs"></div>
-	                              <h4 class="header blue lighter less-margin">Send a feedback</h4>
+	                              <h4 class="header blue lighter less-margin">意见反馈</h4>
 	                              
 	                              <form class="<s:property value="updateActivity.id"/>">
 	                                
 	                     			<fieldset>
 									  <textarea class="width-100 limited" resize="none" 
-									  	name="message.remark" placeholder="Type your feedback…" 
+									  	name="message.remark" placeholder="有什么疑问写出来吧" 
 									  	maxlength="20"></textarea>
 									</fieldset>
 									<div class="hr hr-dotted"></div>
@@ -254,7 +254,7 @@
 									  <input type="text" class="pull-left col-sm-4" id="form-field-1" name="message.amount" placeholder="差额">
 									  <button activityid="<s:property value="updateActivity.id"/>"
 									  	 class="pull-right btn btn-sm btn-primary btn-white btn-round feedBackButton" type="button">
-										  Submit
+										  发送
 									    <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
 									  </button> 
 									</div>  
@@ -286,7 +286,7 @@
 					        <tr>
 					          <th>项目名称</th>
 					          <th>个人应付</th>
-					          <th>Check</th>
+					          <th>筛选</th>
 					        </tr>
 					      </thead>
 					      

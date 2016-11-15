@@ -57,27 +57,27 @@
 				<ul class="nav ace-nav">
 					<li class="grey"><a href="index"> <i
 							class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i> <span
-							class="badge badge-grey">Home</span>
+							class="badge badge-grey">首页</span>
 					</a></li>
 
 					<li class="purple"><a href="index"> <i
 							class="fa fa-book fa-fw fa-2x" aria-hidden="true"></i> <span
-							class="badge badge-grey">About</span>
+							class="badge badge-grey">关于</span>
 					</a></li>
 					<li class="light-blue dropdown-modal"><a
 						data-toggle="dropdown" href="#" class="dropdown-toggle"> <img
 							class="nav-user-photo" src="assets/images/user.jpg"> <span
-							class="user-info"> <small>Welcome,</small> <s:property
+							class="user-info"> <small>你好,</small> <s:property
 									value="pageOwner.nickname" />
 						</span> <i class="ace-icon fa fa-caret-down"></i>
 					</a>
 						<ul
 							class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 							<li><a href="profile"> <i class="fa fa-cog fa-fw"
-									aria-hidden="true"></i> Profile
+									aria-hidden="true"></i> 编辑
 							</a></li>
 							<li><a href="logout"> <i class="fa fa-sign-out fa-fw"
-									aria-hidden="true"></i> Logout
+									aria-hidden="true"></i> 注销
 							</a></li>
 						</ul></li>
 				</ul>
@@ -97,7 +97,7 @@
 			<ul class="nav nav-list">
 				<li class=""><a href="welcome"> <i
 						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
-							Dashboard </span>
+							我的 </span>
 				</a> <b class="arrow"></b></li>
 				<li class=""><a href="showJoinedActivity"> <i
 						class="menu-icon fa fa-list-alt"></i> <span class="menu-text">
@@ -143,7 +143,7 @@
 								class="table  table-bordered table-hover">
 								<thead>
 									<tr>
-										<th class="detail-col">Details</th>
+										<th class="detail-col">更多</th>
 										<th>活动名称</th>
 										<th>开始日期</th>
 										<th>结束日期</th>
@@ -161,7 +161,7 @@
 													<a href="#" class="green bigger-140 show-details-btn"
 														title="Show Details"> <i
 														class="ace-icon fa fa-angle-double-down"></i> <span
-														class="sr-only">Details</span>
+														class="sr-only">更多</span>
 													</a>
 												</div>
 											</td>
@@ -183,25 +183,25 @@
 												<div class="hidden-sm hidden-xs btn-group">
 													<s:if test="#a.type==0">
 													<a href="#" type="button" class="btn btn-xs btn-success <s:property value="#a.id"/>"
-														title="Settle" actId=<s:property value="#a.id"/>> <i
+														title="结算" actId=<s:property value="#a.id"/>> <i
 														class="ace-icon fa fa-check bigger-120"></i>
 													</a>
 													</s:if>
 													<s:elseif test="#a.type==1"> 
 													<a href="#" type="button" class="btn btn-xs btn-primary <s:property value="#a.id"/>"
-														title="Settle" actId=<s:property value="#a.id"/>> <i
+														title="结算" actId=<s:property value="#a.id"/>> <i
 														class="ace-icon fa fa-check bigger-120"></i>
 													</a>
 													</s:elseif>
 													<s:else> 
 													<a href="#" type="button" class="btn btn-xs btn-default disabled <s:property value="#a.id"/>"
-														title="Settle" actId=<s:property value="#a.id"/>> <i
+														title="结算" actId=<s:property value="#a.id"/>> <i
 														class="ace-icon fa fa-check bigger-120"></i>
 													</a>
 													</s:else>
 													<s:if test="#a.type==0">
 													<a href="#" type="button" class="btn btn-xs btn-info"
-														title="Edit" data-toggle="modal" data-target="#myModal1"
+														title="编辑" data-toggle="modal" data-target="#myModal1"
 														actId=<s:property value="#a.id"/>> <i
 														class="ace-icon fa fa-pencil bigger-120"></i>
 													</a>
@@ -214,11 +214,11 @@
 													</a>
 													 </s:else>
 													<a href="#" type="button" class="btn btn-xs btn-danger"
-														title="Delete" actId=<s:property value="#a.id"/>> <i
+														title="删除" actId=<s:property value="#a.id"/>> <i
 														class="ace-icon fa fa-trash-o bigger-120"></i>
 													</a> 
 													<a href="#" type="button" class="btn btn-xs btn-warning shareButton"
-														title="share" data-toggle="modal" data-target="#myModal<s:property value="#a.id"/>"
+														title="分享" data-toggle="modal" data-target="#myModal<s:property value="#a.id"/>"
 														actId=<s:property value="#a.id"/>> <i
 														class="ace-icon fa fa-share-alt bigger-120"></i>
 													</a>
@@ -256,7 +256,7 @@
 															class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
 															<s:if test="#a.type==0">  
 															<li><a href="#" class="tooltip-success <s:property value="#a.id"/>"
-																data-rel="tooltip" title="Settle"
+																data-rel="tooltip" title="结算"
 																actId=<s:property value="#a.id"/>> <span
 																	class="blue"> <i
 																		class="ace-icon fa fa-check bigger-120"></i>
@@ -264,7 +264,7 @@
 															</a></li>
 															</s:if> <s:elseif test="#a.type==1">  
 															<li><a href="#" class="tooltip-primary <s:property value="#a.id"/>"
-																data-rel="tooltip" title="Settle"
+																data-rel="tooltip" title="结算"
 																actId=<s:property value="#a.id"/>> <span
 																	class="blue"> <i
 																		class="ace-icon fa fa-check bigger-120"></i>
@@ -272,7 +272,7 @@
 															</a></li>
 															</s:elseif> <s:else>  
 															<li><a href="#" class="tooltip-defalut <s:property value="#a.id"/>"
-																data-rel="tooltip" title="Settle"
+																data-rel="tooltip" title="结算"
 																actId=<s:property value="#a.id"/>> <span
 																	class="blue"> <i
 																		class="ace-icon fa fa-check bigger-120"></i>
@@ -282,7 +282,7 @@
 															
 
 															<li><a href="#" class="tooltip-info"
-																data-rel="tooltip" title="Edit" data-toggle="modal"
+																data-rel="tooltip" title="编辑" data-toggle="modal"
 																data-target="#myModal1"
 																actId=<s:property value="#a.id"/>> <span
 																	class="green"> <i
@@ -291,13 +291,13 @@
 															</a></li>
 
 															<li><a href="#" class="tooltip-error"
-																data-rel="tooltip" title="Delete"
+																data-rel="tooltip" title="删除"
 																actId=<s:property value="#a.id"/>> <span class="red">
 																		<i class="ace-icon fa fa-trash-o bigger-120"></i>
 																</span>
 															</a></li>
 															<li><a href="#" class="tooltip-error shareButton"
-																data-rel="tooltip" title="Share" data-toggle="modal"
+																data-rel="tooltip" title="分享" data-toggle="modal"
 																data-target="#myModal<s:property value="#a.id"/>"
 																 actId=<s:property value="#a.id"/>>
 																	<span class="red"> <i

@@ -53,27 +53,27 @@
 				<ul class="nav ace-nav">
 					<li class="grey"><a href="index"> <i
 							class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i> <span
-							class="badge badge-grey">Home</span>
+							class="badge badge-grey">首页</span>
 					</a></li>
 
 					<li class="purple"><a href="index"> <i
 							class="fa fa-book fa-fw fa-2x" aria-hidden="true"></i> <span
-							class="badge badge-grey">About</span>
+							class="badge badge-grey">关于</span>
 					</a></li>
 					<li class="light-blue dropdown-modal"><a
 						data-toggle="dropdown" href="#" class="dropdown-toggle"> <img
 							class="nav-user-photo" src="assets/images/user.jpg"> <span
-							class="user-info"> <small>Welcome,</small> <s:property
+							class="user-info"> <small>你好,</small> <s:property
 									value="pageOwner.nickname" />
 						</span> <i class="ace-icon fa fa-caret-down"></i>
 					</a>
 						<ul
 							class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 							<li><a href="profile"> <i class="fa fa-cog fa-fw"
-									aria-hidden="true"></i> Profile
+									aria-hidden="true"></i> 编辑
 							</a></li>
 							<li><a href="logout"> <i class="fa fa-sign-out fa-fw"
-									aria-hidden="true"></i> Logout
+									aria-hidden="true"></i> 注销
 							</a></li>
 						</ul></li>
 				</ul>
@@ -99,7 +99,7 @@
 			<ul class="nav nav-list">
 				<li class=""><a href="welcome"> <i
 						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
-							Dashboard </span>
+							我的 </span>
 				</a> <b class="arrow"></b></li>
 				<li class=""><a href="showJoinedActivity"> <i
 						class="menu-icon fa fa-list-alt"></i> <span class="menu-text">
@@ -145,15 +145,15 @@
 							<div class="widget-box transparent" id="recent-box">
 								<div class="widget-header">
 									<h4 class="widget-title lighter smaller">
-										<i class="ace-icon fa fa-rss orange"></i> Activity
+										<i class="ace-icon fa fa-rss orange"></i> 活动
 									</h4>
 									<div class="widget-toolbar no-border">
 										<ul class="nav nav-tabs" id="recent-tab">
-											<li class="active"><a data-toggle="tab" href="#task-tab">Items</a>
+											<li class="active"><a data-toggle="tab" href="#task-tab">项目</a>
 											</li>
-											<li><a data-toggle="tab" href="#member-tab">Members</a>
+											<li><a data-toggle="tab" href="#member-tab">成员</a>
 											</li>
-											<li><a data-toggle="tab" href="#comment-tab">Comments</a>
+											<li><a data-toggle="tab" href="#comment-tab">反馈</a>
 											</li>
 										</ul>
 									</div>
@@ -165,7 +165,7 @@
 										<div class="tab-content padding-8">
 											<div id="task-tab" class="tab-pane active">
 												<h4 class="smaller lighter green">
-													<i class="ace-icon fa fa-list"></i> Activity Items
+													<i class="ace-icon fa fa-list"></i> 项目
 												</h4>
 												<form action="addItem">
 												<table id="simple-table-1"
@@ -211,7 +211,7 @@
 
 											<div id="member-tab" class="tab-pane">
 												<h4 class="smaller lighter green">
-													<i class="ace-icon fa fa-list"></i> Members
+													<i class="ace-icon fa fa-list"></i>成员
 													
 												</h4>
 
@@ -219,9 +219,7 @@
 													class="table  table-bordered table-hover">
 													<thead>
 														<tr>
-															<th class="center"><label class="pos-rel"> <input
-																	type="checkbox" class="ace" /> <span class="lbl"></span>
-															</label></th>
+
 															<th class="detail-col">项目</th>
 															<th>昵称</th>
 															<th>用户名</th>
@@ -232,10 +230,6 @@
 													<tbody>
 														<s:iterator value="updateActivity.Members" id="u">
 															<tr>
-																<td class="center"><label class="pos-rel">
-																		<input type="checkbox" class="ace" /> <span
-																		class="lbl"></span>
-																</label></td>
 																<td class="center">
 																	<div class="action-buttons">
 																		<a href="#" class="green bigger-140 show-details-btn"
@@ -305,7 +299,7 @@
 
 											<div id="comment-tab" class="tab-pane">
 												<h4 class="smaller lighter green">
-													<i class="ace-icon fa fa-list"></i> Feedback
+													<i class="ace-icon fa fa-list"></i> 反馈
 												</h4>
 												<table id="simple-table"
 													class="table  table-bordered table-hover">

@@ -57,21 +57,21 @@
           <li class="grey">
             <a href="index">
               <i class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i>
-              <span class="badge badge-grey">Home</span>
+              <span class="badge badge-grey">首页</span>
             </a>
           </li>
           
           <li class="purple">
             <a href="index">
               <i class="fa fa-book fa-fw fa-2x" aria-hidden="true"></i>
-              <span class="badge badge-grey">About</span>
+              <span class="badge badge-grey">关于</span>
             </a>
           </li>
           <li class="light-blue dropdown-modal">
             <a data-toggle="dropdown" href="#" class="dropdown-toggle">
               <img class="nav-user-photo" src="assets/images/user.jpg">
               <span class="user-info">
-			    <small>Welcome,</small>
+			    <small>你好,</small>
 			    <s:property value="pageOwner.nickname" />
 			  </span>
               <i class="ace-icon fa fa-caret-down"></i>
@@ -80,13 +80,13 @@
 			   <li>
 			     <a href="profile">
 			       <i class="fa fa-cog fa-fw" aria-hidden="true"></i>
-					 		 Profile
+					 		 编辑
 			     </a>
 		       </li>
 		       <li>
 			     <a href="logout">
 			       <i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>
-						 Logout
+						 注销
 			     </a>
 		       </li>
 	         </ul>
@@ -108,7 +108,7 @@
         <li class="">
           <a href="welcome">
 			<i class="menu-icon fa fa-tachometer"></i>
-			  <span class="menu-text"> Dashboard </span>
+			  <span class="menu-text"> 我的 </span>
 		  </a>
 		  <b class="arrow"></b>
         </li>
@@ -234,11 +234,11 @@
 			        <div class="col-sm-9">
 			          <button type="reset" class="btn btn-sm btn-success">
 					    <i class="ace-icon fa fa-arrow-left icon-on-right bigger-110"></i>
-						    Reset
+						    返回
 				      </button>
 				  
 				      <button type="submit" class="btn btn-sm btn-success">
-						  Submit
+						  创建
 					    <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
 				      </button>
 				    </div>

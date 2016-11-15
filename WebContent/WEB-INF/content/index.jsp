@@ -8,6 +8,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <title>首页</title>
 	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
 	<link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" sizes="32x32">
@@ -15,7 +18,6 @@
 	<link rel="manifest" href="assets/images/manifest.json">
 	<link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="theme-color" content="#ffffff">
-  <title>Homepage</title>
 
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:800,400">
@@ -37,9 +39,9 @@
       </div>
       <div id="menu" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right my-navbar-menu">
-          <li class="btn-2"><a href="index">HOME</a></li>
+          <li class="btn-2"><a href="index">首页</a></li>
           <!-- 考虑about制作模态框，嵌入网站的demo -->
-		  <li class="btn-2"><a href="About">ABOUT</a></li>		
+		  <li class="btn-2"><a href="About">关于</a></li>		
         </ul>
       </div>
     </div>
@@ -57,12 +59,12 @@
           <div class="row">
             <div class="col-xs-6 text-right">
               <a class="btn btn-md my-btn my-btn-border" href="signuppage" type="button">
-                SIGN UP
+                注册
               </a>
             </div>
             <div class="col-xs-6">
               <a class="btn btn-md my-btn my-btn-full" href="loginpage" type="button">
-                LOG IN
+                登录
               </a>
             </div>
           </div>
