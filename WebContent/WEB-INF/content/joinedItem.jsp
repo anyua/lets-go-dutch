@@ -8,7 +8,13 @@
 <meta charset="UTF-8">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="assets/images/favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="assets/images/manifest.json">
+	<link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="theme-color" content="#ffffff">
   <title>参与活动的具体的项目</title>
   
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -44,11 +50,11 @@
 				<ul class="nav ace-nav">
 					<li class="grey"><a href="index"> <i
 							class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i> <span
-							class="badge badge-grey">Home</span>
+							class="badge badge-grey">首页</span>
 					</a></li>
 					<li class="purple"><a href="index"> <i
 							class="fa fa-book fa-fw fa-2x" aria-hidden="true"></i> <span
-							class="badge badge-grey">About</span>
+							class="badge badge-grey">关于</span>
 					</a></li>
 					<li class="light-blue dropdown-modal"><a
 						data-toggle="dropdown" href="#" class="dropdown-toggle"> <img
@@ -60,10 +66,10 @@
 						<ul
 							class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 							<li><a href="profile"> <i class="fa fa-cog fa-fw"
-									aria-hidden="true"></i> profile
+									aria-hidden="true"></i> 编辑
 							</a></li>
 							<li><a href="logout"> <i class="fa fa-sign-out fa-fw"
-									aria-hidden="true"></i> logout
+									aria-hidden="true"></i> 注销
 							</a></li>
 						</ul>
 					</li>
@@ -90,7 +96,7 @@
 			<ul class="nav nav-list">
 				<li class=""><a href="welcome"> <i
 						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
-							Dashboard </span>
+							我的 </span>
 				</a> <b class="arrow"></b></li>
 				<li class="active"><a href="showJoinedActivity"> <i
 						class="menu-icon fa fa-list-alt"></i> <span class="menu-text">
@@ -211,13 +217,13 @@
 	                          
 	                          <s:if test="updateActivity.type==0">
 	                              <div class="space visible-xs"></div>
-	                              <h4 class="header blue lighter less-margin">Send a feedback</h4>
+	                              <h4 class="header blue lighter less-margin">意见反馈</h4>
 	                              
 	                              <form class="<s:property value="updateActivity.id"/>">
 	                                
 	                     			<fieldset>
 									  <textarea class="width-100 limited" resize="none" 
-									  	name="message.remark" placeholder="Type your feedback…" 
+									  	name="message.remark" placeholder="有什么疑问写出来吧" 
 									  	maxlength="20"></textarea>
 									</fieldset>
 									<div class="hr hr-dotted"></div>
@@ -225,7 +231,7 @@
 									  <input type="text" class="pull-left col-sm-4" id="form-field-1" name="message.amount" placeholder="差额">
 									  <button activityid="<s:property value="updateActivity.id"/>"
 									  	 class="pull-right btn btn-sm btn-primary btn-white btn-round feedBackButton" type="button">
-										  Submit
+										  发送
 									    <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
 									  </button> 
 									</div>  
@@ -234,13 +240,13 @@
 	                          </s:if>
 	                          <s:if test="updateActivity.type==1">
 	                              <div class="space visible-xs"></div>
-	                              <h4 class="header blue lighter less-margin">Send a feedback</h4>
+	                              <h4 class="header blue lighter less-margin">意见反馈</h4>
 	                              
 	                              <form class="<s:property value="updateActivity.id"/>">
 	                                
 	                     			<fieldset>
 									  <textarea class="width-100 limited" resize="none" 
-									  	name="message.remark" placeholder="Type your feedback…" 
+									  	name="message.remark" placeholder="有什么疑问写出来吧" 
 									  	maxlength="20"></textarea>
 									</fieldset>
 									<div class="hr hr-dotted"></div>
@@ -248,7 +254,7 @@
 									  <input type="text" class="pull-left col-sm-4" id="form-field-1" name="message.amount" placeholder="差额">
 									  <button activityid="<s:property value="updateActivity.id"/>"
 									  	 class="pull-right btn btn-sm btn-primary btn-white btn-round feedBackButton" type="button">
-										  Submit
+										  发送
 									    <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
 									  </button> 
 									</div>  
@@ -280,7 +286,7 @@
 					        <tr>
 					          <th>项目名称</th>
 					          <th>个人应付</th>
-					          <th>Check</th>
+					          <th>筛选</th>
 					        </tr>
 					      </thead>
 					      

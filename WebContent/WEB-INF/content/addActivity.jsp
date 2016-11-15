@@ -8,7 +8,13 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="assets/images/favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="assets/images/manifest.json">
+	<link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="theme-color" content="#ffffff">
 <title>加入活动</title>
 
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -45,27 +51,27 @@
 				<ul class="nav ace-nav">
 					<li class="grey"><a href="index"> <i
 							class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i> <span
-							class="badge badge-grey">Home</span>
+							class="badge badge-grey">首页</span>
 					</a></li>
 
 					<li class="purple"><a href="index"> <i
 							class="fa fa-book fa-fw fa-2x" aria-hidden="true"></i> <span
-							class="badge badge-grey">About</span>
+							class="badge badge-grey">关于</span>
 					</a></li>
 					<li class="light-blue dropdown-modal"><a
 						data-toggle="dropdown" href="#" class="dropdown-toggle"> <img
 							class="nav-user-photo" src="assets/images/user.jpg"> <span
-							class="user-info"> <small>Welcome,</small> <s:property
+							class="user-info"> <small>你好,</small> <s:property
 									value="pageOwner.nickname" />
 						</span> <i class="ace-icon fa fa-caret-down"></i>
 					</a>
 						<ul
 							class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 							<li><a href="profile"> <i class="fa fa-cog fa-fw"
-									aria-hidden="true"></i> Profile
+									aria-hidden="true"></i> 编辑
 							</a></li>
 							<li><a href="logout"> <i class="fa fa-sign-out fa-fw"
-									aria-hidden="true"></i> Logout
+									aria-hidden="true"></i> 注销
 							</a></li>
 						</ul></li>
 				</ul>
@@ -91,7 +97,7 @@
 			<ul class="nav nav-list">
 				<li class=""><a href="welcome"> <i
 						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
-							Dashboard </span>
+							我的 </span>
 				</a> <b class="arrow"></b></li>
 				<li class=""><a href="showJoinedActivity"> <i
 						class="menu-icon fa fa-list-alt"></i> <span class="menu-text">

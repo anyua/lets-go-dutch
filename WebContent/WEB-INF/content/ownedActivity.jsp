@@ -8,7 +8,13 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="assets/images/favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="assets/images/manifest.json">
+	<link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="theme-color" content="#ffffff">
 <title>创建的活动</title>
 
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -137,7 +143,7 @@
 								class="table  table-bordered table-hover">
 								<thead>
 									<tr>
-										<th class="detail-col">Details</th>
+										<th class="detail-col">更多</th>
 										<th>活动名称</th>
 										<th>开始日期</th>
 										<th>结束日期</th>
@@ -155,7 +161,7 @@
 													<a href="#" class="green bigger-140 show-details-btn"
 														title="Show Details"> <i
 														class="ace-icon fa fa-angle-double-down"></i> <span
-														class="sr-only">Details</span>
+														class="sr-only">更多</span>
 													</a>
 												</div>
 											</td>
@@ -177,33 +183,33 @@
 												<div class="hidden-sm hidden-xs btn-group">
 													<s:if test="#a.type==0">
 													<a href="#" type="button" class="btn btn-xs btn-success <s:property value="#a.id"/>"
-														title="Settle" actId=<s:property value="#a.id"/>> <i
+														title="结算" actId=<s:property value="#a.id"/>> <i
 														class="ace-icon fa fa-check bigger-120"></i>
 													</a>
 													</s:if>
 													<s:elseif test="#a.type==1"> 
 													<a href="#" type="button" class="btn btn-xs btn-primary <s:property value="#a.id"/>"
-														title="Settle" actId=<s:property value="#a.id"/>> <i
+														title="结算" actId=<s:property value="#a.id"/>> <i
 														class="ace-icon fa fa-check bigger-120"></i>
 													</a>
 													</s:elseif>
 													<s:else> 
 													<a href="#" type="button" class="btn btn-xs btn-default disabled <s:property value="#a.id"/>"
-														title="Settle" actId=<s:property value="#a.id"/>> <i
+														title="结算" actId=<s:property value="#a.id"/>> <i
 														class="ace-icon fa fa-check bigger-120"></i>
 													</a>
 													</s:else>
 													<a href="#" type="button" class="btn btn-xs btn-info"
-														title="Edit" data-toggle="modal" data-target="#myModal1"
+														title="编辑" data-toggle="modal" data-target="#myModal1"
 														actId=<s:property value="#a.id"/>> <i
 														class="ace-icon fa fa-pencil bigger-120"></i>
 													</a> 
 													<a href="#" type="button" class="btn btn-xs btn-danger"
-														title="Delete" actId=<s:property value="#a.id"/>> <i
+														title="删除" actId=<s:property value="#a.id"/>> <i
 														class="ace-icon fa fa-trash-o bigger-120"></i>
 													</a> 
 													<a href="#" type="button" class="btn btn-xs btn-warning shareButton"
-														title="share" data-toggle="modal" data-target="#myModal<s:property value="#a.id"/>"
+														title="分享" data-toggle="modal" data-target="#myModal<s:property value="#a.id"/>"
 														actId=<s:property value="#a.id"/>> <i
 														class="ace-icon fa fa-share-alt bigger-120"></i>
 													</a>
@@ -241,7 +247,7 @@
 															class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
 															<s:if test="#a.type==0">  
 															<li><a href="#" class="tooltip-success <s:property value="#a.id"/>"
-																data-rel="tooltip" title="Settle"
+																data-rel="tooltip" title="结算"
 																actId=<s:property value="#a.id"/>> <span
 																	class="blue"> <i
 																		class="ace-icon fa fa-check bigger-120"></i>
@@ -249,7 +255,7 @@
 															</a></li>
 															</s:if> <s:elseif test="#a.type==1">  
 															<li><a href="#" class="tooltip-primary <s:property value="#a.id"/>"
-																data-rel="tooltip" title="Settle"
+																data-rel="tooltip" title="结算"
 																actId=<s:property value="#a.id"/>> <span
 																	class="blue"> <i
 																		class="ace-icon fa fa-check bigger-120"></i>
@@ -257,7 +263,7 @@
 															</a></li>
 															</s:elseif> <s:else>  
 															<li><a href="#" class="tooltip-defalut <s:property value="#a.id"/>"
-																data-rel="tooltip" title="Settle"
+																data-rel="tooltip" title="结算"
 																actId=<s:property value="#a.id"/>> <span
 																	class="blue"> <i
 																		class="ace-icon fa fa-check bigger-120"></i>
@@ -267,7 +273,7 @@
 															
 
 															<li><a href="#" class="tooltip-info"
-																data-rel="tooltip" title="Edit" data-toggle="modal"
+																data-rel="tooltip" title="编辑" data-toggle="modal"
 																data-target="#myModal1"
 																actId=<s:property value="#a.id"/>> <span
 																	class="green"> <i
@@ -276,13 +282,13 @@
 															</a></li>
 
 															<li><a href="#" class="tooltip-error"
-																data-rel="tooltip" title="Delete"
+																data-rel="tooltip" title="删除"
 																actId=<s:property value="#a.id"/>> <span class="red">
 																		<i class="ace-icon fa fa-trash-o bigger-120"></i>
 																</span>
 															</a></li>
 															<li><a href="#" class="tooltip-error shareButton"
-																data-rel="tooltip" title="Share" data-toggle="modal"
+																data-rel="tooltip" title="分享" data-toggle="modal"
 																data-target="#myModal" actId=<s:property value="#a.id"/>>
 																	<span class="red"> <i
 																		class="ace-icon fa fa-share-alt bigger-120"></i>
