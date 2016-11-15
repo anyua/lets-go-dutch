@@ -193,6 +193,7 @@
 												<div class="table-detail">
 													<div class="row">
 														<div class="col-xs-12 col-sm-2">
+	                          							<s:if test="#a.type==2">
 															<a href="#"><img height="50" width="140"
 																class="thumbnail" alt="现金支付"
 																src="assets/images/alipay.jpg" /></a> <a href="#"><img
@@ -200,6 +201,7 @@
 																src="assets/images/wepay.png" /></a> <a href="#"><img
 																height="50" width="140" class="thumbnail" alt="微信"
 																src="assets/images/alipay.jpg" /></a>
+															</s:if>	
 														</div>
 														<div class="col-xs-12 col-sm-7">
 
@@ -255,6 +257,7 @@
 															</div>
 														</div>
 														<div class="col-xs-12 col-sm-3">
+														<s:if test="#a.type==0">
 															<div class="space visible-xs"></div>
 															<h4 class="header blue lighter less-margin">Send a
 																feedback</h4>
@@ -279,6 +282,33 @@
 																<input type="hidden" name="activityId"
 																	value=<s:property value="#a.id"/>>
 															</form>
+														</s:if>
+														<s:if test="#a.type==1">
+															<div class="space visible-xs"></div>
+															<h4 class="header blue lighter less-margin">Send a
+																feedback</h4>
+															<form class="<s:property value="#a.id"/>">
+																<fieldset>
+																	<textarea class="width-100 limited" resize="none"
+																		name="message.remark"
+																		placeholder="Type your feedback…" maxlength="20"></textarea>
+																</fieldset>
+																<div class="hr hr-dotted"></div>
+																<div class="clearfix">
+																	<input type="text" class="pull-left col-sm-4"
+																		id="form-field-1" name="message.amount"
+																		placeholder="差额">
+																	<button activityid="<s:property value="#a.id"/>"
+																		class="pull-right btn btn-sm btn-primary btn-white btn-round feedBackButton"
+																		type="button">
+																		Submit <i
+																			class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+																	</button>
+																</div>
+																<input type="hidden" name="activityId"
+																	value=<s:property value="#a.id"/>>
+															</form>
+														</s:if>
 														</div>
 													</div>
 												</div>
