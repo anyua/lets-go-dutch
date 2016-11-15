@@ -53,7 +53,7 @@
 					<li class="light-blue dropdown-modal"><a
 						data-toggle="dropdown" href="#" class="dropdown-toggle"> <img
 							class="nav-user-photo" src="assets/images/user.jpg"> <span
-							class="user-info"> <small>,</small> <s:property
+							class="user-info"> <small>你好,</small> <s:property
 									value="pageOwner.nickname" />
 						</span> <i class="ace-icon fa fa-caret-down"></i>
 					</a>
@@ -138,7 +138,7 @@
 			        <div class="widget-header">
 			          <h5 class="widget-title bigger lighter">
 						<i class="ace-icon fa fa-table"></i>
-							参与的第一个活动<!-- 此处内容为对应活动的名称 -->
+							<s:property value="updateActivity.name"/><!-- 此处内容为对应活动的名称 -->
 					  </h5>
 			        </div>
 			        
