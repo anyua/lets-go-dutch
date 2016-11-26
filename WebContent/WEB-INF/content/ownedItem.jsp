@@ -200,12 +200,13 @@
 												</table>
 												<input type="hidden" name ="activityID" value ="<s:property value="updateActivity.id" />">
 												<div class="btn-group">
-													<button id="addSubmit" class="btn btn-xs btn-success hidden" type="submit">
-													<i class="fa fa-check" style="font-size: 14px;"></i>
+													<button id="addSubmit" type="submit"
+														class="btn btn-xs btn-success hidden" style="font-size: 14px; text-align: center; padding: .425rem; width: 2.5rem;" title="提交">
+														<i class="fa fa-check"></i>
 													</button>
 													<button  id="addItem" type="button"
-														class="btn btn-xs btn-primary" title="添加一个新项目">
-													<i class="fa fa-plus" style="font-size: 14px; width: 14px;"></i>
+														class="btn btn-xs btn-primary" style="font-size: 14px; text-align: center; padding: .425rem; width: 2.5rem;" title="添加一个新项目">
+														<i class="fa fa-plus"></i>
 													</button>
 												</div>
 												</form>

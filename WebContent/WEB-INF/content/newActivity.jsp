@@ -221,11 +221,11 @@
 			      <div class="form-group">
 				    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">添加项目</label>
 				    <div class="col-sm-9">
-					  <input type="button" class="btn btn-sm btn-info" id="addItem" value="+" style="font-size: 1.5em; font-weight: bolder;"/>
-					  
-					  <div id="addform"></div>
+					  <input type="button" class="btn btn-sm btn-info" id="addItem" value="+"
+					  	style="padding: 9; font-size: 14px; font-weight: bolder;">
 				    </div>
 			      </div>
+			      <div id="addForm"></div>
 			      <div class="hr hr-18 dotted"></div>
 			     
 			      
@@ -291,13 +291,48 @@
   		});
   		
   		$(document).ready(function(){
-  			var i=0;
+
   			$("#addItem").click(function(){
-  				i=i+1;
-  	    	
-  	    		$("#addform").append("<div class='form-group'><label class='col-sm-1 control-label no-padding-right' for='form-field-1'>"+i+"</label>"
-  	    				+"<div class='col-sm-8'><input class='col-xs-10 col-sm-4' id=\"itemdetials\" name=\"detials\" type=\"text\" placeholder=\"项目名称\"><input class='col-xs-10 col-sm-4' name=\"amounts\" type=\"text\" placeholder=\"项目金额\"></div></div>");
+  				var addForm = document.getElementById('addForm');
+  				var divForm = document.createElement('div');
+  				divForm.classList.add('form-group');
+  				
+  				var iconLabel = document.createElement('label');
+  				iconLabel.classList.add('col-sm-3', 'control-label', 'no-padding-right');
+  				iconLabel.style.paddingTop = '5px';
+  				var iconBtn = document.createElement('button');
+  				iconBtn.classList.add('btn-link');
+  				iconBtn.innerHTML = '<i class="fa fa-trash-o"></i>';
+  				iconBtn.addEventListener('click', function(){
+  					addForm.removeChild(divForm);
+  				});
+  				iconLabel.appendChild(iconBtn);
+  				
+  				var inputForm = document.createElement('div');
+  				inputForm.classList.add('col-sm-9');
+  				
+  				var inputText1 = document.createElement('input');
+  				inputText1.setAttribute('type', 'text');
+  				inputText1.setAttribute('name', 'detials');
+  				inputText1.setAttribute('id', 'itemdetials');
+  				inputText1.setAttribute('placeholder', '项目名称');
+  				inputText1.classList.add('col-xs-10', 'col-sm-3');
+  				inputForm.appendChild(inputText1);
+  				
+  				var inputText2 = document.createElement('input');
+  				inputText2.setAttribute('type', 'text');
+  				inputText2.setAttribute('name', 'amounts');
+  				inputText2.setAttribute('placeholder', '项目金额');
+  				inputText2.classList.add('col-xs-10', 'col-sm-3');
+  				inputForm.appendChild(inputText2);
+  				
+  				divForm.appendChild(iconLabel);
+  				divForm.appendChild(inputForm);
+  				addForm.appendChild(divForm);
   			});
+  			
+  			
+  			
   		});
   </script>
   
