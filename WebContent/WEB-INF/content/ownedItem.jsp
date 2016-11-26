@@ -437,7 +437,6 @@
 		$(window).on('resize', centerModals); //当窗口大小变化的时候
 
 		jQuery(function($) {
-
 			var active_class = 'active';
 			$('#simple-table > thead > tr > th input[type=checkbox]').eq(0).on(
 					'click',
@@ -497,17 +496,18 @@
 		        });
 			});
 			$("button#addItem").click(function(){
-				$("#addSubmit").removeClass("hidden");
+				var addBtn = document.getElementById('addSubmit');
+				var tb = document.querySelector('#simple-table-1 > tbody');
+				var tr = document.createElement('tr');
 				
-				var currentRows = document.getElementById('simple-table-1').rows.length;
-				var newTr = document.getElementById('simple-table-1').insertRow(currentRows);
-				var newTd0 = newTr.insertCell(0);
-				var newTd1 = newTr.insertCell(1);
-				var newTd2 = newTr.insertCell(2);
-				
-				newTd0.innerHTML = '<input id="itemdetials" name="detials" type="text" value="项目信息" class="col-xs-12">';
-				newTd1.innerHTML = '<input name="amounts" type="text" value="项目金额" class="col-xs-12">';
-				newTd2.innerHTML = '<a href="#" type="button" class="btn btn-xs btn-danger" title="删除"> <i class="ace-icon fa fa-trash-o bigger-120"></i></a>'
+				tr.innerHTML = `
+				<td><input type="text" name="detials" placeholder="项目信息" class="col-xs-12" /></td>
+				<td><input type="text" name="amounts" placeholder="项目金额" class="col-xs-12" /></td>
+				<td><button type="button" class="btn btn-xs btn-danger" title="删除"><i class="ace-icon fa fa-trash-o bigger-120"></i></button></td>
+				`;
+				addBtn.classList.remove('hidden');
+				tb.appendChild(tr);
+			
 			});
 		});
 	</script>

@@ -11,7 +11,7 @@ html {
 }
 
 body {
-	font-family: "Microsoft JhengHei", "Microsoft YaHei", sans-serif;
+	font-family: "Microsoft YaHei", sans-serif;
 }
 
 .overlay {
@@ -119,7 +119,6 @@ body {
 
 #msg {
 	color: red;
-	font-family: 'Catamaran', sans-serif;
     font-weight: 300;
     font-size: 16px;
 }
@@ -134,7 +133,6 @@ body {
     height: 52px;
     border: none;
     padding: 15px 20px 15px 45px;
-    font-family: 'Catamaran', sans-serif;
     font-weight: 300;
     font-size: 16px;
     -webkit-border-radius: 3px;
@@ -149,7 +147,6 @@ body {
     width: 100%;
     height: 52px;
     border: none;
-    font-family: 'Catamaran', sans-serif;
     font-weight: 300;
     font-size: 16px;
     -webkit-border-radius: 3px;
@@ -162,7 +159,6 @@ body {
 .my-btn-log,
 .my-btn-sign {
 	padding: 10px 30px;
-	font-family: 'Catamaran', sans-serif;
 	font-weight: 300;
     font-size: 1.15em;
 	letter-spacing: 1px;
@@ -190,7 +186,7 @@ body {
 .my-btn-full:active, 
 .my-btn-full:focus {
 	color: #ff8;
-	font-weight: 600;
+	font-weight: 400;
 	background-color: rgba(0, 0, 0, 0);
 }
 

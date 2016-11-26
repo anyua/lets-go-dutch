@@ -21,11 +21,7 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Catamaran">
-  <script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
-  <script type="text/javascript">
-    $youziku.load("body", "83aa5789ca5b458d91c5f2841c9ebe3c", "SansGBW3");
-    $youziku.draw();
-  </script>
+  
   <link rel="stylesheet" type="text/css" href="assets/css/login.css">
   
 </head>
@@ -41,7 +37,7 @@
         <form id="login-form" method="post" action="login">
           <fieldset>
             <legend>
-              	登陆  <!-- 可换成其他的文字，暂时用这个 -->
+              	登陆 <!-- 可换成其他的文字，暂时用这个 -->
             </legend>
             <ol>
               <li>
@@ -59,7 +55,7 @@
               </li>
             </ol>
           </fieldset>
-          <button class="btn btn-md my-btn-log my-btn-full" type="submit">登录</button>
+          <button class="btn btn-md my-btn-log my-btn-full" type="submit">登陆</button>
           <input type="hidden" name="activityID" value="${activityID}">
 		  <input type="hidden" name="loginType" value="${loginType}">
         </form>
