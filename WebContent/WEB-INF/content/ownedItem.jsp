@@ -199,13 +199,15 @@
 													</tbody>
 												</table>
 												<input type="hidden" name ="activityID" value ="<s:property value="updateActivity.id" />">
-												<button id="addSubmit" class="btn btn-xs btn-success hidden" type="submit">
-												<i class="ace-icon fa fa-check bigger-120"></i>
-												</button>
-												<button  id="addItem" type="button"
-													class="btn btn-xs btn-primary" title="添加一个新项目">
-												<i class="ace-icon fa fa-plus bigger-120"></i>
-												</button>
+												<div class="btn-group">
+													<button id="addSubmit" class="btn btn-xs btn-success hidden" type="submit">
+													<i class="fa fa-check" style="font-size: 14px;"></i>
+													</button>
+													<button  id="addItem" type="button"
+														class="btn btn-xs btn-primary" title="添加一个新项目">
+													<i class="fa fa-plus" style="font-size: 14px; width: 14px;"></i>
+													</button>
+												</div>
 												</form>
 											</div>
 
@@ -496,16 +498,45 @@
 		        });
 			});
 			$("button#addItem").click(function(){
-				var addBtn = document.getElementById('addSubmit');
+				
+				var submitBtn = document.getElementById('addSubmit');
+				submitBtn.classList.remove('hidden');
+
 				var tb = document.querySelector('#simple-table-1 > tbody');
 				var tr = document.createElement('tr');
-				
-				tr.innerHTML = `
-				<td><input type="text" name="detials" placeholder="项目信息" class="col-xs-12" /></td>
-				<td><input type="text" name="amounts" placeholder="项目金额" class="col-xs-12" /></td>
-				<td><button type="button" class="btn btn-xs btn-danger" title="删除"><i class="ace-icon fa fa-trash-o bigger-120"></i></button></td>
-				`;
-				addBtn.classList.remove('hidden');
+
+				var tdInfo = document.createElement('td');
+				var inputInfo = document.createElement('input');
+				inputInfo.setAttribute('type', 'text');
+				inputInfo.setAttribute('name', 'detials');
+				inputInfo.setAttribute('placeholder', '项目信息');
+				inputInfo.classList.add('col-xs-12');
+				tdInfo.appendChild(inputInfo);
+
+				var tdAmount = document.createElement('td');
+				var inputAmount = document.createElement('input');
+				inputAmount.setAttribute('type', 'text');
+				inputAmount.setAttribute('name', 'amounts');
+				inputAmount.setAttribute('placeholder', '项目金额');
+				inputAmount.classList.add('col-xs-12');
+				tdAmount.appendChild(inputAmount);
+
+				var tdOp = document.createElement('td');
+				var delBtn = document.createElement('button');
+				delBtn.setAttribute('type', 'button');
+				delBtn.setAttribute('title', '删除');
+				delBtn.classList.add('btn');
+				delBtn.classList.add('btn-xs');
+				delBtn.classList.add('btn-danger');
+				delBtn.innerHTML = '<i class="ace-icon fa fa-trash-o bigger-120"></i>';
+				delBtn.addEventListener('click', function(){
+					tb.removeChild(tr);
+				});
+				tdOp.appendChild(delBtn);
+
+				tr.appendChild(tdInfo);
+				tr.appendChild(tdAmount);
+				tr.appendChild(tdOp);
 				tb.appendChild(tr);
 			
 			});
