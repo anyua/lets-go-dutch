@@ -234,7 +234,7 @@
 			        <div class="col-sm-9">
 			          <button type="reset" class="btn btn-sm btn-success">
 					    <i class="ace-icon fa fa-arrow-left icon-on-right bigger-110"></i>
-						    返回
+						    清空
 				      </button>
 				  
 				      <button type="submit" class="btn btn-sm btn-success">
