@@ -167,12 +167,13 @@
  				<div class="form-group">
 				  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 活动名称 </label>
 				  <div class="col-sm-9">
-				    <input type="text" class="col-xs-10 col-sm-4" id="form-field-1"  name="newActivity.name" placeholder="最长不超过15个字符" size="15" />
+				    <input type="text" class="col-xs-10 col-sm-4" id="form-field-1"  
+				    	name="newActivity.name" placeholder="最长不超过15个字符" size="15" required />
 				  </div>
 			    </div>
 			   
 			    <div class="form-group">
-				  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 参与人数  </label>
+				  <label class="col-sm-3 control-label no-padding-right" for="spinner2"> 参与人数  </label>
 				  <div class="col-sm-9">
 				    <input type="text" class="input-sm" id="spinner2" name="newActivity.size" />
 				  </div>
@@ -184,7 +185,8 @@
 			         <div class="row">
 						<div class="col-xs-10 col-sm-4">
 						  <div class="input-group">
-							<input type="text" class="form-control date-picker" id="id-date-picker-1" name="newActivity.createDate" data-date-format="yyyy-mm-dd" />
+							<input type="text" class="form-control date-picker" id="id-date-picker-1" 
+								name="newActivity.createDate" data-date-format="yyyy-mm-dd" required />
 							<span class="input-group-addon">
 							  <i class="fa fa-calendar bigger-110"></i>
 							</span>
@@ -201,7 +203,8 @@
 			          <div class="row">
 						<div class="col-xs-10 col-sm-4">
 						  <div class="input-group">
-							<input type="text" class="form-control date-picker" id="id-date-picker-1" name="newActivity.endDate" data-date-format="yyyy-mm-dd" />
+							<input type="text" class="form-control date-picker" id="id-date-picker-1" 
+								name="newActivity.endDate" data-date-format="yyyy-mm-dd" required />
 							<span class="input-group-addon">
 							  <i class="fa fa-calendar bigger-110"></i>
 							</span>
@@ -212,14 +215,15 @@
 			      </div>
 			    
 			      <div class="form-group">
-				    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 活动介绍 </label>
+				    <label class="col-sm-3 control-label no-padding-right" for="form-field-9"> 活动介绍 </label>
 				    <div class="col-sm-9">
-					  <textarea class="col-xs-10 col-sm-6 limited" id="form-field-9" name="newActivity.info" placeholder="最长50字" maxlength="50"></textarea>
+					  <textarea class="col-xs-10 col-sm-6 limited" id="form-field-9" 
+					  	name="newActivity.info" placeholder="最长50字" maxlength="50"></textarea>
 				    </div>
 			      </div>
 			      
 			      <div class="form-group">
-				    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">添加项目</label>
+				    <label class="col-sm-3 control-label no-padding-right" for="addItem">添加项目</label>
 				    <div class="col-sm-9">
 					  <input type="button" class="btn btn-sm btn-info" id="addItem" value="+"
 					  	style="padding: 9; font-size: 14px; font-weight: bolder;">
@@ -230,7 +234,7 @@
 			     
 			      
 			      <div class="form-group">
-			        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"></label>
+			        <label class="col-sm-3 control-label no-padding-right"></label>
 			        <div class="col-sm-9">
 			          <button type="reset" class="btn btn-sm btn-success">
 					    <i class="ace-icon fa fa-arrow-left icon-on-right bigger-110"></i>
@@ -316,6 +320,7 @@
   				inputText1.setAttribute('name', 'detials');
   				inputText1.setAttribute('id', 'itemdetials');
   				inputText1.setAttribute('placeholder', '项目名称');
+  				inputText1.setAttribute('required', 'required');
   				inputText1.classList.add('col-xs-10', 'col-sm-3');
   				inputForm.appendChild(inputText1);
   				
@@ -323,6 +328,7 @@
   				inputText2.setAttribute('type', 'text');
   				inputText2.setAttribute('name', 'amounts');
   				inputText2.setAttribute('placeholder', '项目金额');
+  				inputText2.setAttribute('required', 'required');
   				inputText2.classList.add('col-xs-10', 'col-sm-3');
   				inputForm.appendChild(inputText2);
   				
