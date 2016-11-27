@@ -25,99 +25,8 @@
   <link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
   <link rel="stylesheet" type="text/css" href="assets/css/default.css">   
   <link rel="stylesheet" type="text/css" href="assets/css/index.css">  
-  
-  <style>
-	#loading{
-		background-color: #efc94c;
-		height: 100%;
-		width: 100%;
-		position: fixed;
-		z-index: 1;
-		margin-top: 0px;
-		top: 0px;
-	}
-	#loading-center{
-		width: 100%;
-		height: 100%;
-		position: relative;
-		}
-	#loading-center-absolute {
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		height: 50px;
-		width: 150px;
-		margin-top: -25px;
-		margin-left: -75px;
-
-	}
-	.object{
-		width: 8px;
-		height: 50px;
-		margin-right:5px;
-		background-color: #FFF;
-		-webkit-animation: animate 1s infinite;
-		animation: animate 1s infinite;
-		float: left;
-		}
-
-	.object:last-child {
-		margin-right: 0px;
-		}
-
-	.object:nth-child(10){
-		-webkit-animation-delay: 0.9s;
-	    animation-delay: 0.9s;	
-		}
-	.object:nth-child(9){
-		-webkit-animation-delay: 0.8s;
-	    animation-delay: 0.8s;	
-		}	
-	.object:nth-child(8){
-		-webkit-animation-delay: 0.7s;
-	    animation-delay: 0.7s;	
-		}
-	.object:nth-child(7){
-		-webkit-animation-delay: 0.6s;
-	    animation-delay: 0.6s;	
-		}
-	.object:nth-child(6){
-		-webkit-animation-delay: 0.5s;
-	    animation-delay: 0.5s;	
-		}
-	.object:nth-child(5){
-		-webkit-animation-delay: 0.4s;
-	    animation-delay: 0.4s;
-		}
-	.object:nth-child(4){
-		-webkit-animation-delay: 0.3s;
-	    animation-delay: 0.3s;		
-		}
-	.object:nth-child(3){
-		-webkit-animation-delay: 0.2s;
-	    animation-delay: 0.2s;	
-		}
-	.object:nth-child(2){
-		-webkit-animation-delay: 0.1s;
-	    animation-delay: 0.1s;
-		}	
-	@-webkit-keyframes animate {
-	 
-	  50% {
-		-ms-transform: translateX(-25px) scaleY(0.5); 
-	   	-webkit-transform: translateX(-25px) scaleY(0.5);
-	    transform: translateX(-25px) scaleY(0.5);
-		  }
-	}
-
-	@keyframes animate {
-	  50% {
-		-ms-transform: translateX(-25px) scaleY(0.5); 
-	   	-webkit-transform: translateX(-25px) scaleY(0.5);
-	    transform: translateX(-25px) scaleY(0.5);
-		  }
-	}
-  </style>
+  <link rel="stylesheet" type="text/css" href="assets/css/indexpreload.css">  
+ 
 </head>
 <body>
   <div id="loading">
@@ -136,22 +45,7 @@
 	  </div>
     </div>
   </div>       
-  <div class="hidden">
-    <script>
-        var images = new Array();
-        function preload() {
-            for ( i = 0; i < preload.arguments.length; i++ ) {
-                images[i] = new Image();
-                images[i].src = preload.arguments[i];
-            }
-        }
-        preload(
-                'assets/images/1.jpg',
-                'assets/images/2.jpg',
-                'assets/images/user1.jpg'
-        );
-    </script>
-</div>
+  
   <div class="overlay"></div>
   <nav class="navbar navbar-default navbar-fixed-top my-navbar" role="navigation">
     <div class="container-fluid container my-nav">
