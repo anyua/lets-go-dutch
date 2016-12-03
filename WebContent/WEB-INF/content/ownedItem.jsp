@@ -511,6 +511,7 @@
 				inputInfo.setAttribute('type', 'text');
 				inputInfo.setAttribute('name', 'detials');
 				inputInfo.setAttribute('placeholder', '项目信息');
+				inputInfo.setAttribute('required', 'required');
 				inputInfo.classList.add('col-xs-12');
 				tdInfo.appendChild(inputInfo);
 
@@ -519,6 +520,7 @@
 				inputAmount.setAttribute('type', 'text');
 				inputAmount.setAttribute('name', 'amounts');
 				inputAmount.setAttribute('placeholder', '项目金额');
+				inputAmount.setAttribute('required', 'required');
 				inputAmount.classList.add('col-xs-12');
 				tdAmount.appendChild(inputAmount);
 
