@@ -24,6 +24,7 @@
   
   <link rel="stylesheet" type="text/css" href="assets/css/login.css">
   
+  
 </head>
 <body>
   
@@ -34,30 +35,32 @@
         <!-- 考虑用网站的icon什么的，暂时留白 -->
       </div>
       <div class="logsign-content">
-        <form id="login-form" method="post" action="login">
+        <form id="login-form" method="POST" action="login">
           <fieldset>
             <legend>
-              	登陆 <!-- 可换成其他的文字，暂时用这个 -->
+              	登陆 
             </legend>
             <ol>
               <li>
                 <div class="form-group">
                   <span class="input-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                  <input type="text" id="user" class="form-control" name="login_user.userName" tabindex="1" placeholder="用户名" autofocus required>
+                  <input type="text" id="user" class="form-control" name="login_user.userName" 
+                  	tabindex="1" placeholder="用户名" pattern="^[a-zA-Z0-9_]{6,12}$" autofocus required />
                 </div>
               </li>
               <li>
                 <div class="form-group">
                   <span class="input-icon"><i class="fa fa-unlock" aria-hidden="true"></i></span>
-                  <input type="password" id="pass" class="form-control" name="login_user.password" tabindex="2" placeholder="密码" required>
-                  <span id="msg"></span>
+                  <input type="password" id="pass" class="form-control" name="login_user.password" 
+                  	tabindex="2" placeholder="密码" pattern="^[a-zA-Z0-9]{3,6}$" required />
+
                 </div>
               </li>
             </ol>
           </fieldset>
-          <button class="btn btn-md my-btn-log my-btn-full" type="submit">登陆</button>
-          <input type="hidden" name="activityID" value="${activityID}">
-		  <input type="hidden" name="loginType" value="${loginType}">
+          <button id="submitBtn" class="btn btn-md my-btn-log my-btn-full" type="submit">登陆</button>
+          <input type="hidden" name="activityID" value="${activityID}" />
+		  <input type="hidden" name="loginType" value="${loginType}" />
         </form>
         
        
@@ -74,7 +77,56 @@
   
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
+  
+  <script>  
+  /*function fakeSubmit(url, data, success, fail) {
+		const xhr = new XMLHttpRequest();
+		xhr.addEventListener('readystatechange', function(){
+			if(xhr.readyState === XMLHttpRequest.DONE) {
+				if(xhr.status === 200) {
+					var res;
+					try {
+						res = JSON.parse(xhr.responseText);
+					} catch(err) {
+						fail(err, xhr.response);
+						throw(err);
+					}
+					success(res);
+				} else {
+					fail(xhr.status + ' ' + xhr.statusText, xhr.response);
+				}
+			}
+		});
+		xhr.open('POST', url);
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.send(Object.keys(data).map(function(k) {
+			return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]);
+		}).join('&'));
+		xhr.send(fd);
+	}
+	
+	$(document).ready(function() {
+		document.getElementById('submitBtn').addEventListener('click', function() {
+			var user = document.getElementById('user').value;
+			var pass = document.getElementById('pass').value;
+			var data = {
+				'login_user.userName': user,
+				'login_user.password': pass,
+				'activityID': '${activityID}',
+				'loginType': '${loginType}',
+			};
+			fakeSubmit('login', data, function(res) {
+				if(res != null) {
+					alert('登录失败，账号/密码不正确');
+				} else {
+					
+				}
+			}, function(err) {
+				alert(err);
+			});
+		});
+	});*/
+  </script>
   
 </body>
 </html>

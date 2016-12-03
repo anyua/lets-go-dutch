@@ -175,7 +175,7 @@
 			    <div class="form-group">
 				  <label class="col-sm-3 control-label no-padding-right" for="spinner2"> 参与人数  </label>
 				  <div class="col-sm-9">
-				    <input type="text" class="input-sm" id="spinner2" name="newActivity.size" />
+				    <input type="text" class="input-sm" id="spinner2" name="newActivity.size" required />
 				  </div>
 			    </div>
 			    

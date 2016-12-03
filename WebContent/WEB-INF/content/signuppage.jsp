@@ -27,6 +27,12 @@
   <link rel="stylesheet" type="text/css" href="assets/css/login.css">
   <link rel="stylesheet" type="text/css" href="assets/css/bootstrapValidator.min.css">
   
+  <style type="text/css">
+	.has-error .help-block {
+	    color: #FFE869;
+	}
+  </style>
+  
 </head>
 <body>
   <div class="wrapper">
@@ -77,6 +83,7 @@
                   <span class="input-icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
                   <input type="password" id="ensurepass" class="form-control"
                   	tabindex="5" placeholder="确认密码" /> 
+                  	<small id="helpPass" class="help-block" style="color:#FFE869; display: none;">两次输入的密码不一致?</small>
                 </div>
               </li>
             </ol>
@@ -90,7 +97,6 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="assets/js/bootstrapValidator.min.js"></script>
-  <script type="texy/javascript" src="assets/js/md5.js"></script>
   <script>
   	
   	$(document).ready(function() {
@@ -99,28 +105,34 @@
 	        	userName: {
 	        	 	selector: '#username',	
 	                validators: {
+	                	notEmpty: {
+	                		message: '你的名字是?'
+	                	},
 	                    stringLength: {
 	                        min: 6,
 	                        max: 12,
-	                        message: '用户名必须在6-12个字符之间'
+	                        message: '用户名只能在6-12个字符之间哦~'
 	                    },
 	                    regexp: {
 	                        regexp: /^[a-zA-Z0-9_]+$/,
-	                        message: '用户名只能由字母、数字、下划线组成'
+	                        message: '用户名只能由字母、数字、下划线组成~'
 	                    }
 	                }
 	            },
 	            nickname: {
 	            	selector: '#nickname',
 	                validators: {
+	                	notEmpty: {
+	                		message: '你的昵称是?'
+	                	},
 	                    stringLength: {
 	                        min: 3,
 	                        max: 6,
-	                        message: '昵称必须在3-6个字符之间'
+	                        message: '昵称只能在3-6个字符之间哦~'
 	                    },
 	                    regexp: {
 	                        regexp: /^[a-zA-Z0-9_]+$/,
-	                        message: '昵称只能由字母、数字、下划线组成'
+	                        message: '昵称只能由字母、数字、下划线组成~'
 	                    }
 	                }
 	            },
@@ -128,7 +140,7 @@
 	            	selector: '#gender',
 	            	validators: {
 	            		notEmpty: {
-	            			message: '这是必选字段'
+	            			message: '这是必选字段~'
 	            		}
 	            	}
 	            	
@@ -137,23 +149,48 @@
 	            	selector: '#pass',
 	            	validators: {
 	            		notEmpty: {
-	            			message: '密码不能为空'
+	            			message: '密码不能为空~'
 	            		},
 			            stringLength: {
 		                    min: 3,
 		                    max: 6,
-		                    message: '密码必须在3-6个字符之间'
+		                    message: '密码必须在3-6个字符之间~'
 		                },
 		                regexp: {
 		                    regexp: /^[a-zA-Z0-9]+$/,
-		                    message: '昵称只能由字母、数字组成'
+		                    message: '密码只能由字母、数字组成~'
 		                }
 	            	}
+	            },
+	            ensurepass: {
+	            	selector: '#ensurepass',
+	            	validators: {
+	            		notEmpty: {
+	            			message: '请再次确认一下你的密码哦~'
+	            		}
+	            	}
 	            }
-	            
+	           
 	        }
 	    });
+	    
+	    $('#ensurepass').blur(function(){
+	    	var pass = document.getElementById('pass').value;
+	    	var ensurepass = document.getElementById('ensurepass').value;
+	    	var help = document.getElementById('helpPass');
+	    	var submitBtn = document.getElementById('submitBtn');
+	    	if (pass != ensurepass) {
+	    		help.style.display = 'inline';
+	    		submitBtn.setAttribute('disabled', 'disabled');
+	    	} else {
+	    		help.style.display = 'none';
+	    	}
+	    });
+	    
+	    
 	});
+  	
+  	
   </script>
 </body>
 </html>
