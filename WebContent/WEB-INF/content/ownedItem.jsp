@@ -210,7 +210,8 @@
 																			title="编辑" data-toggle="modal"
 																			data-target="#myModal2"> <i
 																			class="ace-icon fa fa-pencil bigger-120"></i>
-																		</a> <a href="#" type="button"
+																		</a> 
+																		<a href="#" type="button"
 																			class="btn btn-xs btn-danger" title="删除"> <i
 																			class="ace-icon fa fa-trash-o bigger-120"></i>
 																		</a>
@@ -400,13 +401,13 @@
 						<h4 class="modal-title" id="myModalLabel">编辑</h4>
 					</div>
 					<div class="modal-body">
-						<form class="form-horizontal" action="" role="form">
+						<form class="form-horizontal" action="updateItem" role="form">
 							<div class="form-group">
 								<label class="col-sm-3 control-label no-padding-right"
 									for="form-field-1"> 项目名称 </label>
 								<div class="col-sm-9">
 									<input type="text" class="col-xs-10 col-sm-6" id="form-field-1"
-										name="" />
+										name="updateItem.detial" placeholder=<s:property value="#i.detial"/>>
 								</div>
 							</div>
 							<div class="form-group">
@@ -414,9 +415,10 @@
 									for="form-field-1"> 项目金额 </label>
 								<div class="col-sm-9">
 									<input type="text" class="col-xs-10 col-sm-4" id="form-field-1"
-										name="" />
+										name="updateItem.amount" placeholder=<s:property value="#i.amount"/>>
 								</div>
 							</div>
+							<input type="hidden" name="updateItem.id" value=<s:property value="#i.id"/>>
 						</form>
 					</div>
 					<div class="modal-footer">

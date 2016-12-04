@@ -16,6 +16,7 @@ public class OwnerActivityPage {
 	private String[] detials = {};
 	private double[] amounts = {};
 	private Set<Item> originalItem ;
+	private Item updateItem = new Item();
 	
 	private String activityID;
 	private String shareURL;
@@ -107,6 +108,26 @@ public class OwnerActivityPage {
 		return "success";
 	}
 	
+	public String updateItem() {
+		System.out.println(updateItem.getDetial());
+		System.out.println(updateItem.getAmount());
+		System.out.println("lalala");
+		String id = activityOperation.updateItem(updateItem.getId(), 
+				updateItem.getDetial(), 
+				updateItem.getAmount());
+		if (id == null)
+			return "false";
+		else
+			return "true";
+	}
+	
+	public String deleteItem() {
+		int num = activityOperation.deleteItem(updateItem.getId());
+		if (num != 1)
+			return "false";
+		else
+			return "true";
+	}
 	public ActivityDAO getActivityOperation() {
 		return activityOperation;
 	}
@@ -182,6 +203,14 @@ public class OwnerActivityPage {
 
 	public void setLoginType(String loginType) {
 		this.loginType = loginType;
+	}
+
+	public Item getUpdateItem() {
+		return updateItem;
+	}
+
+	public void setUpdateItem(Item updateItem) {
+		this.updateItem = updateItem;
 	}
 	
 }
