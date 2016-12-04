@@ -18,17 +18,38 @@
 	<link rel="manifest" href="assets/images/manifest.json">
 	<link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="theme-color" content="#ffffff">
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<!-- <link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css">  -->
-<link rel="stylesheet" type="text/css"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-<link rel="stylesheet" href="assets/css/fonts.googleapis.com.css">
-<link rel="stylesheet" href="assets/css/ace.min.css"
-	class="ace-main-stylesheet" id="main-ace-style">
-<link rel="stylesheet" href="assets/css/ace-skins.min.css">
-<link rel="stylesheet" href="assets/css/ace-rtl.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/fonts.googleapis.com.css">
+	<link rel="stylesheet" href="assets/css/ace.min.css"
+		class="ace-main-stylesheet" id="main-ace-style">
+	<link rel="stylesheet" href="assets/css/ace-skins.min.css">
+	<link rel="stylesheet" href="assets/css/ace-rtl.min.css">
 
-<script src="assets/js/ace-extra.min.js"></script>
+	<script src="assets/js/ace-extra.min.js"></script>
+
+	<style type="text/css">
+	  body {
+	    font-family: 'Helvetica Neue', 'Helvetica', 'Microsoft Yahei', sans-serif;
+	    -webkit-font-smoothing: antialiased;
+	  }
+	  .badge.badge-grey {
+	  	background-color: #C5D0DC!important;
+	  }
+	  .ace-nav>li.wateryellow>a {
+	    background-color: #A1AFC9!important;
+	  }
+	  .ace-nav>li.wateryellow>a:focus,
+	  .ace-nav>li.wateryellow>a:hover {
+	    background-color: #88ADA6!important;
+	  }
+	  
+	  .ace-nav>li.bluepurple>a:focus,
+	  .ace-nav>li.bluepurple>a:hover {
+	  	background-color: #CCA4E3!important;
+	  }
+	</style>
 
 </head>
 <body class="skin-1">
@@ -50,12 +71,12 @@
 			<div class="navbar-buttons navbar-header pull-right"
 				role="navigation">
 				<ul class="nav ace-nav">
-					<li class="grey"><a href="index"> <i
+					<li class="wateryellow"><a href="index"> <i
 							class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i> <span
 							class="badge badge-grey">首页</span>
 					</a></li>
 
-					<li class="purple"><a href="index"> <i
+					<li class="bluepurple"><a href="index"> <i
 							class="fa fa-book fa-fw fa-2x" aria-hidden="true"></i> <span
 							class="badge badge-grey">关于</span>
 					</a></li>

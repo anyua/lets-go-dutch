@@ -28,6 +28,30 @@
   <link rel="stylesheet" href="assets/css/ace-rtl.min.css">
   
   <script src="assets/js/ace-extra.min.js"></script>
+  
+   <style type="text/css">
+	  body {
+	    font-family: 'Helvetica Neue', 'Helvetica', 'Microsoft Yahei', sans-serif;
+	    -webkit-font-smoothing: antialiased;
+	  }
+	  .badge.badge-grey {
+	  	background-color: #C5D0DC!important;
+	  }
+	  .ace-nav>li.wateryellow>a {
+	    background-color: #A1AFC9!important;
+	  }
+	  .ace-nav>li.wateryellow>a:focus,
+	  .ace-nav>li.wateryellow>a:hover {
+	    background-color: #88ADA6!important;
+	  }
+	  
+	  .ace-nav>li.bluepurple>a:focus,
+	  .ace-nav>li.bluepurple>a:hover {
+	  	background-color: #CCA4E3!important;
+	  }
+	</style>
+
+	
 </head>
 <body class="skin-1">
 	<div id="navbar" class="navbar navbar-default          ace-save-state">
@@ -48,11 +72,11 @@
 			<div class="navbar-buttons navbar-header pull-right"
 				role="navigation">
 				<ul class="nav ace-nav">
-					<li class="grey"><a href="index"> <i
+					<li class="wateryellow"><a href="index"> <i
 							class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i> <span
 							class="badge badge-grey">首页</span>
 					</a></li>
-					<li class="purple"><a href="index"> <i
+					<li class="bluepurple"><a href="index"> <i
 							class="fa fa-book fa-fw fa-2x" aria-hidden="true"></i> <span
 							class="badge badge-grey">关于</span>
 					</a></li>
