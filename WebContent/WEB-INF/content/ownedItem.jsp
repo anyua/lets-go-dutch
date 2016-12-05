@@ -208,7 +208,7 @@
 																	<div class="btn-group">
 																		<a href="#" type="button" class="btn btn-xs btn-info"
 																			title="编辑" data-toggle="modal"
-																			data-target="#myModal2"> <i
+																			data-target="#myModal2" actId=<s:property value="#i.id"/>> <i
 																			class="ace-icon fa fa-pencil bigger-120"></i>
 																		</a> 
 																		<a href="#" type="button"
@@ -407,7 +407,7 @@
 									for="form-field-1"> 项目名称 </label>
 								<div class="col-sm-9">
 									<input type="text" class="col-xs-10 col-sm-6" id="form-field-1"
-										name="updateItem.detial" placeholder=<s:property value="#i.detial"/>>
+										name="updateItem.detial" placeholder=<s:property value="#i.detial"/> value=<s:property value="#i.detial"/>>
 								</div>
 							</div>
 							<div class="form-group">
@@ -415,14 +415,15 @@
 									for="form-field-1"> 项目金额 </label>
 								<div class="col-sm-9">
 									<input type="text" class="col-xs-10 col-sm-4" id="form-field-1"
-										name="updateItem.amount" placeholder=<s:property value="#i.amount"/>>
+										name="updateItem.amount" placeholder=<s:property value="#i.amount"/> value=<s:property value="#i.amount"/>>
 								</div>
 							</div>
-							<input type="hidden" name="updateItem.id" value=<s:property value="#i.id"/>>
+							<input id="itemIdInput" type="hidden" name="updateItem.id" value=<s:property value="#i.id"/>>
+							
 						</form>
 					</div>
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-success" data-dismiss="modal">提交</button>
+						<button id="itemEdit" type="submit" class="btn btn-success" data-dismiss="modal">提交</button>
 					</div>
 				</div>
 			</div>
@@ -522,6 +523,19 @@
 		        	alert("提交成功");
 		        });
 			});
+		    $("a.btn-info").click(function(){  
+		        $('#itemIdInput').val($(this).attr("actId"));
+		    });
+		    $("a.tooltip-info").click(function(){  
+		        $('#itemIdInput').val($(this).attr("actId"));
+		    });
+			$("button#itemEdit").click(function(){
+				var params = $("form.form-horizontal").serialize();
+				$.get("updateItem",params,function(data){
+				    $("tr."+data.itemID).find("span.detial").text(data.updateItem.detial);
+				    $("tr."+data.itemID).find("span.amount").text(data.updateItem.amount);
+				 });
+			})
 			$("button#addItem").click(function(){
 				
 				var submitBtn = document.getElementById('addSubmit');

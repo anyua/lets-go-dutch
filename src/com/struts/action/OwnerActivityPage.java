@@ -128,6 +128,8 @@ public class OwnerActivityPage {
 		else
 			return "true";
 	}
+	
+
 	public ActivityDAO getActivityOperation() {
 		return activityOperation;
 	}
