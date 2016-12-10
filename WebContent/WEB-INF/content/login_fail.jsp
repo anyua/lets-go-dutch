@@ -161,7 +161,7 @@
 					<div class="alert alert-block alert-success"
 					style="text-align :center; font-size: 16px;">
 					操作失败
-					<br><a href="welcome.jsp">点击此处返回首页</a>
+					<br><a href="welcome">点击此处返回首页</a>
 
 				</div>
 			</div>
