@@ -9,6 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <meta property="wb:webmaster" content="fced3bae4c7e6e6b" />
 
   <title>首页</title>
 	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />

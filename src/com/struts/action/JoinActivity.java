@@ -20,7 +20,10 @@ public class JoinActivity {
 		String userId=(String)httpSession.get("login_userID");
 		String activityId=activityOperation.findActivity(getActivityName());
 		userOperation.joinActivity(userId, activityId);
-		return "success";
+		if (activityId != null)
+			return "success";
+		else
+			return "false";
 	}
 
 	public String outOfItem()

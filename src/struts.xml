@@ -89,6 +89,7 @@
    		class="com.struts.action.JoinActivity"
    		method="outOfItem">
    		<result name="success" type="json"></result>
+   		<result name="false">/WEB-INF/content/login_fail.jsp</result>
    	</action>
    	
    	<action name="feedBack"
