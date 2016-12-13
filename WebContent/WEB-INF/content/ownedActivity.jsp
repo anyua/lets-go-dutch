@@ -316,7 +316,7 @@
 																		<i class="ace-icon fa fa-trash-o bigger-120"></i>
 																</span>
 															</a></li>
-															<li><a href="#" class="tooltip-error shareButton"
+															<li><a href="#" class="tooltip-error shareButton shareButton"
 																data-rel="tooltip" title="分享" data-toggle="modal"
 																data-target="#myModal<s:property value="#a.id"/>"
 																 actId=<s:property value="#a.id"/>>
@@ -574,7 +574,7 @@
 			        });
 		    	}
 		    });
-		    $("a.tooltip-info").click(function(){
+		    $("a.tooltip-success").click(function(){
 		    	var url="settle";
 		    	var activityId=$(this).attr("actId")
 		    	var params="activityID="+activityId;
