@@ -5,11 +5,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>操作失败</title>
+	<title>操作失败</title>
 
 	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
