@@ -22,7 +22,8 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Catamaran">
   
   <link rel="stylesheet" type="text/css" href="assets/css/login.css">
-  
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrapValidator.min.css">
+
   
 </head>
 <body>
@@ -44,14 +45,14 @@
                 <div class="form-group">
                   <span class="input-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
                   <input type="text" id="user" class="form-control" name="login_user.userName" 
-                  	tabindex="1" placeholder="用户名" pattern="^[a-zA-Z0-9_]{6,12}$" autofocus required />
+                  	tabindex="1" placeholder="用户名" autofocus required />
                 </div>
               </li>
               <li>
                 <div class="form-group">
                   <span class="input-icon"><i class="fa fa-unlock" aria-hidden="true"></i></span>
                   <input type="password" id="pass" class="form-control" name="login_user.password" 
-                  	tabindex="2" placeholder="密码" pattern="^[a-zA-Z0-9]{3,6}$" required />
+                  	tabindex="2" placeholder="密码" required />
 
                 </div>
               </li>
@@ -76,6 +77,7 @@
   
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/js/bootstrapValidator.min.js"></script>	
   
   <script>  
   /*function fakeSubmit(url, data, success, fail) {
