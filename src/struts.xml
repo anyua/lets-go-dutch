@@ -138,7 +138,7 @@
    	<action name="updateItem"
    		class="com.struts.action.OwnerActivityPage"
    		method="updateItem">
-   		<result name="true" type="chain">showActivity</result>
+   		<result name="true" type="json"></result>
    		<result name="false" >/WEB-INF/content/login_fail.jsp</result>
    	</action>
    	
@@ -147,6 +147,12 @@
    		method="deleteItem">
    		<result name="true" type="chain">showActiviy</result>	
    		<result name="false" >/WEB-INF/content/login_fail.jsp</result>
+   	</action>
+   	
+   	<action name="showPageOwnerName"
+   		class="com.struts.action.CreateActivity"
+   		method="showPageOwnerName">
+   		<result name="success" type="json"></result>
    	</action>
    	
    </package>

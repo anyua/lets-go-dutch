@@ -10,6 +10,8 @@ public class CreateActivity {
 	ActivityDAO activityOperation = new ActivityDAO();
 	Activity newActivity = new Activity();
 	UserDAO userOperation = new UserDAO();
+	//用来显示用户名的pageOwner
+	private User pageOwner;
 	private User nowUser = new User(); 
 	private String[] detials;
 	private double[] amounts;
@@ -48,7 +50,12 @@ public class CreateActivity {
 			
 	}
 	
-	
+	public String showPageOwnerName() 
+	{
+		Map<String, Object> httpSession =ActionContext.getContext().getSession();
+		pageOwner = userOperation.getUser((String)httpSession.get("login_userID"));
+		return "success";
+	}
 
 	public ActivityDAO getActivityOperation() {
 		return activityOperation;
@@ -113,4 +120,15 @@ public class CreateActivity {
 	public void setActivityID(String activityID) {
 		this.activityID = activityID;
 	}
+
+	public User getPageOwner() {
+		return pageOwner;
+	}
+
+	public void setPageOwner(User pageOwner) {
+		this.pageOwner = pageOwner;
+	}
+
+
+
 }
