@@ -142,9 +142,9 @@
 	            			message: '密码不能为空~'
 	            		},
 			            stringLength: {
-		                    min: 3,
-		                    max: 6,
-		                    message: '密码必须在3-6个字符之间~'
+		                    min: 6,
+		                    max: 12,
+		                    message: '密码必须在6-12个字符之间~'
 		                },
 		                regexp: {
 		                    regexp: /^[a-zA-Z0-9]+$/,

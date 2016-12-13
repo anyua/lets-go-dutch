@@ -23,9 +23,29 @@
   	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Catamaran:800,300,100">
   	<link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
   	<link rel="stylesheet" type="text/css" href="assets/css/default.css">   
-  	<link rel="stylesheet" type="text/css" href="assets/css/index.css">  
+  	<link rel="stylesheet" type="text/css" href="assets/css/index.css"> 
   
   <style>
+    #preload-01 { 
+  		background: url(assets/images/1.jpg) no-repeat -9999px -9999px; 
+    }  
+	
+	#preload-02 { 
+		background: url(assets/images/2.jpg) no-repeat -9999px -9999px; 
+	} 
+	
+	#preload-03 {
+		background: url(assets/images/cash.png) no-repeat -9999px -9999px; 
+	}
+  	
+  	#preload-04 {
+		background: url(assets/images/alipay.jpg) no-repeat -9999px -9999px; 
+	}
+	
+	#preload-05 {
+		background: url(assets/images/wepay.png) no-repeat -9999px -9999px; 
+	}
+  
     #loading {
 		background-color: #efc94c;
 		height: 100%;
@@ -145,27 +165,7 @@
 		<div class="object"></div>
 	  </div>
     </div>
-  </div>    
-  
-  <div class="hidden">  
-    <script type="text/javascript">  
-        var images = new Array()  
-        function preload() {  
-            for (i = 0; i < preload.arguments.length; i++) {  
-                images[i] = new Image()  
-                images[i].src = preload.arguments[i]  
-            }  
-        }  
-        preload(  
-            "assets/imgaes/1.jpg",  
-            "assets/imgaes/2.jpg",  
-            "assets/imgaes/user.jpg",
-            "assets/images/alipay.jpg",
-            "assets/iamges/wepay.png",
-            "assets/iamges/cash.png"  
-        )  
-    </script>  
-  </div>        
+  </div>      
   
   <div class="overlay"></div>
   <nav class="navbar navbar-default navbar-fixed-top my-navbar" role="navigation">
@@ -182,7 +182,7 @@
         <ul class="nav navbar-nav navbar-right my-navbar-menu">
           <li class="btn-2"><a href="index">首页</a></li>
           <!-- 考虑about制作模态框，嵌入网站的demo -->
-		  <li class="btn-2"><a href="About">关于</a></li>		
+		  <li class="btn-2"><a href="#" data-toggle="modal" data-target="#myModal">关于</a></li>		
         </ul>
       </div>
     </div>
@@ -213,6 +213,26 @@
       </div>
     </div>
  </main>
+ 
+  <div class="modal fade" style="position: fixed;" id="myModal"
+			tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+			aria-hidden="true">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+	    <div class="modal-header">
+		  <button type="button" class="close" data-dismiss="modal"
+			aria-hidden="true">&times;</button>
+			<h4 class="modal-title" id="myModalLabel">DEMO</h4>
+		</div>
+		<div class="modal-body">
+		  <video controls="controls" loop="loop" width="100%" height="100%" poster="assets/images/test.jpg">
+		     <source src="assets/videos/test.mp4" type="video/mp4">
+				您的浏览器不支持video标签
+	      </video>
+		</div>
+	  </div>
+	</div>	
+  </div>
 
   <script type="text/javascript" src="assets/js/jquery-2.0.2.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
