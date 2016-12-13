@@ -77,7 +77,7 @@
 							class="badge badge-grey">首页</span>
 					</a></li>
 
-					<li class="bluepurple"><a href="index"> <i
+					<li class="bluepurple"><a href="" data-toggle="modal" data-target="#myModal"> <i
 							class="fa fa-book fa-fw fa-2x" aria-hidden="true"></i> <span
 							class="badge badge-grey">关于</span>
 					</a></li>
@@ -120,7 +120,7 @@
 			<ul class="nav nav-list">
 				<li class=""><a href="welcome"> <i
 						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
-							我的 </span>
+							网站介绍 </span>
 				</a> <b class="arrow"></b></li>
 				<li class="active"><a href="showJoinedActivity"> <i
 						class="menu-icon fa fa-list-alt"></i> <span class="menu-text">
@@ -152,9 +152,9 @@
 			<div class="main-content-inner">
 				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
 					<ul class="breadcrumb">
-						<li><i class="ace-icon fa fa-folder-open home-icon"></i> <a
-							href="#">首页</a></li>
-						<li class="active">参与的活动</li>
+						<li><i class="ace-icon fa fa-folder-open home-icon"></i>
+							参加的活动
+						</li>
 					</ul>
 					<!-- /.breadcrumb -->
 				</div>
@@ -354,6 +354,26 @@
 		</a>
 
 	</div>
+	
+	<div class="modal fade" style="position: fixed;" id="myModal"
+			tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+			aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+		    <div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">提示</h4>
+			</div>
+			<div class="modal-body">
+			  	我们的网站暂时不支持IE，推荐使用chrome浏览器，
+			  <br>如果您在使用过程中发现任何问题，欢迎联系我们：
+			  <br>Github地址：<a href="https://github.com/anyua/lets-go-dutch">https://github.com/anyua/lets-go-dutch</a>
+			  <br>联系邮箱：sqq0103@gmail.com
+			</div>
+		  </div>
+		</div>	
+    </div>
 
 	<script src="assets/js/jquery-2.1.4.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
@@ -363,6 +383,8 @@
 
 	<script src="assets/js/ace-elements.min.js"></script>
 	<script src="assets/js/ace.min.js"></script>
+	
+	<script src="assets/js/modal.js"></script>	
 
 	<script type="text/javascript">
 		$(document).ready(function() {

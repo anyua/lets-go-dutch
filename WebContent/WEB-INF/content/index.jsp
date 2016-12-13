@@ -182,7 +182,7 @@
         <ul class="nav navbar-nav navbar-right my-navbar-menu">
           <li class="btn-2"><a href="index">首页</a></li>
           <!-- 考虑about制作模态框，嵌入网站的demo -->
-		  <li class="btn-2"><a href="#" data-toggle="modal" data-target="#myModal">关于</a></li>		
+		  <li class="btn-2"><a href="#" data-toggle="modal" data-target="#myModal">介绍</a></li>		
         </ul>
       </div>
     </div>
@@ -221,14 +221,17 @@
 	  <div class="modal-content">
 	    <div class="modal-header">
 		  <button type="button" class="close" data-dismiss="modal"
-			aria-hidden="true">&times;</button>
+			aria-hidden="true" onclick="stop()">&times;</button>
 			<h4 class="modal-title" id="myModalLabel">DEMO</h4>
 		</div>
 		<div class="modal-body">
-		  <video controls="controls" loop="loop" width="100%" height="100%" poster="assets/images/test.jpg">
+		  <video id="demo" controls="controls" loop="loop" preload="auto" width="100%" height="100%" poster="assets/images/test.jpg">
 		     <source src="assets/videos/test.mp4" type="video/mp4">
-				您的浏览器不支持video标签
+				您的浏览器不支持HTML5的video标签
 	      </video>
+		</div>
+		<div class="modal-footer">
+			观看以上的演示视频，让您更好地使用我们的网站~
 		</div>
 	  </div>
 	</div>	
@@ -253,6 +256,15 @@
 	$('.modal').on('show.bs.modal', centerModals);      //当模态框出现的时候
 	$(window).on('resize', centerModals);               //当窗口大小变化的时候
 	
+	function stop() {
+		var demo = document.getElementById('demo');
+		demo.pause();
+        demo.currentTime = 0;
+	}
+	
+	//模态框初始化时不会显示，且禁用点击空白页面或escape关闭模态框
+	$('#myModal').modal({show:false, keyboard: false, backdrop:false});
+
   </script>
 </body>
 </html>
