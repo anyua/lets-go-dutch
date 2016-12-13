@@ -110,10 +110,6 @@
 	                        min: 6,
 	                        max: 12,
 	                        message: '用户名只能在6-12个字符之间哦~'
-	                    },
-	                    regexp: {
-	                        regexp: /^[a-zA-Z0-9_]+$/,
-	                        message: '用户名只能由字母、数字、下划线组成~'
 	                    }
 	                }
 	            },
@@ -125,12 +121,8 @@
 	                	},
 	                    stringLength: {
 	                        min: 3,
-	                        max: 6,
-	                        message: '昵称只能在3-6个字符之间哦~'
-	                    },
-	                    regexp: {
-	                        regexp: /^[a-zA-Z0-9_]+$/,
-	                        message: '昵称只能由字母、数字、下划线组成~'
+	                        max: 10,
+	                        message: '昵称只能在3-10个字符之间哦~'
 	                    }
 	                }
 	            },

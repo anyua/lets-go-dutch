@@ -22,8 +22,6 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Catamaran">
   
   <link rel="stylesheet" type="text/css" href="assets/css/login.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/bootstrapValidator.min.css">
-
   
 </head>
 <body>
@@ -77,8 +75,7 @@
   
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="assets/js/bootstrapValidator.min.js"></script>	
-  
+ 
   <script>  
   /*function fakeSubmit(url, data, success, fail) {
 		const xhr = new XMLHttpRequest();
