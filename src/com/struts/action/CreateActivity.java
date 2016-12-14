@@ -16,6 +16,7 @@ public class CreateActivity {
 	private String[] detials;
 	private double[] amounts;
 	private String activityID;
+	private int error;
 	public String createActivity()
 	{
 		String newActivityID;
@@ -25,29 +26,35 @@ public class CreateActivity {
 				newActivity.getEndDate(),
 				newActivity.getWholeAmount(),
 				newActivity.getSize());
-		
-		if(newActivityID == null)
-			return "false";
-		else
-		{
-			double wholeAmount=0;
-			for(int i=0;amounts!=null&&detials!=null&&i<detials.length&&i<amounts.length;i++)
+		try {
+			if(newActivityID == null)
 			{
-				activityOperation.addItem(newActivityID, detials[i], amounts[i]);
-				wholeAmount+=amounts[i];
+				error = 1;
+				return "false";
 			}
-			
-			Map<String, Object> httpSession =ActionContext.getContext().getSession();
-			//httpSession.put("ActivityID",newActivityID);
-			activityID=newActivityID;
-			userOperation.ownActivity((String)httpSession.get("login_userID"),
-					newActivityID);
-			userOperation.joinActivity((String)httpSession.get("login_userID"),
-					newActivityID);
-			activityOperation.setAmount(newActivityID, wholeAmount);
-			return "true";
-		}
-			
+			else
+			{
+				double wholeAmount=0;
+				for(int i=0;amounts!=null&&detials!=null&&i<detials.length&&i<amounts.length;i++)
+				{
+					activityOperation.addItem(newActivityID, detials[i], amounts[i]);
+					wholeAmount+=amounts[i];
+				}
+				
+				Map<String, Object> httpSession =ActionContext.getContext().getSession();
+				//httpSession.put("ActivityID",newActivityID);
+				activityID=newActivityID;
+				userOperation.ownActivity((String)httpSession.get("login_userID"),
+						newActivityID);
+				userOperation.joinActivity((String)httpSession.get("login_userID"),
+						newActivityID);
+				activityOperation.setAmount(newActivityID, wholeAmount);
+				return "true";
+			}
+		} catch(Exception e) {
+			error = 2;
+			return "false";
+		}	
 	}
 	
 	public String showPageOwnerName() 
@@ -127,6 +134,14 @@ public class CreateActivity {
 
 	public void setPageOwner(User pageOwner) {
 		this.pageOwner = pageOwner;
+	}
+
+	public int getError() {
+		return error;
+	}
+
+	public void setError(int error) {
+		this.error = error;
 	}
 
 

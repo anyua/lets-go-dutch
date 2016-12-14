@@ -182,6 +182,24 @@
         <div class="page-content">
           <div class="page-header">
           </div>
+          <s:if test="error==1">
+          <div class="col-md-2 column" ></div>
+          <div class="col-md-6 column" >
+	          <div class="alert alert-dismissible alert-danger">
+				  <button type="button" class="close" data-dismiss="alert">&times;</button>
+				  <strong>创建新活动失败</strong> 请重新创建~
+			  </div>
+		  </div>
+          </s:if>
+          <s:elseif test="error==2">
+          <div class="col-md-3 column" ></div>
+          <div class="col-md-6 column" >
+              <div class="alert alert-dismissible alert-danger">
+				  <button type="button" class="close" data-dismiss="alert">&times;</button>
+				  <strong>该活动名已存在</strong> 请重新创建~
+			  </div>
+		  </div>
+          </s:elseif>
           <div class="row">
             <div class="col-xs-12">
               <form class="form-horizontal" action="createActivity" role="form">

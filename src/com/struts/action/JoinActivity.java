@@ -18,13 +18,20 @@ public class JoinActivity {
 		Map<String, Object> httpSession =ActionContext.getContext().getSession();
 		String userId=(String)httpSession.get("login_userID");
 		String activityId=activityOperation.findActivity(getActivityName());
-		userOperation.joinActivity(userId, activityId);
+		try {
+			userOperation.joinActivity(userId, activityId);
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+		
 		if (activityId != null)
 		{
 			return "success";
 		}
-		else
+		else {
 			return "false";
+		}
+			
 	}
 
 	public String outOfItem()

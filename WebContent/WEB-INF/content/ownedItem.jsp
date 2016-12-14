@@ -207,14 +207,14 @@
 																	<div class="btn-group">
 																		<s:if test="updateActivity.type==2">
 																		<a href="#" type="button" class="btn btn-xs btn-info disabled"
-																			title="编辑<s:property value="updateActivity.type"/>" data-toggle="modal"
+																			title="编辑" data-toggle="modal"
 																			data-target="#myModal2" actId=<s:property value="#i.id"/>> <i
 																			class="ace-icon fa fa-pencil bigger-120"></i>
 																		</a> 
 																		</s:if>
 																		<s:elseif test="updateActivity.type==1">
 																		<a href="#" type="button" class="btn btn-xs btn-info disabled"
-																			title="编辑<s:property value="updateActivity.type"/>" data-toggle="modal"
+																			title="编辑" data-toggle="modal"
 																			data-target="#myModal2" actId=<s:property value="#i.id"/>> <i
 																			class="ace-icon fa fa-pencil bigger-120"></i>
 																		</a> 
@@ -222,7 +222,7 @@
 																		<s:else>
 																		<a href="#" type="button" class="btn btn-xs btn-info"
 																			title="编辑<s:property value="updateActivity.type"/>" data-toggle="modal"
-																			data-target="#myModal" actId=<s:property value="#i.id"/>> <i
+																			data-target="#myModal2" actId=<s:property value="#i.id"/>> <i
 																			class="ace-icon fa fa-pencil bigger-120"></i>
 																		</a> 
 																		</s:else>
