@@ -231,22 +231,10 @@
 														</div>
 														<div class="col-xs-12 col-sm-7">
 
+
+
 															<div class="profile-user-info profile-user-info-striped">
-																<div class="profile-info-row">
-																	<div class="profile-info-name">实际总额</div>
-																	<div class="profile-info-value">
-																		<span><s:property value="#a.wholeAmount" /></span>
-																	</div>
-																</div>
-
-																<div class="profile-info-row">
-																	<div class="profile-info-name">参与人数</div>
-																	<div class="profile-info-value">
-																		<span><s:property value="#a.size" /></span>
-																	</div>
-																</div>
-
-																<div class="profile-info-row">
+															<div class="profile-info-row">
 																	<div class="profile-info-name">活动状态</div>
 																	<div class="profile-info-value">
 																		<span> <s:if test="#a.type==0">  
@@ -259,7 +247,41 @@
 																		</span>
 																	</div>
 																</div>
+																
+																<div class="profile-info-row">
+																	<div class="profile-info-name">实际总额</div>
+																	<div class="profile-info-value">
+																		<span><s:property value="#a.wholeAmount" /></span>
+																	</div>
+																</div>
 
+																<div class="profile-info-row">
+																	<div class="profile-info-name">预计人数</div>
+																	<div class="profile-info-value">
+																		<span><s:property value="#a.size" /></span>
+																	</div>
+																</div>
+
+																<div class="profile-info-row">
+																	<div class="profile-info-name">实际人数</div>
+																	<div class="profile-info-value">
+																		<span><s:property value="#a.members.size()" /></span>
+																	</div>
+																</div>
+
+																
+																
+																<s:if test="#a.type==0">  
+																<div class="profile-info-row">
+																	<div class="profile-info-name">个人应付(预计)</div>
+																	<div class="profile-info-value">
+																		<span>
+																		<s:property value = "%{#a.wholeAmount / #a.size}"/>
+																		</span>
+																	</div>
+																</div>
+																</s:if>
+																<s:else>
 																<div class="profile-info-row">
 																	<div class="profile-info-name">个人应付</div>
 																	<div class="profile-info-value">
@@ -272,7 +294,7 @@
 																		</span>
 																	</div>
 																</div>
-
+																</s:else>
 																<div class="profile-info-row">
 																	<div class="profile-info-name">活动介绍</div>
 																	<div class="profile-info-value">
@@ -294,13 +316,13 @@
 																</fieldset>
 																<div class="hr hr-dotted"></div>
 																<div class="clearfix">
-																	<input type="text" class="pull-left col-sm-4"
+																	<input type="text" class="pull-left col-xs-6 col-sm-6"
 																		id="form-field-1" name="message.amount"
 																		placeholder="差额">
 																	<button activityid="<s:property value="#a.id"/>"
 																		class="pull-right btn btn-sm btn-primary btn-white btn-round feedBackButton"
 																		type="button">
-																		Submit <i
+																		发送 <i
 																			class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
 																	</button>
 																</div>
@@ -319,7 +341,7 @@
 																</fieldset>
 																<div class="hr hr-dotted"></div>
 																<div class="clearfix">
-																	<input type="text" class="pull-left col-sm-4"
+																	<input type="text" class="pull-left col-xs-6 col-sm-6"
 																		id="form-field-1" name="message.amount"
 																		placeholder="差额">
 																	<button activityid="<s:property value="#a.id"/>"

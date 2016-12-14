@@ -13,6 +13,7 @@ public class IdentityPage {
 	UserDAO userOperation = new UserDAO();
 	Set<Activity> ownedActivity =new HashSet<Activity>();
 	Set<Activity> joinedActivity = new HashSet<Activity>();
+	private int numOfMember;
 
 	public String showUserInfo() {
 		Map<String, Object> httpSession =ActionContext.getContext().getSession();
@@ -57,6 +58,12 @@ public class IdentityPage {
 
 	public void setJoinedActivity(Set<Activity> joinedActivity) {
 		this.joinedActivity = joinedActivity;
+	}
+	public int getNumOfMember() {
+		return numOfMember;
+	}
+	public void setNumOfMember(int numOfMember) {
+		this.numOfMember = numOfMember;
 	}
 
 }

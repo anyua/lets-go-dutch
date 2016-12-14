@@ -77,7 +77,15 @@
           <div class="alert alert-dismissible alert-danger">
   			<button type="button" class="close" data-dismiss="alert">&times;</button>
   			<div style="text-align :center; font-size: 16px;">
+  			<s:if test="error==1">
 				<strong>登录或注册失败！</strong> 请重新操作...
+			</s:if>
+			<s:if test="error==2">
+				<strong>未知错误！</strong> 请重新操作...
+			</s:if>
+			<s:if test="error==3">
+				<strong>错误的参数！</strong> 请重新操作...
+			</s:if>
 			</div>
 		  </div>
           <div class="row">

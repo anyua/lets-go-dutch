@@ -390,6 +390,7 @@
   				inputText2.setAttribute('name', 'amounts');
   				inputText2.setAttribute('placeholder', '项目金额');
   				inputText2.setAttribute('required', 'required');
+  				inputText2.setAttribute('pattern', '^([1-9][0-9]*)\.?([0-9]{1,2})$');
   				inputText2.classList.add('col-xs-10', 'col-sm-3');
   				inputForm.appendChild(inputText2);
   				

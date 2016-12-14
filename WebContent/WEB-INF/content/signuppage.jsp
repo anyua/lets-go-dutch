@@ -108,8 +108,8 @@
 	                	},
 	                    stringLength: {
 	                        min: 6,
-	                        max: 12,
-	                        message: '用户名只能在6-12个字符之间哦~'
+	                        max: 15,
+	                        message: '用户名只能在6-15个字符之间哦~'
 	                    }
 	                }
 	            },

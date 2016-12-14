@@ -18,6 +18,7 @@ public class OwnerActivityPage {
 	private Set<Item> originalItem ;
 	private Item updateItem = new Item();
 	private int payType;
+	private String itemId;
 	
 	private String activityID;
 	private String shareURL;
@@ -100,21 +101,26 @@ public class OwnerActivityPage {
 	}
 	
 	public String addItem(){
-		
+		double wholeAmount = 0;
 		for(int i=0;i<detials.length&&i<amounts.length;i++)
 		{
+			wholeAmount+=amounts[i];
 			activityOperation.addItem(activityID, 
 					detials[i],
 					amounts[i]);
 		}
-		
+		activityOperation.addWholeAmount(activityID,wholeAmount);
 		return "success";
 	}
 	
 	public String updateItem() {
-		System.out.println(updateItem.getDetial());
-		System.out.println(updateItem.getAmount());
-		System.out.println("lalala");
+		//System.out.println(updateItem.getDetial());
+		//System.out.println(updateItem.getAmount());
+		//System.out.println("lalala");
+		itemId=updateItem.getId();
+		Item item = activityOperation.getItem(itemId);
+		double wholeAmount=updateItem.getAmount()-item.getAmount();
+		activityOperation.addWholeAmount(activityID, wholeAmount);
 		String id = activityOperation.updateItem(updateItem.getId(), 
 				updateItem.getDetial(), 
 				updateItem.getAmount());
@@ -224,6 +230,14 @@ public class OwnerActivityPage {
 
 	public void setPayType(int payType) {
 		this.payType = payType;
+	}
+
+	public String getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
 	}
 	
 }

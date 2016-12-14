@@ -166,7 +166,7 @@
 			        <div class="widget-header">
 			          <h5 class="widget-title bigger lighter">
 						<i class="ace-icon fa fa-table"></i>
-
+							结算清单
 					  </h5>
 			        </div>
 			        
@@ -177,9 +177,9 @@
 	                          <div class="col-xs-12 col-sm-2">
 	                          	<s:if test="updateActivity.type==2">
 	                          	<s:if test="payType==0">
-	                              <a href="pay?activityID=<s:property value="updateActivity.id"/>&userID=<s:property value="pageOwner.id"/>&type=1"><img height="50" width="140" class="thumbnail" alt="现金支付" src="assets/images/cash.png" /></a>
-	                              <a href="pay?activityID=<s:property value="updateActivity.id"/>&userID=<s:property value="pageOwner.id"/>&type=2"><img height="50" width="140" class="thumbnail" alt="支付宝" src="assets/images/wepay.png" /></a>
-	                              <a href="pay?activityID=<s:property value="updateActivity.id"/>&userID=<s:property value="pageOwner.id"/>&type=3"><img height="50" width="140" class="thumbnail" alt="微信" src="assets/images/alipay.jpg" /></a>
+	                              <a class="payButton" href="pay?activityID=<s:property value="updateActivity.id"/>&userID=<s:property value="pageOwner.id"/>&type=1"><img height="50" width="140" class="thumbnail" alt="现金支付" src="assets/images/cash.png" /></a>
+	                              <a class="payButton" href="pay?activityID=<s:property value="updateActivity.id"/>&userID=<s:property value="pageOwner.id"/>&type=2"><img height="50" width="140" class="thumbnail" alt="支付宝" src="assets/images/wepay.png" /></a>
+	                              <a class="payButton" href="pay?activityID=<s:property value="updateActivity.id"/>&userID=<s:property value="pageOwner.id"/>&type=3"><img height="50" width="140" class="thumbnail" alt="微信" src="assets/images/alipay.jpg" /></a>
 	                          	</s:if>
 	                          	<s:if test="payType==1">
 	                              <a href="#"><img height="50" width="140" class="thumbnail" alt="现金支付" src="assets/images/cash.png" /></a>
@@ -267,7 +267,7 @@
 									</fieldset>
 									<div class="hr hr-dotted"></div>
 									<div class="clearfix">
-									  <input type="text" class="pull-left col-sm-4" id="form-field-1" name="message.amount" placeholder="差额">
+									  <input type="text" class="pull-left col-xs-6 col-sm-6" id="form-field-1" name="message.amount" placeholder="差额">
 									  <button activityid="<s:property value="updateActivity.id"/>"
 									  	 class="pull-right btn btn-sm btn-primary btn-white btn-round feedBackButton" type="button">
 										  发送
@@ -290,7 +290,7 @@
 									</fieldset>
 									<div class="hr hr-dotted"></div>
 									<div class="clearfix">
-									  <input type="text" class="pull-left col-sm-4" id="form-field-1" name="message.amount" placeholder="差额">
+									  <input type="text" class="pull-left col-xs-6 col-sm-6" id="form-field-1" name="message.amount" placeholder="差额">
 									  <button activityid="<s:property value="updateActivity.id"/>"
 									  	 class="pull-right btn btn-sm btn-primary btn-white btn-round feedBackButton" type="button">
 										  发送
@@ -428,6 +428,9 @@
 						$.get(url, data, function(response) {
 							alert("提交成功" + response.activityId);
 						});
+					});
+					$("a.payButton").click(function(){
+						alert("提交成功");
 					});
 				});
 		  });
