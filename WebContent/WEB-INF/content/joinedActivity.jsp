@@ -231,7 +231,23 @@
 														</div>
 														<div class="col-xs-12 col-sm-7">
 
+
+
 															<div class="profile-user-info profile-user-info-striped">
+															<div class="profile-info-row">
+																	<div class="profile-info-name">活动状态</div>
+																	<div class="profile-info-value">
+																		<span> <s:if test="#a.type==0">  
+																			活动进行中
+																			</s:if> <s:elseif test="#a.type==1">  
+																			活动结算中
+																			</s:elseif> <s:else>  
+																			活动结束  
+																			</s:else>
+																		</span>
+																	</div>
+																</div>
+																
 																<div class="profile-info-row">
 																	<div class="profile-info-name">实际总额</div>
 																	<div class="profile-info-value">
@@ -253,20 +269,19 @@
 																	</div>
 																</div>
 
+																
+																
+																<s:if test="#a.type==0">  
 																<div class="profile-info-row">
-																	<div class="profile-info-name">活动状态</div>
+																	<div class="profile-info-name">个人应付(预计)</div>
 																	<div class="profile-info-value">
-																		<span> <s:if test="#a.type==0">  
-																			活动进行中
-																			</s:if> <s:elseif test="#a.type==1">  
-																			活动结算中
-																			</s:elseif> <s:else>  
-																			活动结束  
-																			</s:else>
+																		<span>
+																		<s:property value = "%{#a.wholeAmount / #a.size}"/>
 																		</span>
 																	</div>
 																</div>
-
+																</s:if>
+																<s:else>
 																<div class="profile-info-row">
 																	<div class="profile-info-name">个人应付</div>
 																	<div class="profile-info-value">
@@ -279,7 +294,7 @@
 																		</span>
 																	</div>
 																</div>
-
+																</s:else>
 																<div class="profile-info-row">
 																	<div class="profile-info-name">活动介绍</div>
 																	<div class="profile-info-value">

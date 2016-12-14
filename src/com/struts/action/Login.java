@@ -13,14 +13,20 @@ public class Login {
 	private User pageOwner;
 	private String activityID;
 	private String loginType;
+	private int error;
 	public String userLogin()
 	{
 		String findResult;
+		try{
+			
 
 		findResult = userOperation.findUser(login_user.getUserName(),
 								login_user.getPassword());
 		if (findResult == null)
+		{
+			setError(1);
 			return "false";
+		}
 		else
 		{
 			Map<String, Object> httpSession = ActionContext.getContext().getSession();
@@ -36,7 +42,14 @@ public class Login {
 			else if(loginType.equals("2"))
 				return "turn2settle";
 			else 
+			{
+				setError(3);
 				return "false";
+			}
+		}
+		}catch(Exception e){
+			setError(2);
+			return "false";
 		}
 	}
 	public String logout()
@@ -82,6 +95,12 @@ public class Login {
 	}
 	public void setPageOwner(User pageOwner) {
 		this.pageOwner = pageOwner;
+	}
+	public int getError() {
+		return error;
+	}
+	public void setError(int error) {
+		this.error = error;
 	}
 
 }
