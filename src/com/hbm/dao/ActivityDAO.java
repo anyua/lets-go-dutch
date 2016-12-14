@@ -407,4 +407,33 @@ public class ActivityDAO extends DAO {
 		transaction.commit();
 		hibernateSession.close();
 	}
+	public void addWholeAmount(String activityId,double wholeAmount) {
+		Session hibernateSession = factory.openSession();
+		Transaction transaction = hibernateSession.beginTransaction();
+		Activity activity = (Activity) hibernateSession.get(Activity.class, activityId);
+		activity.setWholeAmount(activity.getWholeAmount()+wholeAmount);
+
+		transaction.commit();
+		hibernateSession.close();
+	}
+	public Item getItem(String itemId)
+	{
+		Session hibernateSession = factory.openSession();
+		Transaction transaction = hibernateSession.beginTransaction();
+		
+		String hql = "FROM Item A WHERE A.id=:itemId";
+		Query query = hibernateSession.createQuery(hql);
+		query.setParameter("itemId",itemId);
+		
+		@SuppressWarnings("unchecked")
+		List<Item> results = query.list();
+		
+		Item item = null;
+		if(results.size()>0)
+			item = results.get(0);
+		
+		transaction.commit();
+		hibernateSession.close();
+		return item;
+	}
 }

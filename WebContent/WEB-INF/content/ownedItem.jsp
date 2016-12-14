@@ -482,6 +482,7 @@
 								</div>
 							</div>
 							<input id="itemIdInput" type="hidden" name="updateItem.id" value=<s:property value="#i.id"/>>
+							<input id="activityIdInput" type="hidden" name="activityID" value=<s:property value="updateActivity.id"/>>
 						</form>
 					</div>
 					<div class="modal-footer">

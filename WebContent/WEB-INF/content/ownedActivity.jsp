@@ -347,9 +347,16 @@
 																</div>
 
 																<div class="profile-info-row">
-																	<div class="profile-info-name">参与人数</div>
+																	<div class="profile-info-name">预计人数</div>
 																	<div class="profile-info-value">
 																		<span class="size"><s:property value="#a.size" /></span>
+																	</div>
+																</div>
+																
+																<div class="profile-info-row">
+																	<div class="profile-info-name">实际人数</div>
+																	<div class="profile-info-value">
+																		<span class="size"><s:property value="#a.members.size()" /></span>
 																	</div>
 																</div>
 
