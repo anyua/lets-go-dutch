@@ -200,34 +200,34 @@
 													</thead>
 													<tbody>
 														<s:iterator value="updateActivity.Items" id="i">
-															<tr>
-																<td><s:property value="#i.detial" /></td>
-																<td><s:property value="#i.amount" /></td>
+															<tr class="<s:property value="#i.id"/>">
+																<td><span class="detial"><s:property value="#i.detial" /></span></td>
+																<td><span class="amount"><s:property value="#i.amount" /></span></td>
 																<td>
 																	<div class="btn-group">
 																		<s:if test="updateActivity.type==2">
 																		<a href="#" type="button" class="btn btn-xs btn-info disabled"
 																			title="编辑<s:property value="updateActivity.type"/>" data-toggle="modal"
-																			data-target="#myModal2" actId=<s:property value="#i.id"/>> <i
+																			 actId=<s:property value="#i.id"/>> <i
 																			class="ace-icon fa fa-pencil bigger-120"></i>
 																		</a> 
 																		</s:if>
 																		<s:elseif test="updateActivity.type==1">
 																		<a href="#" type="button" class="btn btn-xs btn-info disabled"
 																			title="编辑<s:property value="updateActivity.type"/>" data-toggle="modal"
-																			data-target="#myModal2" actId=<s:property value="#i.id"/>> <i
+																			 actId=<s:property value="#i.id"/>> <i
 																			class="ace-icon fa fa-pencil bigger-120"></i>
 																		</a> 
 																		</s:elseif>
 																		<s:else>
-																		<a href="#" type="button" class="btn btn-xs btn-info"
+																		<a href="#1" type="button" class="btn btn-xs btn-info"
 																			title="编辑<s:property value="updateActivity.type"/>" data-toggle="modal"
-																			data-target="#myModal" actId=<s:property value="#i.id"/>> <i
+																			data-target="#myModal<s:property value="#i.id" />" actId=<s:property value="#i.id"/>> <i
 																			class="ace-icon fa fa-pencil bigger-120"></i>
 																		</a> 
 																		</s:else>
 																	
-																		<a href="#" type="button"
+																		<a href="#1" type="button"
 																			class="btn btn-xs btn-danger" title="删除"> <i
 																			class="ace-icon fa fa-trash-o bigger-120"></i>
 																		</a>
@@ -244,13 +244,13 @@
 														<i class="fa fa-check"></i>
 													</button>
 													<s:if test="updateActivity.type==2">
-													<button  id="addItem" type="button"
+													<button   type="button"
 														class="btn btn-xs btn-primary disabled" style="font-size: 14px; text-align: center; padding: .425rem; width: 2.5rem;" title="添加一个新项目">
 														<i class="fa fa-plus"></i>
 													</button>
 													</s:if>
 													<s:elseif test="updateActivity.type==1">
-													<button  id="addItem" type="button"
+													<button   type="button"
 														class="btn btn-xs btn-primary disabled" style="font-size: 14px; text-align: center; padding: .425rem; width: 2.5rem;" title="添加一个新项目">
 														<i class="fa fa-plus"></i>
 													</button>
@@ -399,11 +399,11 @@
 																			<s:if test="#um.type==0">  
 																			<s:if test="updateActivity.type==2">
 																			<a href="#" type="button"
-																				class="btn btn-xs btn-success messageOperation disabled <s:property value="#um.id" />" title="接受"
+																				class="btn btn-xs btn-success  disabled " title="接受"
 																				messageId="<s:property value="#um.id" />"> <i
 																				class="ace-icon fa fa-check bigger-120"></i>
 																			</a> <a href="#" type="button"
-																				class="btn btn-xs btn-danger messageOperation disabled <s:property value="#um.id" />" title="拒绝"
+																				class="btn btn-xs btn-danger  disabled " title="拒绝"
 																				messageId="<s:property value="#um.id" />"> <i
 																				class="ace-icon fa fa-times bigger-120"></i>
 																			</a>					
@@ -452,8 +452,8 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="modal fade" style="position: fixed;" id="myModal2"
+<s:iterator value="updateActivity.Items" id="i">
+		<div class="modal fade" style="position: fixed;" id="myModal<s:property value="#i.id" />"
 			tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
 			aria-hidden="true">
 			<div class="modal-dialog">
@@ -464,7 +464,7 @@
 						<h4 class="modal-title" id="myModalLabel">编辑</h4>
 					</div>
 					<div class="modal-body">
-						<form class="form-horizontal" action="updateItem" role="form">
+						<form class="form-horizontal <s:property value = "#i.id" />" action="updateItem" role="form">
 							<div class="form-group">
 								<label class="col-sm-3 control-label no-padding-right"
 									for="form-field-1"> 项目名称 </label>
@@ -482,16 +482,15 @@
 								</div>
 							</div>
 							<input id="itemIdInput" type="hidden" name="updateItem.id" value=<s:property value="#i.id"/>>
-							
 						</form>
 					</div>
 					<div class="modal-footer">
-						<button id="itemEdit" type="submit" class="btn btn-success" data-dismiss="modal">提交</button>
+						<button id="itemEdit" itemID="<s:property value = "#i.id" />" type="submit" class="btn btn-success" data-dismiss="modal">提交</button>
 					</div>
 				</div>
 			</div>
 		</div>
-
+</s:iterator>
 
 		<a href="#" id="btn-scroll-up"
 			class="btn-scroll-up btn btn-sm btn-inverse"> <i
@@ -612,10 +611,11 @@
 		        $('#itemIdInput').val($(this).attr("actId"));
 		    });
 			$("button#itemEdit").click(function(){
-				var params = $("form.form-horizontal").serialize();
+				var params = $("form."+$(this).attr("itemId")).serialize();
+				alert("修改成功");
 				$.get("updateItem",params,function(data){
-				    $("tr."+data.itemID).find("span.detial").text(data.updateItem.detial);
-				    $("tr."+data.itemID).find("span.amount").text(data.updateItem.amount);
+				    $("tr."+data.itemId).find("span.detial").text(data.updateItem.detial);
+				    $("tr."+data.itemId).find("span.amount").text(data.updateItem.amount);
 				 });
 			})
 			$("button#addItem").click(function(){
