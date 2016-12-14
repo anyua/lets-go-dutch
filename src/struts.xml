@@ -28,7 +28,7 @@
    		class="com.struts.action.CreateActivity"
    		method="createActivity">
    		<result name="true" type="chain">showUserInfo</result>
-   		<result name="false">/WEB-INF/content/login_fail.jsp</result>
+   		<result name="false">/WEB-INF/content/newActivity.jsp</result>
    	</action>
    	
    	<action name="showUserInfo"
@@ -82,7 +82,10 @@
    	<action name="joinActivity"
    		class="com.struts.action.JoinActivity"
    		method="joinThisActivtiy">
+   		<exception-mapping result="error" exception="java.lang.IllegalArgumentException"></exception-mapping>
    		<result name="success" type="chain">showJoinedActivity</result>	
+   		<result name="false">/WEB-INF/content/cantJoinThisAct.jsp</result>
+   		<result name="error">/WEB-INF/content/cantJoinThisAct.jsp</result>
    	</action>
    	
    	<action name="outOfItem"
