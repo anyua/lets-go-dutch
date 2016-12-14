@@ -227,7 +227,7 @@
 													 </s:if>
 													 <s:else>
 													 <a href="#" type="button" class="btn btn-xs btn-info disabled"
-														title="Edit" data-toggle="modal" data-target="#myModal1"
+														title="编辑" data-toggle="modal" data-target="#myModal1"
 														actId=<s:property value="#a.id"/>> <i
 														class="ace-icon fa fa-pencil bigger-120"></i>
 													</a>
