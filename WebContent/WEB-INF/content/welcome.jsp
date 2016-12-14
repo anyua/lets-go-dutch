@@ -83,7 +83,7 @@
 						data-toggle="dropdown" href="#" class="dropdown-toggle"> <img
 							class="nav-user-photo" src="assets/images/user.jpg"> <span
 							class="user-info"> <small>你好,</small> <s:property
-									value="#pageOwner.nickname" />
+									value="pageOwner.nickname" />
 						</span> <i class="ace-icon fa fa-caret-down"></i>
 					</a>
 						<ul

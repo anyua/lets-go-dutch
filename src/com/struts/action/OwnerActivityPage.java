@@ -25,6 +25,8 @@ public class OwnerActivityPage {
 	private String loginType;
 	
 	public String showActivity() {
+		//System.out.println(activityID);
+
 		Map<String, Object> httpSession =ActionContext.getContext().getSession();
 		//updateActivity = activityOperation.getActivity((String)httpSession.get("ActivityID"));
 		String userId=(String)httpSession.get("login_userID");
@@ -131,11 +133,35 @@ public class OwnerActivityPage {
 	}
 	
 	public String deleteItem() {
-		int num = activityOperation.deleteItem(updateItem.getId());
-		if (num != 1)
-			return "false";
-		else
-			return "true";
+		System.out.println(activityID);
+
+		activityOperation.deleteItem(activityID,updateItem.getId());
+		//activityOperation.deleteItem(itemId);
+		System.out.println(activityID);
+		Activity act=activityOperation.getActivity(activityID);
+		if(act.getType()!=0){
+			for(Member member: act.getMembers())
+			{
+				double amount = 0;
+				for(Item item:member.getJoinItems())
+				{
+					amount+=item.getAmount()/item.getNumOfMembers();
+				}
+				for(Message message:member.getMessages())
+				{
+					if(message.getType()==1)
+						amount+=message.getAmount();
+				}
+				String[] result=new String[3];
+				result[0]=member.getUser().getNickname();
+				result[1]=member.getUser().getUserName();
+				result[2]=String.valueOf(amount);
+				activityOperation.setMemberAmount(member.getId(), amount);
+			}
+		}
+		System.out.println(activityID);
+
+		return "true";
 	}
 	
 
