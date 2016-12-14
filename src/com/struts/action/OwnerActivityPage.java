@@ -18,6 +18,7 @@ public class OwnerActivityPage {
 	private Set<Item> originalItem ;
 	private Item updateItem = new Item();
 	private int payType;
+	private String itemId;
 	
 	private String activityID;
 	private String shareURL;
@@ -115,6 +116,7 @@ public class OwnerActivityPage {
 		System.out.println(updateItem.getDetial());
 		System.out.println(updateItem.getAmount());
 		System.out.println("lalala");
+		itemId=updateItem.getId();
 		String id = activityOperation.updateItem(updateItem.getId(), 
 				updateItem.getDetial(), 
 				updateItem.getAmount());
@@ -224,6 +226,14 @@ public class OwnerActivityPage {
 
 	public void setPayType(int payType) {
 		this.payType = payType;
+	}
+
+	public String getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
 	}
 	
 }
