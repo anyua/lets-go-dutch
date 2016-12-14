@@ -166,7 +166,7 @@
 			        <div class="widget-header">
 			          <h5 class="widget-title bigger lighter">
 						<i class="ace-icon fa fa-table"></i>
-
+							结算清单
 					  </h5>
 			        </div>
 			        
@@ -267,7 +267,7 @@
 									</fieldset>
 									<div class="hr hr-dotted"></div>
 									<div class="clearfix">
-									  <input type="text" class="pull-left col-sm-4" id="form-field-1" name="message.amount" placeholder="差额">
+									  <input type="text" class="pull-left col-xs-6 col-sm-6" id="form-field-1" name="message.amount" placeholder="差额">
 									  <button activityid="<s:property value="updateActivity.id"/>"
 									  	 class="pull-right btn btn-sm btn-primary btn-white btn-round feedBackButton" type="button">
 										  发送
@@ -290,7 +290,7 @@
 									</fieldset>
 									<div class="hr hr-dotted"></div>
 									<div class="clearfix">
-									  <input type="text" class="pull-left col-sm-4" id="form-field-1" name="message.amount" placeholder="差额">
+									  <input type="text" class="pull-left col-xs-6 col-sm-6" id="form-field-1" name="message.amount" placeholder="差额">
 									  <button activityid="<s:property value="updateActivity.id"/>"
 									  	 class="pull-right btn btn-sm btn-primary btn-white btn-round feedBackButton" type="button">
 										  发送
