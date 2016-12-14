@@ -118,7 +118,7 @@
 				}
 			</script>
 			<ul class="nav nav-list">
-				<li class=""><a href="welcome"> <i
+				<li class=""><a href="welcome?"> <i
 						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
 							网站介绍 </span>
 				</a> <b class="arrow"></b></li>

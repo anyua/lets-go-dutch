@@ -11,7 +11,7 @@
    		method="userLogin">
    		<!--  <result name="true" type="chain">showUserInfo</result> -->
    		<result name="true">/WEB-INF/content/welcome.jsp</result>
-   		<result name="false">/WEB-INF/content/logOrSignAgain.jsp</result>
+   		<result name="false">/WEB-INF/content/loginpage.jsp</result>
    		<!--  <result name="false" type="json"></result> -->
    		<result name="turn2activityInfo" type="chain">showActivity</result>
    		<result name="turn2settle" type="chain">settle</result>
@@ -21,7 +21,7 @@
    		class="com.struts.action.Signup"
    		method="signUp">
    		<result name="true">/WEB-INF/content/loginpage.jsp</result>
-   		<result name="false">/WEB-INF/content/logOrSignAgain.jsp</result>
+   		<result name="false">/WEB-INF/content/signuppage.jsp</result>
    	</action>
    	
    	<action name="createActivity"
@@ -163,5 +163,22 @@
    		<result name="success" type="json"></result>
    	</action>
    	
+   	<action name="welcome"
+   		class="com.struts.action.ShowNickName"
+   		method="welcome">
+   		<result name="success" >/WEB-INF/content/welcome.jsp</result>
+   		</action>
+   		
+   	<action name="addActivity"
+   		class="com.struts.action.ShowNickName"
+   		method="addActivity">
+   		<result name="success" >/WEB-INF/content/addActivity.jsp</result>
+   		</action>
+   		
+   	<action name="newActivity"
+   		class="com.struts.action.ShowNickName"
+   		method="newActivity">
+   		<result name="success" >/WEB-INF/content/newActivity.jsp</result>
+   		</action>
    </package>
 </struts>
