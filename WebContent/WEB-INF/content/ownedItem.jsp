@@ -227,7 +227,7 @@
 																		</a> 
 																		</s:else>
 																	
-																		<a href="#1" type="button"
+																		<a href="deleteItem?activityID=<s:property value="updateActivity.id" />&updateItem.id=<s:property value="#i.id" />" type="button"
 																			class="btn btn-xs btn-danger" title="删除"> <i
 																			class="ace-icon fa fa-trash-o bigger-120"></i>
 																		</a>

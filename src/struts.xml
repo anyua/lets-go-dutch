@@ -148,7 +148,7 @@
    	<action name="deleteItem"
    		class="com.struts.action.OwnerActivityPage"
    		method="deleteItem">
-   		<result name="true" type="chain">showActiviy</result>	
+   		<result name="true" type="chain">showActivity</result>	
    		<result name="false" >/WEB-INF/content/login_fail.jsp</result>
    	</action>
    	<action name="pay"

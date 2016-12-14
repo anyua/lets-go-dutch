@@ -251,12 +251,46 @@ public class ActivityDAO extends DAO {
 	 * @param itemId
 	 * @return 删除的条目数，正常是1
 	 */
-	public int deleteItem(String itemId)
+	public void deleteItem(String activityId,String itemId)
 	{
-		ItemDAO itemDao = new ItemDAO();
-		int numOfDeleteItem = itemDao.deleteItem(itemId);
-		return numOfDeleteItem;
+		Session hibernateSession = factory.openSession();
+		Transaction transaction = hibernateSession.beginTransaction();
+		Activity activity = (Activity) hibernateSession.get(Activity.class, activityId);
+		Iterator<Item> itemit = activity.getItems().iterator();
+		while(itemit.hasNext())
+		{
+			Item item = itemit.next();
+			if(itemId.equals(item.getId()))
+			{
+				itemit.remove();
+			}
+		}
+		Iterator<Member> memit = activity.getMembers().iterator();
+		while(memit.hasNext())
+		{
+			Member member = memit.next();
+			itemit = member.getJoinItems().iterator();
+			while(itemit.hasNext())
+			{
+				Item item = itemit.next();
+				if(itemId.equals(item.getId()))
+				{
+					itemit.remove();
+				}
+			}
+		}
+		transaction.commit();
+		hibernateSession.close();
+	}	
+	public void deleteItem(String itemId){
+		Session hibernateSession = factory.openSession();
+		Transaction transaction = hibernateSession.beginTransaction();
+		Item Item = (Item) hibernateSession.get(Item.class, itemId);
+		hibernateSession.delete(Item);
+		transaction.commit();
+		hibernateSession.close();
 	}
+
 	/**
 	 * !!!还要改
 	 * 此方法用于删除数据库中一个活动的活动项目信息
