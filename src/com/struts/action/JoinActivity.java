@@ -10,7 +10,6 @@ public class JoinActivity {
 	private User joinUser = new User();
 	private UserDAO userOperation = new UserDAO();
 	private ActivityDAO activityOperation = new ActivityDAO();
-	
 	private String itemId;
 	private String activityName;
 	private String activityId;
@@ -21,7 +20,9 @@ public class JoinActivity {
 		String activityId=activityOperation.findActivity(getActivityName());
 		userOperation.joinActivity(userId, activityId);
 		if (activityId != null)
+		{
 			return "success";
+		}
 		else
 			return "false";
 	}
@@ -75,5 +76,6 @@ public class JoinActivity {
 	public void setActivityId(String activityId) {
 		this.activityId = activityId;
 	}
+
 	
 }
