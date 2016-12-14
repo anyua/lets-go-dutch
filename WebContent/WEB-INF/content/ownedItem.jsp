@@ -205,11 +205,28 @@
 																<td><s:property value="#i.amount" /></td>
 																<td>
 																	<div class="btn-group">
-																		<a href="#" type="button" class="btn btn-xs btn-info"
-																			title="编辑" data-toggle="modal"
+																		<s:if test="updateActivity.type==2">
+																		<a href="#" type="button" class="btn btn-xs btn-info disabled"
+																			title="编辑<s:property value="updateActivity.type"/>" data-toggle="modal"
 																			data-target="#myModal2" actId=<s:property value="#i.id"/>> <i
 																			class="ace-icon fa fa-pencil bigger-120"></i>
 																		</a> 
+																		</s:if>
+																		<s:elseif test="updateActivity.type==1">
+																		<a href="#" type="button" class="btn btn-xs btn-info disabled"
+																			title="编辑<s:property value="updateActivity.type"/>" data-toggle="modal"
+																			data-target="#myModal2" actId=<s:property value="#i.id"/>> <i
+																			class="ace-icon fa fa-pencil bigger-120"></i>
+																		</a> 
+																		</s:elseif>
+																		<s:else>
+																		<a href="#" type="button" class="btn btn-xs btn-info"
+																			title="编辑<s:property value="updateActivity.type"/>" data-toggle="modal"
+																			data-target="#myModal" actId=<s:property value="#i.id"/>> <i
+																			class="ace-icon fa fa-pencil bigger-120"></i>
+																		</a> 
+																		</s:else>
+																	
 																		<a href="#" type="button"
 																			class="btn btn-xs btn-danger" title="删除"> <i
 																			class="ace-icon fa fa-trash-o bigger-120"></i>
@@ -226,10 +243,24 @@
 														class="btn btn-xs btn-success hidden" style="font-size: 14px; text-align: center; padding: .425rem; width: 2.5rem;" title="提交">
 														<i class="fa fa-check"></i>
 													</button>
+													<s:if test="updateActivity.type==2">
+													<button  id="addItem" type="button"
+														class="btn btn-xs btn-primary disabled" style="font-size: 14px; text-align: center; padding: .425rem; width: 2.5rem;" title="添加一个新项目">
+														<i class="fa fa-plus"></i>
+													</button>
+													</s:if>
+													<s:elseif test="updateActivity.type==1">
+													<button  id="addItem" type="button"
+														class="btn btn-xs btn-primary disabled" style="font-size: 14px; text-align: center; padding: .425rem; width: 2.5rem;" title="添加一个新项目">
+														<i class="fa fa-plus"></i>
+													</button>
+													</s:elseif>
+													<s:else>
 													<button  id="addItem" type="button"
 														class="btn btn-xs btn-primary" style="font-size: 14px; text-align: center; padding: .425rem; width: 2.5rem;" title="添加一个新项目">
 														<i class="fa fa-plus"></i>
 													</button>
+													</s:else>
 												</div>
 												</form>
 											</div>
@@ -249,6 +280,7 @@
 															<th>昵称</th>
 															<th>用户名</th>
 															<th>个人应付AA总额</th>
+															<th>支付方式</th>
 															<th>操作</th>
 														</tr>
 													</thead>
@@ -272,6 +304,25 @@
 																	<s:elseif test="updateActivity.type==1">
 																	<s:property value="#u.amount" />
 																	</s:elseif>
+																</td>
+																<td>
+																	<s:if test="updateActivity.type==2">
+																		<s:if test = "#u.type==0">
+																		未定
+																		</s:if>
+																		<s:if test = "#u.type==1">
+																		现金支付
+																		</s:if>
+																		<s:if test = "#u.type==2">
+																		微信转账
+																		</s:if>
+																		<s:if test = "#u.type==3">
+																		支付宝转账
+																		</s:if>
+																	</s:if>
+																	<s:else>
+																	--
+																	</s:else>
 																</td>
 																<td>
 																	<div class="btn-group">
@@ -346,15 +397,28 @@
 																	<td>
 																		<div class="btn-group">
 																			<s:if test="#um.type==0">  
+																			<s:if test="updateActivity.type==2">
 																			<a href="#" type="button"
-																				class="btn btn-xs btn-success messageOperation <s:property value="#um.id" />" title="接受"
+																				class="btn btn-xs btn-success messageOperation disabled <s:property value="#um.id" />" title="接受"
+																				messageId="<s:property value="#um.id" />"> <i
+																				class="ace-icon fa fa-check bigger-120"></i>
+																			</a> <a href="#" type="button"
+																				class="btn btn-xs btn-danger messageOperation disabled <s:property value="#um.id" />" title="拒绝"
+																				messageId="<s:property value="#um.id" />"> <i
+																				class="ace-icon fa fa-times bigger-120"></i>
+																			</a>					
+																			</s:if>								
+																			<s:else>
+																			<a href="#" type="button"
+																				class="btn btn-xs btn-success messageOperation  <s:property value="#um.id" />" title="接受"
 																				messageId="<s:property value="#um.id" />"> <i
 																				class="ace-icon fa fa-check bigger-120"></i>
 																			</a> <a href="#" type="button"
 																				class="btn btn-xs btn-danger messageOperation <s:property value="#um.id" />" title="拒绝"
 																				messageId="<s:property value="#um.id" />"> <i
 																				class="ace-icon fa fa-times bigger-120"></i>
-																			</a>																			
+																			</a>
+																			</s:else>	
 																			</s:if> <s:elseif test="#um.type==1">  
 																			已接受
 																			</s:elseif> 

@@ -176,9 +176,26 @@
 	                      <div class="row">
 	                          <div class="col-xs-12 col-sm-2">
 	                          	<s:if test="updateActivity.type==2">
+	                          	<s:if test="payType==0">
+	                              <a href="pay?activityID=<s:property value="updateActivity.id"/>&userID=<s:property value="pageOwner.id"/>&type=1"><img height="50" width="140" class="thumbnail" alt="现金支付" src="assets/images/cash.png" /></a>
+	                              <a href="pay?activityID=<s:property value="updateActivity.id"/>&userID=<s:property value="pageOwner.id"/>&type=2"><img height="50" width="140" class="thumbnail" alt="支付宝" src="assets/images/wepay.png" /></a>
+	                              <a href="pay?activityID=<s:property value="updateActivity.id"/>&userID=<s:property value="pageOwner.id"/>&type=3"><img height="50" width="140" class="thumbnail" alt="微信" src="assets/images/alipay.jpg" /></a>
+	                          	</s:if>
+	                          	<s:if test="payType==1">
 	                              <a href="#"><img height="50" width="140" class="thumbnail" alt="现金支付" src="assets/images/cash.png" /></a>
+	                              <a href="#"><img height="50" width="140" class="thumbnail" alt="支付宝" src="assets/images/wepay_black.png" /></a>
+	                              <a href="#"><img height="50" width="140" class="thumbnail" alt="微信" src="assets/images/alipay_black.png" /></a>
+	                          	</s:if>
+	                          	<s:if test="payType==2">
+	                              <a href="#"><img height="50" width="140" class="thumbnail" alt="现金支付" src="assets/images/cash_black.png" /></a>
 	                              <a href="#"><img height="50" width="140" class="thumbnail" alt="支付宝" src="assets/images/wepay.png" /></a>
+	                              <a href="#"><img height="50" width="140" class="thumbnail" alt="微信" src="assets/images/alipay_black.png" /></a>
+	                          	</s:if>
+	                          	<s:if test="payType==3">
+	                              <a href="#"><img height="50" width="140" class="thumbnail" alt="现金支付" src="assets/images/cash_black.png" /></a>
+	                              <a href="#"><img height="50" width="140" class="thumbnail" alt="支付宝" src="assets/images/wepay_black.png" /></a>
 	                              <a href="#"><img height="50" width="140" class="thumbnail" alt="微信" src="assets/images/alipay.jpg" /></a>
+	                          	</s:if>
 	                          	</s:if>
 	                          </div>
 	                          <div class="col-xs-12 col-sm-7">

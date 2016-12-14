@@ -9,6 +9,8 @@ import com.opensymphony.xwork2.ActionContext;
 public class Login {
 	private UserDAO userOperation = new UserDAO() ;
 	private User login_user = new User();
+	//用来显示用户名的pageOwner
+	private User pageOwner;
 	private String activityID;
 	private String loginType;
 	public String userLogin()
@@ -25,7 +27,10 @@ public class Login {
 			httpSession.put("login_userID",findResult);
 			
 			if(loginType.isEmpty())
+			{
+				pageOwner = userOperation.getUser(findResult);
 				return "true";
+			}
 			else if(loginType.equals("1"))
 				return "turn2activityInfo";
 			else if(loginType.equals("2"))
@@ -71,6 +76,12 @@ public class Login {
 	}
 	public void setLoginType(String loginType) {
 		this.loginType = loginType;
+	}
+	public User getPageOwner() {
+		return pageOwner;
+	}
+	public void setPageOwner(User pageOwner) {
+		this.pageOwner = pageOwner;
 	}
 
 }

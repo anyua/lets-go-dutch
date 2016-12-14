@@ -9,7 +9,7 @@ public class Member {
 	private double amount;
 	private String info;
 	private Activity activity;
-	private int type;
+	private int type = 0;
 	private Set<Item> joinItems = new HashSet<Item>();
 	
 	private Set<Message> messages=new HashSet<Message>();
