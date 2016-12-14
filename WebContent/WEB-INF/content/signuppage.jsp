@@ -48,16 +48,16 @@
             <ol>
               <li>
                 <div class="form-group">
-                  <span class="input-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                  <input type="text" id="username" class="form-control" name="signup_user.userName" 
-                  	tabindex="1" placeholder="用户名" autofocus />
+                  <span class="input-icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                  <input type="text" id="nickname" class="form-control" name="signup_user.nickname" 
+                  	tabindex="1" placeholder="昵称" autofocus />
                 </div>
               </li>
               <li>
                 <div class="form-group">
-                  <span class="input-icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-                  <input type="text" id="nickname" class="form-control" name="signup_user.nickname" 
-                  	tabindex="2" placeholder="昵称" />
+                  <span class="input-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                  <input type="text" id="username" class="form-control" name="signup_user.userName" 
+                  	tabindex="2" placeholder="用户名" />
                 </div>
               </li>
               <li>

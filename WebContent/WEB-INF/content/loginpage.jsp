@@ -8,7 +8,7 @@
    	<meta charset="UTF-8">
    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>登陆</title>
+    <title>登录</title>
 	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
 	<link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" sizes="32x32">
@@ -36,7 +36,7 @@
         <form id="login-form" method="POST" action="login">
           <fieldset>
             <legend>
-              	登陆 
+              	登录 
             </legend>
             <ol>
               <li>
@@ -56,7 +56,7 @@
               </li>
             </ol>
           </fieldset>
-          <button id="submitBtn" class="btn btn-md my-btn-log my-btn-full" type="submit">登陆</button>
+          <button id="submitBtn" class="btn btn-md my-btn-log my-btn-full" type="submit">登录</button>
           <input type="hidden" name="activityID" value="${activityID}" />
 		  <input type="hidden" name="loginType" value="${loginType}" />
         </form>
