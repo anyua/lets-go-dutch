@@ -157,7 +157,46 @@
 				</div>
 				<div class="page-content">
 					<div class="page-header"></div>
-
+					<s:if test="error==1">
+					<div class="row">
+						<div class="col-md-6 column" >
+							<div class="alert alert-dismissible alert-danger">
+							  <button type="button" class="close" data-dismiss="alert">&times;</button>
+							  <strong>该活动不存在</strong> 请重新加入~
+							</div>
+						</div>
+					</div>
+					</s:if>
+					<s:elseif test="error==2">
+					<div class="row">
+						<div class="col-md-6 column" >
+							<div class="alert alert-dismissible alert-danger">
+							  <button type="button" class="close" data-dismiss="alert">&times;</button>
+							  <strong>该活动不存在</strong> 请重新加入~
+							</div>
+						</div>
+					</div>
+					</s:elseif>
+					<s:elseif test="error==3">
+					<div class="row">
+						<div class="col-md-6 column" >
+							<div class="alert alert-dismissible alert-danger">
+							  <button type="button" class="close" data-dismiss="alert">&times;</button>
+							  <strong>您已创建该活动</strong> 请重新加入其他活动~
+							</div>
+						</div>
+					</div>
+					</s:elseif>
+					<s:elseif test="error==4">
+					<div class="row">
+						<div class="col-md-6 column" >
+							<div class="alert alert-dismissible alert-danger">
+							  <button type="button" class="close" data-dismiss="alert">&times;</button>
+							  <strong>您已参与该活动</strong> 请重新加入其他活动~
+							</div>
+						</div>
+					</div>
+					</s:elseif>
 					<div class="widget-box" style="border: none;">
 						<div class="widget-body">
 							<div class="widget-main">

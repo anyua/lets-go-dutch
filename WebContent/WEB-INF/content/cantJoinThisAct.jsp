@@ -158,12 +158,12 @@
 				<div class="page-content">
 					<div class="page-header"></div>
 					<div class="row">
-					<div class="col-md-6 column" >
-					<div class="alert alert-dismissible alert-danger">
-					  <button type="button" class="close" data-dismiss="alert">&times;</button>
-					  <strong>活动名称有误！</strong> 请与组织者核对活动名称~
-					</div>
-					</div>
+						<div class="col-md-6 column" >
+							<div class="alert alert-dismissible alert-danger">
+							  <button type="button" class="close" data-dismiss="alert">&times;</button>
+							  <strong>活动名称有误！</strong> 请与组织者核对活动名称~
+							</div>
+						</div>
 					</div>
 					<div class="widget-box" style="border: none;">
 						<div class="widget-body">

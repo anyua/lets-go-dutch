@@ -13,22 +13,63 @@ public class JoinActivity {
 	private String itemId;
 	private String activityName;
 	private String activityId;
+	private int error;
 	
 	public String joinThisActivtiy() {
 		Map<String, Object> httpSession =ActionContext.getContext().getSession();
 		String userId=(String)httpSession.get("login_userID");
 		String activityId=activityOperation.findActivity(getActivityName());
 		try {
+			Activity joinActivity = activityOperation.getActivity(activityId);
+			if (joinActivity.getOwner().getId().equals(userId))
+			{
+				//是活动创建者
+				error = 3;
+				return "false";
+			}
+			else {
+				for(Member member:joinActivity.getMembers())
+				{
+					if(member.getUser().getId().equals(userId))
+					{
+						//已经是活动参与者
+						error = 4;
+						return "false";
+					}
+				}
+			}
 			userOperation.joinActivity(userId, activityId);
 		} catch(Exception e){
+			//活动没主人。。。
+			error = 1;
 			e.printStackTrace();
 		}
 		
 		if (activityId != null)
 		{
+			Activity joinActivity = activityOperation.getActivity(activityId);
+			if (joinActivity.getOwner().getId().equals(userId))
+			{
+				//是活动创建者
+				error = 3;
+				return "false";
+			}
+			else {
+				for(Member member:joinActivity.getMembers())
+				{
+					if(member.getUser().getId().equals(userId))
+					{
+						//已经是活动参与者
+						error = 4;
+						return "false";
+					}
+				}
+			}
 			return "success";
 		}
 		else {
+			//单纯的失败
+			error = 2;
 			return "false";
 		}
 			
@@ -82,6 +123,14 @@ public class JoinActivity {
 
 	public void setActivityId(String activityId) {
 		this.activityId = activityId;
+	}
+
+	public int getError() {
+		return error;
+	}
+
+	public void setError(int error) {
+		this.error = error;
 	}
 
 	
