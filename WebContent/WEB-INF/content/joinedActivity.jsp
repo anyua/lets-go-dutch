@@ -319,7 +319,7 @@
 																</fieldset>
 																<div class="hr hr-dotted"></div>
 																<div class="clearfix">
-																	<input type="text" class="pull-left col-sm-4"
+																	<input type="text" class="pull-left col-xs-6 col-sm-4"
 																		id="form-field-1" name="message.amount"
 																		placeholder="差额">
 																	<button activityid="<s:property value="#a.id"/>"

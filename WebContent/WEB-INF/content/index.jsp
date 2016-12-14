@@ -226,8 +226,8 @@
 		</div>
 		<div class="modal-body">
 		  <video id="demo" controls="controls" loop="loop" preload="auto" width="100%" height="100%" poster="assets/images/poster.PNG">
-		     <source src="assets/videos/test.mp4" type="video/mp4">
-				您的浏览器不支持HTML5的video标签
+		     <source src="assets/videos/demo.mp4" type="video/mp4">
+				您的浏览器不支持该格式，推荐使用chrome浏览器
 	      </video>
 		</div>
 		<div class="modal-footer">
