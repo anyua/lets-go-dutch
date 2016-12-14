@@ -249,6 +249,7 @@
 															<th>昵称</th>
 															<th>用户名</th>
 															<th>个人应付AA总额</th>
+															<th>支付方式</th>
 															<th>操作</th>
 														</tr>
 													</thead>
@@ -272,6 +273,25 @@
 																	<s:elseif test="updateActivity.type==1">
 																	<s:property value="#u.amount" />
 																	</s:elseif>
+																</td>
+																<td>
+																	<s:if test="updateActivity.type==2">
+																		<s:if test = "#u.type==0">
+																		未定
+																		</s:if>
+																		<s:if test = "#u.type==1">
+																		现金支付
+																		</s:if>
+																		<s:if test = "#u.type==2">
+																		微信转账
+																		</s:if>
+																		<s:if test = "#u.type==3">
+																		支付宝转账
+																		</s:if>
+																	</s:if>
+																	<s:else>
+																	--
+																	</s:else>
 																</td>
 																<td>
 																	<div class="btn-group">

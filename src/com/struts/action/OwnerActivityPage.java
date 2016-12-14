@@ -17,6 +17,7 @@ public class OwnerActivityPage {
 	private double[] amounts = {};
 	private Set<Item> originalItem ;
 	private Item updateItem = new Item();
+	private int payType;
 	
 	private String activityID;
 	private String shareURL;
@@ -44,12 +45,14 @@ public class OwnerActivityPage {
 					if(member.getUser().getId().equals(userId))
 					{
 						originalItem = member.getJoinItems();
+						payType = member.getType();
 						break;
 					}
 				}
 				if(originalItem==null){
 					userOperation.joinActivity(userId, activityID);
 					originalItem=updateActivity.getItems();
+					payType = 0;
 				}
 				return "joiner";
 			}
@@ -213,6 +216,14 @@ public class OwnerActivityPage {
 
 	public void setUpdateItem(Item updateItem) {
 		this.updateItem = updateItem;
+	}
+
+	public int getPayType() {
+		return payType;
+	}
+
+	public void setPayType(int payType) {
+		this.payType = payType;
 	}
 	
 }

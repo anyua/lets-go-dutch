@@ -397,4 +397,14 @@ public class ActivityDAO extends DAO {
 		transaction.commit();
 		hibernateSession.close();
 	}
+	public void setMemberType(String memberId,int type)
+	{
+		Session hibernateSession = factory.openSession();
+		Transaction transaction = hibernateSession.beginTransaction();
+		Member member = (Member) hibernateSession.get(Member.class, memberId);
+		member.setType(type);
+
+		transaction.commit();
+		hibernateSession.close();
+	}
 }

@@ -148,6 +148,11 @@
    		<result name="true" type="chain">showActiviy</result>	
    		<result name="false" >/WEB-INF/content/login_fail.jsp</result>
    	</action>
+   	<action name="pay"
+   		class="com.struts.action.Pay"
+   		method="Pay">
+   		<result name="success" type="chain">showActivity</result>
+   		</action>
    	
    </package>
 </struts>
