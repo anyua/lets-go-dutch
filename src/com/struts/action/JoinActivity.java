@@ -38,7 +38,6 @@ public class JoinActivity {
 					}
 				}
 			}
-			userOperation.joinActivity(userId, activityId);
 		} catch(Exception e){
 			//活动没主人。。。
 			error = 1;
@@ -65,6 +64,7 @@ public class JoinActivity {
 					}
 				}
 			}
+			userOperation.joinActivity(userId, activityId);
 			return "success";
 		}
 		else {

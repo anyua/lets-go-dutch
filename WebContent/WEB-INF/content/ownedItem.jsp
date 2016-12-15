@@ -301,9 +301,9 @@
 																	<s:if test="updateActivity.type==0">
 																		未结算
 																	</s:if>
-																	<s:elseif test="updateActivity.type==1">
+																	<s:else>
 																	<s:property value="#u.amount" />
-																	</s:elseif>
+																	</s:else>
 																</td>
 																<td>
 																	<s:if test="updateActivity.type==2">
