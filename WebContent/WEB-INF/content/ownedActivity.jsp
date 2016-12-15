@@ -596,7 +596,7 @@
 			    	$(this).addClass("btn-default disabled");
 			        $.get(url,params,function(data){
 			        	alert("结算完成");
-			        	$("td."+activityId).text("结算完成");
+			        	$("td."+activityId).text("活动结束");
 			        });
 		    	}
 		    });
