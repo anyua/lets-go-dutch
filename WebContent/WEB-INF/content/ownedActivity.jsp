@@ -277,7 +277,7 @@
 															<li><a href="#" class="tooltip-success <s:property value="#a.id"/>"
 																data-rel="tooltip" title="结算"
 																actId=<s:property value="#a.id"/>> <span
-																	class="blue"> <i
+																	class="green"> <i
 																		class="ace-icon fa fa-check bigger-120"></i>
 																</span>
 															</a></li>
@@ -290,10 +290,10 @@
 																</span>
 															</a></li>
 															</s:elseif> <s:else>  
-															<li><a href="#" class="tooltip-defalut <s:property value="#a.id"/>"
+															<li class="disabled"><a href="#" class="tooltip-defalut disabled <s:property value="#a.id"/>"
 																data-rel="tooltip" title="结算"
 																actId=<s:property value="#a.id"/>> <span
-																	class="blue"> <i
+																	class="black"> <i
 																		class="ace-icon fa fa-check bigger-120"></i>
 																</span>
 															</a></li> 
@@ -604,12 +604,30 @@
 		    	var url="settle";
 		    	var activityId=$(this).attr("actId")
 		    	var params="activityID="+activityId;
-		    	$(this).removeClass("tooltip-info");
-		    	$(this).addClass("tooltip-primary");
-		        $.get(url,params,function(data){
-		        	alert("开始结算");
-		        	$("td."+activityId).text("活动结算中");
-		        });
+		    	if(numOfSettle==0){
+		    		numOfSettle=1;
+			    	$(this).removeClass("tooltip-succdess");
+			    	$(this).addClass("tooltip-primary");
+			    	$(this).find("span").removeClass("green");
+			    	$(this).find("span").addClass("blue");
+			        $.get(url,params,function(data){
+			        	alert("开始结算");
+			        	$("td."+activityId).text("活动结算中");
+			        });
+		    	}
+		    	else if(numOfSettle==1){
+		    		numOfSettle=2;
+			    	$(this).removeClass("tooltip-primary");
+			    	$(this).addClass("tooltip-default disabled");
+			    	$(this).find("span").removeClass("blue");
+			    	$(this).find("span").addClass("black");
+			    	$(this).parent().addClass("disabled");
+			        $.get(url,params,function(data){
+			        	alert("结算完成");
+			        	$("td."+activityId).text("结算完成");
+			        });
+		    	}
+
 		    });
 		    $("a.btn-primary").click(function(){
 		    	var url="settle";
@@ -617,17 +635,6 @@
 		    	var params="activityID="+activityId;
 		    	$(this).removeClass("btn-primary");
 		    	$(this).addClass("btn-default disabled");
-		        $.get(url,params,function(data){
-		        	alert("结算完成");
-		        	$("td."+activityId).text("结算完成");
-		        });
-		    });
-		    $("a.tooltip-primary").click(function(){
-		    	var url="settle";
-		    	var activityId=$(this).attr("actId")
-		    	var params="activityID="+activityId;
-		    	$(this).removeClass("tooltip-primary");
-		    	$(this).addClass("tooltip-default disabled");
 		        $.get(url,params,function(data){
 		        	alert("结算完成");
 		        	$("td."+activityId).text("结算完成");

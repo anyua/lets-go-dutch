@@ -38,11 +38,11 @@ public class JoinActivity {
 					}
 				}
 			}
-			userOperation.joinActivity(userId, activityId);
 		} catch(Exception e){
 			//活动没主人。。。
 			error = 1;
 			e.printStackTrace();
+			return "false";
 		}
 		
 		if (activityId != null)
@@ -65,6 +65,7 @@ public class JoinActivity {
 					}
 				}
 			}
+			userOperation.joinActivity(userId, activityId);
 			return "success";
 		}
 		else {
@@ -72,6 +73,7 @@ public class JoinActivity {
 			error = 2;
 			return "false";
 		}
+		
 			
 	}
 
