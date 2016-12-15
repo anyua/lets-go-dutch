@@ -29,7 +29,8 @@ public class Feedback {
 		}
 		
 		userdao.addMessage(memberId, userId, message.getType(), message.getRemark(), message.getAmount());
-		
+		double wholeAmount = message.getAmount();
+		activitydao.addWholeAmount(activityId, wholeAmount);
 		return "success";
 	}
 	

@@ -7,6 +7,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>操作失败</title>
+
 	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
 	<link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" sizes="32x32">
@@ -14,8 +17,6 @@
 	<link rel="manifest" href="assets/images/manifest.json">
 	<link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="theme-color" content="#ffffff">
-	<title>加入活动</title>
-	
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css"
 		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -24,10 +25,10 @@
 		class="ace-main-stylesheet" id="main-ace-style">
 	<link rel="stylesheet" href="assets/css/ace-skins.min.css">
 	<link rel="stylesheet" href="assets/css/ace-rtl.min.css">
-	
+
 	<script src="assets/js/ace-extra.min.js"></script>
-  
-    <style type="text/css">
+
+	<style type="text/css">
 	  body {
 	    font-family: 'Helvetica Neue', 'Helvetica', 'Microsoft Yahei', sans-serif;
 	    -webkit-font-smoothing: antialiased;
@@ -48,7 +49,6 @@
 	  	background-color: #CCA4E3!important;
 	  }
 	</style>
-
 
 </head>
 <body class="skin-1">
@@ -75,9 +75,9 @@
 							class="badge badge-grey">首页</span>
 					</a></li>
 
-					<li class="bluepurple"><a href="" data-toggle="modal" data-target="#myModal"> 
-						<i class="fa fa-book fa-fw fa-2x" aria-hidden="true"></i> 
-						<span class="badge badge-grey">关于</span>
+					<li class="bluepurple"><a href="" data-toggle="modal" data-target="#myModal"> <i
+							class="fa fa-book fa-fw fa-2x" aria-hidden="true"></i> <span
+							class="badge badge-grey">关于</span>
 					</a></li>
 					<li class="light-blue dropdown-modal"><a
 						data-toggle="dropdown" href="#" class="dropdown-toggle"> <img
@@ -92,7 +92,7 @@
 									aria-hidden="true"></i> 编辑
 							</a></li>
 							<li><a href="logout"> <i class="fa fa-sign-out fa-fw"
-									aria-hidden="true"></i> 注销
+									aria-hidden="true"></i>注销
 							</a></li>
 						</ul></li>
 				</ul>
@@ -116,9 +116,9 @@
 				}
 			</script>
 			<ul class="nav nav-list">
-				<li class=""><a href="welcome?"> <i
+				<li class="active"><a href="welcome?"> <i
 						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
-							网站介绍</span>
+							网站介绍 </span>
 				</a> <b class="arrow"></b></li>
 				<li class=""><a href="showJoinedActivity"> <i
 						class="menu-icon fa fa-list-alt"></i> <span class="menu-text">
@@ -132,7 +132,7 @@
 						class="menu-icon fa fa-pencil"></i> <span class="menu-text">
 							新建活动 </span>
 				</a> <b class="arrow"></b></li>
-				<li class="active"><a href="addActivity"> <i
+				<li class=""><a href="addActivity"> <i
 						class="menu-icon fa fa-plus-circle"></i> <span class="menu-text">
 							加入活动 </span>
 				</a> <b class="arrow"></b></li>
@@ -150,41 +150,18 @@
 			<div class="main-content-inner">
 				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
 					<ul class="breadcrumb">
-						<li><i class="ace-icon fa fa-folder-open home-icon"></i>
-							加入活动
-						</li>
+						<li><i class="ace-icon fa fa-folder-open home-icon"></i> 
+						首页</li>
 					</ul>
 				</div>
 				<div class="page-content">
 					<div class="page-header"></div>
-					<div class="row">
-						<div class="col-md-6 column" >
-							<div class="alert alert-dismissible alert-danger">
-							  <button type="button" class="close" data-dismiss="alert">&times;</button>
-							  <strong>活动名称有误！</strong> 请与组织者核对活动名称~
-							</div>
-						</div>
-					</div>
-					<div class="widget-box" style="border: none;">
-						<div class="widget-body">
-							<div class="widget-main">
-								<form action="joinActivity">
-									<fieldset>
-										<input type="text" class="col-sm-5" name="activityName"
-											placeholder="活动名称" required> <span class="help-block"></span>
-									</fieldset>
-									<br>
-									<div class="no-padding">
-										<button type="submit" class="btn btn-sm btn-success">
-											LETS GO <i
-												class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
-										</button>
-									</div>
-								</form>
-							</div>
-						</div>
+					
+					<div class="alert alert-block alert-success"
+					style="text-align :center; font-size: 16px;">
+					暂时无法修改
+					<br><a href="welcome">点击此处返回首页</a>
 
-					</div>
 				</div>
 			</div>
 		</div>
@@ -215,6 +192,6 @@
 	<script src="assets/js/ace-elements.min.js"></script>
 	<script src="assets/js/ace.min.js"></script>
 	<script src="assets/js/modal.js"></script>	
-
+	
 </body>
 </html>

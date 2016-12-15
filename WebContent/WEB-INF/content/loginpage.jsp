@@ -38,6 +38,30 @@
             <legend>
               	登录 
             </legend>
+            <s:if test="error==1">
+	            <div class="alert alert-dismissible alert-danger">
+	  			<button type="button" class="close" data-dismiss="alert">&times;</button>
+	  			<div style="text-align :center; font-size: 16px;">
+					<strong>用户名密码错误！</strong> 请重新输入...
+				</div>
+			  	</div>
+		  	</s:if>
+            <s:if test="error==2">
+	            <div class="alert alert-dismissible alert-danger">
+	  			<button type="button" class="close" data-dismiss="alert">&times;</button>
+	  			<div style="text-align :center; font-size: 16px;">
+					<strong>未知错误！</strong> 请重新登陆...
+				</div>
+			  	</div>
+		  	</s:if>
+		  	<s:if test="error==3">
+	            <div class="alert alert-dismissible alert-danger">
+	  			<button type="button" class="close" data-dismiss="alert">&times;</button>
+	  			<div style="text-align :center; font-size: 16px;">
+					<strong>参数错误！</strong> 无法登陆...
+				</div>
+			  	</div>
+		  	</s:if>
             <ol>
               <li>
                 <div class="form-group">

@@ -45,6 +45,14 @@
             <legend>
               	注册  <!-- 可换成其他的文字，暂时用这个 -->
             </legend>
+			<s:if test="error==1">
+	            <div class="alert alert-dismissible alert-danger">
+	  			<button type="button" class="close" data-dismiss="alert">&times;</button>
+	  			<div style="text-align :center; font-size: 16px;">
+					<strong>用户名重复！</strong> 请重新输入...
+				</div>
+			  	</div>
+		  	</s:if>
             <ol>
               <li>
                 <div class="form-group">
